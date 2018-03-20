@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Nao. All rights reserved.
 //
 
-#import "GLSurfaceVIew.h"
+#import "GLSurfaceView.h"
 
 // Compile shader
 GLuint compileShader(GLuint shaderType, const GLchar *source) {
@@ -35,8 +35,11 @@ GLuint compileShader(GLuint shaderType, const GLchar *source) {
         [self setupOpenGL];
     }
     
-    // Main game loop
-    [NSTimer scheduledTimerWithTimeInterval:1/60.0f target:self selector:@selector(update:) userInfo:nil repeats:YES];
+    // Main game loop    
+    CADisplayLink* _displaylink;
+    _displaylink = [CADisplayLink displayLinkWithTarget:self selector:@selector(update:)];
+    [_displaylink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+    
     return self;
 }
 
