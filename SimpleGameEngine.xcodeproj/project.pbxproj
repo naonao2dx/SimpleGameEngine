@@ -14,6 +14,8 @@
 		359C5A5C205D792B00652D2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 359C5A5A205D792B00652D2A /* LaunchScreen.storyboard */; };
 		359C5A5F205D792B00652D2A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 359C5A5E205D792B00652D2A /* main.m */; };
 		359C5A67205D795E00652D2A /* GLSurfaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 359C5A66205D795E00652D2A /* GLSurfaceView.m */; };
+		FD59DF912060ECBD005EF629 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD59DF902060ECBD005EF629 /* QuartzCore.framework */; };
+		FD59DF932060ECC5005EF629 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD59DF922060ECC5005EF629 /* OpenGLES.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		359C5A5E205D792B00652D2A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		359C5A65205D795E00652D2A /* GLSurfaceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLSurfaceView.h; sourceTree = "<group>"; };
 		359C5A66205D795E00652D2A /* GLSurfaceView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLSurfaceView.m; sourceTree = "<group>"; };
+		FD59DF902060ECBD005EF629 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		FD59DF922060ECC5005EF629 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +40,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD59DF932060ECC5005EF629 /* OpenGLES.framework in Frameworks */,
+				FD59DF912060ECBD005EF629 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +53,7 @@
 			children = (
 				359C5A4E205D792B00652D2A /* SimpleGameEngine */,
 				359C5A4D205D792B00652D2A /* Products */,
+				FD59DF8F2060ECBD005EF629 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,6 +81,15 @@
 				359C5A5E205D792B00652D2A /* main.m */,
 			);
 			path = SimpleGameEngine;
+			sourceTree = "<group>";
+		};
+		FD59DF8F2060ECBD005EF629 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FD59DF922060ECC5005EF629 /* OpenGLES.framework */,
+				FD59DF902060ECBD005EF629 /* QuartzCore.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
