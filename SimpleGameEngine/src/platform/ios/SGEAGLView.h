@@ -10,8 +10,10 @@
 
 @interface SGEAGLView : UIView
 {
-    
+    EAGLContext *context_; // weak ref
 }
+
+@property(nonatomic,readonly) EAGLContext *context;
 
 + (id) viewWithFrame:(CGRect)frame;
 

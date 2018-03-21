@@ -18,7 +18,7 @@ namespace SimpleGameEngine {
     {
     public:
         void setOpenGLView(std::shared_ptr<GLView> openGLView);
-        std::shared_ptr<GLView> getOpenGLView() const;
+        std::shared_ptr<GLView> getOpenGLView() { return _openGLView; };
         
     private:
         friend class Singleton<Director>;

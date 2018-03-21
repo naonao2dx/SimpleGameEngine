@@ -19,6 +19,8 @@
 		359C5A752062017500652D2A /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 359C5A742062017500652D2A /* AppController.mm */; };
 		359C5A7920620B4700652D2A /* SGDirector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 359C5A7720620B4700652D2A /* SGDirector.cpp */; };
 		359C5A7E20621F8700652D2A /* SGGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 359C5A7C20621F8700652D2A /* SGGLView.mm */; };
+		359C5A8520624CE300652D2A /* SGApplication.mm in Sources */ = {isa = PBXBuildFile; fileRef = 359C5A8320624CE300652D2A /* SGApplication.mm */; };
+		359C5A882062515200652D2A /* SGDirectorCaller.mm in Sources */ = {isa = PBXBuildFile; fileRef = 359C5A872062515200652D2A /* SGDirectorCaller.mm */; };
 		FD59DF912060ECBD005EF629 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD59DF902060ECBD005EF629 /* QuartzCore.framework */; };
 		FD59DF932060ECC5005EF629 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD59DF922060ECC5005EF629 /* OpenGLES.framework */; };
 /* End PBXBuildFile section */
@@ -48,6 +50,10 @@
 		359C5A7C20621F8700652D2A /* SGGLView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SGGLView.mm; sourceTree = "<group>"; };
 		359C5A7D20621F8700652D2A /* SGGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGGLView.h; sourceTree = "<group>"; };
 		359C5A8220622ECC00652D2A /* SGGeometry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGGeometry.h; sourceTree = "<group>"; };
+		359C5A8320624CE300652D2A /* SGApplication.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SGApplication.mm; sourceTree = "<group>"; };
+		359C5A8420624CE300652D2A /* SGApplication.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGApplication.hpp; sourceTree = "<group>"; };
+		359C5A862062515200652D2A /* SGDirectorCaller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGDirectorCaller.h; sourceTree = "<group>"; };
+		359C5A872062515200652D2A /* SGDirectorCaller.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SGDirectorCaller.mm; sourceTree = "<group>"; };
 		FD59DF902060ECBD005EF629 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		FD59DF922060ECC5005EF629 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -128,6 +134,8 @@
 				359C5A71206200B600652D2A /* SGEAGLView.mm */,
 				359C5A732062017500652D2A /* AppController.h */,
 				359C5A742062017500652D2A /* AppController.mm */,
+				359C5A862062515200652D2A /* SGDirectorCaller.h */,
+				359C5A872062515200652D2A /* SGDirectorCaller.mm */,
 			);
 			path = ios;
 			sourceTree = "<group>";
@@ -139,6 +147,8 @@
 				359C5A7820620B4700652D2A /* SGDirector.hpp */,
 				359C5A7C20621F8700652D2A /* SGGLView.mm */,
 				359C5A7D20621F8700652D2A /* SGGLView.h */,
+				359C5A8320624CE300652D2A /* SGApplication.mm */,
+				359C5A8420624CE300652D2A /* SGApplication.hpp */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -232,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				359C5A8520624CE300652D2A /* SGApplication.mm in Sources */,
 				359C5A54205D792B00652D2A /* ViewController.m in Sources */,
 				359C5A7E20621F8700652D2A /* SGGLView.mm in Sources */,
 				359C5A67205D795E00652D2A /* GLSurfaceView.m in Sources */,
@@ -240,6 +251,7 @@
 				359C5A752062017500652D2A /* AppController.mm in Sources */,
 				359C5A7920620B4700652D2A /* SGDirector.cpp in Sources */,
 				359C5A6E2061FF8C00652D2A /* RootViewController.mm in Sources */,
+				359C5A882062515200652D2A /* SGDirectorCaller.mm in Sources */,
 				359C5A72206200B600652D2A /* SGEAGLView.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

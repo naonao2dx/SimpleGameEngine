@@ -10,6 +10,13 @@
 
 @implementation SGEAGLView
 
+@synthesize context=context_;
+
++ (Class) layerClass
+{
+    return [CAEAGLLayer class];
+}
+
 + (id) viewWithFrame:(CGRect)frame
 {
     return [[self alloc] initWithFrame:frame];

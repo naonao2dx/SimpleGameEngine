@@ -18,6 +18,8 @@ namespace SimpleGameEngine {
     public:
         static std::shared_ptr<GLView> createWithEAGLView(void* eaglView);
         
+        void* getEAGLView() const { return _eaglView; }
+        
     protected:
         void* _eaglView;
         bool initWithEAGLView(void* eaglView);
