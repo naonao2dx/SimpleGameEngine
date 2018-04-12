@@ -12,6 +12,7 @@
 #import <mach/mach_time.h>
 #import "SGDirectorCaller.h"
 #import "SGEAGLView.h"
+#import <GLKit/GLKit.h>
 
 static id s_sharedDirectorCaller;
 
@@ -34,7 +35,7 @@ static id s_sharedDirectorCaller;
         NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
         [nc addObserver:self selector:@selector(appDidBecomeActive) name:UIApplicationDidBecomeActiveNotification object:nil];
         [nc addObserver:self selector:@selector(appDidBecomeInactive) name:UIApplicationWillResignActiveNotification object:nil];
-        self.interval = 1;
+        self.interval = 1 / 60.0f;
     }
     return self;
 }
@@ -70,8 +71,17 @@ static id s_sharedDirectorCaller;
     auto director = SimpleGameEngine::Director::getInstance();
     std::shared_ptr<SimpleGameEngine::GLView> glView = director->getOpenGLView();
     SGEAGLView* eaglview = (__bridge SGEAGLView *)glView->getEAGLView();
-    //EAGLContext* sgContext = [(__bridge SGEAGLView *)director->getOpenGLView()->getEAGLView() context];
-    NSLog(@"docaller");
+    EAGLContext* sgContext = [(__bridge SGEAGLView *)director->getOpenGLView()->getEAGLView() context];
+    if (sgContext != [EAGLContext currentContext]) {
+        glFlush();
+    }
+    [EAGLContext setCurrentContext: sgContext];
+    
+    CFTimeInterval dt = ((CADisplayLink*)displayLink).timestamp - lastDisplayTime;
+    lastDisplayTime = ((CADisplayLink*)displayLink).timestamp;
+    NSLog(@"dt = %f", dt);
+    director->mainloop(dt);
+
 }
 
 - (void)appDidBecomeActive

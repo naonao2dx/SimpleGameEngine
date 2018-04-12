@@ -8,6 +8,7 @@
 
 #include <memory>
 #include "SGGLView.h"
+
 #include "../platform/ios/SGEAGLView.h"
 
 using namespace SimpleGameEngine;
@@ -28,6 +29,7 @@ bool GLView::initWithEAGLView(void *eaglView)
     
     _screenSize.width = _designResolutionSize.width = [glView getWidth];
     _screenSize.height = _designResolutionSize.height = [glView getHeight];
+
     
     return true;
 }

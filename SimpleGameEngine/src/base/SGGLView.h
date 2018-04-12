@@ -10,6 +10,7 @@
 #define SGGLView_h
 
 #include <memory>
+#include <OpenGLES/ES2/gl.h>
 #include "../common/SGGeometry.h"
 
 namespace SimpleGameEngine {
@@ -17,6 +18,9 @@ namespace SimpleGameEngine {
     {
     public:
         static std::shared_ptr<GLView> createWithEAGLView(void* eaglView);
+        
+        GLuint bufferColor;
+        GLuint bufferFrame;
         
         void* getEAGLView() const { return _eaglView; }
         
