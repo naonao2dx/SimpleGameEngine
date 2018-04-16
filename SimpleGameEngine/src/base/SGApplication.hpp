@@ -13,12 +13,12 @@
 #include "../common/Singleton.h"
 
 namespace SimpleGameEngine {
-    class Application : public Singleton<Application>
+    class Application
     {
     public:
+        static std::shared_ptr<Application> getInstance();
         int run();
     private:
-        friend class Singleton<Application>;
         Application() = default;
     };
 }

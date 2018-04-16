@@ -16,6 +16,7 @@
 @implementation RootViewController
 
 - (void)loadView {
+    NSLog(@"RootViewController::loadView");
     SGEAGLView *eagleView = [SGEAGLView viewWithFrame:[[UIScreen mainScreen] bounds]];
     self.view = eagleView;
 }

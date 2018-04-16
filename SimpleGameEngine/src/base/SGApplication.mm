@@ -11,6 +11,16 @@
 
 using namespace SimpleGameEngine;
 
+static std::shared_ptr<Application> pInstance;
+
+std::shared_ptr<Application> Application::getInstance()
+{
+    if (!pInstance) {
+        pInstance.reset(new Application());
+    }
+    return pInstance;
+}
+
 int Application::run() {
     [[SGDirectorCaller sharedDirectorCaller] startMainLoop];
     return 0;

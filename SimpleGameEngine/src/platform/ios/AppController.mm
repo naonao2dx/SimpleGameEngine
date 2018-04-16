@@ -23,7 +23,7 @@
     window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
     _viewController = [[RootViewController alloc] init];
     [window setRootViewController:_viewController];
-    [window makeKeyWindow];
+    [window makeKeyAndVisible];
     [_viewController prefersStatusBarHidden];
     
     //void* openGLView = (__bridge void *)_viewController.view;

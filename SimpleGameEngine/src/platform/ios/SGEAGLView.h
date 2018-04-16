@@ -20,4 +20,6 @@
 - (int) getWidth;
 - (int) getHeight;
 
+- (void) update;
+
 @end
