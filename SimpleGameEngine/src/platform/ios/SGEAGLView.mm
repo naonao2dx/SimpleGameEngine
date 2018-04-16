@@ -125,7 +125,6 @@ GLuint compileShader(GLuint shaderType, const GLchar *source) {
 }
 
 - (void) update {
-    NSLog(@"SGEAGLView::update");
     // Get vertex shader pos variable
     GLint posLocation = glGetAttribLocation(_shaderProgram, "pos");
     glEnableVertexAttribArray(posLocation);
@@ -142,7 +141,10 @@ GLuint compileShader(GLuint shaderType, const GLchar *source) {
     
     // Draw
     glDrawArrays(GL_TRIANGLES, 0, 3);
-    
+}
+
+- (void) swapBuffers
+{
     [context_ presentRenderbuffer:GL_RENDERBUFFER];
 }
 

@@ -21,5 +21,6 @@
 - (int) getHeight;
 
 - (void) update;
+- (void) swapBuffers;
 
 @end

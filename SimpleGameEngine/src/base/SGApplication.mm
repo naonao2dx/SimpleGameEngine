@@ -8,6 +8,7 @@
 
 #import "SGApplication.hpp"
 #import "../platform/ios/SGDirectorCaller.h"
+#import "../../application/AppDelegate.hpp"
 
 using namespace SimpleGameEngine;
 
@@ -22,6 +23,9 @@ std::shared_ptr<Application> Application::getInstance()
 }
 
 int Application::run() {
-    [[SGDirectorCaller sharedDirectorCaller] startMainLoop];
+    AppDelegate* appDelegate = new AppDelegate();
+    if (appDelegate->applicationDidFinishLaunching()) {
+        [[SGDirectorCaller sharedDirectorCaller] startMainLoop];
+    }
     return 0;
 }

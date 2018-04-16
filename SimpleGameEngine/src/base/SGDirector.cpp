@@ -14,6 +14,9 @@
 #define MAX(x,y) (((x) < (y)) ? (y) : (x))
 
 using namespace SimpleGameEngine;
+
+class SGEAGLView;
+
 static std::shared_ptr<Director> pInstance;
 
 std::shared_ptr<Director> Director::getInstance()
@@ -26,7 +29,7 @@ std::shared_ptr<Director> Director::getInstance()
 
 bool Director::init()
 {
-    _renderer.reset(new (std::nothrow) Renderer);
+    //_renderer.reset(new (std::nothrow) Renderer);
     return true;
 }
 
@@ -49,13 +52,13 @@ void Director::mainloop(float dt) {
 }
 
 void Director::drawScene() {
-    calculateDeltaTime();
+    //calculateDeltaTime();
     
     if (_openGLView) {
         
     }
     
-    _renderer->clear();
+    //_renderer->clear();
 }
 
 void Director::calculateDeltaTime() {

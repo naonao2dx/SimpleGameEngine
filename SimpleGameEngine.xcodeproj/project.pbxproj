@@ -18,6 +18,7 @@
 		359C5A7E20621F8700652D2A /* SGGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 359C5A7C20621F8700652D2A /* SGGLView.mm */; };
 		359C5A8520624CE300652D2A /* SGApplication.mm in Sources */ = {isa = PBXBuildFile; fileRef = 359C5A8320624CE300652D2A /* SGApplication.mm */; };
 		359C5A882062515200652D2A /* SGDirectorCaller.mm in Sources */ = {isa = PBXBuildFile; fileRef = 359C5A872062515200652D2A /* SGDirectorCaller.mm */; };
+		35C4144D2084FD630016931D /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35C4144B2084FD630016931D /* AppDelegate.cpp */; };
 		FD59DF912060ECBD005EF629 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD59DF902060ECBD005EF629 /* QuartzCore.framework */; };
 		FD59DF932060ECC5005EF629 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD59DF922060ECC5005EF629 /* OpenGLES.framework */; };
 		FDEC439C207F6A7900BD059F /* SGRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC439A207F6A7900BD059F /* SGRenderer.cpp */; };
@@ -46,6 +47,8 @@
 		359C5A8420624CE300652D2A /* SGApplication.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGApplication.hpp; sourceTree = "<group>"; };
 		359C5A862062515200652D2A /* SGDirectorCaller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGDirectorCaller.h; sourceTree = "<group>"; };
 		359C5A872062515200652D2A /* SGDirectorCaller.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SGDirectorCaller.mm; sourceTree = "<group>"; };
+		35C4144B2084FD630016931D /* AppDelegate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
+		35C4144C2084FD630016931D /* AppDelegate.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AppDelegate.hpp; sourceTree = "<group>"; };
 		FD59DF902060ECBD005EF629 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		FD59DF922060ECC5005EF629 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		FDEC439A207F6A7900BD059F /* SGRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGRenderer.cpp; sourceTree = "<group>"; };
@@ -85,6 +88,7 @@
 		359C5A4E205D792B00652D2A /* SimpleGameEngine */ = {
 			isa = PBXGroup;
 			children = (
+				35C4144A2084FD480016931D /* application */,
 				359C5A692061FE8D00652D2A /* src */,
 				359C5A4F205D792B00652D2A /* AppDelegate.h */,
 				359C5A50205D792B00652D2A /* AppDelegate.m */,
@@ -149,6 +153,15 @@
 				359C5A8220622ECC00652D2A /* SGGeometry.h */,
 			);
 			path = common;
+			sourceTree = "<group>";
+		};
+		35C4144A2084FD480016931D /* application */ = {
+			isa = PBXGroup;
+			children = (
+				35C4144B2084FD630016931D /* AppDelegate.cpp */,
+				35C4144C2084FD630016931D /* AppDelegate.hpp */,
+			);
+			path = application;
 			sourceTree = "<group>";
 		};
 		FD59DF8F2060ECBD005EF629 /* Frameworks */ = {
@@ -246,6 +259,7 @@
 				359C5A752062017500652D2A /* AppController.mm in Sources */,
 				359C5A7920620B4700652D2A /* SGDirector.cpp in Sources */,
 				FDEC439C207F6A7900BD059F /* SGRenderer.cpp in Sources */,
+				35C4144D2084FD630016931D /* AppDelegate.cpp in Sources */,
 				359C5A6E2061FF8C00652D2A /* RootViewController.mm in Sources */,
 				359C5A882062515200652D2A /* SGDirectorCaller.mm in Sources */,
 				359C5A72206200B600652D2A /* SGEAGLView.mm in Sources */,
