@@ -11,7 +11,6 @@
 
 #include <memory>
 #include <chrono>
-#include "../common/Singleton.h"
 #include "SGGLView.h"
 #include "../renderer/SGRenderer.hpp"
 

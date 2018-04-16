@@ -8,12 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		359C5A51205D792B00652D2A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 359C5A50205D792B00652D2A /* AppDelegate.m */; };
-		359C5A54205D792B00652D2A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 359C5A53205D792B00652D2A /* ViewController.m */; };
-		359C5A57205D792B00652D2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 359C5A55205D792B00652D2A /* Main.storyboard */; };
 		359C5A59205D792B00652D2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 359C5A58205D792B00652D2A /* Assets.xcassets */; };
 		359C5A5C205D792B00652D2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 359C5A5A205D792B00652D2A /* LaunchScreen.storyboard */; };
 		359C5A5F205D792B00652D2A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 359C5A5E205D792B00652D2A /* main.m */; };
-		359C5A67205D795E00652D2A /* GLSurfaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 359C5A66205D795E00652D2A /* GLSurfaceView.m */; };
 		359C5A6E2061FF8C00652D2A /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 359C5A6D2061FF8C00652D2A /* RootViewController.mm */; };
 		359C5A72206200B600652D2A /* SGEAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 359C5A71206200B600652D2A /* SGEAGLView.mm */; };
 		359C5A752062017500652D2A /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 359C5A742062017500652D2A /* AppController.mm */; };
@@ -30,15 +27,10 @@
 		359C5A4C205D792B00652D2A /* SimpleGameEngine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleGameEngine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		359C5A4F205D792B00652D2A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		359C5A50205D792B00652D2A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		359C5A52205D792B00652D2A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		359C5A53205D792B00652D2A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		359C5A56205D792B00652D2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		359C5A58205D792B00652D2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		359C5A5B205D792B00652D2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		359C5A5D205D792B00652D2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		359C5A5E205D792B00652D2A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		359C5A65205D795E00652D2A /* GLSurfaceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLSurfaceView.h; sourceTree = "<group>"; };
-		359C5A66205D795E00652D2A /* GLSurfaceView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLSurfaceView.m; sourceTree = "<group>"; };
 		359C5A6C2061FF8C00652D2A /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		359C5A6D2061FF8C00652D2A /* RootViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RootViewController.mm; sourceTree = "<group>"; };
 		359C5A70206200B600652D2A /* SGEAGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGEAGLView.h; sourceTree = "<group>"; };
@@ -47,7 +39,6 @@
 		359C5A742062017500652D2A /* AppController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppController.mm; sourceTree = "<group>"; };
 		359C5A7720620B4700652D2A /* SGDirector.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGDirector.cpp; sourceTree = "<group>"; };
 		359C5A7820620B4700652D2A /* SGDirector.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGDirector.hpp; sourceTree = "<group>"; };
-		359C5A7B20621E2900652D2A /* Singleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		359C5A7C20621F8700652D2A /* SGGLView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SGGLView.mm; sourceTree = "<group>"; };
 		359C5A7D20621F8700652D2A /* SGGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGGLView.h; sourceTree = "<group>"; };
 		359C5A8220622ECC00652D2A /* SGGeometry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGGeometry.h; sourceTree = "<group>"; };
@@ -95,13 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				359C5A692061FE8D00652D2A /* src */,
-				359C5A65205D795E00652D2A /* GLSurfaceView.h */,
-				359C5A66205D795E00652D2A /* GLSurfaceView.m */,
 				359C5A4F205D792B00652D2A /* AppDelegate.h */,
 				359C5A50205D792B00652D2A /* AppDelegate.m */,
-				359C5A52205D792B00652D2A /* ViewController.h */,
-				359C5A53205D792B00652D2A /* ViewController.m */,
-				359C5A55205D792B00652D2A /* Main.storyboard */,
 				359C5A58205D792B00652D2A /* Assets.xcassets */,
 				359C5A5A205D792B00652D2A /* LaunchScreen.storyboard */,
 				359C5A5D205D792B00652D2A /* Info.plist */,
@@ -160,7 +146,6 @@
 		359C5A7A20621E1500652D2A /* common */ = {
 			isa = PBXGroup;
 			children = (
-				359C5A7B20621E2900652D2A /* Singleton.h */,
 				359C5A8220622ECC00652D2A /* SGGeometry.h */,
 			);
 			path = common;
@@ -244,7 +229,6 @@
 			files = (
 				359C5A5C205D792B00652D2A /* LaunchScreen.storyboard in Resources */,
 				359C5A59205D792B00652D2A /* Assets.xcassets in Resources */,
-				359C5A57205D792B00652D2A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,9 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				359C5A8520624CE300652D2A /* SGApplication.mm in Sources */,
-				359C5A54205D792B00652D2A /* ViewController.m in Sources */,
 				359C5A7E20621F8700652D2A /* SGGLView.mm in Sources */,
-				359C5A67205D795E00652D2A /* GLSurfaceView.m in Sources */,
 				359C5A5F205D792B00652D2A /* main.m in Sources */,
 				359C5A51205D792B00652D2A /* AppDelegate.m in Sources */,
 				359C5A752062017500652D2A /* AppController.mm in Sources */,
@@ -273,14 +255,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		359C5A55205D792B00652D2A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				359C5A56205D792B00652D2A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		359C5A5A205D792B00652D2A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

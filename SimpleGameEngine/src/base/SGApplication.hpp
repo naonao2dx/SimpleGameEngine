@@ -10,7 +10,7 @@
 #define SGApplication_hpp
 
 #include <stdio.h>
-#include "../common/Singleton.h"
+#include <memory>
 
 namespace SimpleGameEngine {
     class Application
