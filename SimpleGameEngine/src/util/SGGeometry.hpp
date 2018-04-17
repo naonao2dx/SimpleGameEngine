@@ -14,14 +14,22 @@
 namespace SimpleGameEngine {
     struct Vec2
     {
-        float x;
-        float y;
+        GLfloat x;
+        GLfloat y;
     };
     
     struct Size
     {
         int width;
         int height;
+    };
+    
+    struct RGBA
+    {
+        GLfloat r;
+        GLfloat g;
+        GLfloat b;
+        GLfloat a;
     };
 }
 

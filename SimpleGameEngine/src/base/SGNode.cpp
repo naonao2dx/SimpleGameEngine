@@ -13,7 +13,7 @@ class vector;
 using namespace SimpleGameEngine;
 
 Node::Node()
-:_position(Vec2({0,0}))
+:_position(Vec2({ 0.0f, 0.0f })), _color(RGBA{ 0.0f, 0.0f, 0.0f, 0.0f })
 {
 }
 
@@ -50,4 +50,9 @@ GLuint Node::compileShader(GLuint shaderType, const GLchar *source)
 void Node::setPosition(const Vec2& position)
 {
     _position = position;
+}
+
+void Node::setColor(const SimpleGameEngine::RGBA &color)
+{
+    _color = color;
 }

@@ -10,6 +10,7 @@
 #include "SGConsole.hpp"
 #include <OpenGLES/ES2/gl.h>
 #include "../renderer/shader/ShaderPosition.vert"
+#include "../renderer/shader/ShaderColor.frag"
 
 
 using namespace SimpleGameEngine;
@@ -18,12 +19,6 @@ Triangle::Triangle()
 {
     // Create vertex shader object
     GLuint vertShader = compileShader(GL_VERTEX_SHADER, vertShaderSource);
-    
-    // Fragment shader
-    const GLchar *fragShaderSource =
-    "void main() {"
-    "   gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);"
-    "}";
     
     // Create fragment shader object
     GLuint fragShader = compileShader(GL_FRAGMENT_SHADER, fragShaderSource);
@@ -51,18 +46,22 @@ Triangle::Triangle()
 void Triangle::draw()
 {
     // Get vertex shader pos variable
-    GLint posLocation = glGetAttribLocation(_shaderProgram, "pos");
-    glEnableVertexAttribArray(posLocation);
+    GLint attrPos = glGetAttribLocation(_shaderProgram, "attr_pos");
+    GLint unifColor = glGetUniformLocation(_shaderProgram, "unif_color");
+    
+    glEnableVertexAttribArray(attrPos);
     
     // Vertex data
-    const GLfloat vertex[] = {
+    const GLfloat position[] = {
         _position.x, _position.y + 0.5f,
         _position.x - 0.5f, _position.y - 0.5f,
         _position.x + 0.5f, _position.y - 0.5f
     };
     
-    // Create vertedx data
-    glVertexAttribPointer(posLocation, 2, GL_FLOAT, GL_FALSE, 0., vertex);
+    glVertexAttribPointer(attrPos, 2, GL_FLOAT, GL_FALSE, 0., position);
+    
+    // Fragment data
+    glUniform4f(unifColor, _color.r, _color.g, _color.b, _color.a);
     
     // Draw
     glDrawArrays(GL_TRIANGLES, 0, 3);
