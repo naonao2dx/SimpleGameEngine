@@ -13,6 +13,7 @@
 #include <chrono>
 #include "SGGLView.h"
 #include "../renderer/SGRenderer.hpp"
+#include "SGBaseScene.hpp"
 
 namespace SimpleGameEngine {
     class Director
@@ -24,11 +25,15 @@ namespace SimpleGameEngine {
         void mainloop();
         void mainloop(float dt);
         void drawScene();
+        void startScene(std::shared_ptr<Scene> scene);
         
-        std::unique_ptr<Renderer> _renderer;
+        std::shared_ptr<Renderer> _renderer = nullptr;
     private:
-        Director() = default;
+        Director(){};
         bool init();
+        
+        std::shared_ptr<Scene> _nextScene = nullptr;
+        std::shared_ptr<Scene> _currentScene = nullptr;
         
     protected:
         void calculateDeltaTime();

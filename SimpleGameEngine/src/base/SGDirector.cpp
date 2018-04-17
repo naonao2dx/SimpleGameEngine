@@ -10,6 +10,7 @@
 #include <chrono>
 #include <iostream>
 #include "SGDirector.hpp"
+#include "SGConsole.hpp"
 
 #define MAX(x,y) (((x) < (y)) ? (y) : (x))
 
@@ -23,13 +24,14 @@ std::shared_ptr<Director> Director::getInstance()
 {
     if (!pInstance) {
         pInstance.reset(new Director());
+        pInstance->init();
     }
     return pInstance;
 }
 
 bool Director::init()
 {
-    //_renderer.reset(new (std::nothrow) Renderer);
+    _renderer.reset(new Renderer());
     return true;
 }
 
@@ -38,6 +40,8 @@ void Director::setOpenGLView(std::shared_ptr<GLView> openGLView)
     if(!_openGLView) {
         _openGLView = openGLView;
     }
+    
+    _renderer->initGLView();
 
 }
 
@@ -52,13 +56,20 @@ void Director::mainloop(float dt) {
 }
 
 void Director::drawScene() {
-    //calculateDeltaTime();
-    
-    if (_openGLView) {
-        
+    //Console::logDebug("Director::drawScene");
+    if (_nextScene) {
+        _currentScene = _nextScene;
+        _nextScene = nullptr;
     }
     
-    //_renderer->clear();
+    if (_currentScene) {
+        _currentScene->render();
+    }
+}
+
+void Director::startScene(std::shared_ptr<Scene> scene)
+{
+    _nextScene = scene;
 }
 
 void Director::calculateDeltaTime() {

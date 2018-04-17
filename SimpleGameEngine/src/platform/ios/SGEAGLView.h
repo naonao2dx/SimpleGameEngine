@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <OpenGLES/ES2/gl.h>
 
 @interface SGEAGLView : UIView
 {
@@ -19,8 +20,5 @@
 
 - (int) getWidth;
 - (int) getHeight;
-
-- (void) update;
-- (void) swapBuffers;
 
 @end

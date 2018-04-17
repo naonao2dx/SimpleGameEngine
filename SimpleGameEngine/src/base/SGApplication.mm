@@ -23,7 +23,7 @@ std::shared_ptr<Application> Application::getInstance()
 }
 
 int Application::run() {
-    AppDelegate* appDelegate = new AppDelegate();
+    std::unique_ptr<AppDelegate> appDelegate(new AppDelegate());
     if (appDelegate->applicationDidFinishLaunching()) {
         [[SGDirectorCaller sharedDirectorCaller] startMainLoop];
     }

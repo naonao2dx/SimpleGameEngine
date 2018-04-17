@@ -7,6 +7,7 @@
 //
 
 #include "AppDelegate.hpp"
+#include "HelloScene.hpp"
 #include "../src/base/SGDirector.hpp"
 
 using namespace SimpleGameEngine;
@@ -15,6 +16,9 @@ bool AppDelegate::applicationDidFinishLaunching()
 {
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
+    
+    auto scene = HelloScene::createScene();
+    director->startScene(scene);
     
     return true;
 }

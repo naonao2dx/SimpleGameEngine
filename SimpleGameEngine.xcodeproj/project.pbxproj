@@ -22,6 +22,11 @@
 		FD59DF912060ECBD005EF629 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD59DF902060ECBD005EF629 /* QuartzCore.framework */; };
 		FD59DF932060ECC5005EF629 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD59DF922060ECC5005EF629 /* OpenGLES.framework */; };
 		FDEC439C207F6A7900BD059F /* SGRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC439A207F6A7900BD059F /* SGRenderer.cpp */; };
+		FDEC43D92085AA7F00BD059F /* SGBaseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43D72085AA7F00BD059F /* SGBaseScene.cpp */; };
+		FDEC43DD2085ABDF00BD059F /* HelloScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43DB2085ABDF00BD059F /* HelloScene.cpp */; };
+		FDEC43E02085AF1100BD059F /* SGNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43DE2085AF1100BD059F /* SGNode.cpp */; };
+		FDEC43E32085C84A00BD059F /* SGConsole.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43E12085C84A00BD059F /* SGConsole.cpp */; };
+		FDEC43E72085EA4200BD059F /* SGTriangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43E52085EA4200BD059F /* SGTriangle.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +47,6 @@
 		359C5A7820620B4700652D2A /* SGDirector.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGDirector.hpp; sourceTree = "<group>"; };
 		359C5A7C20621F8700652D2A /* SGGLView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SGGLView.mm; sourceTree = "<group>"; };
 		359C5A7D20621F8700652D2A /* SGGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGGLView.h; sourceTree = "<group>"; };
-		359C5A8220622ECC00652D2A /* SGGeometry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGGeometry.h; sourceTree = "<group>"; };
 		359C5A8320624CE300652D2A /* SGApplication.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SGApplication.mm; sourceTree = "<group>"; };
 		359C5A8420624CE300652D2A /* SGApplication.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGApplication.hpp; sourceTree = "<group>"; };
 		359C5A862062515200652D2A /* SGDirectorCaller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGDirectorCaller.h; sourceTree = "<group>"; };
@@ -53,6 +57,17 @@
 		FD59DF922060ECC5005EF629 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		FDEC439A207F6A7900BD059F /* SGRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGRenderer.cpp; sourceTree = "<group>"; };
 		FDEC439B207F6A7900BD059F /* SGRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGRenderer.hpp; sourceTree = "<group>"; };
+		FDEC43D72085AA7F00BD059F /* SGBaseScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGBaseScene.cpp; sourceTree = "<group>"; };
+		FDEC43D82085AA7F00BD059F /* SGBaseScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGBaseScene.hpp; sourceTree = "<group>"; };
+		FDEC43DB2085ABDF00BD059F /* HelloScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HelloScene.cpp; sourceTree = "<group>"; };
+		FDEC43DC2085ABDF00BD059F /* HelloScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HelloScene.hpp; sourceTree = "<group>"; };
+		FDEC43DE2085AF1100BD059F /* SGNode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGNode.cpp; sourceTree = "<group>"; };
+		FDEC43DF2085AF1100BD059F /* SGNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGNode.hpp; sourceTree = "<group>"; };
+		FDEC43E12085C84A00BD059F /* SGConsole.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGConsole.cpp; sourceTree = "<group>"; };
+		FDEC43E22085C84A00BD059F /* SGConsole.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGConsole.hpp; sourceTree = "<group>"; };
+		FDEC43E52085EA4200BD059F /* SGTriangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGTriangle.cpp; sourceTree = "<group>"; };
+		FDEC43E62085EA4200BD059F /* SGTriangle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGTriangle.hpp; sourceTree = "<group>"; };
+		FDEC43E92086042F00BD059F /* SGGeometry.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGGeometry.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +118,9 @@
 		359C5A692061FE8D00652D2A /* src */ = {
 			isa = PBXGroup;
 			children = (
+				FDEC43E42085EA2800BD059F /* 2D */,
 				FDEC4399207F6A5C00BD059F /* renderer */,
-				359C5A7A20621E1500652D2A /* common */,
+				359C5A7A20621E1500652D2A /* util */,
 				359C5A7620620B2500652D2A /* base */,
 				359C5A6A2061FE9500652D2A /* platform */,
 			);
@@ -143,21 +159,28 @@
 				359C5A7D20621F8700652D2A /* SGGLView.h */,
 				359C5A8320624CE300652D2A /* SGApplication.mm */,
 				359C5A8420624CE300652D2A /* SGApplication.hpp */,
+				FDEC43D72085AA7F00BD059F /* SGBaseScene.cpp */,
+				FDEC43D82085AA7F00BD059F /* SGBaseScene.hpp */,
+				FDEC43DE2085AF1100BD059F /* SGNode.cpp */,
+				FDEC43DF2085AF1100BD059F /* SGNode.hpp */,
+				FDEC43E12085C84A00BD059F /* SGConsole.cpp */,
+				FDEC43E22085C84A00BD059F /* SGConsole.hpp */,
 			);
 			path = base;
 			sourceTree = "<group>";
 		};
-		359C5A7A20621E1500652D2A /* common */ = {
+		359C5A7A20621E1500652D2A /* util */ = {
 			isa = PBXGroup;
 			children = (
-				359C5A8220622ECC00652D2A /* SGGeometry.h */,
+				FDEC43E92086042F00BD059F /* SGGeometry.hpp */,
 			);
-			path = common;
+			path = util;
 			sourceTree = "<group>";
 		};
 		35C4144A2084FD480016931D /* application */ = {
 			isa = PBXGroup;
 			children = (
+				FDEC43DA2085ABC900BD059F /* Scene */,
 				35C4144B2084FD630016931D /* AppDelegate.cpp */,
 				35C4144C2084FD630016931D /* AppDelegate.hpp */,
 			);
@@ -180,6 +203,24 @@
 				FDEC439B207F6A7900BD059F /* SGRenderer.hpp */,
 			);
 			path = renderer;
+			sourceTree = "<group>";
+		};
+		FDEC43DA2085ABC900BD059F /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				FDEC43DB2085ABDF00BD059F /* HelloScene.cpp */,
+				FDEC43DC2085ABDF00BD059F /* HelloScene.hpp */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		FDEC43E42085EA2800BD059F /* 2D */ = {
+			isa = PBXGroup;
+			children = (
+				FDEC43E52085EA4200BD059F /* SGTriangle.cpp */,
+				FDEC43E62085EA4200BD059F /* SGTriangle.hpp */,
+			);
+			path = 2D;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,14 +296,19 @@
 				359C5A8520624CE300652D2A /* SGApplication.mm in Sources */,
 				359C5A7E20621F8700652D2A /* SGGLView.mm in Sources */,
 				359C5A5F205D792B00652D2A /* main.m in Sources */,
+				FDEC43D92085AA7F00BD059F /* SGBaseScene.cpp in Sources */,
 				359C5A51205D792B00652D2A /* AppDelegate.m in Sources */,
 				359C5A752062017500652D2A /* AppController.mm in Sources */,
 				359C5A7920620B4700652D2A /* SGDirector.cpp in Sources */,
 				FDEC439C207F6A7900BD059F /* SGRenderer.cpp in Sources */,
 				35C4144D2084FD630016931D /* AppDelegate.cpp in Sources */,
+				FDEC43E32085C84A00BD059F /* SGConsole.cpp in Sources */,
+				FDEC43E02085AF1100BD059F /* SGNode.cpp in Sources */,
 				359C5A6E2061FF8C00652D2A /* RootViewController.mm in Sources */,
 				359C5A882062515200652D2A /* SGDirectorCaller.mm in Sources */,
+				FDEC43DD2085ABDF00BD059F /* HelloScene.cpp in Sources */,
 				359C5A72206200B600652D2A /* SGEAGLView.mm in Sources */,
+				FDEC43E72085EA4200BD059F /* SGTriangle.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

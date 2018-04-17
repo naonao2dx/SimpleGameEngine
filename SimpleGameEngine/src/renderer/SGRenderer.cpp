@@ -7,6 +7,7 @@
 //
 
 #include "SGRenderer.hpp"
+#include "SGConsole.hpp"
 #include <OpenGLES/ES2/gl.h>
 
 using namespace SimpleGameEngine;
@@ -17,4 +18,9 @@ void Renderer::clear()
     glClearColor(0.0f, 1.0f, 1.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glDepthMask(false);
+}
+
+void Renderer::initGLView()
+{
+    Console::logDebug("Renderer::initGLView");
 }

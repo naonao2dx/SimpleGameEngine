@@ -19,6 +19,7 @@ namespace SimpleGameEngine {
         ~Renderer(){};
         
         void clear();
+        void initGLView();
     };
 }
 
