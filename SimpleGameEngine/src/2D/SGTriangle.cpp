@@ -9,19 +9,13 @@
 #include "SGTriangle.hpp"
 #include "SGConsole.hpp"
 #include <OpenGLES/ES2/gl.h>
+#include "../renderer/shader/ShaderPosition.vert"
 
 
 using namespace SimpleGameEngine;
 
 Triangle::Triangle()
 {
-    // Vertex shader
-    const GLchar *vertShaderSource =
-    "attribute mediump vec4 pos;"
-    "void main() {"
-    "   gl_Position = pos;"
-    "}";
-    
     // Create vertex shader object
     GLuint vertShader = compileShader(GL_VERTEX_SHADER, vertShaderSource);
     

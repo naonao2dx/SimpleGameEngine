@@ -33,11 +33,13 @@ bool HelloScene::init()
 {
     Console::logDebug("HelloScene::init");
     
+    // Sample Triangle 1
     std::shared_ptr<Node> tri = std::make_shared<Triangle>();
     Vec2 position = {0.2f, -0.2f};
     tri->setPosition(position);
     addChild(tri);
    
+    // Sample Triangle 2
     std::shared_ptr<Node> tri2 = std::make_shared<Triangle>();
     Vec2 position2 = {-0.2f, 0.2f};
     tri2->setPosition(position2);

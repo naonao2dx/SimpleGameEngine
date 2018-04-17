@@ -17,6 +17,7 @@ public:
     AppDelegate(){};
     virtual ~AppDelegate(){};
     
+    // User application entry point
     bool applicationDidFinishLaunching();
 };
 

@@ -68,6 +68,7 @@
 		FDEC43E52085EA4200BD059F /* SGTriangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGTriangle.cpp; sourceTree = "<group>"; };
 		FDEC43E62085EA4200BD059F /* SGTriangle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGTriangle.hpp; sourceTree = "<group>"; };
 		FDEC43E92086042F00BD059F /* SGGeometry.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGGeometry.hpp; sourceTree = "<group>"; };
+		FDEC43EC20860AF800BD059F /* ShaderPosition.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = ShaderPosition.vert; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +200,7 @@
 		FDEC4399207F6A5C00BD059F /* renderer */ = {
 			isa = PBXGroup;
 			children = (
+				FDEC43EB20860AD100BD059F /* shader */,
 				FDEC439A207F6A7900BD059F /* SGRenderer.cpp */,
 				FDEC439B207F6A7900BD059F /* SGRenderer.hpp */,
 			);
@@ -221,6 +223,14 @@
 				FDEC43E62085EA4200BD059F /* SGTriangle.hpp */,
 			);
 			path = 2D;
+			sourceTree = "<group>";
+		};
+		FDEC43EB20860AD100BD059F /* shader */ = {
+			isa = PBXGroup;
+			children = (
+				FDEC43EC20860AF800BD059F /* ShaderPosition.vert */,
+			);
+			path = shader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
