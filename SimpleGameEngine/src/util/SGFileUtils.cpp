@@ -26,29 +26,22 @@ bool FileUtils::getContents(const std::string& filename, std::string& buf)
 {
     if (filename.empty())
         return false;
-    Console::logDebug("_bundlepath:");
-    Console::logDebug(_bundlePath.c_str());
+    
     std::string filepath = _bundlePath + "/" + filename;
-    Console::logDebug("filepath:");
-    Console::logDebug(filepath.c_str());
     
     std::ifstream ifs(filepath, std::ios::in | std::ios::binary);
-    if (!ifs)
+    if (ifs.fail())
         return false;
-    ifs.seekg(0, std::ifstream::end);
-    auto filesize = static_cast<size_t>(ifs.tellg());
-    ifs.seekg(0, std::ifstream::beg);
     
-    buf.resize(filesize);
-    std::getline(ifs, buf);
+    std::istreambuf_iterator<char> it(ifs);
+    std::istreambuf_iterator<char> last;
     
-
+    std::string contents(it, last);
+    buf = contents;
     return true;
 }
 
 void FileUtils::setBundlePath(const std::string &bundlePath)
 {
     _bundlePath = bundlePath;
-    Console::logDebug("setBundlePath");
-    Console::logDebug(_bundlePath.c_str());
 }
