@@ -10,7 +10,7 @@
 #define SGRenderer_hpp
 
 #include <stdio.h>
-#include "SGGeometry.hpp"
+#include "SGColor.hpp"
 
 namespace SimpleGameEngine {
     class Renderer
@@ -22,7 +22,7 @@ namespace SimpleGameEngine {
         void clear();
         void initGLView();
     private:
-        RGBA _clearColor;
+        Color4F _clearColor;
         
     };
 }

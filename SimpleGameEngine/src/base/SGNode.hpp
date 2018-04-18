@@ -13,6 +13,7 @@
 #include <vector>
 #include <OpenGLES/ES2/gl.h>
 #include "../util/SGGeometry.hpp"
+#include "../util/SGColor.hpp"
 
 
 namespace SimpleGameEngine {
@@ -22,7 +23,7 @@ namespace SimpleGameEngine {
         Node();
         void addChild(std::shared_ptr<Node> child);
         void setPosition(const Vec2& position);
-        void setColor(const RGBA& color);
+        void setColor(const Color4F& color);
     protected:
         void visit();
         virtual void draw();
@@ -31,7 +32,7 @@ namespace SimpleGameEngine {
         GLuint _shaderProgram;
         std::vector<std::shared_ptr<Node>> _children;
         Vec2 _position;
-        RGBA _color;
+        Color4F _color;
         
     };
 }

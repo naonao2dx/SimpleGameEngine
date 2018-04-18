@@ -13,7 +13,7 @@ class vector;
 using namespace SimpleGameEngine;
 
 Node::Node()
-:_position(Vec2({ 0.0f, 0.0f })), _color(RGBA{ 0.0f, 0.0f, 0.0f, 0.0f })
+:_position(Vec2({ 0.0f, 0.0f })), _color(Color4F{ 0.0f, 0.0f, 0.0f, 0.0f })
 {
 }
 
@@ -52,7 +52,7 @@ void Node::setPosition(const Vec2& position)
     _position = position;
 }
 
-void Node::setColor(const SimpleGameEngine::RGBA &color)
+void Node::setColor(const Color4F &color)
 {
     _color = color;
 }

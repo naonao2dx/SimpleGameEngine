@@ -24,14 +24,6 @@ namespace SimpleGameEngine {
         int width;
         int height;
     };
-    
-    struct RGBA
-    {
-        GLfloat r;
-        GLfloat g;
-        GLfloat b;
-        GLfloat a;
-    };
 }
 
 #endif /* SGGeometry_hpp */

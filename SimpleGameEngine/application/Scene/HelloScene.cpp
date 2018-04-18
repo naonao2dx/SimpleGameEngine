@@ -38,7 +38,7 @@ bool HelloScene::init()
     Vec2 position = {0.2f, -0.2f};
     tri->setPosition(position);
     
-    RGBA color = { 1.0f, 1.0f, 0.0f, 1.0f };
+    Color4F color = { 1.0f, 1.0f, 0.0f, 1.0f };
     tri->setColor(color);
     
     addChild(tri);
@@ -48,7 +48,7 @@ bool HelloScene::init()
     Vec2 position2 = {-0.2f, 0.2f};
     tri2->setPosition(position2);
     
-    RGBA color2 = { 0.0f, 1.0f, 1.0f, 1.0f };
+    Color4F color2 = { 0.0f, 1.0f, 1.0f, 1.0f };
     tri2->setColor(color2);
     
     addChild(tri2);
