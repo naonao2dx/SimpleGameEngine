@@ -10,6 +10,7 @@
 #define SGGeometry_hpp
 
 #include <stdio.h>
+#include <OpenGLES/ES2/gl.h>
 
 namespace SimpleGameEngine {
     struct Vec2

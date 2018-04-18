@@ -57,6 +57,8 @@ void Director::mainloop(float dt) {
 
 void Director::drawScene() {
     //Console::logDebug("Director::drawScene");
+    _renderer->clear();
+    
     if (_nextScene) {
         _currentScene = _nextScene;
         _nextScene = nullptr;

@@ -11,7 +11,7 @@
 
 @implementation SGEAGLView
 
-@synthesize context=context_;
+@synthesize context = _context;
 
 + (Class) layerClass
 {
@@ -54,14 +54,14 @@
     layer.opaque = YES;
     
     // Context object setup
-    context_ = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
-    [EAGLContext setCurrentContext:context_];
+    _context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+    [EAGLContext setCurrentContext:_context];
     
     // Render buffer setup
     GLuint renderBuffer;
     glGenRenderbuffers(1, &renderBuffer);
     glBindRenderbuffer(GL_RENDERBUFFER, renderBuffer);
-    [context_ renderbufferStorage:GL_RENDERBUFFER fromDrawable:layer];
+    [_context renderbufferStorage:GL_RENDERBUFFER fromDrawable:layer];
     
     // Frame buffer setup
     GLuint frameBuffer;

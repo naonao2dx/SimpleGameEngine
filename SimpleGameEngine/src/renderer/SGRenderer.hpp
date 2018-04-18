@@ -10,16 +10,20 @@
 #define SGRenderer_hpp
 
 #include <stdio.h>
+#include "SGGeometry.hpp"
 
 namespace SimpleGameEngine {
     class Renderer
     {
     public:
-        Renderer(){};
+        Renderer();
         ~Renderer(){};
         
         void clear();
         void initGLView();
+    private:
+        RGBA _clearColor;
+        
     };
 }
 

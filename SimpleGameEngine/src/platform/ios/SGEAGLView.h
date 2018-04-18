@@ -11,7 +11,7 @@
 
 @interface SGEAGLView : UIView
 {
-    EAGLContext *context_; // weak ref
+    EAGLContext *_context; // weak ref
 }
 
 @property(nonatomic,readonly) EAGLContext *context;
