@@ -13,7 +13,7 @@ class vector;
 using namespace SimpleGameEngine;
 
 Node::Node()
-:_position(Vec2({ 0.0f, 0.0f })), _color(Color4F{ 0.0f, 0.0f, 0.0f, 0.0f })
+:_position(Vec2::CENTER), _color(Color4F::WHITE)
 {
 }
 

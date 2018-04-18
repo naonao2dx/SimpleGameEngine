@@ -15,8 +15,12 @@
 namespace SimpleGameEngine {
     struct Vec2
     {
+        Vec2();
+        Vec2(float _x, float _y);
         GLfloat x;
         GLfloat y;
+        
+        static const Vec2 CENTER;
     };
     
     struct Size

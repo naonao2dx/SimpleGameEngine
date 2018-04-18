@@ -15,10 +15,15 @@
 namespace SimpleGameEngine {
     struct Color4F
     {
+        Color4F();
+        Color4F(float _r, float _g, float _b, float _a);
         GLfloat r;
         GLfloat g;
         GLfloat b;
         GLfloat a;
+        
+        static const Color4F WHITE;
+        static const Color4F BLACK;
     };
 }
 

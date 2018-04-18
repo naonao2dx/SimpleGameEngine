@@ -27,6 +27,8 @@
 		FDEC43E02085AF1100BD059F /* SGNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43DE2085AF1100BD059F /* SGNode.cpp */; };
 		FDEC43E32085C84A00BD059F /* SGConsole.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43E12085C84A00BD059F /* SGConsole.cpp */; };
 		FDEC43E72085EA4200BD059F /* SGTriangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43E52085EA4200BD059F /* SGTriangle.cpp */; };
+		FDEC43F620872BB000BD059F /* SGColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43F520872BB000BD059F /* SGColor.cpp */; };
+		FDEC43F820872E5E00BD059F /* SGGeometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43F720872E5E00BD059F /* SGGeometry.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +73,8 @@
 		FDEC43EC20860AF800BD059F /* ShaderPosition.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = ShaderPosition.vert; sourceTree = "<group>"; };
 		FDEC43EF20860D6200BD059F /* ShaderColor.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = ShaderColor.frag; sourceTree = "<group>"; };
 		FDEC43F32087151100BD059F /* SGColor.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGColor.hpp; sourceTree = "<group>"; };
+		FDEC43F520872BB000BD059F /* SGColor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGColor.cpp; sourceTree = "<group>"; };
+		FDEC43F720872E5E00BD059F /* SGGeometry.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGGeometry.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,7 +180,9 @@
 			isa = PBXGroup;
 			children = (
 				FDEC43E92086042F00BD059F /* SGGeometry.hpp */,
+				FDEC43F720872E5E00BD059F /* SGGeometry.cpp */,
 				FDEC43F32087151100BD059F /* SGColor.hpp */,
+				FDEC43F520872BB000BD059F /* SGColor.cpp */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -308,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				359C5A8520624CE300652D2A /* SGApplication.mm in Sources */,
+				FDEC43F820872E5E00BD059F /* SGGeometry.cpp in Sources */,
 				359C5A7E20621F8700652D2A /* SGGLView.mm in Sources */,
 				359C5A5F205D792B00652D2A /* main.m in Sources */,
 				FDEC43D92085AA7F00BD059F /* SGBaseScene.cpp in Sources */,
@@ -317,6 +324,7 @@
 				FDEC439C207F6A7900BD059F /* SGRenderer.cpp in Sources */,
 				35C4144D2084FD630016931D /* AppDelegate.cpp in Sources */,
 				FDEC43E32085C84A00BD059F /* SGConsole.cpp in Sources */,
+				FDEC43F620872BB000BD059F /* SGColor.cpp in Sources */,
 				FDEC43E02085AF1100BD059F /* SGNode.cpp in Sources */,
 				359C5A6E2061FF8C00652D2A /* RootViewController.mm in Sources */,
 				359C5A882062515200652D2A /* SGDirectorCaller.mm in Sources */,

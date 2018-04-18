@@ -13,9 +13,8 @@
 using namespace SimpleGameEngine;
 
 Renderer::Renderer()
-{
-    _clearColor = { 0.0f, 0.0f, 0.0f, 0.0f};
-}
+: _clearColor(Color4F::BLACK)
+{}
 
 void Renderer::clear()
 {
