@@ -31,8 +31,6 @@ std::shared_ptr<HelloScene> HelloScene::create()
 
 bool HelloScene::init()
 {
-    Console::logDebug("HelloScene::init");
-    
     // Sample Triangle 1
     std::shared_ptr<Node> tri = std::make_shared<Triangle>();
     Vec2 position = {0.2f, -0.2f};

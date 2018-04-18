@@ -29,6 +29,11 @@
 		FDEC43E72085EA4200BD059F /* SGTriangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43E52085EA4200BD059F /* SGTriangle.cpp */; };
 		FDEC43F620872BB000BD059F /* SGColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43F520872BB000BD059F /* SGColor.cpp */; };
 		FDEC43F820872E5E00BD059F /* SGGeometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43F720872E5E00BD059F /* SGGeometry.cpp */; };
+		FDEC43FB20874D0D00BD059F /* SGShaderCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43F920874D0D00BD059F /* SGShaderCache.cpp */; };
+		FDEC43FE2087514900BD059F /* SGShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43FC2087514900BD059F /* SGShaderProgram.cpp */; };
+		FDEC440120875F9F00BD059F /* SGFileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43FF20875F9F00BD059F /* SGFileUtils.cpp */; };
+		FDEC440220876EE100BD059F /* ShaderPosition.vert in Resources */ = {isa = PBXBuildFile; fileRef = FDEC43EC20860AF800BD059F /* ShaderPosition.vert */; };
+		FDEC440320876EE100BD059F /* ShaderColor.frag in Resources */ = {isa = PBXBuildFile; fileRef = FDEC43EF20860D6200BD059F /* ShaderColor.frag */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +80,12 @@
 		FDEC43F32087151100BD059F /* SGColor.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGColor.hpp; sourceTree = "<group>"; };
 		FDEC43F520872BB000BD059F /* SGColor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGColor.cpp; sourceTree = "<group>"; };
 		FDEC43F720872E5E00BD059F /* SGGeometry.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGGeometry.cpp; sourceTree = "<group>"; };
+		FDEC43F920874D0D00BD059F /* SGShaderCache.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGShaderCache.cpp; sourceTree = "<group>"; };
+		FDEC43FA20874D0D00BD059F /* SGShaderCache.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGShaderCache.hpp; sourceTree = "<group>"; };
+		FDEC43FC2087514900BD059F /* SGShaderProgram.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGShaderProgram.cpp; sourceTree = "<group>"; };
+		FDEC43FD2087514900BD059F /* SGShaderProgram.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGShaderProgram.hpp; sourceTree = "<group>"; };
+		FDEC43FF20875F9F00BD059F /* SGFileUtils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGFileUtils.cpp; sourceTree = "<group>"; };
+		FDEC440020875F9F00BD059F /* SGFileUtils.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGFileUtils.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +194,8 @@
 				FDEC43F720872E5E00BD059F /* SGGeometry.cpp */,
 				FDEC43F32087151100BD059F /* SGColor.hpp */,
 				FDEC43F520872BB000BD059F /* SGColor.cpp */,
+				FDEC43FF20875F9F00BD059F /* SGFileUtils.cpp */,
+				FDEC440020875F9F00BD059F /* SGFileUtils.hpp */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -212,6 +225,10 @@
 				FDEC43EB20860AD100BD059F /* shader */,
 				FDEC439A207F6A7900BD059F /* SGRenderer.cpp */,
 				FDEC439B207F6A7900BD059F /* SGRenderer.hpp */,
+				FDEC43F920874D0D00BD059F /* SGShaderCache.cpp */,
+				FDEC43FA20874D0D00BD059F /* SGShaderCache.hpp */,
+				FDEC43FC2087514900BD059F /* SGShaderProgram.cpp */,
+				FDEC43FD2087514900BD059F /* SGShaderProgram.hpp */,
 			);
 			path = renderer;
 			sourceTree = "<group>";
@@ -301,6 +318,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDEC440220876EE100BD059F /* ShaderPosition.vert in Resources */,
+				FDEC440320876EE100BD059F /* ShaderColor.frag in Resources */,
 				359C5A5C205D792B00652D2A /* LaunchScreen.storyboard in Resources */,
 				359C5A59205D792B00652D2A /* Assets.xcassets in Resources */,
 			);
@@ -315,12 +334,14 @@
 			files = (
 				359C5A8520624CE300652D2A /* SGApplication.mm in Sources */,
 				FDEC43F820872E5E00BD059F /* SGGeometry.cpp in Sources */,
+				FDEC43FB20874D0D00BD059F /* SGShaderCache.cpp in Sources */,
 				359C5A7E20621F8700652D2A /* SGGLView.mm in Sources */,
 				359C5A5F205D792B00652D2A /* main.m in Sources */,
 				FDEC43D92085AA7F00BD059F /* SGBaseScene.cpp in Sources */,
 				359C5A51205D792B00652D2A /* AppDelegate.m in Sources */,
 				359C5A752062017500652D2A /* AppController.mm in Sources */,
 				359C5A7920620B4700652D2A /* SGDirector.cpp in Sources */,
+				FDEC43FE2087514900BD059F /* SGShaderProgram.cpp in Sources */,
 				FDEC439C207F6A7900BD059F /* SGRenderer.cpp in Sources */,
 				35C4144D2084FD630016931D /* AppDelegate.cpp in Sources */,
 				FDEC43E32085C84A00BD059F /* SGConsole.cpp in Sources */,
@@ -331,6 +352,7 @@
 				FDEC43DD2085ABDF00BD059F /* HelloScene.cpp in Sources */,
 				359C5A72206200B600652D2A /* SGEAGLView.mm in Sources */,
 				FDEC43E72085EA4200BD059F /* SGTriangle.cpp in Sources */,
+				FDEC440120875F9F00BD059F /* SGFileUtils.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

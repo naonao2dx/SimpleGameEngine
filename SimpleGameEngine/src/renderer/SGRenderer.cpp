@@ -8,6 +8,7 @@
 
 #include "SGRenderer.hpp"
 #include "SGConsole.hpp"
+#include "SGShaderCache.hpp"
 #include <OpenGLES/ES2/gl.h>
 
 using namespace SimpleGameEngine;
@@ -27,4 +28,5 @@ void Renderer::clear()
 void Renderer::initGLView()
 {
     Console::logDebug("Renderer::initGLView");
+    auto shaderCache = SGShaderCache::getInstance();
 }

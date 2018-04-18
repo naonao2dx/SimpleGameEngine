@@ -10,6 +10,7 @@
 #import "../../base/SGDirector.hpp"
 #import "../../base/SGGLView.h"
 #import "../../base/SGApplication.hpp"
+#import "../../util/SGFileUtils.hpp"
 
 @implementation AppController
 
@@ -18,6 +19,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     auto app = SimpleGameEngine::Application::getInstance();
+    
+    NSBundle* bundle = [NSBundle mainBundle];
+    NSString* resourceDirectoryPath = [bundle bundlePath];
+    auto fileUtils = SimpleGameEngine::FileUtils::getInstance();
+    fileUtils->setBundlePath([resourceDirectoryPath UTF8String]);
     
     // Add main window and set its viewController
     window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
