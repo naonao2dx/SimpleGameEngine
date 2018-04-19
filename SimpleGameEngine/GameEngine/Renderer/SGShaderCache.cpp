@@ -11,24 +11,24 @@
 
 using namespace SimpleGameEngine;
 
-static std::shared_ptr<SGShaderCache> pInstance = nullptr;
+static std::shared_ptr<ShaderCache> pInstance = nullptr;
 
-SGShaderCache::SGShaderCache()
+ShaderCache::ShaderCache()
 : _shaderMap()
 {
 }
 
-std::shared_ptr<SGShaderCache> SGShaderCache::getInstance()
+std::shared_ptr<ShaderCache> ShaderCache::getInstance()
 {
     if (!pInstance) {
-        pInstance.reset(new SGShaderCache());
+        pInstance.reset(new ShaderCache());
         pInstance->init();
     }
     return pInstance;
 }
 
-bool SGShaderCache::init()
+bool ShaderCache::init()
 {
-    auto shader = SGShaderProgram::createWithFileNames(std::string("ShaderPosition.vert"), std::string("test"));
+    auto shader = ShaderProgram::createWithFileNames(std::string("ShaderPosition.vert"), std::string("test"));
     return true;
 }

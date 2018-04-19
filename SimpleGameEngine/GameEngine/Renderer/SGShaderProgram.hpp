@@ -12,12 +12,12 @@
 #include <memory>
 
 namespace SimpleGameEngine {
-    class SGShaderProgram
+    class ShaderProgram
     {
     public:
-        static std::shared_ptr<SGShaderProgram> createWithFileNames(const std::string& vertShaderFilename, const std::string& fragShaderFilename);
+        static std::shared_ptr<ShaderProgram> createWithFileNames(const std::string& vertShaderFilename, const std::string& fragShaderFilename);
     private:
-        SGShaderProgram(){};
+        ShaderProgram(){};
     };
 }
 

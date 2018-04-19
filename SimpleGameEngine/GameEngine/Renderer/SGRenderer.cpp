@@ -28,5 +28,5 @@ void Renderer::clear()
 void Renderer::initGLView()
 {
     Console::logDebug("Renderer::initGLView");
-    auto shaderCache = SGShaderCache::getInstance();
+    auto shaderCache = ShaderCache::getInstance();
 }

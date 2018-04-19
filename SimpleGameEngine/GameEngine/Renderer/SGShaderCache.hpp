@@ -15,14 +15,14 @@
 #include "SGShaderProgram.hpp"
 
 namespace SimpleGameEngine {
-    class SGShaderCache {
+    class ShaderCache {
     public:
-        static std::shared_ptr<SGShaderCache> getInstance();
+        static std::shared_ptr<ShaderCache> getInstance();
         void loadDefaultShader();
     private:
-        SGShaderCache();
+        ShaderCache();
         bool init();
-        std::unordered_map<std::string, std::shared_ptr<SGShaderProgram>> _shaderMap;
+        std::unordered_map<std::string, std::shared_ptr<ShaderProgram>> _shaderMap;
     };
 }
 

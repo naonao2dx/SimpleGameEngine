@@ -12,9 +12,9 @@
 
 using namespace SimpleGameEngine;
 
-std::shared_ptr<SGShaderProgram> SGShaderProgram::createWithFileNames(const std::string& vertShaderFilename, const std::string& fragShaderFilename)
+std::shared_ptr<ShaderProgram> ShaderProgram::createWithFileNames(const std::string& vertShaderFilename, const std::string& fragShaderFilename)
 {
-    std::shared_ptr<SGShaderProgram> shaderProgram(new SGShaderProgram());
+    std::shared_ptr<ShaderProgram> shaderProgram(new ShaderProgram());
     auto fileUtils = FileUtils::getInstance();
     std::string vertSource;
     fileUtils->getContents(vertShaderFilename, vertSource);
