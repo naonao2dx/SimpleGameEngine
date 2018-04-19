@@ -121,8 +121,8 @@
 		359C5A4E205D792B00652D2A /* SimpleGameEngine */ = {
 			isa = PBXGroup;
 			children = (
-				35C4144A2084FD480016931D /* application */,
-				359C5A692061FE8D00652D2A /* src */,
+				35C4144A2084FD480016931D /* Application */,
+				359C5A692061FE8D00652D2A /* GameEngine */,
 				359C5A4F205D792B00652D2A /* AppDelegate.h */,
 				359C5A50205D792B00652D2A /* AppDelegate.m */,
 				359C5A58205D792B00652D2A /* Assets.xcassets */,
@@ -133,27 +133,27 @@
 			path = SimpleGameEngine;
 			sourceTree = "<group>";
 		};
-		359C5A692061FE8D00652D2A /* src */ = {
+		359C5A692061FE8D00652D2A /* GameEngine */ = {
 			isa = PBXGroup;
 			children = (
 				FDEC43E42085EA2800BD059F /* 2D */,
-				FDEC4399207F6A5C00BD059F /* renderer */,
-				359C5A7A20621E1500652D2A /* util */,
-				359C5A7620620B2500652D2A /* base */,
-				359C5A6A2061FE9500652D2A /* platform */,
+				FDEC4399207F6A5C00BD059F /* Renderer */,
+				359C5A7A20621E1500652D2A /* Util */,
+				359C5A7620620B2500652D2A /* Base */,
+				359C5A6A2061FE9500652D2A /* Platform */,
 			);
-			path = src;
+			path = GameEngine;
 			sourceTree = "<group>";
 		};
-		359C5A6A2061FE9500652D2A /* platform */ = {
+		359C5A6A2061FE9500652D2A /* Platform */ = {
 			isa = PBXGroup;
 			children = (
-				359C5A6B2061FF4B00652D2A /* ios */,
+				359C5A6B2061FF4B00652D2A /* iOS */,
 			);
-			path = platform;
+			path = Platform;
 			sourceTree = "<group>";
 		};
-		359C5A6B2061FF4B00652D2A /* ios */ = {
+		359C5A6B2061FF4B00652D2A /* iOS */ = {
 			isa = PBXGroup;
 			children = (
 				359C5A6C2061FF8C00652D2A /* RootViewController.h */,
@@ -165,10 +165,10 @@
 				359C5A862062515200652D2A /* SGDirectorCaller.h */,
 				359C5A872062515200652D2A /* SGDirectorCaller.mm */,
 			);
-			path = ios;
+			path = iOS;
 			sourceTree = "<group>";
 		};
-		359C5A7620620B2500652D2A /* base */ = {
+		359C5A7620620B2500652D2A /* Base */ = {
 			isa = PBXGroup;
 			children = (
 				359C5A7720620B4700652D2A /* SGDirector.cpp */,
@@ -181,15 +181,15 @@
 				FDEC43D82085AA7F00BD059F /* SGBaseScene.hpp */,
 				FDEC43DE2085AF1100BD059F /* SGNode.cpp */,
 				FDEC43DF2085AF1100BD059F /* SGNode.hpp */,
-				FDEC43E12085C84A00BD059F /* SGConsole.cpp */,
-				FDEC43E22085C84A00BD059F /* SGConsole.hpp */,
 			);
-			path = base;
+			path = Base;
 			sourceTree = "<group>";
 		};
-		359C5A7A20621E1500652D2A /* util */ = {
+		359C5A7A20621E1500652D2A /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				FDEC43E12085C84A00BD059F /* SGConsole.cpp */,
+				FDEC43E22085C84A00BD059F /* SGConsole.hpp */,
 				FDEC43E92086042F00BD059F /* SGGeometry.hpp */,
 				FDEC43F720872E5E00BD059F /* SGGeometry.cpp */,
 				FDEC43F32087151100BD059F /* SGColor.hpp */,
@@ -197,17 +197,17 @@
 				FDEC43FF20875F9F00BD059F /* SGFileUtils.cpp */,
 				FDEC440020875F9F00BD059F /* SGFileUtils.hpp */,
 			);
-			path = util;
+			path = Util;
 			sourceTree = "<group>";
 		};
-		35C4144A2084FD480016931D /* application */ = {
+		35C4144A2084FD480016931D /* Application */ = {
 			isa = PBXGroup;
 			children = (
 				FDEC43DA2085ABC900BD059F /* Scene */,
 				35C4144B2084FD630016931D /* AppDelegate.cpp */,
 				35C4144C2084FD630016931D /* AppDelegate.hpp */,
 			);
-			path = application;
+			path = Application;
 			sourceTree = "<group>";
 		};
 		FD59DF8F2060ECBD005EF629 /* Frameworks */ = {
@@ -219,10 +219,10 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		FDEC4399207F6A5C00BD059F /* renderer */ = {
+		FDEC4399207F6A5C00BD059F /* Renderer */ = {
 			isa = PBXGroup;
 			children = (
-				FDEC43EB20860AD100BD059F /* shader */,
+				FDEC43EB20860AD100BD059F /* Shader */,
 				FDEC439A207F6A7900BD059F /* SGRenderer.cpp */,
 				FDEC439B207F6A7900BD059F /* SGRenderer.hpp */,
 				FDEC43F920874D0D00BD059F /* SGShaderCache.cpp */,
@@ -230,7 +230,7 @@
 				FDEC43FC2087514900BD059F /* SGShaderProgram.cpp */,
 				FDEC43FD2087514900BD059F /* SGShaderProgram.hpp */,
 			);
-			path = renderer;
+			path = Renderer;
 			sourceTree = "<group>";
 		};
 		FDEC43DA2085ABC900BD059F /* Scene */ = {
@@ -251,13 +251,13 @@
 			path = 2D;
 			sourceTree = "<group>";
 		};
-		FDEC43EB20860AD100BD059F /* shader */ = {
+		FDEC43EB20860AD100BD059F /* Shader */ = {
 			isa = PBXGroup;
 			children = (
 				FDEC43EC20860AF800BD059F /* ShaderPosition.vert */,
 				FDEC43EF20860D6200BD059F /* ShaderColor.frag */,
 			);
-			path = shader;
+			path = Shader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
