@@ -10,8 +10,6 @@
 #define SGTriangle_hpp
 
 #include "../Base/SGNode.hpp"
-#include "../Renderer/SGShaderManager.hpp"
-#include "../Renderer/SGShaderProgram.hpp"
 
 namespace SimpleGameEngine {
     class Triangle : public Node

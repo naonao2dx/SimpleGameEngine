@@ -6,7 +6,8 @@
 //  Copyright © 2018年 Nao. All rights reserved.
 //
 
-const GLchar *fragShaderSource = R"(
+const GLchar *shaderFragColor = R"(
+
 uniform lowp vec4 unif_color;
 void main() {
 

@@ -16,7 +16,7 @@ namespace SimpleGameEngine {
     class ShaderProgram
     {
     public:
-        static std::shared_ptr<ShaderProgram> createWithFileNames(const std::string& vertShaderFilename, const std::string& fragShaderFilename);
+        static std::shared_ptr<ShaderProgram> createWithByteArray(const GLchar* vertShaderSource, const GLchar* fragShaderSource);
         GLuint getShader();
         void use();
     private:

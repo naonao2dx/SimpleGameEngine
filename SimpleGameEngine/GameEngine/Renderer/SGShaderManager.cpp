@@ -9,6 +9,9 @@
 #include "SGShaderManager.hpp"
 #include "SGShaderProgram.hpp"
 
+#include "Shader/ShaderPosition.vert"
+#include "Shader/ShaderColor.frag"
+
 using namespace SimpleGameEngine;
 
 static std::shared_ptr<ShaderManager> pInstance = nullptr;
@@ -35,7 +38,7 @@ bool ShaderManager::init()
 
 void ShaderManager::loadDefaultShader()
 {
-    auto shader = ShaderProgram::createWithFileNames(std::string("ShaderPosition.vert"), std::string("ShaderColor.frag"));
+    auto shader = ShaderProgram::createWithByteArray(shaderVertPosition, shaderFragColor);
     _shaderMap.emplace(POSITION_AND_COLOR, shader);
 
 }

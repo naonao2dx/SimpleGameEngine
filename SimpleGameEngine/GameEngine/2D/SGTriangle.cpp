@@ -9,8 +9,6 @@
 #include "SGTriangle.hpp"
 #include "SGConsole.hpp"
 #include <OpenGLES/ES2/gl.h>
-#include "../Renderer/Shader/ShaderPosition.vert"
-#include "../Renderer/Shader/ShaderColor.frag"
 #include <assert.h>
 
 using namespace SimpleGameEngine;

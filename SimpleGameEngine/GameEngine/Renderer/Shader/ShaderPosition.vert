@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Nao. All rights reserved.
 //
 
-const GLchar* vertShaderSource = R"(
+const GLchar* shaderVertPosition = R"(
 
 attribute mediump vec4 attr_pos;
 

@@ -10,28 +10,19 @@
 #include "SGShaderProgram.hpp"
 #include "../Util/SGConsole.hpp"
 #include "../Util/SGFileUtils.hpp"
-#include    <assert.h>
+#include <assert.h>
 
 using namespace SimpleGameEngine;
 
-std::shared_ptr<ShaderProgram> ShaderProgram::createWithFileNames(const std::string& vertShaderFilename, const std::string& fragShaderFilename)
+std::shared_ptr<ShaderProgram> ShaderProgram::createWithByteArray(const GLchar* vertShaderSource, const GLchar*  fragShaderSource)
 {
     std::shared_ptr<ShaderProgram> shaderProgram(new ShaderProgram());
-    auto fileUtils = FileUtils::getInstance();
-    
-    std::string vertShaderSource;
-    fileUtils->getContents(vertShaderFilename, vertShaderSource);
-    //Console::logDebug(vertShaderSource.data());
-    
-    std::string fragShaderSource;
-    fileUtils->getContents(fragShaderFilename, fragShaderSource);
-    //Console::logDebug(fragShaderSource.data());
     
     // Create vertex shader object
-    GLuint vertShader = compileShader(GL_VERTEX_SHADER, vertShaderSource.c_str());
+    GLuint vertShader = compileShader(GL_VERTEX_SHADER, vertShaderSource);
     
     // Create fragment shader object
-    GLuint fragShader = compileShader(GL_FRAGMENT_SHADER, fragShaderSource.c_str());
+    GLuint fragShader = compileShader(GL_FRAGMENT_SHADER, fragShaderSource);
     
     // Create program object
     shaderProgram->_shader = glCreateProgram();
@@ -53,9 +44,9 @@ std::shared_ptr<ShaderProgram> ShaderProgram::createWithFileNames(const std::str
         glGetProgramiv(shaderProgram->_shader, GL_LINK_STATUS, &linkSuccess);
         
         if (linkSuccess == GL_FALSE) {
-            // エラーが発生したため、状態をチェックする
+            // Check status
             GLint infoLen = 0;
-            // エラーメッセージを取得
+            // Get error message
             glGetProgramiv(shaderProgram->_shader, GL_INFO_LOG_LENGTH, &infoLen);
             if (infoLen > 1) {
                 GLchar *message = (GLchar*) calloc(infoLen, sizeof(GLchar));
@@ -76,6 +67,7 @@ std::shared_ptr<ShaderProgram> ShaderProgram::createWithFileNames(const std::str
     return shaderProgram;
 }
 
+
 GLuint ShaderProgram::getShader()
 {
     return _shader;
@@ -90,23 +82,13 @@ void ShaderProgram::use()
 
 GLuint ShaderProgram::compileShader(GLuint shaderType, const GLchar *source)
 {
-    std::string headersDef = (shaderType == GL_VERTEX_SHADER ? "precision highp float;\n precision highp int;\n" : "precision mediump float;\n precision mediump int;\n");
-    std::string convertedDefines = "";
-    
-    const GLchar *sources[] = {
-        headersDef.c_str(),
-        convertedDefines.c_str(),
-        source};
-    
-    
-    
     // Create shader object
     GLuint shader = glCreateShader(shaderType);
     assert(shader != 0);
     assert(glGetError() == GL_NO_ERROR);
     
     // Link shader object and source code
-    glShaderSource(shader, sizeof(sources)/sizeof(*sources), sources, nullptr);
+    glShaderSource(shader, 1, &source, nullptr);
     // Compile GLSL
     glCompileShader(shader);
     
@@ -115,9 +97,9 @@ GLuint ShaderProgram::compileShader(GLuint shaderType, const GLchar *source)
         GLint compileSuccess = 0;
         glGetShaderiv(shader, GL_COMPILE_STATUS, &compileSuccess);
         if (compileSuccess == GL_FALSE) {
-            // エラーが発生した
+            // Error occured
             GLint infoLen = 0;
-            // エラーメッセージを取得
+            // Get error message
             glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &infoLen);
             if (infoLen > 1) {
                 GLchar *message = (GLchar*) calloc(infoLen, sizeof(GLchar));
