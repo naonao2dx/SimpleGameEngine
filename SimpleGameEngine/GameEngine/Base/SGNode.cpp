@@ -13,7 +13,9 @@ class vector;
 using namespace SimpleGameEngine;
 
 Node::Node()
-:_position(Vec2::CENTER), _color(Color4F::WHITE)
+:_position(Vec2::CENTER)
+, _color(Color4F::WHITE)
+, _shaderManager(ShaderManager::getInstance())
 {
 }
 

@@ -11,42 +11,24 @@
 #include <OpenGLES/ES2/gl.h>
 #include "../Renderer/Shader/ShaderPosition.vert"
 #include "../Renderer/Shader/ShaderColor.frag"
+#include <assert.h>
 
 using namespace SimpleGameEngine;
 
 Triangle::Triangle()
 {
-    // Create vertex shader object
-    GLuint vertShader = compileShader(GL_VERTEX_SHADER, vertShaderSource);
-    
-    // Create fragment shader object
-    GLuint fragShader = compileShader(GL_FRAGMENT_SHADER, fragShaderSource);
-    
-    // Create program object
-    _shaderProgram = glCreateProgram();
-    
-    // Link vertex shader and program object
-    glAttachShader(_shaderProgram, vertShader);
-    
-    // Link fragment shader and program object
-    glAttachShader(_shaderProgram, fragShader);
-    
-    // Link
-    glLinkProgram(_shaderProgram);
-    
-    // Release shader object
-    glDeleteShader(vertShader);
-    glDeleteShader(fragShader);
-    
-    // Start using shader
-    glUseProgram(_shaderProgram);
+    _shaderProgram = _shaderManager->getShaderProgram(ShaderManager::ShaderType::POSITION_AND_COLOR);
 }
 
 void Triangle::draw()
 {
+    _shaderProgram->use();
+    
     // Get vertex shader pos variable
-    GLint attrPos = glGetAttribLocation(_shaderProgram, "attr_pos");
-    GLint unifColor = glGetUniformLocation(_shaderProgram, "unif_color");
+    GLint attrPos = glGetAttribLocation(_shaderProgram->getShader(), "attr_pos");
+    assert(attrPos >= 0);
+    GLint unifColor = glGetUniformLocation(_shaderProgram->getShader(), "unif_color");
+    assert(unifColor >= 0);
     
     glEnableVertexAttribArray(attrPos);
     

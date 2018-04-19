@@ -14,6 +14,7 @@
 #include <OpenGLES/ES2/gl.h>
 #include "../Util/SGGeometry.hpp"
 #include "../Util/SGColor.hpp"
+#include "../Renderer/SGShaderManager.hpp"
 
 
 namespace SimpleGameEngine {
@@ -29,10 +30,11 @@ namespace SimpleGameEngine {
         virtual void draw();
         GLuint compileShader(GLuint shaderType, const GLchar *source);
         
-        GLuint _shaderProgram;
         std::vector<std::shared_ptr<Node>> _children;
         Vec2 _position;
         Color4F _color;
+        std::shared_ptr<ShaderManager> _shaderManager;
+        std::shared_ptr<ShaderProgram> _shaderProgram;
         
     };
 }

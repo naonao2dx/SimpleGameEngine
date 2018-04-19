@@ -10,6 +10,7 @@
 #include "../../GameEngine/Base/SGBaseScene.hpp"
 #include "../../GameEngine/Util/SGConsole.hpp"
 #include "../../GameEngine/2D/SGTriangle.hpp"
+#include "../../GameEngine/Renderer/SGShaderManager.hpp"
 
 using namespace SimpleGameEngine;
 
