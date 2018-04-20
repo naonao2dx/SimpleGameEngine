@@ -16,8 +16,13 @@ namespace SimpleGameEngine {
     {
     public:
         Triangle();
+        void setPosition(std::vector<Vec2> position) override;
+        void setShaderPositionAndColor();
     protected:
+        virtual bool init() override;
         virtual void draw() override;
+    private:
+        std::vector<Vec2> _position;
     };
 }
 

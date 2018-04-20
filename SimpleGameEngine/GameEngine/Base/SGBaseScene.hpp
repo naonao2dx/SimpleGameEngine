@@ -16,7 +16,7 @@ namespace SimpleGameEngine {
     {
     public:
         static std::shared_ptr<Scene> create();
-        virtual bool init(){ return true; };
+        virtual bool init() override { return true; };
         virtual void render();
     };
 }

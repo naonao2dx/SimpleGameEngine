@@ -103,7 +103,7 @@ GLuint ShaderProgram::compileShader(GLuint shaderType, const GLchar *source)
             glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &infoLen);
             if (infoLen > 1) {
                 GLchar *message = (GLchar*) calloc(infoLen, sizeof(GLchar));
-                glGetShaderInfoLog(shader, infoLen, NULL, message);
+                glGetShaderInfoLog(shader, infoLen, nullptr, message);
                 Console::logDebug(message);
                 free((void*) message);
             } else {

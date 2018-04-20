@@ -34,7 +34,10 @@ bool HelloScene::init()
 {
     // Sample Triangle 1
     std::shared_ptr<Node> tri = std::make_shared<Triangle>();
-    Vec2 position = {0.2f, -0.2f};
+    Vec2 pos1 = Vec2(-0.2f, 0.7f);
+    Vec2 pos2 = Vec2(-0.7f, -0.3f);
+    Vec2 pos3 = Vec2(0.3f, -0.3f);
+    std::vector<Vec2> position = {pos1, pos2, pos3};
     tri->setPosition(position);
     
     Color4F color = { 1.0f, 1.0f, 0.0f, 1.0f };
@@ -44,7 +47,10 @@ bool HelloScene::init()
    
     // Sample Triangle 2
     std::shared_ptr<Node> tri2 = std::make_shared<Triangle>();
-    Vec2 position2 = {-0.2f, 0.2f};
+    Vec2 pos4 = Vec2(0.2f, 0.3f);
+    Vec2 pos5 = Vec2(-0.3f, -0.7f);
+    Vec2 pos6 = Vec2(0.7f, -0.7f);
+    std::vector<Vec2> position2 = {pos4, pos5, pos6};
     tri2->setPosition(position2);
     
     Color4F color2 = { 0.0f, 1.0f, 1.0f, 1.0f };

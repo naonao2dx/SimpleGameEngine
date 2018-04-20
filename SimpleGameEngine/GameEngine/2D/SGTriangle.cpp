@@ -15,12 +15,44 @@ using namespace SimpleGameEngine;
 
 Triangle::Triangle()
 {
+    _shaderManager = ShaderManager::getInstance();
+    init();
+}
+
+bool Triangle::init()
+{
+    setShaderPositionAndColor();
+    
+    Vec2 pos1 = Vec2(0.0f, 0.5f);
+    Vec2 pos2 = Vec2(-0.5f, -0.5f);
+    Vec2 pos3 = Vec2(0.5f, -0.5f);
+    std::vector<Vec2> position = {pos1, pos2, pos3};
+    setPosition(position);
+    
+    setColor(Color4F::WHITE);
+    return true;
+}
+
+void Triangle::setPosition(std::vector<Vec2> position)
+{
+    _position = std::move(position);
+}
+
+void Triangle::setShaderPositionAndColor()
+{
     _shaderProgram = _shaderManager->getShaderProgram(ShaderManager::ShaderType::POSITION_AND_COLOR);
 }
 
 void Triangle::draw()
 {
     _shaderProgram->use();
+    
+    // Vertex data
+    GLfloat position[_position.size() * 2];
+    for (int i = 0; i < _position.size(); i++) {
+        position[i * 2] = _position.at(i).x;
+        position[i * 2 + 1] = _position.at(i).y;
+    }
     
     // Get vertex shader pos variable
     GLint attrPos = glGetAttribLocation(_shaderProgram->getShader(), "attr_pos");
@@ -29,13 +61,6 @@ void Triangle::draw()
     assert(unifColor >= 0);
     
     glEnableVertexAttribArray(attrPos);
-    
-    // Vertex data
-    const GLfloat position[] = {
-        _position.x, _position.y + 0.5f,
-        _position.x - 0.5f, _position.y - 0.5f,
-        _position.x + 0.5f, _position.y - 0.5f
-    };
     
     glVertexAttribPointer(attrPos, 2, GL_FLOAT, GL_FALSE, 0., position);
     

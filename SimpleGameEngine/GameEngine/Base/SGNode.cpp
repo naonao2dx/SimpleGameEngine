@@ -13,10 +13,14 @@ class vector;
 using namespace SimpleGameEngine;
 
 Node::Node()
-:_position(Vec2::CENTER)
-, _color(Color4F::WHITE)
-, _shaderManager(ShaderManager::getInstance())
 {
+}
+
+bool Node::init()
+{
+    setColor(Color4F::WHITE);
+    _shaderManager = ShaderManager::getInstance();
+    return true;
 }
 
 void Node::addChild(std::shared_ptr<Node> child)
@@ -32,11 +36,6 @@ void Node::visit()
     draw();
 }
 
-void Node::draw()
-{
-    
-}
-
 GLuint Node::compileShader(GLuint shaderType, const GLchar *source)
 {
     // Create shader object
@@ -47,11 +46,6 @@ GLuint Node::compileShader(GLuint shaderType, const GLchar *source)
     glCompileShader(shader);
     
     return shader;
-}
-
-void Node::setPosition(const Vec2& position)
-{
-    _position = position;
 }
 
 void Node::setColor(const Color4F &color)
