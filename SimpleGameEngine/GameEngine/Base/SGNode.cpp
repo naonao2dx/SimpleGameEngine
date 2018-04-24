@@ -14,12 +14,12 @@ using namespace SimpleGameEngine;
 
 Node::Node()
 {
+    _shaderManager = ShaderManager::getInstance();
+    setColor(Color4F::WHITE);
 }
 
 bool Node::init()
 {
-    setColor(Color4F::WHITE);
-    _shaderManager = ShaderManager::getInstance();
     return true;
 }
 
@@ -28,8 +28,8 @@ void Node::addChild(std::shared_ptr<Node> child)
     _children.push_back(child);
 }
 
-void Node::setShader(ShaderManager::ShaderType shaderType) {
-    _shader = _shaderManager->getShaderProgram(shaderType);
+void Node::setShaderProgram(ShaderManager::ShaderType shaderType) {
+    _shaderProgram = _shaderManager->getShaderProgram(shaderType);
 }
 
 void Node::visit()
@@ -57,7 +57,7 @@ void Node::setColor(const Color4F &color)
     _color = color;
 }
 
-void Node::setPosition(std::vector<std::shared_ptr<Vec2>> position)
+void Node::setPosition(const std::vector<std::shared_ptr<Vec2>> position)
 {
     _position = position;
 }

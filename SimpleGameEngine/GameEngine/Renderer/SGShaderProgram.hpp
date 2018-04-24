@@ -21,8 +21,8 @@ namespace SimpleGameEngine {
     public:
         void use();
         virtual void draw();
-        void setPosition(std::vector<std::shared_ptr<Vec2>> position);
-        void setColor(Color4F color);
+        void setPosition(const std::vector<std::shared_ptr<Vec2>> position);
+        void setColor(const Color4F color);
         void setShape(GLenum shape);
         void setLineWidth(GLfloat lineWidth);
     protected:

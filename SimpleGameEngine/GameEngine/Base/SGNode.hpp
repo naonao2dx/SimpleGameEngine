@@ -22,17 +22,16 @@ namespace SimpleGameEngine {
     {
     public:
         Node();
-        void setShader(ShaderManager::ShaderType shaderType);
-        void addChild(std::shared_ptr<Node> child);
+        void setShaderProgram(ShaderManager::ShaderType shaderType);
+        void addChild(const std::shared_ptr<Node> child);
         void setColor(const Color4F& color);
-        virtual void setPosition(std::vector<std::shared_ptr<Vec2>> position);
+        virtual void setPosition(const std::vector<std::shared_ptr<Vec2>> position);
     protected:
         virtual bool init();
         void visit();
         virtual void draw(){};
         GLuint compileShader(GLuint shaderType, const GLchar *source);
         
-        std::shared_ptr<ShaderProgram> _shader;
         Color4F _color;
         std::vector<std::shared_ptr<Vec2>> _position;
         std::vector<std::shared_ptr<Node>> _children;

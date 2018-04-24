@@ -16,13 +16,12 @@ using namespace SimpleGameEngine;
 
 Primitives::Primitives()
 {
-    _shaderManager = ShaderManager::getInstance();
     init();
 }
 
 bool Primitives::init()
 {
-    setShader(ShaderManager::ShaderType::POSITION_AND_COLOR);
+    setShaderProgram(ShaderManager::ShaderType::POSITION_AND_COLOR);
     
     std::shared_ptr<Vec2> pos1 = std::make_shared<Vec2>(0.0f, 0.5f);
     std::shared_ptr<Vec2> pos2 = std::make_shared<Vec2>(-0.5f, -0.5f);

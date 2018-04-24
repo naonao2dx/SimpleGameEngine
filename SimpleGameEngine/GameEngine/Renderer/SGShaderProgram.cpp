@@ -21,12 +21,12 @@ void ShaderProgram::use()
     assert(glGetError() == GL_NO_ERROR);
 }
 
-void ShaderProgram::setPosition(std::vector<std::shared_ptr<Vec2>> position)
+void ShaderProgram::setPosition(const std::vector<std::shared_ptr<Vec2>> position)
 {
     _position = position;
 }
 
-void ShaderProgram::setColor(SimpleGameEngine::Color4F color)
+void ShaderProgram::setColor(const SimpleGameEngine::Color4F color)
 {
     _color = color;
 }
