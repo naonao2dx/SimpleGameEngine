@@ -8,6 +8,7 @@
 
 #include "SGShaderManager.hpp"
 #include "SGShaderProgram.hpp"
+#include "SGShaderPositionAndColor.hpp"
 
 #include "Shader/ShaderPosition.vert"
 #include "Shader/ShaderColor.frag"
@@ -38,7 +39,7 @@ bool ShaderManager::init()
 
 void ShaderManager::loadDefaultShader()
 {
-    auto shader = ShaderProgram::createWithByteArray(shaderVertPosition, shaderFragColor);
+    auto shader = std::make_shared<ShaderPositionAndColor>(shaderVertPosition, shaderFragColor);
     _shaderMap.emplace(POSITION_AND_COLOR, shader);
 
 }

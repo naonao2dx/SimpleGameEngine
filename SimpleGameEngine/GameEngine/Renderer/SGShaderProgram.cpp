@@ -14,10 +14,20 @@
 
 using namespace SimpleGameEngine;
 
-std::shared_ptr<ShaderProgram> ShaderProgram::createWithByteArray(const GLchar* vertShaderSource, const GLchar*  fragShaderSource)
+GLuint ShaderProgram::getShader()
 {
-    std::shared_ptr<ShaderProgram> shaderProgram(new ShaderProgram());
-    
+    return _shader;
+}
+
+void ShaderProgram::use()
+{
+    // Start using shader
+    glUseProgram(_shader);
+    assert(glGetError() == GL_NO_ERROR);
+}
+
+void ShaderProgram::createShader(const GLchar* vertShaderSource, const GLchar* fragShaderSource)
+{
     // Create vertex shader object
     GLuint vertShader = compileShader(GL_VERTEX_SHADER, vertShaderSource);
     
@@ -25,32 +35,32 @@ std::shared_ptr<ShaderProgram> ShaderProgram::createWithByteArray(const GLchar* 
     GLuint fragShader = compileShader(GL_FRAGMENT_SHADER, fragShaderSource);
     
     // Create program object
-    shaderProgram->_shader = glCreateProgram();
+    _shader = glCreateProgram();
     
     // Link vertex shader and program object
-    glAttachShader(shaderProgram->_shader, vertShader);
+    glAttachShader(_shader, vertShader);
     assert(glGetError() == GL_NO_ERROR);
     
     // Link fragment shader and program object
-    glAttachShader(shaderProgram->_shader, fragShader);
+    glAttachShader(_shader, fragShader);
     assert(glGetError() == GL_NO_ERROR);
     
     // Link
-    glLinkProgram(shaderProgram->_shader);
+    glLinkProgram(_shader);
     
     // Check link error
     {
         GLint linkSuccess = 0;
-        glGetProgramiv(shaderProgram->_shader, GL_LINK_STATUS, &linkSuccess);
+        glGetProgramiv(_shader, GL_LINK_STATUS, &linkSuccess);
         
         if (linkSuccess == GL_FALSE) {
             // Check status
             GLint infoLen = 0;
             // Get error message
-            glGetProgramiv(shaderProgram->_shader, GL_INFO_LOG_LENGTH, &infoLen);
+            glGetProgramiv(_shader, GL_INFO_LOG_LENGTH, &infoLen);
             if (infoLen > 1) {
                 GLchar *message = (GLchar*) calloc(infoLen, sizeof(GLchar));
-                glGetProgramInfoLog(shaderProgram->_shader, infoLen, NULL, message);
+                glGetProgramInfoLog(_shader, infoLen, nullptr, message);
                 Console::logDebug(message);
                 free((void*) message);
             }
@@ -63,21 +73,6 @@ std::shared_ptr<ShaderProgram> ShaderProgram::createWithByteArray(const GLchar* 
     // Release shader object
     glDeleteShader(vertShader);
     glDeleteShader(fragShader);
-    
-    return shaderProgram;
-}
-
-
-GLuint ShaderProgram::getShader()
-{
-    return _shader;
-}
-
-void ShaderProgram::use()
-{
-    // Start using shader
-    glUseProgram(_shader);
-    assert(glGetError() == GL_NO_ERROR);
 }
 
 GLuint ShaderProgram::compileShader(GLuint shaderType, const GLchar *source)
