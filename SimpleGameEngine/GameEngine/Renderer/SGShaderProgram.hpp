@@ -10,19 +10,30 @@
 #define SGShaderProgram_hpp
 
 #include <memory>
+#include <vector>
 #include <OpenGLES/ES2/gl.h>
+#include "../Util/SGGeometry.hpp"
+#include "../Util/SGColor.hpp"
 
 namespace SimpleGameEngine {
     class ShaderProgram
     {
     public:
-        GLuint getShader();
         void use();
+        virtual void draw();
+        void setPosition(std::vector<std::shared_ptr<Vec2>> position);
+        void setColor(Color4F color);
+        void setShape(GLenum shape);
+        void setLineWidth(GLfloat lineWidth);
     protected:
         ShaderProgram(){};
         void createShader(const GLchar* vertShaderSource, const GLchar* fragShaderSource);
         GLuint compileShader(GLuint shaderType, const GLchar *source);
         GLuint _shader;
+        std::vector<std::shared_ptr<Vec2>> _position;
+        Color4F _color;
+        GLenum _shape;
+        GLfloat _lineWidth;
     };
 }
 

@@ -28,6 +28,10 @@ void Node::addChild(std::shared_ptr<Node> child)
     _children.push_back(child);
 }
 
+void Node::setShader(ShaderManager::ShaderType shaderType) {
+    _shader = _shaderManager->getShaderProgram(shaderType);
+}
+
 void Node::visit()
 {
     for (auto it = _children.cbegin(); _children.cend() != it; ++it) {
@@ -51,4 +55,9 @@ GLuint Node::compileShader(GLuint shaderType, const GLchar *source)
 void Node::setColor(const Color4F &color)
 {
     _color = color;
+}
+
+void Node::setPosition(std::vector<std::shared_ptr<Vec2>> position)
+{
+    _position = position;
 }

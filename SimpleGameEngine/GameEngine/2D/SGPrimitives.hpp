@@ -16,15 +16,12 @@ namespace SimpleGameEngine {
     {
     public:
         Primitives();
-        void setPosition(std::vector<Vec2> position) override;
-        void setShaderPositionAndColor();
         void setShape(GLenum shape);
         void setLineWidth(GLfloat lineWidth);
     protected:
         virtual bool init() override;
         virtual void draw() override;
     private:
-        std::vector<Vec2> _position;
         GLenum _shape;
         GLfloat _lineWidth;
     };
