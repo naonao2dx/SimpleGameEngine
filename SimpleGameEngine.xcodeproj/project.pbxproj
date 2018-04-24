@@ -26,7 +26,7 @@
 		FDEC43DD2085ABDF00BD059F /* HelloScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43DB2085ABDF00BD059F /* HelloScene.cpp */; };
 		FDEC43E02085AF1100BD059F /* SGNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43DE2085AF1100BD059F /* SGNode.cpp */; };
 		FDEC43E32085C84A00BD059F /* SGConsole.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43E12085C84A00BD059F /* SGConsole.cpp */; };
-		FDEC43E72085EA4200BD059F /* SGTriangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43E52085EA4200BD059F /* SGTriangle.cpp */; };
+		FDEC43E72085EA4200BD059F /* SGPrimitives.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43E52085EA4200BD059F /* SGPrimitives.cpp */; };
 		FDEC43F620872BB000BD059F /* SGColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43F520872BB000BD059F /* SGColor.cpp */; };
 		FDEC43F820872E5E00BD059F /* SGGeometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43F720872E5E00BD059F /* SGGeometry.cpp */; };
 		FDEC43FB20874D0D00BD059F /* SGShaderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43F920874D0D00BD059F /* SGShaderManager.cpp */; };
@@ -71,8 +71,8 @@
 		FDEC43DF2085AF1100BD059F /* SGNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGNode.hpp; sourceTree = "<group>"; };
 		FDEC43E12085C84A00BD059F /* SGConsole.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGConsole.cpp; sourceTree = "<group>"; };
 		FDEC43E22085C84A00BD059F /* SGConsole.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGConsole.hpp; sourceTree = "<group>"; };
-		FDEC43E52085EA4200BD059F /* SGTriangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGTriangle.cpp; sourceTree = "<group>"; };
-		FDEC43E62085EA4200BD059F /* SGTriangle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGTriangle.hpp; sourceTree = "<group>"; };
+		FDEC43E52085EA4200BD059F /* SGPrimitives.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGPrimitives.cpp; sourceTree = "<group>"; };
+		FDEC43E62085EA4200BD059F /* SGPrimitives.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGPrimitives.hpp; sourceTree = "<group>"; };
 		FDEC43E92086042F00BD059F /* SGGeometry.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGGeometry.hpp; sourceTree = "<group>"; };
 		FDEC43EF20860D6200BD059F /* ShaderColor.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = ShaderColor.frag; sourceTree = "<group>"; };
 		FDEC43F32087151100BD059F /* SGColor.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGColor.hpp; sourceTree = "<group>"; };
@@ -243,8 +243,8 @@
 		FDEC43E42085EA2800BD059F /* 2D */ = {
 			isa = PBXGroup;
 			children = (
-				FDEC43E52085EA4200BD059F /* SGTriangle.cpp */,
-				FDEC43E62085EA4200BD059F /* SGTriangle.hpp */,
+				FDEC43E52085EA4200BD059F /* SGPrimitives.cpp */,
+				FDEC43E62085EA4200BD059F /* SGPrimitives.hpp */,
 			);
 			path = 2D;
 			sourceTree = "<group>";
@@ -347,7 +347,7 @@
 				359C5A882062515200652D2A /* SGDirectorCaller.mm in Sources */,
 				FDEC43DD2085ABDF00BD059F /* HelloScene.cpp in Sources */,
 				359C5A72206200B600652D2A /* SGEAGLView.mm in Sources */,
-				FDEC43E72085EA4200BD059F /* SGTriangle.cpp in Sources */,
+				FDEC43E72085EA4200BD059F /* SGPrimitives.cpp in Sources */,
 				FDEC440120875F9F00BD059F /* SGFileUtils.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
