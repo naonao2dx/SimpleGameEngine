@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		359C5A51205D792B00652D2A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 359C5A50205D792B00652D2A /* AppDelegate.m */; };
-		359C5A59205D792B00652D2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 359C5A58205D792B00652D2A /* Assets.xcassets */; };
 		359C5A5C205D792B00652D2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 359C5A5A205D792B00652D2A /* LaunchScreen.storyboard */; };
 		359C5A5F205D792B00652D2A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 359C5A5E205D792B00652D2A /* main.m */; };
 		359C5A6E2061FF8C00652D2A /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 359C5A6D2061FF8C00652D2A /* RootViewController.mm */; };
@@ -23,6 +22,14 @@
 		FD4BA6DE2090281700BE3711 /* ShaderVertexColor.vert in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA6DD2090281700BE3711 /* ShaderVertexColor.vert */; };
 		FD4BA6E0209028DE00BE3711 /* ShaderVertexColor.frag in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA6DF209028DE00BE3711 /* ShaderVertexColor.frag */; };
 		FD4BA6E3209029CC00BE3711 /* SGShaderVertexColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA6E1209029CC00BE3711 /* SGShaderVertexColor.cpp */; };
+		FD4BA6E620906B7A00BE3711 /* ShaderTexture2D.vert in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA6E520906B7A00BE3711 /* ShaderTexture2D.vert */; };
+		FD4BA6E820906C2D00BE3711 /* ShaderTexture2D.frag in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA6E720906C2D00BE3711 /* ShaderTexture2D.frag */; };
+		FD4BA6EB20906CE000BE3711 /* SGShaderTexture2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA6E920906CE000BE3711 /* SGShaderTexture2D.cpp */; };
+		FD4BA6F32090A78000BE3711 /* SGRawImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA6F12090A78000BE3711 /* SGRawImage.mm */; };
+		FD4BA6F720915F9100BE3711 /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = FD4BA6F620915F9100BE3711 /* Assets */; };
+		FD4BA6FD2091A7D100BE3711 /* libpng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD4BA6FC2091A7D100BE3711 /* libpng.a */; };
+		FD4BA7072091CADF00BE3711 /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD4BA7062091CADF00BE3711 /* libz.a */; };
+		FD4BA70D2091FAD000BE3711 /* SGTexture2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA70B2091FAD000BE3711 /* SGTexture2D.cpp */; };
 		FD59DF912060ECBD005EF629 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD59DF902060ECBD005EF629 /* QuartzCore.framework */; };
 		FD59DF932060ECC5005EF629 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD59DF922060ECC5005EF629 /* OpenGLES.framework */; };
 		FDEC439C207F6A7900BD059F /* SGRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC439A207F6A7900BD059F /* SGRenderer.cpp */; };
@@ -42,7 +49,6 @@
 		359C5A4C205D792B00652D2A /* SimpleGameEngine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleGameEngine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		359C5A4F205D792B00652D2A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		359C5A50205D792B00652D2A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		359C5A58205D792B00652D2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		359C5A5B205D792B00652D2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		359C5A5D205D792B00652D2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		359C5A5E205D792B00652D2A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -70,6 +76,20 @@
 		FD4BA6E1209029CC00BE3711 /* SGShaderVertexColor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGShaderVertexColor.cpp; sourceTree = "<group>"; };
 		FD4BA6E2209029CC00BE3711 /* SGShaderVertexColor.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGShaderVertexColor.hpp; sourceTree = "<group>"; };
 		FD4BA6E4209037AF00BE3711 /* SGVertex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGVertex.h; sourceTree = "<group>"; };
+		FD4BA6E520906B7A00BE3711 /* ShaderTexture2D.vert */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; path = ShaderTexture2D.vert; sourceTree = "<group>"; };
+		FD4BA6E720906C2D00BE3711 /* ShaderTexture2D.frag */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; path = ShaderTexture2D.frag; sourceTree = "<group>"; };
+		FD4BA6E920906CE000BE3711 /* SGShaderTexture2D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGShaderTexture2D.cpp; sourceTree = "<group>"; };
+		FD4BA6EA20906CE000BE3711 /* SGShaderTexture2D.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGShaderTexture2D.hpp; sourceTree = "<group>"; };
+		FD4BA6F12090A78000BE3711 /* SGRawImage.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SGRawImage.mm; sourceTree = "<group>"; };
+		FD4BA6F22090A78000BE3711 /* SGRawImage.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGRawImage.hpp; sourceTree = "<group>"; };
+		FD4BA6F620915F9100BE3711 /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
+		FD4BA6FC2091A7D100BE3711 /* libpng.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpng.a; sourceTree = "<group>"; };
+		FD4BA6FF2091A7FA00BE3711 /* png.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = png.h; sourceTree = "<group>"; };
+		FD4BA7002091A7FA00BE3711 /* pngconf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pngconf.h; sourceTree = "<group>"; };
+		FD4BA7012091A7FA00BE3711 /* pnglibconf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pnglibconf.h; sourceTree = "<group>"; };
+		FD4BA7062091CADF00BE3711 /* libz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libz.a; sourceTree = "<group>"; };
+		FD4BA70B2091FAD000BE3711 /* SGTexture2D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGTexture2D.cpp; sourceTree = "<group>"; };
+		FD4BA70C2091FAD000BE3711 /* SGTexture2D.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGTexture2D.hpp; sourceTree = "<group>"; };
 		FD59DF902060ECBD005EF629 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		FD59DF922060ECC5005EF629 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		FDEC439A207F6A7900BD059F /* SGRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGRenderer.cpp; sourceTree = "<group>"; };
@@ -104,6 +124,8 @@
 			files = (
 				FD59DF932060ECC5005EF629 /* OpenGLES.framework in Frameworks */,
 				FD59DF912060ECBD005EF629 /* QuartzCore.framework in Frameworks */,
+				FD4BA6FD2091A7D100BE3711 /* libpng.a in Frameworks */,
+				FD4BA7072091CADF00BE3711 /* libz.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,10 +153,10 @@
 			isa = PBXGroup;
 			children = (
 				35C4144A2084FD480016931D /* Application */,
+				FD4BA6F620915F9100BE3711 /* Assets */,
 				359C5A692061FE8D00652D2A /* GameEngine */,
 				359C5A4F205D792B00652D2A /* AppDelegate.h */,
 				359C5A50205D792B00652D2A /* AppDelegate.m */,
-				359C5A58205D792B00652D2A /* Assets.xcassets */,
 				359C5A5A205D792B00652D2A /* LaunchScreen.storyboard */,
 				359C5A5D205D792B00652D2A /* Info.plist */,
 				359C5A5E205D792B00652D2A /* main.m */,
@@ -145,6 +167,7 @@
 		359C5A692061FE8D00652D2A /* GameEngine */ = {
 			isa = PBXGroup;
 			children = (
+				FD4BA6F82091A79400BE3711 /* external */,
 				FDEC43E42085EA2800BD059F /* 2D */,
 				FDEC4399207F6A5C00BD059F /* Renderer */,
 				359C5A7A20621E1500652D2A /* Util */,
@@ -173,6 +196,8 @@
 				359C5A742062017500652D2A /* AppController.mm */,
 				359C5A862062515200652D2A /* SGDirectorCaller.h */,
 				359C5A872062515200652D2A /* SGDirectorCaller.mm */,
+				FD4BA6F12090A78000BE3711 /* SGRawImage.mm */,
+				FD4BA6F22090A78000BE3711 /* SGRawImage.hpp */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -220,6 +245,82 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		FD4BA6F82091A79400BE3711 /* external */ = {
+			isa = PBXGroup;
+			children = (
+				FD4BA7022091CA7C00BE3711 /* libz */,
+				FD4BA6F92091A79B00BE3711 /* png */,
+			);
+			path = external;
+			sourceTree = "<group>";
+		};
+		FD4BA6F92091A79B00BE3711 /* png */ = {
+			isa = PBXGroup;
+			children = (
+				FD4BA6FE2091A7EE00BE3711 /* iOS */,
+				FD4BA6FA2091A7A300BE3711 /* prebuilt */,
+			);
+			path = png;
+			sourceTree = "<group>";
+		};
+		FD4BA6FA2091A7A300BE3711 /* prebuilt */ = {
+			isa = PBXGroup;
+			children = (
+				FD4BA6FB2091A7BE00BE3711 /* iOS */,
+			);
+			path = prebuilt;
+			sourceTree = "<group>";
+		};
+		FD4BA6FB2091A7BE00BE3711 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				FD4BA6FC2091A7D100BE3711 /* libpng.a */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		FD4BA6FE2091A7EE00BE3711 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				FD4BA6FF2091A7FA00BE3711 /* png.h */,
+				FD4BA7002091A7FA00BE3711 /* pngconf.h */,
+				FD4BA7012091A7FA00BE3711 /* pnglibconf.h */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		FD4BA7022091CA7C00BE3711 /* libz */ = {
+			isa = PBXGroup;
+			children = (
+				FD4BA7042091CA9800BE3711 /* prebuilt */,
+				FD4BA7032091CA8300BE3711 /* iOS */,
+			);
+			path = libz;
+			sourceTree = "<group>";
+		};
+		FD4BA7032091CA8300BE3711 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		FD4BA7042091CA9800BE3711 /* prebuilt */ = {
+			isa = PBXGroup;
+			children = (
+				FD4BA7052091CAA000BE3711 /* iOS */,
+			);
+			path = prebuilt;
+			sourceTree = "<group>";
+		};
+		FD4BA7052091CAA000BE3711 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				FD4BA7062091CADF00BE3711 /* libz.a */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
 		FD59DF8F2060ECBD005EF629 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +344,8 @@
 				FD4BA6E2209029CC00BE3711 /* SGShaderVertexColor.hpp */,
 				FD4BA6DA208F3E2100BE3711 /* SGShaderPositionAndColor.cpp */,
 				FD4BA6DB208F3E2100BE3711 /* SGShaderPositionAndColor.hpp */,
+				FD4BA6E920906CE000BE3711 /* SGShaderTexture2D.cpp */,
+				FD4BA6EA20906CE000BE3711 /* SGShaderTexture2D.hpp */,
 			);
 			path = Renderer;
 			sourceTree = "<group>";
@@ -261,6 +364,8 @@
 			children = (
 				FDEC43E52085EA4200BD059F /* SGPrimitives.cpp */,
 				FDEC43E62085EA4200BD059F /* SGPrimitives.hpp */,
+				FD4BA70B2091FAD000BE3711 /* SGTexture2D.cpp */,
+				FD4BA70C2091FAD000BE3711 /* SGTexture2D.hpp */,
 			);
 			path = 2D;
 			sourceTree = "<group>";
@@ -272,6 +377,8 @@
 				84D3A7912088E65400594439 /* ShaderPosition.vert */,
 				FD4BA6DD2090281700BE3711 /* ShaderVertexColor.vert */,
 				FD4BA6DF209028DE00BE3711 /* ShaderVertexColor.frag */,
+				FD4BA6E520906B7A00BE3711 /* ShaderTexture2D.vert */,
+				FD4BA6E720906C2D00BE3711 /* ShaderTexture2D.frag */,
 			);
 			path = Shader;
 			sourceTree = "<group>";
@@ -335,7 +442,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				359C5A5C205D792B00652D2A /* LaunchScreen.storyboard in Resources */,
-				359C5A59205D792B00652D2A /* Assets.xcassets in Resources */,
+				FD4BA6F720915F9100BE3711 /* Assets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,8 +455,11 @@
 			files = (
 				359C5A8520624CE300652D2A /* SGApplication.mm in Sources */,
 				FDEC43F820872E5E00BD059F /* SGGeometry.cpp in Sources */,
+				FD4BA6E620906B7A00BE3711 /* ShaderTexture2D.vert in Sources */,
 				FD4BA6E0209028DE00BE3711 /* ShaderVertexColor.frag in Sources */,
 				FDEC43FB20874D0D00BD059F /* SGShaderManager.cpp in Sources */,
+				FD4BA70D2091FAD000BE3711 /* SGTexture2D.cpp in Sources */,
+				FD4BA6F32090A78000BE3711 /* SGRawImage.mm in Sources */,
 				359C5A7E20621F8700652D2A /* SGGLView.mm in Sources */,
 				359C5A5F205D792B00652D2A /* main.m in Sources */,
 				FDEC43D92085AA7F00BD059F /* SGBaseScene.cpp in Sources */,
@@ -359,6 +469,7 @@
 				FDEC43FE2087514900BD059F /* SGShaderProgram.cpp in Sources */,
 				FDEC439C207F6A7900BD059F /* SGRenderer.cpp in Sources */,
 				35C4144D2084FD630016931D /* AppDelegate.cpp in Sources */,
+				FD4BA6E820906C2D00BE3711 /* ShaderTexture2D.frag in Sources */,
 				FDEC43E32085C84A00BD059F /* SGConsole.cpp in Sources */,
 				FDEC43F620872BB000BD059F /* SGColor.cpp in Sources */,
 				FDEC43E02085AF1100BD059F /* SGNode.cpp in Sources */,
@@ -370,6 +481,7 @@
 				FDEC43E72085EA4200BD059F /* SGPrimitives.cpp in Sources */,
 				FDEC440120875F9F00BD059F /* SGFileUtils.cpp in Sources */,
 				FD4BA6DE2090281700BE3711 /* ShaderVertexColor.vert in Sources */,
+				FD4BA6EB20906CE000BE3711 /* SGShaderTexture2D.cpp in Sources */,
 				FD4BA6DC208F3E2100BE3711 /* SGShaderPositionAndColor.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -499,6 +611,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SimpleGameEngine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SimpleGameEngine/GameEngine/external/png/prebuilt/iOS",
+					"$(PROJECT_DIR)/SimpleGameEngine/GameEngine/external/libz/prebuilt/iOS",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.naonao2dx.SimpleGameEngine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -512,6 +629,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SimpleGameEngine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SimpleGameEngine/GameEngine/external/png/prebuilt/iOS",
+					"$(PROJECT_DIR)/SimpleGameEngine/GameEngine/external/libz/prebuilt/iOS",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.naonao2dx.SimpleGameEngine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

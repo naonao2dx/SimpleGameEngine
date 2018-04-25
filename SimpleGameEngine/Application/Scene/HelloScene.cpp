@@ -11,7 +11,7 @@
 #include "../../GameEngine/Util/SGConsole.hpp"
 #include "../../GameEngine/2D/SGPrimitives.hpp"
 #include "../../GameEngine/Renderer/SGShaderManager.hpp"
-
+#include "../../GameEngine/2D/SGTexture2D.hpp"
 using namespace SimpleGameEngine;
 
 std::shared_ptr<Scene> HelloScene::createScene()
@@ -76,7 +76,19 @@ bool HelloScene::init()
     tri3->setVertex(vertex3);
     tri3->setShaderVertexColor();
     tri3->setShape(GL_TRIANGLES);
-    addChild(tri3);
+    //addChild(tri3);
+    
+    // Sample Texture
+    std::string filename("headphone.png");
+    std::shared_ptr<Texture2D> tex = std::make_shared<Texture2D>(filename);
+    
+    Vertex vert11 = Vertex { Vec2 { -0.75f, 0.75f } } ;
+    Vertex vert12 = Vertex { Vec2 { -0.75f, -0.75f } } ;
+    Vertex vert13 = Vertex { Vec2 { 0.75f, 0.75f } } ;
+    Vertex vert14 = Vertex { Vec2 { 0.75f, -0.75f } };
+    std::vector<Vertex> vertex4 = { vert11, vert12, vert13, vert14 };
+    tex->setVertex(vertex4);
+    addChild(tex);
     
     return true;
 }

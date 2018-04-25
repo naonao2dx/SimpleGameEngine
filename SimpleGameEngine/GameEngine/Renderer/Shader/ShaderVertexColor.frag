@@ -1,5 +1,5 @@
 //
-//  ShaderVertexColor.cpp
+//  ShaderVertexColor.frag
 //  SimpleGameEngine
 //
 //  Created by 竹内 直 on 2018/04/25.

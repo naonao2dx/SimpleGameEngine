@@ -1,19 +1,19 @@
 //
-//  ShaderVertexColor.vert
+//  ShaderTexture.vert
 //  SimpleGameEngine
 //
 //  Created by 竹内 直 on 2018/04/25.
 //  Copyright © 2018年 Nao. All rights reserved.
 //
 
-const GLchar* shaderVertVertexColor = R"(
+const GLchar* shaderVertTexture2D = R"(
 
 attribute mediump vec4 attr_pos;
-attribute lowp vec4 attr_color;
-varying lowp vec4 vary_color;
+attribute mediump vec2 attr_uv;
+varying mediump vec2 vary_uv;
 
 void main() {
     gl_Position = attr_pos;
-    vary_color = attr_color;
+    vary_uv = attr_uv;
 }
 )";

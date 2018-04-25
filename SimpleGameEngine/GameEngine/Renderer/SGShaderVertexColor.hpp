@@ -21,7 +21,6 @@ namespace SimpleGameEngine {
         bool init();
         GLint _attrPos;
         GLint _attrColor;
-        std::vector<Color4F> vertexColor;
     };
 }
 

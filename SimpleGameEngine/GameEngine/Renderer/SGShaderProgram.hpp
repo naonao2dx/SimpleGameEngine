@@ -26,6 +26,7 @@ namespace SimpleGameEngine {
         void setColor(const Color4F color);
         void setShape(GLenum shape);
         void setLineWidth(GLfloat lineWidth);
+        virtual void setTextureFilename(std::string& filename){};
     protected:
         ShaderProgram(){};
         void createShader(const GLchar* vertShaderSource, const GLchar* fragShaderSource);

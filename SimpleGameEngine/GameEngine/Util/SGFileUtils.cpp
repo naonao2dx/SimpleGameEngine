@@ -41,6 +41,23 @@ bool FileUtils::getContents(const std::string& filename, std::string& buf)
     return true;
 }
 
+char* FileUtils::getContents(const std::string& filename)
+{
+    std::string filepath = _bundlePath + "/" + filename;
+    std::ifstream ifs(filepath, std::ios::in | std::ios::binary);
+
+    ifs.seekg(0,std::ios::end);
+    size_t size = ifs.tellg();
+    ifs.seekg(0, std::ifstream::beg);
+    
+    Console::logDebug("size: %d", size);
+    
+    char* buf = new char[size];
+    ifs.read(buf, size);
+
+    return buf;
+}
+
 void FileUtils::setBundlePath(const std::string &bundlePath)
 {
     _bundlePath = bundlePath;
