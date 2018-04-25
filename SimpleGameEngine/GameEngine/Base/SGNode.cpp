@@ -14,7 +14,7 @@ using namespace SimpleGameEngine;
 
 Node::Node()
 :_color(Color4F::WHITE)
-,_position()
+,_vertex()
 {
 }
 
@@ -58,7 +58,7 @@ void Node::setColor(const Color4F &color)
     _color = color;
 }
 
-void Node::setPosition(const std::vector<std::shared_ptr<Vec2>> position)
+void Node::setVertex(const std::vector<Vertex> vertex)
 {
-    _position = position;
+    _vertex = vertex;
 }

@@ -26,3 +26,22 @@ Color4F::Color4F(float _r, float _g, float _b, float _a)
 
 const Color4F Color4F::WHITE(1, 1, 1, 1);
 const Color4F Color4F::BLACK(0, 0, 0, 1);
+
+Color4B::Color4B()
+: r(0)
+, g(0)
+, b(0)
+, a(0)
+{}
+
+Color4B::Color4B(GLubyte _r, GLubyte _g, GLubyte _b, GLubyte _a)
+: r(_r)
+, g(_g)
+, b(_b)
+, a(_a)
+{}
+
+const Color4B Color4B::RED(255, 0, 0, 255);
+const Color4B Color4B::GREEN(0, 255, 0, 255);
+const Color4B Color4B::BLUE(0, 0, 255, 255);
+

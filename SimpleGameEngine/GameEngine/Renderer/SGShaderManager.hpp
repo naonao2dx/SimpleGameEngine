@@ -19,7 +19,8 @@ namespace SimpleGameEngine {
     public:
         static std::shared_ptr<ShaderManager> getInstance();
         enum ShaderType {
-            POSITION_AND_COLOR
+            POSITION_AND_COLOR,
+            VERTEX_COLOR
         };
         std::shared_ptr<ShaderProgram> getShaderProgram(ShaderType shaderType);
         

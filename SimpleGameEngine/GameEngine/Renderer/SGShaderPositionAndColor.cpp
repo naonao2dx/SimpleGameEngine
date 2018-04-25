@@ -33,15 +33,10 @@ void ShaderPositionAndColor::draw()
 {
     use();
     
+    GLfloat position[_vertex.size() * 2];
+    vertexToPosition(position);
+    
     glLineWidth(_lineWidth);
-    
-    // Vertex data
-    GLfloat position[_position.size() * 2];
-    for (int i = 0; i < _position.size(); i++) {
-        position[i * 2] = _position.at(i)->x;
-        position[i * 2 + 1] = _position.at(i)->y;
-    }
-    
     glEnableVertexAttribArray(_attrPos);
     glVertexAttribPointer(_attrPos, 2, GL_FLOAT, GL_FALSE, 0., position);
     
@@ -49,5 +44,5 @@ void ShaderPositionAndColor::draw()
     glUniform4f(_unifColor, _color.r, _color.g, _color.b, _color.a);
     
     // Draw
-    glDrawArrays(_shape, 0, static_cast<GLsizei>(_position.size()));
+    glDrawArrays(_shape, 0, static_cast<GLsizei>(_vertex.size()));
 }

@@ -14,6 +14,7 @@
 #include <OpenGLES/ES2/gl.h>
 #include "../Util/SGGeometry.hpp"
 #include "../Util/SGColor.hpp"
+#include "../Base/SGVertex.h"
 
 namespace SimpleGameEngine {
     class ShaderProgram
@@ -21,7 +22,7 @@ namespace SimpleGameEngine {
     public:
         void use();
         virtual void draw();
-        void setPosition(const std::vector<std::shared_ptr<Vec2>> position);
+        void setVertex(const std::vector<Vertex> vertex);
         void setColor(const Color4F color);
         void setShape(GLenum shape);
         void setLineWidth(GLfloat lineWidth);
@@ -29,8 +30,10 @@ namespace SimpleGameEngine {
         ShaderProgram(){};
         void createShader(const GLchar* vertShaderSource, const GLchar* fragShaderSource);
         GLuint compileShader(GLuint shaderType, const GLchar *source);
+        void vertexToPosition(GLfloat position[]);
+        void vertexToPositionAndColor(GLfloat position[], GLubyte color[]);
         GLuint _shader;
-        std::vector<std::shared_ptr<Vec2>> _position;
+        std::vector<Vertex> _vertex;
         Color4F _color;
         GLenum _shape;
         GLfloat _lineWidth;

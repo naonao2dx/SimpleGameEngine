@@ -21,9 +21,28 @@ void ShaderProgram::use()
     assert(glGetError() == GL_NO_ERROR);
 }
 
-void ShaderProgram::setPosition(const std::vector<std::shared_ptr<Vec2>> position)
+void ShaderProgram::setVertex(const std::vector<Vertex> vertex)
 {
-    _position = position;
+    _vertex = vertex;
+}
+
+void ShaderProgram::vertexToPosition(GLfloat position[]) {
+    for (int i = 0; i < _vertex.size(); i++) {
+        position[i * 2] = _vertex.at(i)._position.x;
+        position[i * 2 + 1] = _vertex.at(i)._position.y;
+    }
+}
+
+void ShaderProgram::vertexToPositionAndColor(GLfloat *position, GLubyte *color)
+{
+    for (int i = 0; i < _vertex.size(); i++) {
+        position[i * 2] = _vertex.at(i)._position.x;
+        position[i * 2 + 1] = _vertex.at(i)._position.y;
+        color[i * 3] = _vertex.at(i)._color.r;
+        color[i * 3 + 1] = _vertex.at(i)._color.g;
+        color[i * 3 + 2] = _vertex.at(i)._color.b;
+        //color[i * 4 + 3] = _vertex.at(i)._color.a;
+    }
 }
 
 void ShaderProgram::setColor(const SimpleGameEngine::Color4F color)

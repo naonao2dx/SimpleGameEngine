@@ -15,6 +15,7 @@
 #include "../Util/SGGeometry.hpp"
 #include "../Util/SGColor.hpp"
 #include "../Renderer/SGShaderManager.hpp"
+#include "../Base/SGVertex.h"
 
 
 namespace SimpleGameEngine {
@@ -25,7 +26,7 @@ namespace SimpleGameEngine {
         void setShaderProgram(ShaderManager::ShaderType shaderType);
         void addChild(const std::shared_ptr<Node> child);
         void setColor(const Color4F& color);
-        virtual void setPosition(const std::vector<std::shared_ptr<Vec2>> position);
+        virtual void setVertex(const std::vector<Vertex> vertex);
     protected:
         virtual bool init();
         void visit();
@@ -33,7 +34,7 @@ namespace SimpleGameEngine {
         GLuint compileShader(GLuint shaderType, const GLchar *source);
         
         Color4F _color;
-        std::vector<std::shared_ptr<Vec2>> _position;
+        std::vector<Vertex> _vertex;
         std::vector<std::shared_ptr<Node>> _children;
         std::shared_ptr<ShaderManager> _shaderManager;
         std::shared_ptr<ShaderProgram> _shaderProgram;

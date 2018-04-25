@@ -35,33 +35,48 @@ bool HelloScene::init()
     // Sample Primitives 1
     std::shared_ptr<Primitives> tri = std::make_shared<Primitives>();
     
-    std::shared_ptr<Vec2> pos1 = std::make_shared<Vec2>(-0.9f, 0.9f);
-    std::shared_ptr<Vec2> pos2 = std::make_shared<Vec2>(-0.9f, 0.6f);
-    std::shared_ptr<Vec2> pos3 = std::make_shared<Vec2>(-0.6f, 0.9f);
-    std::shared_ptr<Vec2> pos4 = std::make_shared<Vec2>(-0.6f, 0.6f);
-    std::vector<std::shared_ptr<Vec2>> position = {pos1, pos2, pos3, pos4};
-    tri->setPosition(position);
+    Vertex vert1 = Vertex { Vec2 {-0.9f, 0.9f} };
+    Vertex vert2 = Vertex { Vec2 {-0.9f, 0.6f} };
+    Vertex vert3 = Vertex { Vec2 {-0.6f, 0.9f} };
+    Vertex vert4 = Vertex { Vec2 {-0.6f, 0.6f} };
+    std::vector<Vertex> vertex1 = { vert1, vert2, vert3, vert4 };
+    tri->setVertex(vertex1);
+    
     tri->setShape(GL_TRIANGLE_STRIP);
     
     Color4F color = { 1.0f, 1.0f, 0.0f, 1.0f };
     tri->setColor(color);
     
-    addChild(tri);
+    //addChild(tri);
    
     // Sample Primitives 2
     std::shared_ptr<Primitives> tri2 = std::make_shared<Primitives>();
-    std::shared_ptr<Vec2> pos5 = std::make_shared<Vec2>(-0.6f, -0.3f);
-    std::shared_ptr<Vec2> pos6 = std::make_shared<Vec2>(-0.8f, -0.7f);
-    std::shared_ptr<Vec2> pos7 = std::make_shared<Vec2>(-0.4f, -0.7f);
-    std::vector<std::shared_ptr<Vec2>> position2 = {pos5, pos6, pos7};
-    tri2->setPosition(position2);
+    
+    Vertex vert5 = Vertex { Vec2 {-0.6f, -0.3f} };
+    Vertex vert6 = Vertex { Vec2 {-0.8f, -0.7f} };
+    Vertex vert7 = Vertex { Vec2 {-0.4f, -0.7f} };
+    std::vector<Vertex> vertex2 = { vert5, vert6, vert7 };
+    tri2->setVertex(vertex2);
+    
     tri2->setShape(GL_LINE_LOOP);
     tri2->setLineWidth(5.0f);
-    
     
     Color4F color2 = { 0.0f, 1.0f, 1.0f, 1.0f };
     tri2->setColor(color2);
     
-    addChild(tri2);
+    //addChild(tri2);
+    
+    // Sample Primitives 3
+    std::shared_ptr<Primitives> tri3 = std::make_shared<Primitives>();
+    
+    Vertex vert8 = Vertex { Vec2 {0.0f, 0.25f}, Color4B::RED };
+    Vertex vert9 = Vertex { Vec2 {-0.5, -0.25f}, Color4B::GREEN };
+    Vertex vert10 = Vertex { Vec2 {0.5f, -0.25f}, Color4B::BLUE };
+    std::vector<Vertex> vertex3 = { vert8, vert9, vert10 };
+    tri3->setVertex(vertex3);
+    tri3->setShaderVertexColor();
+    tri3->setShape(GL_TRIANGLES);
+    addChild(tri3);
+    
     return true;
 }

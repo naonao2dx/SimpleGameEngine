@@ -24,6 +24,20 @@ namespace SimpleGameEngine {
         static const Color4F WHITE;
         static const Color4F BLACK;
     };
+    
+    struct Color4B
+    {
+        Color4B();
+        Color4B(GLubyte _r, GLubyte _g, GLubyte _b, GLubyte _a);
+        GLubyte r;
+        GLubyte g;
+        GLubyte b;
+        GLubyte a;
+        
+        static const Color4B RED;
+        static const Color4B GREEN;
+        static const Color4B BLUE;
+    };
 }
 
 #endif /* SGColor_hpp */

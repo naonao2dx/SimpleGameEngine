@@ -26,11 +26,11 @@ bool Primitives::init()
     Node::init();
     setShaderPositionAndColor();
     
-    std::shared_ptr<Vec2> pos1 = std::make_shared<Vec2>(0.0f, 0.5f);
-    std::shared_ptr<Vec2> pos2 = std::make_shared<Vec2>(-0.5f, -0.5f);
-    std::shared_ptr<Vec2> pos3 = std::make_shared<Vec2>(0.5f, -0.5f);
-    std::vector<std::shared_ptr<Vec2>> position = {pos1, pos2, pos3};
-    setPosition(position);
+    Vertex vert1 = Vertex { Vec2 { 0.0f, 0.5f}, Color4B::RED } ;
+    Vertex vert2 = Vertex { Vec2 { -0.5f, -0.5f}, Color4B::GREEN } ;
+    Vertex vert3 = Vertex { Vec2 { 0.5f, -0.5f}, Color4B::BLUE } ;
+    std::vector<Vertex> vertex = { vert1, vert2, vert3 };
+    setVertex(vertex);
     
     return true;
 }
@@ -38,6 +38,11 @@ bool Primitives::init()
 void Primitives::setShaderPositionAndColor()
 {
     setShaderProgram(ShaderManager::ShaderType::POSITION_AND_COLOR);
+}
+
+void Primitives::setShaderVertexColor()
+{
+    setShaderProgram(ShaderManager::ShaderType::VERTEX_COLOR);
 }
 
 void Primitives::setShape(GLenum shape)
@@ -52,7 +57,7 @@ void Primitives::setLineWidth(GLfloat lineWidth)
 
 void Primitives::draw()
 {
-    _shaderProgram->setPosition(_position);
+    _shaderProgram->setVertex(_vertex);
     _shaderProgram->setColor(_color);
     _shaderProgram->setShape(_shape);
     _shaderProgram->setLineWidth(_lineWidth);

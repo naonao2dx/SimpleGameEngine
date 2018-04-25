@@ -20,6 +20,9 @@
 		359C5A882062515200652D2A /* SGDirectorCaller.mm in Sources */ = {isa = PBXBuildFile; fileRef = 359C5A872062515200652D2A /* SGDirectorCaller.mm */; };
 		35C4144D2084FD630016931D /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35C4144B2084FD630016931D /* AppDelegate.cpp */; };
 		FD4BA6DC208F3E2100BE3711 /* SGShaderPositionAndColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA6DA208F3E2100BE3711 /* SGShaderPositionAndColor.cpp */; };
+		FD4BA6DE2090281700BE3711 /* ShaderVertexColor.vert in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA6DD2090281700BE3711 /* ShaderVertexColor.vert */; };
+		FD4BA6E0209028DE00BE3711 /* ShaderVertexColor.frag in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA6DF209028DE00BE3711 /* ShaderVertexColor.frag */; };
+		FD4BA6E3209029CC00BE3711 /* SGShaderVertexColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA6E1209029CC00BE3711 /* SGShaderVertexColor.cpp */; };
 		FD59DF912060ECBD005EF629 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD59DF902060ECBD005EF629 /* QuartzCore.framework */; };
 		FD59DF932060ECC5005EF629 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD59DF922060ECC5005EF629 /* OpenGLES.framework */; };
 		FDEC439C207F6A7900BD059F /* SGRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC439A207F6A7900BD059F /* SGRenderer.cpp */; };
@@ -59,9 +62,14 @@
 		359C5A872062515200652D2A /* SGDirectorCaller.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SGDirectorCaller.mm; sourceTree = "<group>"; };
 		35C4144B2084FD630016931D /* AppDelegate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		35C4144C2084FD630016931D /* AppDelegate.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AppDelegate.hpp; sourceTree = "<group>"; };
-		84D3A7912088E65400594439 /* ShaderPosition.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = ShaderPosition.vert; sourceTree = "<group>"; };
+		84D3A7912088E65400594439 /* ShaderPosition.vert */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; path = ShaderPosition.vert; sourceTree = "<group>"; };
 		FD4BA6DA208F3E2100BE3711 /* SGShaderPositionAndColor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGShaderPositionAndColor.cpp; sourceTree = "<group>"; };
 		FD4BA6DB208F3E2100BE3711 /* SGShaderPositionAndColor.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGShaderPositionAndColor.hpp; sourceTree = "<group>"; };
+		FD4BA6DD2090281700BE3711 /* ShaderVertexColor.vert */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; path = ShaderVertexColor.vert; sourceTree = "<group>"; };
+		FD4BA6DF209028DE00BE3711 /* ShaderVertexColor.frag */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; path = ShaderVertexColor.frag; sourceTree = "<group>"; };
+		FD4BA6E1209029CC00BE3711 /* SGShaderVertexColor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGShaderVertexColor.cpp; sourceTree = "<group>"; };
+		FD4BA6E2209029CC00BE3711 /* SGShaderVertexColor.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGShaderVertexColor.hpp; sourceTree = "<group>"; };
+		FD4BA6E4209037AF00BE3711 /* SGVertex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGVertex.h; sourceTree = "<group>"; };
 		FD59DF902060ECBD005EF629 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		FD59DF922060ECC5005EF629 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		FDEC439A207F6A7900BD059F /* SGRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGRenderer.cpp; sourceTree = "<group>"; };
@@ -77,7 +85,7 @@
 		FDEC43E52085EA4200BD059F /* SGPrimitives.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGPrimitives.cpp; sourceTree = "<group>"; };
 		FDEC43E62085EA4200BD059F /* SGPrimitives.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGPrimitives.hpp; sourceTree = "<group>"; };
 		FDEC43E92086042F00BD059F /* SGGeometry.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGGeometry.hpp; sourceTree = "<group>"; };
-		FDEC43EF20860D6200BD059F /* ShaderColor.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = ShaderColor.frag; sourceTree = "<group>"; };
+		FDEC43EF20860D6200BD059F /* ShaderColor.frag */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; path = ShaderColor.frag; sourceTree = "<group>"; };
 		FDEC43F32087151100BD059F /* SGColor.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGColor.hpp; sourceTree = "<group>"; };
 		FDEC43F520872BB000BD059F /* SGColor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGColor.cpp; sourceTree = "<group>"; };
 		FDEC43F720872E5E00BD059F /* SGGeometry.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGGeometry.cpp; sourceTree = "<group>"; };
@@ -182,6 +190,7 @@
 				FDEC43D82085AA7F00BD059F /* SGBaseScene.hpp */,
 				FDEC43DE2085AF1100BD059F /* SGNode.cpp */,
 				FDEC43DF2085AF1100BD059F /* SGNode.hpp */,
+				FD4BA6E4209037AF00BE3711 /* SGVertex.h */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -230,6 +239,8 @@
 				FDEC43FA20874D0D00BD059F /* SGShaderManager.hpp */,
 				FDEC43FC2087514900BD059F /* SGShaderProgram.cpp */,
 				FDEC43FD2087514900BD059F /* SGShaderProgram.hpp */,
+				FD4BA6E1209029CC00BE3711 /* SGShaderVertexColor.cpp */,
+				FD4BA6E2209029CC00BE3711 /* SGShaderVertexColor.hpp */,
 				FD4BA6DA208F3E2100BE3711 /* SGShaderPositionAndColor.cpp */,
 				FD4BA6DB208F3E2100BE3711 /* SGShaderPositionAndColor.hpp */,
 			);
@@ -259,6 +270,8 @@
 			children = (
 				FDEC43EF20860D6200BD059F /* ShaderColor.frag */,
 				84D3A7912088E65400594439 /* ShaderPosition.vert */,
+				FD4BA6DD2090281700BE3711 /* ShaderVertexColor.vert */,
+				FD4BA6DF209028DE00BE3711 /* ShaderVertexColor.frag */,
 			);
 			path = Shader;
 			sourceTree = "<group>";
@@ -335,6 +348,7 @@
 			files = (
 				359C5A8520624CE300652D2A /* SGApplication.mm in Sources */,
 				FDEC43F820872E5E00BD059F /* SGGeometry.cpp in Sources */,
+				FD4BA6E0209028DE00BE3711 /* ShaderVertexColor.frag in Sources */,
 				FDEC43FB20874D0D00BD059F /* SGShaderManager.cpp in Sources */,
 				359C5A7E20621F8700652D2A /* SGGLView.mm in Sources */,
 				359C5A5F205D792B00652D2A /* main.m in Sources */,
@@ -349,11 +363,13 @@
 				FDEC43F620872BB000BD059F /* SGColor.cpp in Sources */,
 				FDEC43E02085AF1100BD059F /* SGNode.cpp in Sources */,
 				359C5A6E2061FF8C00652D2A /* RootViewController.mm in Sources */,
+				FD4BA6E3209029CC00BE3711 /* SGShaderVertexColor.cpp in Sources */,
 				359C5A882062515200652D2A /* SGDirectorCaller.mm in Sources */,
 				FDEC43DD2085ABDF00BD059F /* HelloScene.cpp in Sources */,
 				359C5A72206200B600652D2A /* SGEAGLView.mm in Sources */,
 				FDEC43E72085EA4200BD059F /* SGPrimitives.cpp in Sources */,
 				FDEC440120875F9F00BD059F /* SGFileUtils.cpp in Sources */,
+				FD4BA6DE2090281700BE3711 /* ShaderVertexColor.vert in Sources */,
 				FD4BA6DC208F3E2100BE3711 /* SGShaderPositionAndColor.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
