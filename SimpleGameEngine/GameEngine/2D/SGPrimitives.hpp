@@ -18,6 +18,7 @@ namespace SimpleGameEngine {
         Primitives();
         void setShape(GLenum shape);
         void setLineWidth(GLfloat lineWidth);
+        void setShaderPositionAndColor();
     protected:
         virtual bool init() override;
         virtual void draw() override;

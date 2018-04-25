@@ -13,13 +13,14 @@ class vector;
 using namespace SimpleGameEngine;
 
 Node::Node()
+:_color(Color4F::WHITE)
+,_position()
 {
-    _shaderManager = ShaderManager::getInstance();
-    setColor(Color4F::WHITE);
 }
 
 bool Node::init()
 {
+    _shaderManager = ShaderManager::getInstance();
     return true;
 }
 

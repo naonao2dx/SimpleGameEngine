@@ -15,13 +15,16 @@
 using namespace SimpleGameEngine;
 
 Primitives::Primitives()
+:_shape(GL_TRIANGLES)
+,_lineWidth(1.0f)
 {
     init();
 }
 
 bool Primitives::init()
 {
-    setShaderProgram(ShaderManager::ShaderType::POSITION_AND_COLOR);
+    Node::init();
+    setShaderPositionAndColor();
     
     std::shared_ptr<Vec2> pos1 = std::make_shared<Vec2>(0.0f, 0.5f);
     std::shared_ptr<Vec2> pos2 = std::make_shared<Vec2>(-0.5f, -0.5f);
@@ -29,11 +32,12 @@ bool Primitives::init()
     std::vector<std::shared_ptr<Vec2>> position = {pos1, pos2, pos3};
     setPosition(position);
     
-    setShape(GL_TRIANGLES);
-    setLineWidth(1.0f);
-    
-    setColor(Color4F::WHITE);
     return true;
+}
+
+void Primitives::setShaderPositionAndColor()
+{
+    setShaderProgram(ShaderManager::ShaderType::POSITION_AND_COLOR);
 }
 
 void Primitives::setShape(GLenum shape)
