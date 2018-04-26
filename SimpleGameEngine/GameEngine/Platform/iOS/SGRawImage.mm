@@ -21,6 +21,7 @@ std::shared_ptr<RawImage> RawImage::createWithFileName(std::string& cppFileName,
     std::shared_ptr<RawImage> rawImage = std::make_shared<RawImage>();
     
     int pixelSize = 0;
+    rawImage->_format = rawFormat;
     
     switch (rawFormat) {
         case TEXTURE_RAW_RGBA8:
