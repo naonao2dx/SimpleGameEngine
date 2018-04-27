@@ -28,7 +28,7 @@ void ShaderVertexColor::draw()
     use();
     GLfloat position[_vertex.size() * 2];
     GLubyte color[_vertex.size() * 4];
-    vertexToPositionAndColor(position, color);
+    vertexToPositionAndColor(_vertex, position, color);
     
     glEnableVertexAttribArray(_attrPos);
     glEnableVertexAttribArray(_attrColor);

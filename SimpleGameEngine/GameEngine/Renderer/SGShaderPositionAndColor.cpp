@@ -44,7 +44,7 @@ void ShaderPositionAndColor::draw()
     use();
     
     GLfloat position[_vertex.size() * 2];
-    vertexToPosition(position);
+    vertexToPosition(_vertex, position);
     
     glLineWidth(_lineWidth);
     glEnableVertexAttribArray(_attrPos);

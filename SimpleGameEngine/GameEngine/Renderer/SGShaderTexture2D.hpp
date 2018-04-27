@@ -19,6 +19,7 @@ namespace SimpleGameEngine {
         ShaderTexture2D(const GLchar* vertShaderSource, const GLchar* fragShaderSource);
         ~ShaderTexture2D();
         void setTextureFilename(std::string& filename);
+        void setVertexUV(const std::vector<Vertex> vertexUV);
         virtual void draw() override;
     private:
         bool init();
@@ -27,6 +28,7 @@ namespace SimpleGameEngine {
         GLint _attrUV;
         GLint _unifTexture;
         GLuint _textureID;
+        std::vector<Vertex> _vertexUV;
     };
 }
 

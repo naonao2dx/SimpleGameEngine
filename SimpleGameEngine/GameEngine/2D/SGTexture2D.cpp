@@ -34,7 +34,19 @@ bool Texture2D::init()
     std::vector<Vertex> vertex = { vert1, vert2, vert3, vert4 };
     setVertex(vertex);
     
+    Vertex uv1 = Vertex { Vec2 { 0.0f, 0.0f } };
+    Vertex uv2 = Vertex { Vec2 { 0.0f, 1.0f } };
+    Vertex uv3 = Vertex { Vec2 { 1.0f, 0.0f } };
+    Vertex uv4 = Vertex { Vec2 { 1.0f, 1.0f } };
+    std::vector<Vertex> uv = { uv1, uv2, uv3, uv4 };
+    setVertexUV(uv);
+    
     return true;
+}
+
+void Texture2D::setVertexUV(const std::vector<Vertex> vertexUV)
+{
+    _vertexUV = vertexUV;
 }
 
 void Texture2D::setShaderTexture()
@@ -46,6 +58,7 @@ void Texture2D::setShaderTexture()
 void Texture2D::draw()
 {
     _shaderProgram->setVertex(_vertex);
+    std::dynamic_pointer_cast<ShaderTexture2D>(_shaderProgram)->setVertexUV(_vertexUV);
     _shaderProgram->draw();
 }
 

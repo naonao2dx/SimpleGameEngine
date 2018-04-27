@@ -34,6 +34,11 @@ bool ShaderTexture2D::init()
     return true;
 }
 
+void ShaderTexture2D::setVertexUV(const std::vector<Vertex> vertexUV)
+{
+    _vertexUV = vertexUV;
+}
+
 void ShaderTexture2D::createTexture()
 {
     glGenTextures(1, &_textureID);
@@ -64,14 +69,10 @@ void ShaderTexture2D::draw()
     use();
     
     GLfloat position[_vertex.size() * 2];
-    vertexToPosition(position);
+    vertexToPosition(_vertex, position);
     
-    const GLfloat uv[] = {
-        0, 0,
-        0, 1,
-        1, 0,
-        1, 1,
-    };
+    GLfloat uv[_vertexUV.size() * 2];
+    vertexToPosition(_vertexUV, uv);
     
     glEnableVertexAttribArray(_attrPos);
     glEnableVertexAttribArray(_attrUV);

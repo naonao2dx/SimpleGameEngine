@@ -19,11 +19,13 @@ namespace SimpleGameEngine {
         Texture2D(std::string& filename);
         void setShaderTexture();
         void setTextureFilename(std::string& filename);
+        void setVertexUV(const std::vector<Vertex> vertexUV);
     protected:
         virtual bool init() override;
         virtual void draw() override;
     private:
         std::string _filename;
+        std::vector<Vertex> _vertexUV;
     };
 }
 
