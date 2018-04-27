@@ -13,8 +13,9 @@ class vector;
 using namespace SimpleGameEngine;
 
 Node::Node()
-:_color(Color4F::WHITE)
-,_vertex()
+: _color(Color4F::WHITE)
+, _shaderType(0)
+, _vertex()
 {
 }
 
@@ -30,6 +31,7 @@ void Node::addChild(std::shared_ptr<Node> child)
 }
 
 void Node::setShaderProgram(ShaderManager::ShaderType shaderType) {
+    _shaderType = shaderType;
     _shaderProgram = _shaderManager->getShaderProgram(shaderType);
 }
 

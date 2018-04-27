@@ -19,6 +19,13 @@ ShaderTexture2D::ShaderTexture2D(const GLchar* vertShaderSource, const GLchar* f
     init();
 }
 
+ShaderTexture2D::~ShaderTexture2D()
+{
+    glBindTexture(GL_TEXTURE_2D, 0);
+    glDeleteTextures(1, &_textureID);
+    assert(glGetError == GL_NO_ERROR);
+}
+
 bool ShaderTexture2D::init()
 {
     _attrPos = glGetAttribLocation(_shader, "attr_pos");
@@ -74,5 +81,5 @@ void ShaderTexture2D::draw()
     glVertexAttribPointer(_attrPos, 2, GL_FLOAT, GL_FALSE, 0, (GLvoid *)position);
     glVertexAttribPointer(_attrUV, 2, GL_FLOAT, GL_FALSE, 0, (GLvoid *)uv);
     
-    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, static_cast<GLsizei>(_vertex.size()));
 }

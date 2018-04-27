@@ -34,6 +34,7 @@ namespace SimpleGameEngine {
         GLuint compileShader(GLuint shaderType, const GLchar *source);
         
         Color4F _color;
+        int _shaderType;
         std::vector<Vertex> _vertex;
         std::vector<std::shared_ptr<Node>> _children;
         std::shared_ptr<ShaderManager> _shaderManager;

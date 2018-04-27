@@ -11,7 +11,7 @@
 
 namespace SimpleGameEngine {
     struct Vec2;
-    struct Color4F;
+    struct Color4B;
     struct Vertex
     {
         Vec2 _position;

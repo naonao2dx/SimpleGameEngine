@@ -58,8 +58,10 @@ void Primitives::setLineWidth(GLfloat lineWidth)
 void Primitives::draw()
 {
     _shaderProgram->setVertex(_vertex);
-    _shaderProgram->setColor(_color);
     _shaderProgram->setShape(_shape);
-    _shaderProgram->setLineWidth(_lineWidth);
+    if (_shaderType == ShaderManager::ShaderType::POSITION_AND_COLOR) {
+        std::dynamic_pointer_cast<ShaderPositionAndColor>(_shaderProgram)->setColor(_color);
+        std::dynamic_pointer_cast<ShaderPositionAndColor>(_shaderProgram)->setLineWidth(_lineWidth);
+    }
     _shaderProgram->draw();
 }

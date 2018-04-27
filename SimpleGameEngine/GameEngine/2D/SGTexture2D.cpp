@@ -7,6 +7,7 @@
 //
 
 #include "SGTexture2D.hpp"
+#include "../Renderer/SGShaderTexture2D.hpp"
 
 using namespace SimpleGameEngine;
 
@@ -39,7 +40,7 @@ bool Texture2D::init()
 void Texture2D::setShaderTexture()
 {
     setShaderProgram(ShaderManager::ShaderType::TEXTURE_2D);
-    _shaderProgram->setTextureFilename(_filename);
+    std::dynamic_pointer_cast<ShaderTexture2D>(_shaderProgram)->setTextureFilename(_filename);
 }
 
 void Texture2D::draw()

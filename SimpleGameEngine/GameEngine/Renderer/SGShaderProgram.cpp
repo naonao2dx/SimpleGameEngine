@@ -14,6 +14,15 @@
 
 using namespace SimpleGameEngine;
 
+ShaderProgram::~ShaderProgram()
+{
+    glUseProgram(0);
+    assert(glGetError == GL_NO_ERROR);
+    
+    glDeleteProgram(_shader);
+    assert(glGetError == GL_NO_ERROR);
+}
+
 void ShaderProgram::use()
 {
     // Start using shader
@@ -45,19 +54,9 @@ void ShaderProgram::vertexToPositionAndColor(GLfloat *position, GLubyte *color)
     }
 }
 
-void ShaderProgram::setColor(const SimpleGameEngine::Color4F color)
-{
-    _color = color;
-}
-
 void ShaderProgram::setShape(GLenum shape)
 {
     _shape = shape;
-}
-
-void ShaderProgram::setLineWidth(GLfloat lineWidth)
-{
-    _lineWidth = lineWidth;
 }
 
 void ShaderProgram::createShader(const GLchar* vertShaderSource, const GLchar* fragShaderSource)

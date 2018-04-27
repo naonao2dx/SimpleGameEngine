@@ -28,5 +28,5 @@ void Renderer::clear()
 void Renderer::initGLView()
 {
     Console::logDebug("Renderer::initGLView");
-    auto shaderCache = ShaderManager::getInstance();
+    auto shaderManager = ShaderManager::getInstance();
 }

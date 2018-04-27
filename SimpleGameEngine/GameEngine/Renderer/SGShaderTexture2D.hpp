@@ -17,7 +17,8 @@ namespace SimpleGameEngine {
     {
     public:
         ShaderTexture2D(const GLchar* vertShaderSource, const GLchar* fragShaderSource);
-        virtual void setTextureFilename(std::string& filename) override;
+        ~ShaderTexture2D();
+        void setTextureFilename(std::string& filename);
         virtual void draw() override;
     private:
         bool init();

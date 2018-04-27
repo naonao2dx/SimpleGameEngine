@@ -23,21 +23,17 @@ namespace SimpleGameEngine {
         void use();
         virtual void draw();
         void setVertex(const std::vector<Vertex> vertex);
-        void setColor(const Color4F color);
         void setShape(GLenum shape);
-        void setLineWidth(GLfloat lineWidth);
-        virtual void setTextureFilename(std::string& filename){};
     protected:
         ShaderProgram(){};
+        virtual ~ShaderProgram();
         void createShader(const GLchar* vertShaderSource, const GLchar* fragShaderSource);
         GLuint compileShader(GLuint shaderType, const GLchar *source);
         void vertexToPosition(GLfloat position[]);
         void vertexToPositionAndColor(GLfloat position[], GLubyte color[]);
         GLuint _shader;
         std::vector<Vertex> _vertex;
-        Color4F _color;
         GLenum _shape;
-        GLfloat _lineWidth;
     };
 }
 

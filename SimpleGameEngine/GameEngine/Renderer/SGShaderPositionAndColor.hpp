@@ -18,11 +18,16 @@ namespace SimpleGameEngine {
     {
     public:
         ShaderPositionAndColor(const GLchar* vertShaderSource, const GLchar* fragShaderSource);
+        
         virtual void draw() override;
+        void setColor(const Color4F color);
+        void setLineWidth(GLfloat lineWidth);
     private:
         bool init();
         GLint _attrPos;
         GLint _unifColor;
+        Color4F _color;
+        GLfloat _lineWidth;
     };
 }
 

@@ -29,6 +29,16 @@ bool ShaderPositionAndColor::init()
     return true;
 }
 
+void ShaderPositionAndColor::setColor(const SimpleGameEngine::Color4F color)
+{
+    _color = color;
+}
+
+void ShaderPositionAndColor::setLineWidth(GLfloat lineWidth)
+{
+    _lineWidth = lineWidth;
+}
+
 void ShaderPositionAndColor::draw()
 {
     use();
