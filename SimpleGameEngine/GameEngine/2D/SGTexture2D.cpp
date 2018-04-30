@@ -41,6 +41,8 @@ bool Texture2D::init()
     std::vector<Vertex> uv = { uv1, uv2, uv3, uv4 };
     setVertexUV(uv);
     
+    setFilter(GL_NEAREST, GL_NEAREST);
+    
     return true;
 }
 
@@ -49,10 +51,18 @@ void Texture2D::setVertexUV(const std::vector<Vertex> vertexUV)
     _vertexUV = vertexUV;
 }
 
+void Texture2D::setFilter(GLuint magFilter, GLuint minFilter)
+{
+    _magFilter = magFilter;
+    _minFilter = minFilter;
+}
+
 void Texture2D::setShaderTexture()
 {
     setShaderProgram(ShaderManager::ShaderType::TEXTURE_2D);
     std::dynamic_pointer_cast<ShaderTexture2D>(_shaderProgram)->setTextureFilename(_filename);
+    std::dynamic_pointer_cast<ShaderTexture2D>(_shaderProgram)->setFilter(_magFilter, _minFilter);
+    
 }
 
 void Texture2D::draw()

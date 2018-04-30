@@ -20,7 +20,9 @@ namespace SimpleGameEngine {
         ~ShaderTexture2D();
         void setTextureFilename(std::string& filename);
         void setVertexUV(const std::vector<Vertex> vertexUV);
+        void setFilter(GLuint magFilter, GLuint minFilter);
         virtual void draw() override;
+        
     private:
         bool init();
         void createTexture();
@@ -29,6 +31,8 @@ namespace SimpleGameEngine {
         GLint _unifTexture;
         GLuint _textureID;
         std::vector<Vertex> _vertexUV;
+        GLuint _magFilter;
+        GLuint _minFilter;
     };
 }
 

@@ -20,12 +20,15 @@ namespace SimpleGameEngine {
         void setShaderTexture();
         void setTextureFilename(std::string& filename);
         void setVertexUV(const std::vector<Vertex> vertexUV);
+        void setFilter(GLuint magFilter, GLuint minFilter);
     protected:
         virtual bool init() override;
         virtual void draw() override;
     private:
         std::string _filename;
         std::vector<Vertex> _vertexUV;
+        GLuint _magFilter;
+        GLuint _minFilter;
     };
 }
 

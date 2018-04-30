@@ -39,6 +39,12 @@ void ShaderTexture2D::setVertexUV(const std::vector<Vertex> vertexUV)
     _vertexUV = vertexUV;
 }
 
+void ShaderTexture2D::setFilter(GLuint magFilter, GLuint minFilter)
+{
+    _magFilter = magFilter;
+    _minFilter = minFilter;
+}
+
 void ShaderTexture2D::createTexture()
 {
     glGenTextures(1, &_textureID);
@@ -61,6 +67,10 @@ void ShaderTexture2D::setTextureFilename(std::string& filename) {
     
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    assert(glGetError() == GL_NO_ERROR);
+    
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     assert(glGetError() == GL_NO_ERROR);
 }
 
