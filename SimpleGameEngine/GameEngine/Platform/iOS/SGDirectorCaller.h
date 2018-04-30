@@ -21,5 +21,4 @@
 - (void) stopMainLoop;
 - (void) doCaller: (id) sender;
 - (void) setAnimationInterval: (double) interval;
-- (void) destroy;
 @end
