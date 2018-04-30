@@ -80,7 +80,7 @@ bool HelloScene::init()
     
     // Sample Texture
     std::string filename("headphone.png");
-    std::shared_ptr<Texture2D> tex = std::make_shared<Texture2D>(filename);
+    std::shared_ptr<Texture2D> tex = std::make_shared<Texture2D>(filename, false);
     
     Vertex vert11 = Vertex { Vec2 { -0.75f, 0.75f } } ;
     Vertex vert12 = Vertex { Vec2 { -0.75f, -0.75f } } ;

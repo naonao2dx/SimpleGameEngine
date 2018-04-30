@@ -16,16 +16,42 @@ Texture2D::Texture2D()
     init();
 }
 
-Texture2D::Texture2D(std::string& filename)
-:_filename(filename)
+Texture2D::Texture2D(std::string& filename, bool useMipmap, GLuint magFilter, GLuint minFilter)
+: _filename(filename)
+, _useMipMap(useMipmap)
+, _magFilter(magFilter)
+, _minFilter(minFilter)
+{
+    initWithTexture();
+}
+
+Texture2D::Texture2D(std::vector<std::string> filenames, GLuint magFilter, GLuint minFilter)
+: _filenames(filenames)
+, _magFilter(magFilter)
+, _minFilter(minFilter)
+{
+    initWithMipMap();
+}
+
+bool Texture2D::initWithTexture()
 {
     init();
+    setShaderTexture();
+    
+    return true;
+};
+
+bool Texture2D::initWithMipMap()
+{
+    init();
+    setShaderTextureWithMipmap();
+    
+    return true;
 }
 
 bool Texture2D::init()
 {
     Node::init();
-    setShaderTexture();
     
     Vertex vert1 = Vertex { Vec2 { -0.75f, 0.75f } } ;
     Vertex vert2 = Vertex { Vec2 { -0.75f, -0.75f } } ;
@@ -41,8 +67,6 @@ bool Texture2D::init()
     std::vector<Vertex> uv = { uv1, uv2, uv3, uv4 };
     setVertexUV(uv);
     
-    setFilter(GL_NEAREST, GL_NEAREST);
-    
     return true;
 }
 
@@ -51,18 +75,18 @@ void Texture2D::setVertexUV(const std::vector<Vertex> vertexUV)
     _vertexUV = vertexUV;
 }
 
-void Texture2D::setFilter(GLuint magFilter, GLuint minFilter)
-{
-    _magFilter = magFilter;
-    _minFilter = minFilter;
-}
-
 void Texture2D::setShaderTexture()
 {
     setShaderProgram(ShaderManager::ShaderType::TEXTURE_2D);
-    std::dynamic_pointer_cast<ShaderTexture2D>(_shaderProgram)->setTextureFilename(_filename);
     std::dynamic_pointer_cast<ShaderTexture2D>(_shaderProgram)->setFilter(_magFilter, _minFilter);
-    
+    std::dynamic_pointer_cast<ShaderTexture2D>(_shaderProgram)->setTextureFilename(_filename, _useMipMap);
+}
+
+void Texture2D::setShaderTextureWithMipmap()
+{
+    setShaderProgram(ShaderManager::ShaderType::TEXTURE_2D);
+    std::dynamic_pointer_cast<ShaderTexture2D>(_shaderProgram)->setFilter(_magFilter, _minFilter);
+    std::dynamic_pointer_cast<ShaderTexture2D>(_shaderProgram)->setTextureFilenameWithCustomMimap(_filenames);
 }
 
 void Texture2D::draw()

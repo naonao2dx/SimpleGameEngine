@@ -58,15 +58,44 @@ void ShaderTexture2D::createTexture()
     assert(glGetError() == GL_NO_ERROR);
 }
 
-void ShaderTexture2D::setTextureFilename(std::string& filename) {
+void ShaderTexture2D::setTextureFilename(std::string& filename, bool useGenerateMipmap) {
     std::shared_ptr<RawImage> image = RawImage::createWithFileName(filename, RawImage::TEXTURE_RAW_RGBA8);
     assert(image != nullptr);
     
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image->getWidth(), image->getHeight(), 0, GL_RGBA, GL_UNSIGNED_BYTE, image->getPixelData());
     assert(glGetError() == GL_NO_ERROR);
     
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, _magFilter);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, _minFilter);
+    assert(glGetError() == GL_NO_ERROR);
+    
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    assert(glGetError() == GL_NO_ERROR);
+    
+    if (useGenerateMipmap)
+    {
+        glGenerateMipmap(GL_TEXTURE_2D);
+    }
+}
+
+void ShaderTexture2D::setTextureFilenameWithCustomMimap(std::vector<std::string> filename)
+{
+    int mipmapLevel = 0;
+    
+    for (auto itr = filename.begin(); itr != filename.end(); ++itr)
+    {
+        std::shared_ptr<RawImage> image = nullptr;
+        image = RawImage::createWithFileName(*itr, RawImage::TEXTURE_RAW_RGBA8);
+        
+        glTexImage2D(GL_TEXTURE_2D, mipmapLevel, GL_RGBA, image->getWidth(), image->getHeight(), 0, GL_RGBA, GL_UNSIGNED_BYTE, image->getPixelData());
+        assert(glGetError() == GL_NO_ERROR);
+        
+         ++mipmapLevel;
+    }
+    
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, _magFilter);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, _minFilter);
     assert(glGetError() == GL_NO_ERROR);
     
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);

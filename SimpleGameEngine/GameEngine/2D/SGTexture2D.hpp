@@ -16,19 +16,24 @@ namespace SimpleGameEngine {
     {
     public:
         Texture2D();
-        Texture2D(std::string& filename);
+        Texture2D(std::string& filename, bool useMipMap, GLuint magFilter = GL_NEAREST, GLuint minFilter = GL_NEAREST);
+        Texture2D(std::vector<std::string> filenames, GLuint magFilter = GL_NEAREST, GLuint minFilter = GL_NEAREST_MIPMAP_NEAREST);
         void setShaderTexture();
+        void setShaderTextureWithMipmap();
         void setTextureFilename(std::string& filename);
         void setVertexUV(const std::vector<Vertex> vertexUV);
-        void setFilter(GLuint magFilter, GLuint minFilter);
     protected:
+        bool initWithTexture();
+        bool initWithMipMap();
         virtual bool init() override;
         virtual void draw() override;
     private:
         std::string _filename;
+        std::vector<std::string> _filenames;
         std::vector<Vertex> _vertexUV;
         GLuint _magFilter;
         GLuint _minFilter;
+        bool _useMipMap;
     };
 }
 
