@@ -18,19 +18,20 @@ namespace SimpleGameEngine {
     public:
         ShaderTexture2D(const GLchar* vertShaderSource, const GLchar* fragShaderSource);
         ~ShaderTexture2D();
-        void setTextureFilename(std::string& filename, bool useGenerateMipmap);
-        void setTextureFilenameWithCustomMimap(std::vector<std::string> filename);
+        GLuint setTextureFilename(std::string& filename, bool useGenerateMipmap);
+        GLuint setTextureFilenameWithCustomMimap(std::vector<std::string> filename);
+        void bindTexture(GLuint textureID);
         void setVertexUV(const std::vector<Vertex> vertexUV);
         void setFilter(GLuint magFilter, GLuint minFilter);
         virtual void draw() override;
         
     private:
         bool init();
-        void createTexture();
+        GLuint createTexture();
         GLint _attrPos;
         GLint _attrUV;
         GLint _unifTexture;
-        GLuint _textureID;
+        std::vector<GLuint> _textureID;
         std::vector<Vertex> _vertexUV;
         GLuint _magFilter;
         GLuint _minFilter;

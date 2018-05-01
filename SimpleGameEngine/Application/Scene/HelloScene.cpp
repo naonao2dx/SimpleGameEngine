@@ -82,13 +82,25 @@ bool HelloScene::init()
     std::string filename("headphone.png");
     std::shared_ptr<Texture2D> tex = std::make_shared<Texture2D>(filename, false);
     
-    Vertex vert11 = Vertex { Vec2 { -0.75f, 0.75f } } ;
-    Vertex vert12 = Vertex { Vec2 { -0.75f, -0.75f } } ;
-    Vertex vert13 = Vertex { Vec2 { 0.75f, 0.75f } } ;
-    Vertex vert14 = Vertex { Vec2 { 0.75f, -0.75f } };
+    Vertex vert11 = Vertex { Vec2 { -1.0f, 1.0f } } ;
+    Vertex vert12 = Vertex { Vec2 { -1.0f, 0.0f } } ;
+    Vertex vert13 = Vertex { Vec2 { 0.0f, 1.0f } } ;
+    Vertex vert14 = Vertex { Vec2 { 0.0f, 0.0f } };
     std::vector<Vertex> vertex4 = { vert11, vert12, vert13, vert14 };
     tex->setVertex(vertex4);
     addChild(tex);
+    
+    // Sample Texture2
+    std::string filename2("headphone2.png");
+    std::shared_ptr<Texture2D> tex2 = std::make_shared<Texture2D>(filename2, false);
+    
+    Vertex vert15 = Vertex { Vec2 { 0.0f, 0.0f } } ;
+    Vertex vert16 = Vertex { Vec2 { 0.0f, -1.0f } } ;
+    Vertex vert17 = Vertex { Vec2 { 1.0f, 0.0f } } ;
+    Vertex vert18 = Vertex { Vec2 { 1.0f, -1.0f } };
+    std::vector<Vertex> vertex5 = { vert15, vert16, vert17, vert18 };
+    tex2->setVertex(vertex5);
+    addChild(tex2);
     
     return true;
 }

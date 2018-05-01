@@ -79,18 +79,19 @@ void Texture2D::setShaderTexture()
 {
     setShaderProgram(ShaderManager::ShaderType::TEXTURE_2D);
     std::dynamic_pointer_cast<ShaderTexture2D>(_shaderProgram)->setFilter(_magFilter, _minFilter);
-    std::dynamic_pointer_cast<ShaderTexture2D>(_shaderProgram)->setTextureFilename(_filename, _useMipMap);
+    _textureID = std::dynamic_pointer_cast<ShaderTexture2D>(_shaderProgram)->setTextureFilename(_filename, _useMipMap);
 }
 
 void Texture2D::setShaderTextureWithMipmap()
 {
     setShaderProgram(ShaderManager::ShaderType::TEXTURE_2D);
     std::dynamic_pointer_cast<ShaderTexture2D>(_shaderProgram)->setFilter(_magFilter, _minFilter);
-    std::dynamic_pointer_cast<ShaderTexture2D>(_shaderProgram)->setTextureFilenameWithCustomMimap(_filenames);
+    _textureID = std::dynamic_pointer_cast<ShaderTexture2D>(_shaderProgram)->setTextureFilenameWithCustomMimap(_filenames);
 }
 
 void Texture2D::draw()
 {
+    std::dynamic_pointer_cast<ShaderTexture2D>(_shaderProgram)->bindTexture(_textureID);
     _shaderProgram->setVertex(_vertex);
     std::dynamic_pointer_cast<ShaderTexture2D>(_shaderProgram)->setVertexUV(_vertexUV);
     _shaderProgram->draw();

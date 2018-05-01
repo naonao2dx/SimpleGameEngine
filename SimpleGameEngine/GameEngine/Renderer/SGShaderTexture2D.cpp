@@ -15,14 +15,13 @@ using namespace SimpleGameEngine;
 ShaderTexture2D::ShaderTexture2D(const GLchar* vertShaderSource, const GLchar* fragShaderSource)
 {
     createShader(vertShaderSource, fragShaderSource);
-    createTexture();
     init();
 }
 
 ShaderTexture2D::~ShaderTexture2D()
 {
     glBindTexture(GL_TEXTURE_2D, 0);
-    glDeleteTextures(1, &_textureID);
+    glDeleteTextures(static_cast<GLsizei>(_textureID.size()), &(*_textureID.begin()));
     assert(glGetError == GL_NO_ERROR);
 }
 
@@ -45,20 +44,28 @@ void ShaderTexture2D::setFilter(GLuint magFilter, GLuint minFilter)
     _minFilter = minFilter;
 }
 
-void ShaderTexture2D::createTexture()
+GLuint ShaderTexture2D::createTexture()
 {
-    glGenTextures(1, &_textureID);
-    assert(_textureID != 0);
+    GLuint textureID;
+    
+    glGenTextures(1, &textureID);
+    assert(textureID != 0);
     assert(glGetError() == GL_NO_ERROR);
     
     glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
     assert(glGetError() == GL_NO_ERROR);
     
-    glBindTexture(GL_TEXTURE_2D, _textureID);
+    glBindTexture(GL_TEXTURE_2D, textureID);
     assert(glGetError() == GL_NO_ERROR);
+    
+    _textureID.push_back(textureID);
+    
+    return textureID;
 }
 
-void ShaderTexture2D::setTextureFilename(std::string& filename, bool useGenerateMipmap) {
+GLuint ShaderTexture2D::setTextureFilename(std::string& filename, bool useGenerateMipmap) {
+    GLuint textureID = createTexture();
+    
     std::shared_ptr<RawImage> image = RawImage::createWithFileName(filename, RawImage::TEXTURE_RAW_RGBA8);
     assert(image != nullptr);
     
@@ -77,10 +84,14 @@ void ShaderTexture2D::setTextureFilename(std::string& filename, bool useGenerate
     {
         glGenerateMipmap(GL_TEXTURE_2D);
     }
+    
+    return textureID;
 }
 
-void ShaderTexture2D::setTextureFilenameWithCustomMimap(std::vector<std::string> filename)
+GLuint ShaderTexture2D::setTextureFilenameWithCustomMimap(std::vector<std::string> filename)
 {
+    GLuint textureID = createTexture();
+    
     int mipmapLevel = 0;
     
     for (auto itr = filename.begin(); itr != filename.end(); ++itr)
@@ -101,6 +112,13 @@ void ShaderTexture2D::setTextureFilenameWithCustomMimap(std::vector<std::string>
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     assert(glGetError() == GL_NO_ERROR);
+    
+    return textureID;
+}
+
+void ShaderTexture2D::bindTexture(GLuint textureID)
+{
+    glBindTexture(GL_TEXTURE_2D, textureID);
 }
 
 void ShaderTexture2D::draw()

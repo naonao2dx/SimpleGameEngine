@@ -31,6 +31,7 @@ namespace SimpleGameEngine {
         std::string _filename;
         std::vector<std::string> _filenames;
         std::vector<Vertex> _vertexUV;
+        GLuint _textureID;
         GLuint _magFilter;
         GLuint _minFilter;
         bool _useMipMap;
