@@ -11,6 +11,7 @@
 #include "SGShaderPositionAndColor.hpp"
 #include "SGShaderVertexColor.hpp"
 #include "SGShaderTexture2D.hpp"
+#include "SGShaderBlendTexture.hpp"
 
 #include "Shader/ShaderPosition.vert"
 #include "Shader/ShaderColor.frag"
@@ -20,6 +21,9 @@
 
 #include "Shader/ShaderTexture2D.vert"
 #include "Shader/ShaderTexture2D.frag"
+
+#include "Shader/ShaderBlendTexture.vert"
+#include "Shader/ShaderBlendTexture.frag"
 
 using namespace SimpleGameEngine;
 
@@ -55,6 +59,9 @@ void ShaderManager::loadDefaultShader()
     
     auto shaderTexture2D = std::make_shared<ShaderTexture2D>(shaderVertTexture2D, shaderFragTexture2D);
     _shaderMap.emplace(TEXTURE_2D, shaderTexture2D);
+    
+    auto shaderBlendTexture = std::make_shared<ShaderBlendTexture>(shaderVertBlendTexture, shaderFragBlendTexture);
+    _shaderMap.emplace(BLEND_TEXTURE, shaderBlendTexture);
 
 }
 

@@ -16,6 +16,7 @@ namespace SimpleGameEngine {
     class ShaderTexture2D : public ShaderProgram
     {
     public:
+        ShaderTexture2D(){};
         ShaderTexture2D(const GLchar* vertShaderSource, const GLchar* fragShaderSource);
         ~ShaderTexture2D();
         GLuint setTextureFilename(std::string& filename, bool useGenerateMipmap);
@@ -25,8 +26,8 @@ namespace SimpleGameEngine {
         void setFilter(GLuint magFilter, GLuint minFilter);
         virtual void draw() override;
         
-    private:
-        bool init();
+    protected:
+        virtual bool init();
         GLuint createTexture();
         GLint _attrPos;
         GLint _attrUV;

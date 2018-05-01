@@ -12,6 +12,8 @@
 #include "../../GameEngine/2D/SGPrimitives.hpp"
 #include "../../GameEngine/Renderer/SGShaderManager.hpp"
 #include "../../GameEngine/2D/SGTexture2D.hpp"
+#include "../../GameEngine/2D/SGBlendTexture.hpp"
+
 using namespace SimpleGameEngine;
 
 std::shared_ptr<Scene> HelloScene::createScene()
@@ -101,6 +103,19 @@ bool HelloScene::init()
     std::vector<Vertex> vertex5 = { vert15, vert16, vert17, vert18 };
     tex2->setVertex(vertex5);
     addChild(tex2);
+    
+    // Sample Blend Texture
+    std::string filename3("azarashi.png");
+    std::string filename4("blend.png");
+    std::shared_ptr<BlendTexture> tex3 = std::make_shared<BlendTexture>(filename3, filename4);
+    
+    Vertex vert19 = Vertex { Vec2 { 0.0f, 1.0f } } ;
+    Vertex vert20 = Vertex { Vec2 { 0.0f, 0.0f } } ;
+    Vertex vert21 = Vertex { Vec2 { 1.0f, 1.0f } } ;
+    Vertex vert22 = Vertex { Vec2 { 1.0f, 0.0f } };
+    std::vector<Vertex> vertex6 = { vert19, vert20, vert21, vert22 };
+    tex3->setVertex(vertex6);
+    addChild(tex3);
     
     return true;
 }

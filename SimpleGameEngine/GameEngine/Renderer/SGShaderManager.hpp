@@ -21,7 +21,8 @@ namespace SimpleGameEngine {
         enum ShaderType {
             POSITION_AND_COLOR,
             VERTEX_COLOR,
-            TEXTURE_2D
+            TEXTURE_2D,
+            BLEND_TEXTURE
         };
         std::shared_ptr<ShaderProgram> getShaderProgram(ShaderType shaderType);
         

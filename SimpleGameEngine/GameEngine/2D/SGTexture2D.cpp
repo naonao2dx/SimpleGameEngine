@@ -13,7 +13,6 @@ using namespace SimpleGameEngine;
 
 Texture2D::Texture2D()
 {
-    init();
 }
 
 Texture2D::Texture2D(std::string& filename, bool useMipmap, GLuint magFilter, GLuint minFilter)

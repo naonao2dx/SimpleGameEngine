@@ -28,8 +28,14 @@ ShaderTexture2D::~ShaderTexture2D()
 bool ShaderTexture2D::init()
 {
     _attrPos = glGetAttribLocation(_shader, "attr_pos");
+    assert(_attrPos >= 0);
+    
     _attrUV = glGetAttribLocation(_shader, "attr_uv");
+    assert(_attrUV >= 0);
+    
     _unifTexture = glGetUniformLocation(_shader, "texture");
+    assert(_unifTexture >= 0);
+    
     return true;
 }
 
@@ -118,6 +124,7 @@ GLuint ShaderTexture2D::setTextureFilenameWithCustomMimap(std::vector<std::strin
 
 void ShaderTexture2D::bindTexture(GLuint textureID)
 {
+    glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, textureID);
 }
 

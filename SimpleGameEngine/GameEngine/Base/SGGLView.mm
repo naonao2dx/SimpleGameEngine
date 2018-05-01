@@ -10,6 +10,7 @@
 #include "SGGLView.h"
 
 #include "../Platform/iOS/SGEAGLView.h"
+#include "../Util/SGConsole.hpp"
 
 using namespace SimpleGameEngine;
 
@@ -29,7 +30,13 @@ bool GLView::initWithEAGLView(void *eaglView)
     
     _screenSize.width = _designResolutionSize.width = [glView getWidth];
     _screenSize.height = _designResolutionSize.height = [glView getHeight];
-
+    
+    GLint textureUnits = 0;
+    glGetIntegerv(GL_MAX_TEXTURE_IMAGE_UNITS, &textureUnits);
+    Console::logDebug("GPU Texture Units %d", textureUnits);
+    
+    const GLchar* const EXTENSIONS = (const GLchar* const) glGetString(GL_EXTENSIONS);
+    Console::logDebug("Extensions :: %s", EXTENSIONS);
     
     return true;
 }
