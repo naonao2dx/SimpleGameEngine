@@ -17,6 +17,7 @@ namespace SimpleGameEngine {
     public:
         Primitives();
         void setShape(GLenum shape);
+        void setColor(const Color4F& color);
         void setLineWidth(GLfloat lineWidth);
         void setShaderPositionAndColor();
         void setShaderVertexColor();
@@ -26,6 +27,7 @@ namespace SimpleGameEngine {
     private:
         GLenum _shape;
         GLfloat _lineWidth;
+        Color4F _color;
     };
 }
 

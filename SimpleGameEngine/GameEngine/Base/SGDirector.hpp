@@ -26,6 +26,8 @@ namespace SimpleGameEngine {
         void mainloop(float dt);
         void drawScene();
         void startScene(std::shared_ptr<Scene> scene);
+        void setDesignResolutionSize(Size designResolutionSize);
+        inline Size getDesignResolutionSize() const { return _designResolutionSize; };
         
         std::shared_ptr<Renderer> _renderer = nullptr;
     private:
@@ -34,6 +36,7 @@ namespace SimpleGameEngine {
         
         std::shared_ptr<Scene> _nextScene = nullptr;
         std::shared_ptr<Scene> _currentScene = nullptr;
+        Size _designResolutionSize;
         
     protected:
         void calculateDeltaTime();

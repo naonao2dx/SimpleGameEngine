@@ -7,6 +7,7 @@
 //
 
 #include "HelloScene.hpp"
+#include "../../GameEngine/Base/SGDirector.hpp"
 #include "../../GameEngine/Base/SGBaseScene.hpp"
 #include "../../GameEngine/Util/SGConsole.hpp"
 #include "../../GameEngine/2D/SGPrimitives.hpp"
@@ -34,6 +35,9 @@ std::shared_ptr<HelloScene> HelloScene::create()
 
 bool HelloScene::init()
 {
+    auto director = Director::getInstance();
+    auto visibleSize = director->getDesignResolutionSize();
+    
     // Sample Primitives 1
     std::shared_ptr<Primitives> tri = std::make_shared<Primitives>();
     
@@ -49,7 +53,7 @@ bool HelloScene::init()
     Color4F color = { 1.0f, 1.0f, 0.0f, 1.0f };
     tri->setColor(color);
     
-    //addChild(tri);
+    addChild(tri);
    
     // Sample Primitives 2
     std::shared_ptr<Primitives> tri2 = std::make_shared<Primitives>();
@@ -66,7 +70,7 @@ bool HelloScene::init()
     Color4F color2 = { 0.0f, 1.0f, 1.0f, 1.0f };
     tri2->setColor(color2);
     
-    //addChild(tri2);
+    addChild(tri2);
     
     // Sample Primitives 3
     std::shared_ptr<Primitives> tri3 = std::make_shared<Primitives>();
@@ -78,7 +82,7 @@ bool HelloScene::init()
     tri3->setVertex(vertex3);
     tri3->setShaderVertexColor();
     tri3->setShape(GL_TRIANGLES);
-    //addChild(tri3);
+    addChild(tri3);
     
     // Sample Texture
     std::string filename("headphone.png");
@@ -90,7 +94,7 @@ bool HelloScene::init()
     Vertex vert14 = Vertex { Vec2 { 0.0f, 0.0f } };
     std::vector<Vertex> vertex4 = { vert11, vert12, vert13, vert14 };
     tex->setVertex(vertex4);
-    addChild(tex);
+    //addChild(tex);
     
     // Sample Texture2
     std::string filename2("headphone2.png");
@@ -102,7 +106,7 @@ bool HelloScene::init()
     Vertex vert18 = Vertex { Vec2 { 1.0f, -1.0f } };
     std::vector<Vertex> vertex5 = { vert15, vert16, vert17, vert18 };
     tex2->setVertex(vertex5);
-    addChild(tex2);
+    //addChild(tex2);
     
     // Sample Blend Texture
     std::string filename3("azarashi.png");
@@ -115,7 +119,7 @@ bool HelloScene::init()
     Vertex vert22 = Vertex { Vec2 { 1.0f, 0.0f } };
     std::vector<Vertex> vertex6 = { vert19, vert20, vert21, vert22 };
     tex3->setVertex(vertex6);
-    addChild(tex3);
+    //addChild(tex3);
     
     return true;
 }

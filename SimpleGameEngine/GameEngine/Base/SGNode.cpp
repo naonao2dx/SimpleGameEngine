@@ -13,8 +13,7 @@ class vector;
 using namespace SimpleGameEngine;
 
 Node::Node()
-: _color(Color4F::WHITE)
-, _shaderType(0)
+: _shaderType(0)
 , _vertex()
 {
 }
@@ -41,23 +40,6 @@ void Node::visit()
         (*it)->visit();
     }
     draw();
-}
-
-GLuint Node::compileShader(GLuint shaderType, const GLchar *source)
-{
-    // Create shader object
-    GLuint shader = glCreateShader(shaderType);
-    // Link shader object and source code
-    glShaderSource(shader, 1, &source, NULL);
-    // Compile GLSL
-    glCompileShader(shader);
-    
-    return shader;
-}
-
-void Node::setColor(const Color4F &color)
-{
-    _color = color;
 }
 
 void Node::setVertex(const std::vector<Vertex> vertex)

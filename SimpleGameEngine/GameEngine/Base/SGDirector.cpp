@@ -87,3 +87,8 @@ void Director::calculateDeltaTime() {
         _deltatime = MAX(0, _deltatime);
     }
 }
+
+void Director::setDesignResolutionSize(SimpleGameEngine::Size designResolutionSize)
+{
+    _designResolutionSize.setSize(designResolutionSize.width, designResolutionSize.height);
+}

@@ -25,15 +25,12 @@ namespace SimpleGameEngine {
         Node();
         void setShaderProgram(ShaderManager::ShaderType shaderType);
         void addChild(const std::shared_ptr<Node> child);
-        void setColor(const Color4F& color);
         virtual void setVertex(const std::vector<Vertex> vertex);
     protected:
         virtual bool init();
         void visit();
         virtual void draw(){};
-        GLuint compileShader(GLuint shaderType, const GLchar *source);
         
-        Color4F _color;
         int _shaderType;
         std::vector<Vertex> _vertex;
         std::vector<std::shared_ptr<Node>> _children;

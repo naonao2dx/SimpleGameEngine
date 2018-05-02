@@ -26,6 +26,8 @@ namespace SimpleGameEngine {
     {
         int width;
         int height;
+        
+        void setSize(int _width, int _height) { width = _width; height = _height; };
     };
 }
 

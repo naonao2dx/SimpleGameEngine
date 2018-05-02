@@ -23,6 +23,7 @@ namespace SimpleGameEngine {
         GLuint bufferFrame;
         
         void* getEAGLView() const { return _eaglView; }
+        inline Size getDesignResolutionSize() const { return _designResolutionSize; };
         
     protected:
         void* _eaglView;

@@ -17,6 +17,8 @@ bool AppDelegate::applicationDidFinishLaunching()
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     
+    director->setDesignResolutionSize(glview->getDesignResolutionSize());
+    
     auto scene = HelloScene::createScene();
     director->startScene(scene);
     

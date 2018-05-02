@@ -50,6 +50,11 @@ void Primitives::setShape(GLenum shape)
     _shape = shape;
 }
 
+void Primitives::setColor(const Color4F& color)
+{
+    _color = color;
+}
+
 void Primitives::setLineWidth(GLfloat lineWidth)
 {
     _lineWidth = lineWidth;
