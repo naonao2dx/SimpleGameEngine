@@ -27,7 +27,6 @@ namespace SimpleGameEngine {
         Node();
         void setShaderProgram(ShaderManager::ShaderType shaderType);
         void addChild(const std::shared_ptr<DrawingObject> child);
-        virtual void setVertex(const std::vector<Vertex> vertex);
         
         inline Vec2& getPosition() { return _position; };
         inline float getPositionX() { return _position.x; };
@@ -61,6 +60,7 @@ namespace SimpleGameEngine {
         float positionYtoNormalizedPositionY(int y);
         int normalizedPositionXtoPositionX(float normalizedPositionX);
         int normalizedPositionYtoPositionY(float normalizedPositionY);
+        void setVertex();
         
         std::shared_ptr<Director> _director;
         int _shaderType;

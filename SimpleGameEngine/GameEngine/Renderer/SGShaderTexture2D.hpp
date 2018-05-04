@@ -13,14 +13,15 @@
 #include <string>
 
 namespace SimpleGameEngine {
+    class Texture2D;
     class ShaderTexture2D : public ShaderProgram
     {
     public:
         ShaderTexture2D(){};
         ShaderTexture2D(const GLchar* vertShaderSource, const GLchar* fragShaderSource);
         ~ShaderTexture2D();
-        GLuint setTextureFilename(std::string& filename, bool useGenerateMipmap);
-        GLuint setTextureFilenameWithCustomMimap(std::vector<std::string> filename);
+        GLuint setTexture(std::shared_ptr<Texture2D> texture2d, bool useGenerateMipmap);
+        GLuint setTextureWithCustomMimap(std::vector<std::shared_ptr<Texture2D>> texture2ds);
         void bindTexture(GLuint textureID);
         void setVertexUV(const std::vector<Vertex> vertexUV);
         void setFilter(GLuint magFilter, GLuint minFilter);

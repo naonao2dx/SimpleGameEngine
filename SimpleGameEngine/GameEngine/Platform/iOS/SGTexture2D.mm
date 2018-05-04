@@ -1,5 +1,5 @@
 //
-//  SGRawImage.cpp
+//  SGTexture2D.cpp
 //  SimpleGameEngine
 //
 //  Created by 竹内 直 on 2018/04/25.
@@ -7,7 +7,7 @@
 //
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#include "SGRawImage.hpp"
+#include "SGTexture2D.hpp"
 #include "../../Util/SGConsole.hpp"
 #include <assert.h>
 #include <string>
@@ -16,12 +16,12 @@
 
 using namespace SimpleGameEngine;
 
-std::shared_ptr<RawImage> RawImage::createWithFileName(std::string& cppFileName, int rawFormat)
+std::shared_ptr<Texture2D> Texture2D::createWithFileName(std::string& cppFileName, int rawFormat)
 {
-    std::shared_ptr<RawImage> rawImage = std::make_shared<RawImage>();
+    std::shared_ptr<Texture2D> texture2d = std::make_shared<Texture2D>();
     
     int pixelSize = 0;
-    rawImage->_format = rawFormat;
+    texture2d->_format = rawFormat;
     
     switch (rawFormat) {
         case TEXTURE_RAW_RGBA8:
@@ -46,34 +46,34 @@ std::shared_ptr<RawImage> RawImage::createWithFileName(std::string& cppFileName,
     }
     
     CGImageRef cgimage = image.CGImage;
-    rawImage->_width = (int)CGImageGetWidth(cgimage);
-    rawImage->_height = (int)CGImageGetHeight(cgimage);
-    rawImage->_pixelByte = (int)CGImageGetBitsPerPixel(cgimage) / 8;
-    UInt8 *rgba = (unsigned char*)malloc(rawImage->_width * rawImage->_height * 4);
-    rawImage->_pixelData = (void*)rgba;
+    texture2d->_width = (int)CGImageGetWidth(cgimage);
+    texture2d->_height = (int)CGImageGetHeight(cgimage);
+    texture2d->_pixelByte = (int)CGImageGetBitsPerPixel(cgimage) / 8;
+    UInt8 *rgba = (unsigned char*)malloc(texture2d->_width * texture2d->_height * 4);
+    texture2d->_pixelData = (void*)rgba;
     
-    assert(rawImage->_pixelByte == 3 || rawImage->_pixelByte == 4);
+    assert(texture2d->_pixelByte == 3 || texture2d->_pixelByte == 4);
     
     CGDataProviderRef provider = CGImageGetDataProvider(cgimage);
     CFDataRef data = CGDataProviderCopyData(provider);
     
-    rawImage->_rawPixels = (void*)CFDataGetBytePtr(data);
+    texture2d->_rawPixels = (void*)CFDataGetBytePtr(data);
     
-    switch(rawImage->_pixelByte) {
+    switch(texture2d->_pixelByte) {
         case 3:
             break;
         case 4:
-            rawImage->convertColorRGBA();
+            texture2d->convertColorRGBA();
             break;
     }
     
     CFRelease(data);
     image = nil;
     
-    return rawImage;
+    return texture2d;
 }
 
-void RawImage::convertColorRGBA()
+void Texture2D::convertColorRGBA()
 {
     int pixels = _width * _height;
     unsigned char* src_rgba8888 = (unsigned char*) _rawPixels;
@@ -88,7 +88,7 @@ void RawImage::convertColorRGBA()
     }
 }
 
-RawImage::RawImage()
+Texture2D::Texture2D()
 {
     
 }

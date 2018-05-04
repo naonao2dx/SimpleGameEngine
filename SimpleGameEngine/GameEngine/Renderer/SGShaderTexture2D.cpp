@@ -7,7 +7,7 @@
 //
 
 #include "SGShaderTexture2D.hpp"
-#include "../Platform/iOS/SGRawImage.hpp"
+#include "../Platform/iOS/SGTexture2D.hpp"
 #include <assert.h>
 
 using namespace SimpleGameEngine;
@@ -69,13 +69,10 @@ GLuint ShaderTexture2D::createTexture()
     return textureID;
 }
 
-GLuint ShaderTexture2D::setTextureFilename(std::string& filename, bool useGenerateMipmap) {
+GLuint ShaderTexture2D::setTexture(std::shared_ptr<Texture2D> texture2d, bool useGenerateMipmap) {
     GLuint textureID = createTexture();
     
-    std::shared_ptr<RawImage> image = RawImage::createWithFileName(filename, RawImage::TEXTURE_RAW_RGBA8);
-    assert(image != nullptr);
-    
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image->getWidth(), image->getHeight(), 0, GL_RGBA, GL_UNSIGNED_BYTE, image->getPixelData());
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, texture2d->getWidth(), texture2d->getHeight(), 0, GL_RGBA, GL_UNSIGNED_BYTE, texture2d->getPixelData());
     assert(glGetError() == GL_NO_ERROR);
     
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, _magFilter);
@@ -94,21 +91,17 @@ GLuint ShaderTexture2D::setTextureFilename(std::string& filename, bool useGenera
     return textureID;
 }
 
-GLuint ShaderTexture2D::setTextureFilenameWithCustomMimap(std::vector<std::string> filename)
+GLuint ShaderTexture2D::setTextureWithCustomMimap(std::vector<std::shared_ptr<Texture2D>> texture2ds)
 {
     GLuint textureID = createTexture();
     
     int mipmapLevel = 0;
     
-    for (auto itr = filename.begin(); itr != filename.end(); ++itr)
-    {
-        std::shared_ptr<RawImage> image = nullptr;
-        image = RawImage::createWithFileName(*itr, RawImage::TEXTURE_RAW_RGBA8);
-        
-        glTexImage2D(GL_TEXTURE_2D, mipmapLevel, GL_RGBA, image->getWidth(), image->getHeight(), 0, GL_RGBA, GL_UNSIGNED_BYTE, image->getPixelData());
+    for (auto itr = texture2ds.begin(); itr != texture2ds.end(); ++itr) {
+        glTexImage2D(GL_TEXTURE_2D, mipmapLevel, GL_RGBA, (*itr)->getWidth(), (*itr)->getHeight(), 0, GL_RGBA, GL_UNSIGNED_BYTE, (*itr)->getPixelData());
         assert(glGetError() == GL_NO_ERROR);
         
-         ++mipmapLevel;
+        ++mipmapLevel;
     }
     
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, _magFilter);
