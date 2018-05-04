@@ -14,7 +14,7 @@
 #include "../Base/SGDirector.hpp"
 
 namespace SimpleGameEngine {
-    class Primitives : public Node
+    class Primitives : public DrawingObject
     {
     public:
         static std::shared_ptr<Primitives> create(int shapeType);
@@ -23,7 +23,6 @@ namespace SimpleGameEngine {
         void setNormalizedVertex(std::vector<Vertex> &normalizedVertex);
         void setColor(const Color4F& color);
         void setLineWidth(GLfloat lineWidth);
-        void draw();
         inline std::vector<Vertex> getVertex() const { return _vertex; };
         inline std::vector<Vertex> getNormalizedVertex() const { return _normalizedVertex; };
         inline Color4F getColor() const { return _color; };
@@ -43,6 +42,8 @@ namespace SimpleGameEngine {
         Color4F _color;
         std::shared_ptr<ShaderManager> _shaderManager;
         std::shared_ptr<ShaderProgram> _shaderProgram;
+        inline virtual void visit() override { draw(); };
+        virtual void draw() override;
     };
 }
 

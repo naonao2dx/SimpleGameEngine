@@ -24,7 +24,7 @@ bool Node::init()
     return true;
 }
 
-void Node::addChild(std::shared_ptr<Node> child)
+void Node::addChild(const std::shared_ptr<DrawingObject> child)
 {
     _children.push_back(child);
 }

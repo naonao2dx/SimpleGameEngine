@@ -98,6 +98,7 @@
 		FD59DF902060ECBD005EF629 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		FD59DF922060ECC5005EF629 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		FD809D8720976FFB000290D5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		FD809D92209BF7BF000290D5 /* SGDrawingObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGDrawingObject.hpp; sourceTree = "<group>"; };
 		FDEC439A207F6A7900BD059F /* SGRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGRenderer.cpp; sourceTree = "<group>"; };
 		FDEC439B207F6A7900BD059F /* SGRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGRenderer.hpp; sourceTree = "<group>"; };
 		FDEC43D72085AA7F00BD059F /* SGBaseScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGBaseScene.cpp; sourceTree = "<group>"; };
@@ -223,6 +224,7 @@
 				FDEC43DE2085AF1100BD059F /* SGNode.cpp */,
 				FDEC43DF2085AF1100BD059F /* SGNode.hpp */,
 				FD4BA6E4209037AF00BE3711 /* SGVertex.h */,
+				FD809D92209BF7BF000290D5 /* SGDrawingObject.hpp */,
 			);
 			path = Base;
 			sourceTree = "<group>";
