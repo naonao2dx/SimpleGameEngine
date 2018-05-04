@@ -13,9 +13,9 @@
 #include <chrono>
 #include "SGGLView.h"
 #include "../Renderer/SGRenderer.hpp"
-#include "SGBaseScene.hpp"
 
 namespace SimpleGameEngine {
+    class Scene;
     class Director
     {
     public:

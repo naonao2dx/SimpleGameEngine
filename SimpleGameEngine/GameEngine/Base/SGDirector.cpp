@@ -11,6 +11,7 @@
 #include <iostream>
 #include "SGDirector.hpp"
 #include "SGConsole.hpp"
+#include "SGBaseScene.hpp"
 
 #define MAX(x,y) (((x) < (y)) ? (y) : (x))
 

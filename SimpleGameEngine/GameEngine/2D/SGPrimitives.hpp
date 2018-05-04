@@ -12,6 +12,7 @@
 #include "../Renderer/SGShaderManager.hpp"
 #include "../Renderer/SGShaderProgram.hpp"
 #include "../Base/SGDirector.hpp"
+#include "../Base/SGDrawingObject.hpp"
 
 namespace SimpleGameEngine {
     class Primitives : public DrawingObject
