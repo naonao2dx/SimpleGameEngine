@@ -9,28 +9,21 @@
 #ifndef SGSpriteBlend_hpp
 #define SGSpriteBlend_hpp
 
-#include "../Base/SGNode.hpp"
+#include "SGNode.hpp"
 
 namespace SimpleGameEngine {
-    class RawImage;
+    class Texture2D;
     class SpriteBlend : public Node
     {
     public:
         static std::shared_ptr<SpriteBlend> create(std::string& textureFilename, std::string& blendTextureFilename);
-        void setVertexUV(const std::vector<Vertex> vertexUV);
-        virtual ~SpriteBlend(){};
     protected:
-        SpriteBlend(){};
-        SpriteBlend(std::shared_ptr<RawImage> rawImage, std::shared_ptr<RawImage> blendRawImage);
+        SpriteBlend(std::shared_ptr<Texture2D> texture2d, std::shared_ptr<Texture2D> blendTexture2d);
     private:
-        bool init();
-        std::vector<Vertex> _vertexUV;
-        void setShaderSpriteBlend();
-        std::shared_ptr<RawImage> _rawImage;
-        std::shared_ptr<RawImage> _blendRawImage;
-        GLuint _textureID;
-        GLuint _blendTextureID;
-        void draw();
+        virtual bool init() override;
+        virtual void draw() override;
+        std::shared_ptr<Texture2D> _texture2d;
+        std::shared_ptr<Texture2D> _blendTexture2d;
     };
 }
 

@@ -9,8 +9,8 @@
 #include <memory>
 #include "SGGLView.h"
 
-#include "../Platform/iOS/SGEAGLView.h"
-#include "../Util/SGConsole.hpp"
+#include "SGEAGLView.h"
+#include "SGConsole.hpp"
 
 using namespace SimpleGameEngine;
 

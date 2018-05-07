@@ -29,6 +29,4 @@ namespace SimpleGameEngine {
     };
 }
 
-
-
 #endif /* SGShaderBlendTexture_hpp */

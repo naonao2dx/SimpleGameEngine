@@ -7,7 +7,7 @@
 //
 
 #include <memory>
-#include "../../Base/SGDirector.hpp"
+#include "SGDirector.hpp"
 #import <UIKit/UIKit.h>
 #import <mach/mach_time.h>
 #import "SGDirectorCaller.h"

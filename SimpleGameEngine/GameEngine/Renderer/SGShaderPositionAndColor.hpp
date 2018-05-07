@@ -10,8 +10,8 @@
 #define SGShaderPositionAndColor_hpp
 
 #include "SGShaderProgram.hpp"
-#include "../Util/SGGeometry.hpp"
-#include "../Util/SGColor.hpp"
+#include "SGGeometry.hpp"
+#include "SGColor.hpp"
 
 namespace SimpleGameEngine {
     class ShaderPositionAndColor : public ShaderProgram

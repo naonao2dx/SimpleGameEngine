@@ -82,14 +82,14 @@ bool HelloScene::init()
 
     // Sample Texture
     std::string filename("headphone.png");
-    std::shared_ptr<Sprite> tex = Sprite::create(filename, false);
+    std::shared_ptr<Sprite> tex = Sprite::create(filename);
     tex->setPosition(45, 45);
     tex->setContentSize(90, 90);
     addChild(tex);
 
     // Sample Texture2
     std::string filename2("headphone2.png");
-    std::shared_ptr<Sprite> tex2 = Sprite::create(filename2, true, GL_NEAREST, GL_LINEAR_MIPMAP_NEAREST);
+    std::shared_ptr<Sprite> tex2 = Sprite::create(filename2);
     tex2->setPosition(135, 135);
     tex2->setContentSize(90, 90);
     addChild(tex2);

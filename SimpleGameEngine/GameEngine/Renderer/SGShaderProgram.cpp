@@ -8,8 +8,8 @@
 
 #include <OpenGLES/ES2/gl.h>
 #include "SGShaderProgram.hpp"
-#include "../Util/SGConsole.hpp"
-#include "../Util/SGFileUtils.hpp"
+#include "SGConsole.hpp"
+#include "SGFileUtils.hpp"
 #include <assert.h>
 
 using namespace SimpleGameEngine;

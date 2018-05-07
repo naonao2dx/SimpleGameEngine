@@ -12,9 +12,9 @@
 #include <memory>
 #include <vector>
 #include <OpenGLES/ES2/gl.h>
-#include "../Util/SGGeometry.hpp"
-#include "../Util/SGColor.hpp"
-#include "../Base/SGVertex.h"
+#include "SGGeometry.hpp"
+#include "SGColor.hpp"
+#include "SGVertex.h"
 
 namespace SimpleGameEngine {
     class ShaderProgram

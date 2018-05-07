@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #include "SGRawImage.hpp"
-#include "../../Util/SGConsole.hpp"
+#include "SGConsole.hpp"
 #include <assert.h>
 #include <string>
 #include <memory>

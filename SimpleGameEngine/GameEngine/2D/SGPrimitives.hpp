@@ -9,10 +9,10 @@
 #ifndef SGPrimitives_hpp
 #define SGPrimitives_hpp
 
-#include "../Renderer/SGShaderManager.hpp"
-#include "../Renderer/SGShaderProgram.hpp"
-#include "../Base/SGDirector.hpp"
-#include "../Base/SGDrawingObject.hpp"
+#include "SGShaderManager.hpp"
+#include "SGShaderProgram.hpp"
+#include "SGDirector.hpp"
+#include "SGDrawingObject.hpp"
 
 namespace SimpleGameEngine {
     class Primitives : public DrawingObject

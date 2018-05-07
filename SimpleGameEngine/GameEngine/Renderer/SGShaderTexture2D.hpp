@@ -20,8 +20,6 @@ namespace SimpleGameEngine {
         ShaderTexture2D(){};
         ShaderTexture2D(const GLchar* vertShaderSource, const GLchar* fragShaderSource);
         ~ShaderTexture2D();
-        GLuint setTexture(std::shared_ptr<RawImage> rawImage, bool useGenerateMipmap);
-        GLuint setTextureWithCustomMimap(std::vector<std::shared_ptr<RawImage>> texture2ds);
         void bindTexture(GLuint textureID);
         void setVertexUV(const std::vector<Vertex> vertexUV);
         void setFilter(GLuint magFilter, GLuint minFilter);
@@ -29,11 +27,9 @@ namespace SimpleGameEngine {
         
     protected:
         virtual bool init();
-        GLuint createTexture();
         GLint _attrPos;
         GLint _attrUV;
         GLint _unifTexture;
-        std::vector<GLuint> _textureID;
         std::vector<Vertex> _vertexUV;
         GLuint _magFilter;
         GLuint _minFilter;

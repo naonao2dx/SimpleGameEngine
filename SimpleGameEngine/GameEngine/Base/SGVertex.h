@@ -9,13 +9,18 @@
 #ifndef SGVertex_h
 #define SGVertex_h
 
+#include "SGGeometry.hpp"
+#include "SGColor.hpp"
+
 namespace SimpleGameEngine {
-    struct Vec2;
-    struct Color4B;
     struct Vertex
     {
         Vec2 _position;
         Color4B _color;
+        
+        Vertex();
+        Vertex(Vec2 position);
+        Vertex(Vec2 position, Color4B color);
     };
 }
 #endif /* SGVertex_h */

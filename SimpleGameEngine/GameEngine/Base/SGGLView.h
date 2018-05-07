@@ -11,7 +11,7 @@
 
 #include <memory>
 #include <OpenGLES/ES2/gl.h>
-#include "../Util/SGGeometry.hpp"
+#include "SGGeometry.hpp"
 
 namespace SimpleGameEngine {
     class GLView

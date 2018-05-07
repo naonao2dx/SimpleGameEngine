@@ -13,6 +13,8 @@
 using namespace SimpleGameEngine;
 
 ShaderTexture2D::ShaderTexture2D(const GLchar* vertShaderSource, const GLchar* fragShaderSource)
+: _magFilter(GL_NEAREST)
+, _minFilter(GL_NEAREST)
 {
     createShader(vertShaderSource, fragShaderSource);
     init();
@@ -20,9 +22,6 @@ ShaderTexture2D::ShaderTexture2D(const GLchar* vertShaderSource, const GLchar* f
 
 ShaderTexture2D::~ShaderTexture2D()
 {
-    glBindTexture(GL_TEXTURE_2D, 0);
-    glDeleteTextures(static_cast<GLsizei>(_textureID.size()), &(*_textureID.begin()));
-    assert(glGetError == GL_NO_ERROR);
 }
 
 bool ShaderTexture2D::init()
@@ -48,71 +47,6 @@ void ShaderTexture2D::setFilter(GLuint magFilter, GLuint minFilter)
 {
     _magFilter = magFilter;
     _minFilter = minFilter;
-}
-
-GLuint ShaderTexture2D::createTexture()
-{
-    GLuint textureID;
-    
-    glGenTextures(1, &textureID);
-    assert(textureID != 0);
-    assert(glGetError() == GL_NO_ERROR);
-    
-    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-    assert(glGetError() == GL_NO_ERROR);
-    
-    glBindTexture(GL_TEXTURE_2D, textureID);
-    assert(glGetError() == GL_NO_ERROR);
-    
-    _textureID.push_back(textureID);
-    
-    return textureID;
-}
-
-GLuint ShaderTexture2D::setTexture(std::shared_ptr<RawImage> rawImage, bool useGenerateMipmap) {
-    GLuint textureID = createTexture();
-    
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, rawImage->getWidth(), rawImage->getHeight(), 0, GL_RGBA, GL_UNSIGNED_BYTE, rawImage->getPixelData());
-    assert(glGetError() == GL_NO_ERROR);
-    
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, _magFilter);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, _minFilter);
-    assert(glGetError() == GL_NO_ERROR);
-    
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    assert(glGetError() == GL_NO_ERROR);
-    
-    if (useGenerateMipmap)
-    {
-        glGenerateMipmap(GL_TEXTURE_2D);
-    }
-    
-    return textureID;
-}
-
-GLuint ShaderTexture2D::setTextureWithCustomMimap(std::vector<std::shared_ptr<RawImage>> rawImages)
-{
-    GLuint textureID = createTexture();
-    
-    int mipmapLevel = 0;
-    
-    for (auto itr = rawImages.begin(); itr != rawImages.end(); ++itr) {
-        glTexImage2D(GL_TEXTURE_2D, mipmapLevel, GL_RGBA, (*itr)->getWidth(), (*itr)->getHeight(), 0, GL_RGBA, GL_UNSIGNED_BYTE, (*itr)->getPixelData());
-        assert(glGetError() == GL_NO_ERROR);
-        
-        ++mipmapLevel;
-    }
-    
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, _magFilter);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, _minFilter);
-    assert(glGetError() == GL_NO_ERROR);
-    
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    assert(glGetError() == GL_NO_ERROR);
-    
-    return textureID;
 }
 
 void ShaderTexture2D::bindTexture(GLuint textureID)

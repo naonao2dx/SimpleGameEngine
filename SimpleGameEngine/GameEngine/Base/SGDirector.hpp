@@ -12,7 +12,7 @@
 #include <memory>
 #include <chrono>
 #include "SGGLView.h"
-#include "../Renderer/SGRenderer.hpp"
+#include "SGRenderer.hpp"
 
 namespace SimpleGameEngine {
     class Scene;

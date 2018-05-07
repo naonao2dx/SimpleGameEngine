@@ -13,10 +13,10 @@
 #include <vector>
 #include <OpenGLES/ES2/gl.h>
 #include "SGDrawingObject.hpp"
-#include "../Util/SGGeometry.hpp"
-#include "../Util/SGColor.hpp"
-#include "../Renderer/SGShaderManager.hpp"
-#include "../Base/SGVertex.h"
+#include "SGGeometry.hpp"
+#include "SGColor.hpp"
+#include "SGShaderManager.hpp"
+#include "SGVertex.h"
 
 
 namespace SimpleGameEngine {

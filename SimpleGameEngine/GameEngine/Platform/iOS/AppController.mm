@@ -7,10 +7,10 @@
 //
 #import "AppController.h"
 #import "RootViewController.h"
-#import "../../Base/SGDirector.hpp"
-#import "../../Base/SGGLView.h"
-#import "../../Base/SGApplication.hpp"
-#import "../../Util/SGFileUtils.hpp"
+#import "SGDirector.hpp"
+#import "SGGLView.h"
+#import "SGApplication.hpp"
+#import "SGFileUtils.hpp"
 
 @implementation AppController
 

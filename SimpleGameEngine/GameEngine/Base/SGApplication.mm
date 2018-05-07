@@ -7,8 +7,8 @@
 //
 
 #import "SGApplication.hpp"
-#import "../Platform/iOS/SGDirectorCaller.h"
-#import "../../Application/AppDelegate.hpp"
+#import "SGDirectorCaller.h"
+#import "AppDelegate.hpp"
 
 using namespace SimpleGameEngine;
 
