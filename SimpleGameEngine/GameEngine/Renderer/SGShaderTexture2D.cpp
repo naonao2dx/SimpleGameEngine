@@ -7,7 +7,7 @@
 //
 
 #include "SGShaderTexture2D.hpp"
-#include "../Platform/iOS/SGTexture2D.hpp"
+#include "../Platform/iOS/SGRawImage.hpp"
 #include <assert.h>
 
 using namespace SimpleGameEngine;
@@ -69,10 +69,10 @@ GLuint ShaderTexture2D::createTexture()
     return textureID;
 }
 
-GLuint ShaderTexture2D::setTexture(std::shared_ptr<Texture2D> texture2d, bool useGenerateMipmap) {
+GLuint ShaderTexture2D::setTexture(std::shared_ptr<RawImage> rawImage, bool useGenerateMipmap) {
     GLuint textureID = createTexture();
     
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, texture2d->getWidth(), texture2d->getHeight(), 0, GL_RGBA, GL_UNSIGNED_BYTE, texture2d->getPixelData());
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, rawImage->getWidth(), rawImage->getHeight(), 0, GL_RGBA, GL_UNSIGNED_BYTE, rawImage->getPixelData());
     assert(glGetError() == GL_NO_ERROR);
     
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, _magFilter);
@@ -91,13 +91,13 @@ GLuint ShaderTexture2D::setTexture(std::shared_ptr<Texture2D> texture2d, bool us
     return textureID;
 }
 
-GLuint ShaderTexture2D::setTextureWithCustomMimap(std::vector<std::shared_ptr<Texture2D>> texture2ds)
+GLuint ShaderTexture2D::setTextureWithCustomMimap(std::vector<std::shared_ptr<RawImage>> rawImages)
 {
     GLuint textureID = createTexture();
     
     int mipmapLevel = 0;
     
-    for (auto itr = texture2ds.begin(); itr != texture2ds.end(); ++itr) {
+    for (auto itr = rawImages.begin(); itr != rawImages.end(); ++itr) {
         glTexImage2D(GL_TEXTURE_2D, mipmapLevel, GL_RGBA, (*itr)->getWidth(), (*itr)->getHeight(), 0, GL_RGBA, GL_UNSIGNED_BYTE, (*itr)->getPixelData());
         assert(glGetError() == GL_NO_ERROR);
         

@@ -6,40 +6,41 @@
 //  Copyright © 2018年 Nao. All rights reserved.
 //
 
+#include <assert.h>
 #include "SGSprite.hpp"
-#include "../Platform/iOS/SGTexture2D.hpp"
+#include "../Platform/iOS/SGRawImage.hpp"
 #include "../Renderer/SGShaderTexture2D.hpp"
 
 using namespace SimpleGameEngine;
 
 std::shared_ptr<Sprite> Sprite::create(std::string& filename, bool useMipmap, GLuint magFilter, GLuint minFilter)
 {
-    std::shared_ptr<Texture2D> texture2d(Texture2D::createWithFileName(filename, Texture2D::TEXTURE_RAW_RGBA8));
-    assert(texture2d != nullptr);
+    std::shared_ptr<RawImage> rawImage(RawImage::createWithFileName(filename, RawImage::TEXTURE_RAW_RGBA8));
+    assert(rawImage != nullptr);
 
-    std::shared_ptr<Sprite> result(new (std::nothrow) Sprite(std::move(texture2d), useMipmap, magFilter, minFilter));
+    std::shared_ptr<Sprite> result(new (std::nothrow) Sprite(std::move(rawImage), useMipmap, magFilter, minFilter));
     
     return result;
 }
 
 std::shared_ptr<Sprite> Sprite::createWithCustomMipmap(std::vector<std::string> filenames, GLuint magFilter, GLuint minFilter)
 {
-    std::vector<std::shared_ptr<Texture2D>> texture2ds;
+    std::vector<std::shared_ptr<RawImage>> rawImages;
     for (auto itr = filenames.begin(); itr != filenames.end(); ++itr)
     {
-        std::shared_ptr<Texture2D> texture2d(Texture2D::createWithFileName(*itr, Texture2D::TEXTURE_RAW_RGBA8));
-        assert(texture2d != nullptr);
+        std::shared_ptr<RawImage> rawImage(RawImage::createWithFileName(*itr, RawImage::TEXTURE_RAW_RGBA8));
+        assert(rawImage != nullptr);
         
-        texture2ds.emplace_back(texture2d);
+        rawImages.emplace_back(rawImage);
     }
     
-    std::shared_ptr<Sprite> result(new (std::nothrow) Sprite(std::move(texture2ds), magFilter, minFilter));
+    std::shared_ptr<Sprite> result(new (std::nothrow) Sprite(std::move(rawImages), magFilter, minFilter));
     
     return result;
 }
 
-Sprite::Sprite(std::shared_ptr<Texture2D> texture2d, bool useMipmap, GLuint magFilter, GLuint minFilter)
-: _texture2d(texture2d)
+Sprite::Sprite(std::shared_ptr<RawImage> rawImage, bool useMipmap, GLuint magFilter, GLuint minFilter)
+: _rawImage(rawImage)
 , _useMipmap(useMipmap)
 , _magFilter(magFilter)
 , _minFilter(minFilter)
@@ -47,8 +48,8 @@ Sprite::Sprite(std::shared_ptr<Texture2D> texture2d, bool useMipmap, GLuint magF
     initWithTexture();
 }
 
-Sprite::Sprite(std::vector<std::shared_ptr<Texture2D>> texture2ds, GLuint magFilter, GLuint minFilter)
-: _texture2ds(texture2ds)
+Sprite::Sprite(std::vector<std::shared_ptr<RawImage>> rawImages, GLuint magFilter, GLuint minFilter)
+: _rawImages(rawImages)
 , _magFilter(magFilter)
 , _minFilter(minFilter)
 {
@@ -58,7 +59,7 @@ Sprite::Sprite(std::vector<std::shared_ptr<Texture2D>> texture2ds, GLuint magFil
 bool Sprite::initWithTexture()
 {
     init();
-    setContentSize(_texture2d->getWidth(), _texture2d->getHeight());
+    setContentSize(_rawImage->getWidth(), _rawImage->getHeight());
     setShaderTexture();
     
     return true;
@@ -67,7 +68,7 @@ bool Sprite::initWithTexture()
 bool Sprite::initWithTextureCustomMipmap()
 {
     init();
-    setContentSize(_texture2ds.at(0)->getWidth(), _texture2ds.at(0)->getHeight());
+    setContentSize(_rawImages.at(0)->getWidth(), _rawImages.at(0)->getHeight());
     setShaderTextureWithCustomMipmap();
     
     return true;
@@ -94,14 +95,14 @@ void Sprite::setShaderTexture()
 {
     setShaderProgram(ShaderManager::ShaderType::TEXTURE_2D);
     std::dynamic_pointer_cast<ShaderTexture2D>(_shaderProgram)->setFilter(_magFilter, _minFilter);
-    _textureID = std::dynamic_pointer_cast<ShaderTexture2D>(_shaderProgram)->setTexture(_texture2d, _useMipmap);
+    _textureID = std::dynamic_pointer_cast<ShaderTexture2D>(_shaderProgram)->setTexture(_rawImage, _useMipmap);
 }
 
 void Sprite::setShaderTextureWithCustomMipmap()
 {
     setShaderProgram(ShaderManager::ShaderType::TEXTURE_2D);
     std::dynamic_pointer_cast<ShaderTexture2D>(_shaderProgram)->setFilter(_magFilter, _minFilter);
-    _textureID = std::dynamic_pointer_cast<ShaderTexture2D>(_shaderProgram)->setTextureWithCustomMimap(_texture2ds);
+    _textureID = std::dynamic_pointer_cast<ShaderTexture2D>(_shaderProgram)->setTextureWithCustomMimap(_rawImages);
 }
 
 void Sprite::draw()

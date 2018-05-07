@@ -12,7 +12,7 @@
 #include "../Base/SGNode.hpp"
 
 namespace SimpleGameEngine {
-    class Texture2D;
+    class RawImage;
     class SpriteBlend : public Node
     {
     public:
@@ -21,13 +21,13 @@ namespace SimpleGameEngine {
         virtual ~SpriteBlend(){};
     protected:
         SpriteBlend(){};
-        SpriteBlend(std::shared_ptr<Texture2D> texture2d, std::shared_ptr<Texture2D> blendTexture2d);
+        SpriteBlend(std::shared_ptr<RawImage> rawImage, std::shared_ptr<RawImage> blendRawImage);
     private:
         bool init();
         std::vector<Vertex> _vertexUV;
         void setShaderSpriteBlend();
-        std::shared_ptr<Texture2D> _texture2d;
-        std::shared_ptr<Texture2D> _blendTexture2d;
+        std::shared_ptr<RawImage> _rawImage;
+        std::shared_ptr<RawImage> _blendRawImage;
         GLuint _textureID;
         GLuint _blendTextureID;
         void draw();

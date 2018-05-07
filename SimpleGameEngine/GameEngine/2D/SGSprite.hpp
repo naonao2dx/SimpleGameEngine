@@ -12,7 +12,7 @@
 #include "../Base/SGNode.hpp"
 
 namespace SimpleGameEngine {
-    class Texture2D;
+    class RawImage;
     class Sprite : public Node
     {
     public:
@@ -24,15 +24,15 @@ namespace SimpleGameEngine {
         void setVertexUV(const std::vector<Vertex> vertexUV);
     protected:
         Sprite(){};
-        Sprite(std::shared_ptr<Texture2D> texture2d, bool useMipmap = false, GLuint magFilter = GL_NEAREST, GLuint minFilter = GL_NEAREST);
-        Sprite(std::vector<std::shared_ptr<Texture2D>> texture2ds, GLuint magFilter = GL_NEAREST, GLuint minFilter = GL_NEAREST_MIPMAP_NEAREST);
+        Sprite(std::shared_ptr<RawImage> texture2d, bool useMipmap = false, GLuint magFilter = GL_NEAREST, GLuint minFilter = GL_NEAREST);
+        Sprite(std::vector<std::shared_ptr<RawImage>> texture2ds, GLuint magFilter = GL_NEAREST, GLuint minFilter = GL_NEAREST_MIPMAP_NEAREST);
         bool initWithTexture();
         bool initWithTextureCustomMipmap();
         virtual bool init() override;
         virtual void draw() override;
     private:
-        std::shared_ptr<Texture2D> _texture2d;
-        std::vector<std::shared_ptr<Texture2D>> _texture2ds;
+        std::shared_ptr<RawImage> _rawImage;
+        std::vector<std::shared_ptr<RawImage>> _rawImages;
         std::vector<Vertex> _vertexUV;
         GLuint _textureID;
         GLuint _magFilter;

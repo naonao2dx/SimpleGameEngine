@@ -1,22 +1,22 @@
 //
-//  SGTexture2D.hpp
+//  SGRawImage.hpp
 //  SimpleGameEngine
 //
 //  Created by 竹内 直 on 2018/04/25.
 //  Copyright © 2018年 Nao. All rights reserved.
 //
 
-#ifndef SGTexture2D_hpp
-#define SGTexture2D_hpp
+#ifndef SGRawImage_hpp
+#define SGRawImage_hpp
 
 #include <memory>
 
 namespace SimpleGameEngine {
-    class Texture2D
+    class RawImage
     {
     public:
-        static std::shared_ptr<Texture2D> createWithFileName(std::string& cppFileName, int rawformat);
-        Texture2D();
+        static std::shared_ptr<RawImage> createWithFileName(std::string& cppFileName, int rawformat);
+        RawImage();
         inline int getWidth() { return _width; };
         inline int getHeight() { return _height; };
         inline void* getPixelData() { return _pixelData; };
@@ -38,5 +38,5 @@ namespace SimpleGameEngine {
     };
 }
 
-#endif /* SGTexture2D_hpp */
+#endif /* SGRawImage_hpp */
 
