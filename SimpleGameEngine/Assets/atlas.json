@@ -1,0 +1,39 @@
+{"frames": {
+
+"billiard.png":
+{
+	"frame": {"x":0,"y":0,"w":258,"h":233},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":258,"h":233},
+	"sourceSize": {"w":258,"h":233},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"dragonball.png":
+{
+	"frame": {"x":258,"y":0,"w":129,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":129,"h":128},
+	"sourceSize": {"w":129,"h":128},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"radar.png":
+{
+	"frame": {"x":387,"y":0,"w":108,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":128},
+	"sourceSize": {"w":108,"h":128},
+	"pivot": {"x":0.5,"y":0.5}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "atlas.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":256},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:12fc2239a570fae08d4c47669f968c43:5208869b0be3abe32b35a5d1af2a0481:cbce6b53f0f49e0bf15173c25c41f876$"
+}
+}

@@ -10,6 +10,9 @@
 #include <assert.h>
 #include <string>
 #include "SGRawImage.hpp"
+#include "SGFileUtils.hpp"
+#include "../external/picojson.h"
+#include "SGConsole.hpp"
 
 using namespace SimpleGameEngine;
 
@@ -21,6 +24,7 @@ std::shared_ptr<Texture2D> Texture2D::create(std::string& filename)
     assert(rawImage != nullptr);
     
     texture2d->setupTexture(rawImage);
+    texture2d->_textureName = filename;
     texture2d->_width = rawImage->getWidth();
     texture2d->_height = rawImage->getHeight();
     
@@ -37,10 +41,62 @@ std::shared_ptr<Texture2D> Texture2D::createWithCustomMipmap(std::vector<std::st
     }
     
     texture2d->setupTextureWithCustomMipmap(rawImages);
+    texture2d->_textureName = filenames.at(0);
     texture2d->_width = rawImages.at(0)->getWidth();
     texture2d->_height = rawImages.at(0)->getHeight();
     
     return texture2d;
+}
+
+std::vector<std::shared_ptr<Texture2D>> Texture2D::createWithTextureAtlas(std::string &atlasName)
+{
+    std::vector<std::shared_ptr<Texture2D>> texture2ds;
+    
+    auto fileUtils = FileUtils::getInstance();
+    
+    std::string json;
+    fileUtils->getAssetContents(atlasName, json);
+    
+    picojson::value v;
+    const std::string err = picojson::parse(v, json);
+    assert (err.empty() != false);
+    
+    picojson::object& obj = v.get<picojson::object>();
+    picojson::object& meta = obj.at("meta").get<picojson::object>();
+    std::string filename = meta.at("image").get<std::string>();
+    Console::logDebug("atlas: %s", filename.data());
+    
+    std::shared_ptr<RawImage> rawImage = RawImage::createWithFileName(filename, RawImage::TEXTURE_RAW_RGBA8);
+    assert(rawImage != nullptr);
+    
+    std::shared_ptr<Texture2D> atlas(new (std::nothrow) Texture2D());
+    atlas->setupTexture(rawImage);
+    atlas->_width = rawImage->getWidth();
+    atlas->_height = rawImage->getHeight();
+    
+    texture2ds.emplace_back(atlas);
+    
+    GLuint textureID = atlas->getTextureID();
+    
+    picojson::object& textures = obj.at("frames").get<picojson::object>();
+    for (auto& e : textures) {
+        picojson::object& frame = e.second.get<picojson::object>().at("frame").get<picojson::object>();
+        GLuint x = static_cast<GLuint>(frame.at("x").get<double>());
+        GLuint y = static_cast<GLuint>(frame.at("y").get<double>());
+        GLuint width = static_cast<GLuint>(frame.at("w").get<double>());
+        GLuint height = static_cast<GLuint>(frame.at("h").get<double>());
+        
+        std::shared_ptr<Texture2D> texture2d(new (std::nothrow) Texture2D());
+        texture2d->_textureID = textureID;
+        texture2d->_textureName = e.first;
+        texture2d->_width = width;
+        texture2d->_height = height;
+        texture2d->_vertexUV = Texture2D::getVertexUV(x, y, width, height, atlas->_width, atlas->_height);
+        
+        texture2ds.emplace_back(texture2d);
+    }
+
+    return texture2ds;
 }
 
 Texture2D::Texture2D()
@@ -111,4 +167,19 @@ void Texture2D::createTexture()
     
     glBindTexture(GL_TEXTURE_2D, _textureID);
     assert(glGetError() == GL_NO_ERROR);
+}
+
+std::vector<Vertex> Texture2D::getVertexUV(int x, int y, int width, int height, int atlasWidth, int atlasHeight)
+{
+    float left = static_cast<float>(x) / static_cast<float>(atlasWidth);
+    float right = (static_cast<float>(x + width)) / static_cast<float>(atlasWidth);
+    float top = static_cast<float>(y) / static_cast<float>(atlasHeight);
+    float bottom = static_cast<float>(y + height) / static_cast<float>(atlasHeight);
+    
+    Vertex uv1 = Vertex { Vec2 { left, top } };
+    Vertex uv2 = Vertex { Vec2 { left, bottom } };
+    Vertex uv3 = Vertex { Vec2 { right, top } };
+    Vertex uv4 = Vertex { Vec2 { right, bottom } };
+    std::vector<Vertex> vertexUV = { uv1, uv2, uv3, uv4 };
+    return vertexUV;
 }

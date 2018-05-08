@@ -55,6 +55,24 @@ std::shared_ptr<Texture2D> SpriteCache::getTextureData(std::vector<std::string> 
     return texture2d;
 }
 
+std::shared_ptr<Texture2D> SpriteCache::getTextureData(std::string &atlasName, std::string &filename)
+{
+    if (_spriteCache.count(atlasName) != 0) {
+        return _spriteCache.at(atlasName + "/" + filename);
+    }
+    
+    std::vector<std::shared_ptr<Texture2D>> texture2ds = Texture2D::createWithTextureAtlas(atlasName);
+    
+    std::string combineName;
+    
+    for (auto itr = texture2ds.begin(); itr != texture2ds.end(); ++itr) {
+        combineName = atlasName + "/" + (*itr)->getTextureName();
+        _spriteCache.emplace(combineName, (*itr));
+    }
+    
+    return _spriteCache.at(atlasName + "/" + filename);
+}
+
 void SpriteCache::clearCache()
 {
     int i = 0;

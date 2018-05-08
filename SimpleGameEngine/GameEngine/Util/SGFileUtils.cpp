@@ -22,12 +22,18 @@ std::shared_ptr<FileUtils> FileUtils::getInstance()
     return pInstance;
 }
 
+bool FileUtils::getAssetContents(const std::string &filename, std::string &buf)
+{
+    std::string assetpath = "/Assets/" + filename;
+    return getContents(assetpath, buf);
+}
+
 bool FileUtils::getContents(const std::string& filename, std::string& buf)
 {
     if (filename.empty())
         return false;
     
-    std::string filepath = _bundlePath + "/" + filename;
+    std::string filepath = _bundlePath + filename;
     
     std::ifstream ifs(filepath, std::ios::in | std::ios::binary);
     if (ifs.fail())

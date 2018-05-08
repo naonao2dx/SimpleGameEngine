@@ -18,6 +18,7 @@ namespace SimpleGameEngine {
     public:
         static std::shared_ptr<FileUtils> getInstance();
         void setBundlePath(const std::string& bundlePath);
+        bool getAssetContents(const std::string& filename, std::string& buf);
         bool getContents(const std::string& filename, std::string& buf);
         char* getContents(const std::string& filename);
     private:

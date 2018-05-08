@@ -33,6 +33,16 @@ std::shared_ptr<Sprite> Sprite::createWithCustomMipmap(std::vector<std::string> 
     return sprite;
 }
 
+std::shared_ptr<Sprite> Sprite::createWithTextureAtlas(std::string &atlasname, std::string &filename)
+{
+    std::shared_ptr<SpriteCache> spriteCache = SpriteCache::getInstance();
+    std::shared_ptr<Texture2D> texture2d = spriteCache->getTextureData(atlasname, filename);
+    
+    std::shared_ptr<Sprite> sprite(new (std::nothrow) Sprite(std::move(texture2d)));
+    
+    return sprite;
+}
+
 Sprite::Sprite(std::shared_ptr<Texture2D> texture2d)
 : _texture2d(texture2d)
 {

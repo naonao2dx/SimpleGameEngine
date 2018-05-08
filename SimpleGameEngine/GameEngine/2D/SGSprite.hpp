@@ -18,6 +18,7 @@ namespace SimpleGameEngine {
     public:
         static std::shared_ptr<Sprite> create(std::string& filename);
         static std::shared_ptr<Sprite> createWithCustomMipmap(std::vector<std::string> filenames);
+        static std::shared_ptr<Sprite> createWithTextureAtlas(std::string& atlasname, std::string& filename);
     protected:
         Sprite(std::shared_ptr<Texture2D> texture2d);
         virtual bool init() override;

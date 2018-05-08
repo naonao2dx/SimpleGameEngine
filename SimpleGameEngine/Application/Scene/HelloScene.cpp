@@ -79,6 +79,11 @@ bool HelloScene::init()
 //    std::vector<Vertex> vertex3 = { vert8, vert9, vert10 };
 //    tri3->setNormalizedVertex(vertex3);
 //    addChild(tri3);
+    
+    std::string atlasname("atlas.json");
+    std::string filename0("dragonball.png");
+    std::shared_ptr<Sprite> atlas = Sprite::createWithTextureAtlas(atlasname, filename0);
+    addChild(atlas);
 
     // Sample Texture
     std::string filename("headphone.png");

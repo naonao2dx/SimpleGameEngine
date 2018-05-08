@@ -107,6 +107,7 @@
 		FD809D8720976FFB000290D5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FD809D92209BF7BF000290D5 /* SGDrawingObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGDrawingObject.hpp; sourceTree = "<group>"; };
 		FD855C6A20A03926009D6529 /* SGVertex.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGVertex.cpp; sourceTree = "<group>"; };
+		FD855C6D20A1B96C009D6529 /* picojson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = picojson.h; sourceTree = "<group>"; };
 		FDEC439A207F6A7900BD059F /* SGRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGRenderer.cpp; sourceTree = "<group>"; };
 		FDEC439B207F6A7900BD059F /* SGRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGRenderer.hpp; sourceTree = "<group>"; };
 		FDEC43D72085AA7F00BD059F /* SGBaseScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGBaseScene.cpp; sourceTree = "<group>"; };
@@ -270,6 +271,7 @@
 		FD4BA6F82091A79400BE3711 /* external */ = {
 			isa = PBXGroup;
 			children = (
+				FD855C6D20A1B96C009D6529 /* picojson.h */,
 				FD4BA7022091CA7C00BE3711 /* libz */,
 				FD4BA6F92091A79B00BE3711 /* png */,
 			);

@@ -20,6 +20,7 @@ namespace SimpleGameEngine {
         static std::shared_ptr<SpriteCache> getInstance();
         std::shared_ptr<Texture2D> getTextureData(std::string& filename);
         std::shared_ptr<Texture2D> getTextureData(std::vector<std::string> filenames);
+        std::shared_ptr<Texture2D> getTextureData(std::string& atlasName, std::string& filename);
         void clearCache();
     private:
         SpriteCache();
