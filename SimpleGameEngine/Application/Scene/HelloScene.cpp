@@ -81,31 +81,34 @@ bool HelloScene::init()
 //    addChild(tri3);
     
     std::string atlasname("atlas.json");
-    std::string filename0("dragonball.png");
+    std::string filename0("billiard.png");
     std::shared_ptr<Sprite> atlas = Sprite::createWithTextureAtlas(atlasname, filename0);
+    atlas->setScale(0.4f, 0.4f);
+    atlas->setNormalizedPosition(0.3f, 0.0f);
+    atlas->setRotate(45.0f);
     addChild(atlas);
 
-    // Sample Texture
-    std::string filename("headphone.png");
-    std::shared_ptr<Sprite> tex = Sprite::create(filename);
-    tex->setPosition(45, 45);
-    tex->setContentSize(90, 90);
-    addChild(tex);
+//    // Sample Texture
+//    std::string filename("headphone.png");
+//    std::shared_ptr<Sprite> tex = Sprite::create(filename);
+//    tex->setPosition(45, 45);
+//    tex->setContentSize(90, 90);
+//    addChild(tex);
+//
+//    // Sample Texture2
+//    std::string filename2("headphone2.png");
+//    std::shared_ptr<Sprite> tex2 = Sprite::create(filename2);
+//    tex2->setPosition(135, 135);
+//    tex2->setContentSize(90, 90);
+//    addChild(tex2);
 
-    // Sample Texture2
-    std::string filename2("headphone2.png");
-    std::shared_ptr<Sprite> tex2 = Sprite::create(filename2);
-    tex2->setPosition(135, 135);
-    tex2->setContentSize(90, 90);
-    addChild(tex2);
-
-    // Sample Blend Texture
-    std::string filename3("azarashi.png");
-    std::string filename4("blend.png");
-    std::shared_ptr<SpriteBlend> tex3 = SpriteBlend::create(filename3, filename4);
-    tex3->setPosition(225, 225);
-    tex3->setContentSize(90, 90);
-    addChild(tex3);
+//    // Sample Blend Texture
+//    std::string filename3("azarashi.png");
+//    std::string filename4("blend.png");
+//    std::shared_ptr<SpriteBlend> tex3 = SpriteBlend::create(filename3, filename4);
+//    tex3->setPosition(225, 225);
+//    tex3->setContentSize(90, 90);
+//    addChild(tex3);
     
     return true;
 }

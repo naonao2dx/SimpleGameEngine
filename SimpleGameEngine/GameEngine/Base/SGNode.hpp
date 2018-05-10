@@ -44,6 +44,14 @@ namespace SimpleGameEngine {
         void setNormalizedPositionX(const float normalizedPositionX);
         void setNormalizedPositionY(const float normalizedPositionY);
         
+        inline Size& getOriginSize() { return _originSize; };
+        inline int getOriginWidth() { return _originSize.width; };
+        inline int getOriginHeight() { return _originSize.height; };
+        void setOriginSize(Size& originSize);
+        void setOriginSize(int width, int height);
+        void setOriginWidth(int width);
+        void setOriginHeigh(int height);
+        
         inline Size& getContentSize() { return _contentSize; };
         inline int getWidth() { return _contentSize.width; };
         inline int getHeight() { return _contentSize.height; };
@@ -51,6 +59,24 @@ namespace SimpleGameEngine {
         void setContentSize(int width, int height);
         void setWidth(int width);
         void setHeight(int height);
+        
+        inline Vec2& getScale() { return _scale; };
+        inline int getScaleX() { return _scale.x; };
+        inline int getScaleY() { return _scale.y; };
+        void setScale(Vec2& scale);
+        void setScale(GLfloat x, GLfloat y);
+        void setScaleX(GLfloat x);
+        void setScaleY(GLfloat y);
+        
+        inline Vec2& getOriginScale() { return _originScale; };
+        inline int getOriginScaleX() { return _originScale.x; };
+        inline int getOriginScaleY() { return _originScale.y; };
+        
+        inline GLfloat getRotate() { return _rotate; };
+        void setRotate(GLfloat rotate);
+        
+        void setMatrix();
+        
     protected:
         virtual bool init();
         virtual void visit() override;
@@ -69,9 +95,22 @@ namespace SimpleGameEngine {
         std::shared_ptr<ShaderManager> _shaderManager;
         std::shared_ptr<ShaderProgram> _shaderProgram;
         
+        Size _designResolutionSize;
+        
         Vec2 _position;
         Vec2 _normalizedPosition;
+        
+        Vec2 _scale;
+        Vec2 _originScale;
+        
+        Size _originSize;
         Size _contentSize;
+        
+        GLfloat _rotate;
+        GLfloat _aspect;
+        
+        Mat4 _matrix;
+
     };
 }
 
