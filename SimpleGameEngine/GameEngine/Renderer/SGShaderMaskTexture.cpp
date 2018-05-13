@@ -1,5 +1,5 @@
 //
-//  SGShaderBlendTexture.cpp
+//  SGShaderMaskTexture.cpp
 //  SimpleGameEngine
 //
 //  Created by 竹内 直 on 2018/05/01.
@@ -7,17 +7,17 @@
 //
 
 #include <assert.h>
-#include "SGShaderBlendTexture.hpp"
+#include "SGShaderMaskTexture.hpp"
 
 using namespace SimpleGameEngine;
 
-ShaderBlendTexture::ShaderBlendTexture(const GLchar* vertShaderSource, const GLchar* fragShaderSource)
+ShaderMaskTexture::ShaderMaskTexture(const GLchar* vertShaderSource, const GLchar* fragShaderSource)
 {
     createShader(vertShaderSource, fragShaderSource);
     init();
 }
 
-bool ShaderBlendTexture::init()
+bool ShaderMaskTexture::init()
 {
     _attrPos = glGetAttribLocation(_shader, "attr_pos");
     assert(_attrPos >= 0);
@@ -34,16 +34,16 @@ bool ShaderBlendTexture::init()
     return true;
 }
 
-void ShaderBlendTexture::bindTexture(GLuint textureID, GLuint blendTextureID)
+void ShaderMaskTexture::bindTexture(GLuint textureID, GLuint maskTextureID)
 {
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, textureID);
     
     glActiveTexture(GL_TEXTURE1);
-    glBindTexture(GL_TEXTURE_2D, blendTextureID);
+    glBindTexture(GL_TEXTURE_2D, maskTextureID);
 }
 
-void ShaderBlendTexture::draw()
+void ShaderMaskTexture::draw()
 {
     use();
     

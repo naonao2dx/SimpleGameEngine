@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Nao. All rights reserved.
 //
 
-const GLchar* shaderFragBlendTexture = R"(
+const GLchar* shaderFragMaskTexture = R"(
 uniform sampler2D tex_color;
 uniform sampler2D tex_mask;
 varying mediump vec2 vary_uv;

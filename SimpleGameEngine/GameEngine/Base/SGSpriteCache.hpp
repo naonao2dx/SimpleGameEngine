@@ -11,7 +11,7 @@
 
 #include <string>
 #include <unordered_map>
-#include "Texture2D.hpp"
+#include "SGTexture2D.hpp"
 
 namespace SimpleGameEngine {
     class SpriteCache

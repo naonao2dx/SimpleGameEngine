@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Nao. All rights reserved.
 //
 
-#include "Texture2D.hpp"
+#include "SGTexture2D.hpp"
 #include <assert.h>
 #include <string>
 #include "SGRawImage.hpp"

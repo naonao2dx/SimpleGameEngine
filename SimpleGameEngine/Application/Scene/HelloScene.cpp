@@ -13,7 +13,7 @@
 #include "../../GameEngine/2D/SGPrimitives.hpp"
 #include "../../GameEngine/Renderer/SGShaderManager.hpp"
 #include "../../GameEngine/2D/SGSprite.hpp"
-#include "../../GameEngine/2D/SGSpriteBlend.hpp"
+#include "../../GameEngine/2D/SGSpriteMask.hpp"
 
 using namespace SimpleGameEngine;
 
@@ -102,13 +102,13 @@ bool HelloScene::init()
 //    tex2->setContentSize(90, 90);
 //    addChild(tex2);
 
-//    // Sample Blend Texture
-//    std::string filename3("azarashi.png");
-//    std::string filename4("blend.png");
-//    std::shared_ptr<SpriteBlend> tex3 = SpriteBlend::create(filename3, filename4);
-//    tex3->setPosition(225, 225);
-//    tex3->setContentSize(90, 90);
-//    addChild(tex3);
+    // Sample Blend Texture
+    std::string filename3("azarashi.png");
+    std::string filename4("blend.png");
+    std::shared_ptr<SpriteMask> tex3 = SpriteMask::create(filename3, filename4);
+    tex3->setPosition(225, 225);
+    tex3->setContentSize(90, 90);
+    addChild(tex3);
     
     return true;
 }

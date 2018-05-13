@@ -6,8 +6,8 @@
 //  Copyright © 2018年 Nao. All rights reserved.
 //
 
-#ifndef Texture2D_hpp
-#define Texture2D_hpp
+#ifndef SGTexture2D_hpp
+#define SGTexture2D_hpp
 
 #include <OpenGLES/ES2/gl.h>
 #include <string>
@@ -48,4 +48,4 @@ namespace SimpleGameEngine {
     };
 }
 
-#endif /* Texture2D_hpp */
+#endif /* SGTexture2D_hpp */
