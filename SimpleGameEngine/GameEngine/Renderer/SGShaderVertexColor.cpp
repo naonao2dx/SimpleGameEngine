@@ -34,7 +34,7 @@ void ShaderVertexColor::draw()
     glEnableVertexAttribArray(_attrColor);
     
     glVertexAttribPointer(_attrPos, 2, GL_FLOAT, GL_FALSE, 0, position);
-    glVertexAttribPointer(_attrColor, 3, GL_UNSIGNED_BYTE, GL_TRUE, 0, color);
+    glVertexAttribPointer(_attrColor, 4, GL_UNSIGNED_BYTE, GL_TRUE, 0, color);
     
     glDrawArrays(_shape, 0, static_cast<GLsizei>(_vertex.size()));
 }

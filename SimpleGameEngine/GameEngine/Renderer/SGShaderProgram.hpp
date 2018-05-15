@@ -15,6 +15,7 @@
 #include "SGGeometry.hpp"
 #include "SGColor.hpp"
 #include "SGVertex.h"
+#include "SGBlendFunc.hpp"
 
 namespace SimpleGameEngine {
     class ShaderProgram
@@ -24,8 +25,9 @@ namespace SimpleGameEngine {
         virtual void draw();
         void setVertex(const std::vector<Vertex> vertex);
         void setShape(GLenum shape);
+        void setBlendFunc(BlendFunc blendFunc);
     protected:
-        ShaderProgram(){};
+        ShaderProgram();
         virtual ~ShaderProgram();
         void createShader(const GLchar* vertShaderSource, const GLchar* fragShaderSource);
         GLuint compileShader(GLuint shaderType, const GLchar *source);
@@ -34,6 +36,7 @@ namespace SimpleGameEngine {
         GLuint _shader;
         std::vector<Vertex> _vertex;
         GLenum _shape;
+        BlendFunc _blendFunc;
     };
 }
 

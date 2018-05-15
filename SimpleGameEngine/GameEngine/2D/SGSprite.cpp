@@ -47,6 +47,7 @@ std::shared_ptr<Sprite> Sprite::createWithTextureAtlas(std::string &atlasname, s
 
 Sprite::Sprite(std::shared_ptr<Texture2D> texture2d)
 : _texture2d(texture2d)
+, _blendFunc(BlendFunc::DISABLE)
 {
     setOriginSize(_texture2d->getWidth(), _texture2d->getHeight());
     setContentSize(_texture2d->getWidth(), _texture2d->getHeight());
@@ -59,12 +60,18 @@ bool Sprite::init()
     return true;
 }
 
+void Sprite::setBlendFunc(SimpleGameEngine::BlendFunc blendFunc)
+{
+    _blendFunc = blendFunc;
+}
+
 void Sprite::draw()
 {
     std::dynamic_pointer_cast<ShaderTexture2D>(_shaderProgram)->bindTexture(_texture2d->getTextureID());
     _shaderProgram->setVertex(_vertex);
     std::dynamic_pointer_cast<ShaderTexture2D>(_shaderProgram)->setVertexUV(_texture2d->getVertexUV());
     std::dynamic_pointer_cast<ShaderTexture2DMatrix>(_shaderProgram)->setMatrix(_matrix);
+    _shaderProgram->setBlendFunc(_blendFunc);
     _shaderProgram->draw();
 }
 

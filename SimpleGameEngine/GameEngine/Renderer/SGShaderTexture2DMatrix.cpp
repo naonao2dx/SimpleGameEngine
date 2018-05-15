@@ -8,6 +8,7 @@
 
 #include "SGShaderTexture2DMatrix.hpp"
 #include <assert.h>
+#include "SGConsole.hpp"
 
 using namespace SimpleGameEngine;
 
@@ -41,7 +42,7 @@ void ShaderTexture2DMatrix::setMatrix(SimpleGameEngine::Mat4 &matrix)
 
 void ShaderTexture2DMatrix::draw()
 {
-    use();
+    ShaderProgram::draw();
     
     GLfloat position[_vertex.size() * 2];
     vertexToPosition(_vertex, position);
@@ -57,6 +58,7 @@ void ShaderTexture2DMatrix::draw()
     glVertexAttribPointer(_attrPos, 2, GL_FLOAT, GL_FALSE, 0, (GLvoid *)position);
     glVertexAttribPointer(_attrUV, 2, GL_FLOAT, GL_FALSE, 0, (GLvoid *)uv);
     
+
     glUniformMatrix4fv(_unifMatrix, 1, GL_FALSE, (GLfloat*)_matrix._m);
     
     glDrawArrays(GL_TRIANGLE_STRIP, 0, static_cast<GLsizei>(_vertex.size()));

@@ -57,7 +57,7 @@ void ShaderTexture2D::bindTexture(GLuint textureID)
 
 void ShaderTexture2D::draw()
 {
-    use();
+    ShaderProgram::draw();
     
     GLfloat position[_vertex.size() * 2];
     vertexToPosition(_vertex, position);

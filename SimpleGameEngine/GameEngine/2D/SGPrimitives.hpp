@@ -13,6 +13,7 @@
 #include "SGShaderProgram.hpp"
 #include "SGDirector.hpp"
 #include "SGDrawingObject.hpp"
+#include "SGBlendFunc.hpp"
 
 namespace SimpleGameEngine {
     class Primitives : public DrawingObject
@@ -24,6 +25,7 @@ namespace SimpleGameEngine {
         void setNormalizedVertex(std::vector<Vertex> &normalizedVertex);
         void setColor(const Color4F& color);
         void setLineWidth(GLfloat lineWidth);
+        void setBlendFunc(BlendFunc blendFunc);
         inline std::vector<Vertex> getVertex() const { return _vertex; };
         inline std::vector<Vertex> getNormalizedVertex() const { return _normalizedVertex; };
         inline Color4F getColor() const { return _color; };
@@ -45,6 +47,7 @@ namespace SimpleGameEngine {
         std::shared_ptr<ShaderProgram> _shaderProgram;
         inline virtual void visit() override { draw(); };
         virtual void draw() override;
+        BlendFunc _blendFunc;
     };
 }
 

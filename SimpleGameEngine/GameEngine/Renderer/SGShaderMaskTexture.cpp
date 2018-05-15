@@ -45,7 +45,7 @@ void ShaderMaskTexture::bindTexture(GLuint textureID, GLuint maskTextureID)
 
 void ShaderMaskTexture::draw()
 {
-    use();
+    ShaderProgram::draw();
     
     GLfloat position[_vertex.size() * 2];
     vertexToPosition(_vertex, position);

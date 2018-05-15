@@ -70,37 +70,16 @@ bool HelloScene::init()
 //
 //    addChild(tri2);
 //
-//    // Sample Primitives 3
-//    std::shared_ptr<Primitives> tri3 = Primitives::createWithVertexColorShader(GL_TRIANGLES);
-//
-//    Vertex vert8 = Vertex { Vec2 {0.0f, 0.25f}, Color4B::RED };
-//    Vertex vert9 = Vertex { Vec2 {-0.5, -0.25f}, Color4B::GREEN };
-//    Vertex vert10 = Vertex { Vec2 {0.5f, -0.25f}, Color4B::BLUE };
-//    std::vector<Vertex> vertex3 = { vert8, vert9, vert10 };
-//    tri3->setNormalizedVertex(vertex3);
-//    addChild(tri3);
-    
-    std::string atlasname("atlas.json");
-    std::string filename0("billiard.png");
-    std::shared_ptr<Sprite> atlas = Sprite::createWithTextureAtlas(atlasname, filename0);
-    atlas->setScale(0.4f, 0.4f);
-    atlas->setNormalizedPosition(0.3f, 0.0f);
-    atlas->setRotate(45.0f);
-    addChild(atlas);
 
-//    // Sample Texture
-//    std::string filename("headphone.png");
-//    std::shared_ptr<Sprite> tex = Sprite::create(filename);
-//    tex->setPosition(45, 45);
-//    tex->setContentSize(90, 90);
-//    addChild(tex);
-//
-//    // Sample Texture2
-//    std::string filename2("headphone2.png");
-//    std::shared_ptr<Sprite> tex2 = Sprite::create(filename2);
-//    tex2->setPosition(135, 135);
-//    tex2->setContentSize(90, 90);
-//    addChild(tex2);
+
+
+
+    // Sample Texture2
+    std::string filename2("headphone2.png");
+    std::shared_ptr<Sprite> tex2 = Sprite::create(filename2);
+    tex2->setPosition(135, 135);
+    tex2->setContentSize(90, 90);
+    addChild(tex2);
 
     // Sample Blend Texture
     std::string filename3("azarashi.png");
@@ -109,6 +88,34 @@ bool HelloScene::init()
     tex3->setPosition(225, 225);
     tex3->setContentSize(90, 90);
     addChild(tex3);
+    
+    // Sample Texture
+    std::string filename("headphone.png");
+    std::shared_ptr<Sprite> tex = Sprite::create(filename);
+    tex->setNormalizedPosition(0.3f, 0.0f);
+    tex->setContentSize(90, 90);
+    //tex->setBlendFunc(BlendFunc::ALPHA_PREMULTIPLIED);
+    addChild(tex);
+    
+    std::string atlasname("atlas.json");
+    std::string filename0("billiard.png");
+    std::shared_ptr<Sprite> atlas = Sprite::createWithTextureAtlas(atlasname, filename0);
+    atlas->setScale(0.4f, 0.4f);
+    atlas->setNormalizedPosition(0.3f, 0.0f);
+    atlas->setRotate(45.0f);
+    atlas->setBlendFunc(BlendFunc::ALPHA_PREMULTIPLIED);
+    addChild(atlas);
+    
+    // Sample Primitives 3
+    std::shared_ptr<Primitives> tri3 = Primitives::createWithVertexColorShader(GL_TRIANGLES);
+    
+    Vertex vert8 = Vertex { Vec2 {0.0f, 0.25f}, Color4B { 255, 0, 0, 128 } };
+    Vertex vert9 = Vertex { Vec2 {-0.5, -0.25f}, Color4B { 0, 255, 0, 128 } };
+    Vertex vert10 = Vertex { Vec2 {0.5f, -0.25f}, Color4B { 0, 0, 255, 128 } };
+    std::vector<Vertex> vertex3 = { vert8, vert9, vert10 };
+    tri3->setNormalizedVertex(vertex3);
+    tri3->setBlendFunc(BlendFunc::DISABLE);
+    addChild(tri3);
     
     return true;
 }

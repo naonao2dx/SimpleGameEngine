@@ -14,6 +14,12 @@
 
 using namespace SimpleGameEngine;
 
+ShaderProgram::ShaderProgram()
+: _blendFunc(BlendFunc::DISABLE)
+{
+    
+}
+
 ShaderProgram::~ShaderProgram()
 {
     glUseProgram(0);
@@ -35,6 +41,11 @@ void ShaderProgram::setVertex(const std::vector<Vertex> vertex)
     _vertex = vertex;
 }
 
+void ShaderProgram::setBlendFunc(BlendFunc blendFunc)
+{
+    _blendFunc = blendFunc;
+}
+
 void ShaderProgram::vertexToPosition(std::vector<Vertex> vertex, GLfloat position[]) {
     for (int i = 0; i < vertex.size(); i++) {
         position[i * 2] = vertex.at(i)._position.x;
@@ -47,10 +58,10 @@ void ShaderProgram::vertexToPositionAndColor(std::vector<Vertex> vertex, GLfloat
     for (int i = 0; i < vertex.size(); i++) {
         position[i * 2] = vertex.at(i)._position.x;
         position[i * 2 + 1] = vertex.at(i)._position.y;
-        color[i * 3] = vertex.at(i)._color.r;
-        color[i * 3 + 1] = vertex.at(i)._color.g;
-        color[i * 3 + 2] = vertex.at(i)._color.b;
-        //color[i * 4 + 3] = vertex.at(i)._color.a;
+        color[i * 4] = vertex.at(i)._color.r;
+        color[i * 4 + 1] = vertex.at(i)._color.g;
+        color[i * 4 + 2] = vertex.at(i)._color.b;
+        color[i * 4 + 3] = vertex.at(i)._color.a;
     }
 }
 
@@ -146,4 +157,14 @@ GLuint ShaderProgram::compileShader(GLuint shaderType, const GLchar *source)
 
 void ShaderProgram::draw()
 {
+    use();
+    
+    // Alpha blending
+    if (_blendFunc != BlendFunc::DISABLE) {
+        glEnable(GL_BLEND);
+        glBlendFunc(_blendFunc.src, _blendFunc.dst);
+    } else {
+        glDisable(GL_BLEND);
+        glBlendFunc(_blendFunc.src, _blendFunc.dst);
+    }
 }

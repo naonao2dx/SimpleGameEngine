@@ -40,6 +40,7 @@ Primitives::Primitives(int shapeType)
 , _shapeType(shapeType)
 , _lineWidth(1.0f)
 , _color(Color4F::WHITE)
+, _blendFunc(BlendFunc::DISABLE)
 {
     _director = Director::getInstance();
     _shaderManager = ShaderManager::getInstance();
@@ -115,14 +116,19 @@ void Primitives::setLineWidth(GLfloat lineWidth)
     _lineWidth = lineWidth;
 }
 
+void Primitives::setBlendFunc(SimpleGameEngine::BlendFunc blendFunc)
+{
+    _blendFunc = blendFunc;
+}
+
 void Primitives::draw()
 {
     _shaderProgram->setVertex(_normalizedVertex);
     _shaderProgram->setShape(_shapeType);
+    _shaderProgram->setBlendFunc(_blendFunc);
     if (_shaderType == ShaderManager::ShaderType::POSITION_AND_COLOR) {
         std::dynamic_pointer_cast<ShaderPositionAndColor>(_shaderProgram)->setColor(_color);
         std::dynamic_pointer_cast<ShaderPositionAndColor>(_shaderProgram)->setLineWidth(_lineWidth);
     }
     _shaderProgram->draw();
 }
-
