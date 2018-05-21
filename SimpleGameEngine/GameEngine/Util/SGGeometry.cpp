@@ -69,9 +69,9 @@ Mat4 Mat4::identity()
     for (column = 0; column < 4; ++column) {
         for (row = 0; row < 4; ++row) {
             if (column == row) {
-                result._m[column][row] = 1.0f;
+                result.m[column][row] = 1.0f;
             } else {
-                result._m[column][row] = 0.0f;
+                result.m[column][row] = 0.0f;
             }
         }
     }
@@ -82,9 +82,9 @@ Mat4 Mat4::translate(const GLfloat x, const GLfloat y, const GLfloat z)
 {
     Mat4 result = Mat4::identity();
     
-    result._m[3][0] = x;
-    result._m[3][1] = y;
-    result._m[3][2] = z;
+    result.m[3][0] = x;
+    result.m[3][1] = y;
+    result.m[3][2] = z;
     
     return result;
 }
@@ -93,9 +93,9 @@ Mat4 Mat4::scale(const GLfloat x, const GLfloat y, const GLfloat z)
 {
     Mat4 result = Mat4::identity();
     
-    result._m[0][0] = x;
-    result._m[1][1] = y;
-    result._m[2][2] = z;
+    result.m[0][0] = x;
+    result.m[1][1] = y;
+    result.m[2][2] = z;
     
     return result;
 }
@@ -112,31 +112,31 @@ Mat4 Mat4::rotate(const Vec3 axis, const GLfloat rotate)
     const GLfloat s = sin((rotate * M_PI) / 180.0);
     
     {
-        result._m[0][0] = (x * x) * (1.0f - c) + c;
-        result._m[0][1] = (x * y) * (1.0f - c) -z * s;
-        result._m[0][2] = (x * z) * (1.0f - c) + y * s;
-        result._m[0][3] = 0;
+        result.m[0][0] = (x * x) * (1.0f - c) + c;
+        result.m[0][1] = (x * y) * (1.0f - c) -z * s;
+        result.m[0][2] = (x * z) * (1.0f - c) + y * s;
+        result.m[0][3] = 0;
         
     }
     {
-        result._m[1][0] = (y * x) * (1.0f - c) + z * s;
-        result._m[1][1] = (y * y) * (1.0f - c) + c;
-        result._m[1][2] = (y * z) * (1.0f - c) - x * s;
-        result._m[1][3] = 0;
+        result.m[1][0] = (y * x) * (1.0f - c) + z * s;
+        result.m[1][1] = (y * y) * (1.0f - c) + c;
+        result.m[1][2] = (y * z) * (1.0f - c) - x * s;
+        result.m[1][3] = 0;
         
     }
     {
-        result._m[2][0] = (z * x) * (1.0f - c) - y * s;
-        result._m[2][1] = (z * y) * (1.0f - c) + x * s;
-        result._m[2][2] = (z * z) * (1.0f - c) + c;
-        result._m[2][3] = 0;
+        result.m[2][0] = (z * x) * (1.0f - c) - y * s;
+        result.m[2][1] = (z * y) * (1.0f - c) + x * s;
+        result.m[2][2] = (z * z) * (1.0f - c) + c;
+        result.m[2][3] = 0;
         
     }
     {
-        result._m[3][0] = 0;
-        result._m[3][1] = 0;
-        result._m[3][2] = 0;
-        result._m[3][3] = 1;
+        result.m[3][0] = 0;
+        result.m[3][1] = 0;
+        result.m[3][2] = 0;
+        result.m[3][3] = 1;
         
     }
     
@@ -151,10 +151,10 @@ Mat4 Mat4::multiply(const Mat4 a, const Mat4 b)
     for (i = 0; i < 4; ++i) {
         int i = 0;
         for (i = 0; i < 4; ++i) {
-            result._m[i][0] = a._m[0][0] * b._m[i][0] + a._m[1][0] * b._m[i][1] + a._m[2][0] * b._m[i][2] + a._m[3][0] * b._m[i][3];
-            result._m[i][1] = a._m[0][1] * b._m[i][0] + a._m[1][1] * b._m[i][1] + a._m[2][1] * b._m[i][2] + a._m[3][1] * b._m[i][3];
-            result._m[i][2] = a._m[0][2] * b._m[i][0] + a._m[1][2] * b._m[i][1] + a._m[2][2] * b._m[i][2] + a._m[3][2] * b._m[i][3];
-            result._m[i][3] = a._m[0][3] * b._m[i][0] + a._m[1][3] * b._m[i][1] + a._m[2][3] * b._m[i][2] + a._m[3][3] * b._m[i][3];
+            result.m[i][0] = a.m[0][0] * b.m[i][0] + a.m[1][0] * b.m[i][1] + a.m[2][0] * b.m[i][2] + a.m[3][0] * b.m[i][3];
+            result.m[i][1] = a.m[0][1] * b.m[i][0] + a.m[1][1] * b.m[i][1] + a.m[2][1] * b.m[i][2] + a.m[3][1] * b.m[i][3];
+            result.m[i][2] = a.m[0][2] * b.m[i][0] + a.m[1][2] * b.m[i][1] + a.m[2][2] * b.m[i][2] + a.m[3][2] * b.m[i][3];
+            result.m[i][3] = a.m[0][3] * b.m[i][0] + a.m[1][3] * b.m[i][1] + a.m[2][3] * b.m[i][2] + a.m[3][3] * b.m[i][3];
         }
     }
     

@@ -38,7 +38,7 @@ namespace SimpleGameEngine {
     
     struct Mat4
     {
-        GLfloat _m[4][4];
+        GLfloat m[4][4];
         
         Mat4(){};
         static Mat4 identity();

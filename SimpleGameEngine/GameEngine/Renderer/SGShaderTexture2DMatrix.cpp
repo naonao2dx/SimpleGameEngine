@@ -59,7 +59,7 @@ void ShaderTexture2DMatrix::draw()
     glVertexAttribPointer(_attrUV, 2, GL_FLOAT, GL_FALSE, 0, (GLvoid *)uv);
     
 
-    glUniformMatrix4fv(_unifMatrix, 1, GL_FALSE, (GLfloat*)_matrix._m);
+    glUniformMatrix4fv(_unifMatrix, 1, GL_FALSE, (GLfloat*)_matrix.m);
     
     glDrawArrays(GL_TRIANGLE_STRIP, 0, static_cast<GLsizei>(_vertex.size()));
 }
