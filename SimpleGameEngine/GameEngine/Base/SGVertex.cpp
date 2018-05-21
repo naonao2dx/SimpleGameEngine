@@ -11,19 +11,19 @@
 using namespace SimpleGameEngine;
 
 Vertex::Vertex()
-: _position()
-, _color()
+: position()
+, color()
 {
 }
 
-Vertex::Vertex(Vec2 position)
-: _position(position)
-, _color()
+Vertex::Vertex(Vec2 _position)
+: position(_position)
+, color()
 {
 }
 
-Vertex::Vertex(Vec2 position, Color4B color)
-: _position(position)
-, _color(color)
+Vertex::Vertex(Vec2 _position, Color4B _color)
+: position(_position)
+, color(_color)
 {
 }

@@ -15,12 +15,12 @@
 namespace SimpleGameEngine {
     struct Vertex
     {
-        Vec2 _position;
-        Color4B _color;
+        Vec2 position;
+        Color4B color;
         
         Vertex();
-        Vertex(Vec2 position);
-        Vertex(Vec2 position, Color4B color);
+        Vertex(Vec2 _position);
+        Vertex(Vec2 _position, Color4B _color);
     };
 }
 #endif /* SGVertex_h */

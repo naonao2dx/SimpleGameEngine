@@ -66,9 +66,9 @@ void Primitives::setVertex(std::vector<Vertex> &vertex)
     
     for (auto itr = vertex.cbegin(); itr != vertex.cend(); ++itr) {
         Vertex normalizedVertex;
-        normalizedVertex._position.x = (itr->_position.x / designResolutionSize.width * 2) - 1.0f;
-        normalizedVertex._position.y = ((itr->_position.y / designResolutionSize.height * 2) - 1.0f) * -1.0f;
-        normalizedVertex._color = itr->_color;
+        normalizedVertex.position.x = (itr->position.x / designResolutionSize.width * 2) - 1.0f;
+        normalizedVertex.position.y = ((itr->position.y / designResolutionSize.height * 2) - 1.0f) * -1.0f;
+        normalizedVertex.color = itr->color;
         _normalizedVertex.emplace_back(normalizedVertex);
     }
 }
@@ -82,9 +82,9 @@ void Primitives::setNormalizedVertex(std::vector<Vertex> &normalizedVertex)
     
     for (auto itr = normalizedVertex.cbegin(); itr != normalizedVertex.cend(); ++itr) {
         Vertex vertex;
-        vertex._position.x = (itr->_position.x + 1.0f) / 2 * designResolutionSize.width;
-        vertex._position.y = (itr->_position.y / -1.0f + 1.0f) / 2 * designResolutionSize.height;
-        vertex._color = itr->_color;
+        vertex.position.x = (itr->position.x + 1.0f) / 2 * designResolutionSize.width;
+        vertex.position.y = (itr->position.y / -1.0f + 1.0f) / 2 * designResolutionSize.height;
+        vertex.color = itr->color;
         _vertex.emplace_back(vertex);
     }
     
