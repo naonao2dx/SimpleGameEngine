@@ -53,11 +53,32 @@ void ShaderProgram::vertexToPosition(std::vector<Vertex> vertex, GLfloat positio
     }
 }
 
+void ShaderProgram::vertexToPosition3D(std::vector<Vertex> vertex, GLfloat *position) {
+    for (int i = 0; i < vertex.size(); i++) {
+        position[i * 3] = vertex.at(i).position.x;
+        position[i * 3 + 1] = vertex.at(i).position.y;
+        position[i * 3 + 2] = vertex.at(i).position.z;
+    }
+}
+
 void ShaderProgram::vertexToPositionAndColor(std::vector<Vertex> vertex, GLfloat *position, GLubyte *color)
 {
     for (int i = 0; i < vertex.size(); i++) {
         position[i * 2] = vertex.at(i).position.x;
         position[i * 2 + 1] = vertex.at(i).position.y;
+        color[i * 4] = vertex.at(i).color.r;
+        color[i * 4 + 1] = vertex.at(i).color.g;
+        color[i * 4 + 2] = vertex.at(i).color.b;
+        color[i * 4 + 3] = vertex.at(i).color.a;
+    }
+}
+
+void ShaderProgram::vertexToPositionAndColor3D(std::vector<Vertex> vertex, GLfloat *position, GLubyte *color)
+{
+    for (int i = 0; i < vertex.size(); i++) {
+        position[i * 3] = vertex.at(i).position.x;
+        position[i * 3 + 1] = vertex.at(i).position.y;
+        position[i * 3 + 2] = vertex.at(i).position.z;
         color[i * 4] = vertex.at(i).color.r;
         color[i * 4 + 1] = vertex.at(i).color.g;
         color[i * 4 + 2] = vertex.at(i).color.b;

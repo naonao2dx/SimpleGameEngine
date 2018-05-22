@@ -11,12 +11,23 @@
 
 @interface SGEAGLView : UIView
 {
-    EAGLContext *_context; // weak ref
+    EAGLContext *renderingContext;
+    GLuint frameBuffer;
+    GLuint colorBuffer;
+    GLuint depthStencilBuffer;
+    GLint renderingWidth;
+    GLint renderingHeight;
+    BOOL initialized;
 }
 
-@property(nonatomic,readonly) EAGLContext *context;
+@property (readonly) GLint renderingWidth;
+@property (readonly) GLint renderingHeight;
 
 + (id) viewWithFrame:(CGRect)frame;
+- (EAGLContext*) renderingContext;
+- (void) postFrontBuffer;
+- (void) unbindGL;
+- (BOOL) ready;
 
 - (int) getWidth;
 - (int) getHeight;

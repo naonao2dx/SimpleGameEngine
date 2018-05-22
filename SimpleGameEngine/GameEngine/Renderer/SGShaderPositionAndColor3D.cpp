@@ -1,25 +1,26 @@
 //
-//  SGShaderPositionAndColor.cpp
+//  SGShaderPositionAndColor3D3D.cpp
 //  SimpleGameEngine
 //
-//  Created by 竹内 直 on 2018/04/24.
+//  Created by 竹内 直 on 2018/05/22.
 //  Copyright © 2018年 Nao. All rights reserved.
 //
+
 #include <assert.h>
 #include <vector>
-#include "SGShaderPositionAndColor.hpp"
+#include "SGShaderPositionAndColor3D.hpp"
 #include "SGGeometry.hpp"
 #include "SGConsole.hpp"
 
 using namespace SimpleGameEngine;
 
-ShaderPositionAndColor::ShaderPositionAndColor(const GLchar* vertShaderSource, const GLchar* fragShaderSource)
+ShaderPositionAndColor3D::ShaderPositionAndColor3D(const GLchar* vertShaderSource, const GLchar* fragShaderSource)
 {
     createShader(vertShaderSource, fragShaderSource);
     init();
 }
 
-bool ShaderPositionAndColor::init()
+bool ShaderPositionAndColor3D::init()
 {
     // Get vertex shader pos variable
     _attrPos = glGetAttribLocation(_shader, "attr_pos");
@@ -29,26 +30,26 @@ bool ShaderPositionAndColor::init()
     return true;
 }
 
-void ShaderPositionAndColor::setColor(const SimpleGameEngine::Color4F color)
+void ShaderPositionAndColor3D::setColor(const SimpleGameEngine::Color4F color)
 {
     _color = color;
 }
 
-void ShaderPositionAndColor::setLineWidth(GLfloat lineWidth)
+void ShaderPositionAndColor3D::setLineWidth(GLfloat lineWidth)
 {
     _lineWidth = lineWidth;
 }
 
-void ShaderPositionAndColor::draw()
+void ShaderPositionAndColor3D::draw()
 {
     use();
     
-    GLfloat position[_vertex.size() * 2];
-    vertexToPosition(_vertex, position);
+    GLfloat position[_vertex.size() * 3];
+    vertexToPosition3D(_vertex, position);
     
     glLineWidth(_lineWidth);
     glEnableVertexAttribArray(_attrPos);
-    glVertexAttribPointer(_attrPos, 2, GL_FLOAT, GL_FALSE, 0., position);
+    glVertexAttribPointer(_attrPos, 3, GL_FLOAT, GL_FALSE, 0, (GLvoid*)position);
     
     // Fragment data
     glUniform4f(_unifColor, _color.r, _color.g, _color.b, _color.a);

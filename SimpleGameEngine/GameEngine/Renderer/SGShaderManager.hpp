@@ -20,6 +20,7 @@ namespace SimpleGameEngine {
         static std::shared_ptr<ShaderManager> getInstance();
         enum ShaderType {
             POSITION_AND_COLOR,
+            POSITION_AND_COLOR_3D,
             VERTEX_COLOR,
             TEXTURE_2D,
             BLEND_TEXTURE,

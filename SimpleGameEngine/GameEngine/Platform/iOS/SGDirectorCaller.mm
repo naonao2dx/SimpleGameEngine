@@ -73,7 +73,8 @@ static id s_sharedDirectorCaller;
     auto director = SimpleGameEngine::Director::getInstance();
     std::shared_ptr<SimpleGameEngine::GLView> glView = director->getOpenGLView();
     
-    EAGLContext* sgContext = [(__bridge SGEAGLView *)director->getOpenGLView()->getEAGLView() context];
+    SGEAGLView* saglView = (__bridge SGEAGLView *)glView->getEAGLView();
+    EAGLContext* sgContext = [saglView renderingContext];
     if (sgContext != [EAGLContext currentContext]) {
         glFlush();
     }
@@ -81,10 +82,9 @@ static id s_sharedDirectorCaller;
     
     CFTimeInterval dt = ((CADisplayLink*)displayLink).timestamp - lastDisplayTime;
     lastDisplayTime = ((CADisplayLink*)displayLink).timestamp;
-    //NSLog(@"dt = %f", dt);
     director->mainloop(dt);
     
-    [sgContext presentRenderbuffer:GL_RENDERBUFFER];
+    [saglView postFrontBuffer];
 
 }
 

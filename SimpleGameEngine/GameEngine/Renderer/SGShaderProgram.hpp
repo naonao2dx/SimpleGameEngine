@@ -32,7 +32,9 @@ namespace SimpleGameEngine {
         void createShader(const GLchar* vertShaderSource, const GLchar* fragShaderSource);
         GLuint compileShader(GLuint shaderType, const GLchar *source);
         void vertexToPosition(std::vector<Vertex> vertex, GLfloat position[]);
+        void vertexToPosition3D(std::vector<Vertex> vertex, GLfloat position[]);
         void vertexToPositionAndColor(std::vector<Vertex> vertex, GLfloat position[], GLubyte color[]);
+        void vertexToPositionAndColor3D(std::vector<Vertex> vertex, GLfloat position[], GLubyte color[]);
         GLuint _shader;
         std::vector<Vertex> _vertex;
         GLenum _shape;

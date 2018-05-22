@@ -20,6 +20,7 @@ namespace SimpleGameEngine {
     {
     public:
         static std::shared_ptr<Primitives> create(int shapeType);
+        static std::shared_ptr<Primitives> createWithPositionAndColor3DShader(int shapeType);
         static std::shared_ptr<Primitives> createWithVertexColorShader(int shapeType);
         void setVertex(std::vector<Vertex> &vertex);
         void setNormalizedVertex(std::vector<Vertex> &normalizedVertex);
@@ -33,6 +34,7 @@ namespace SimpleGameEngine {
     private:
         Primitives(int shapeType);
         void setShaderPositionAndColor();
+        void setShaderPositionAndColor3D();
         void setShaderVertexColor();
         bool init();
         void setShaderProgram(ShaderManager::ShaderType shaderType);

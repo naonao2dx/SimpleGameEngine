@@ -22,11 +22,12 @@ void Renderer::clear()
     glDepthMask(true);
     glClearColor(_clearColor.r, _clearColor.g, _clearColor.b, _clearColor.a);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glDepthMask(false);
+    //glDepthMask(false);
 }
 
 void Renderer::initGLView()
 {
     Console::logDebug("Renderer::initGLView");
     auto shaderManager = ShaderManager::getInstance();
+    glEnable(GL_DEPTH_TEST);
 }

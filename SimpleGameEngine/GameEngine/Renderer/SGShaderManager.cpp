@@ -9,6 +9,7 @@
 #include "SGShaderManager.hpp"
 #include "SGShaderProgram.hpp"
 #include "SGShaderPositionAndColor.hpp"
+#include "SGShaderPositionAndColor3D.hpp"
 #include "SGShaderVertexColor.hpp"
 #include "SGShaderTexture2D.hpp"
 #include "SGShaderMaskTexture.hpp"
@@ -57,6 +58,9 @@ void ShaderManager::loadDefaultShader()
 {
     auto shaderPositionAndColor = std::make_shared<ShaderPositionAndColor>(shaderVertPosition, shaderFragColor);
     _shaderMap.emplace(POSITION_AND_COLOR, shaderPositionAndColor);
+    
+    auto shaderPositionAndColor3D = std::make_shared<ShaderPositionAndColor3D>(shaderVertPosition, shaderFragColor);
+    _shaderMap.emplace(POSITION_AND_COLOR_3D, shaderPositionAndColor3D);
     
     auto shaderVertexColor = std::make_shared<ShaderVertexColor>(shaderVertVertexColor, shaderFragVertexColor);
     _shaderMap.emplace(VERTEX_COLOR, shaderVertexColor);
