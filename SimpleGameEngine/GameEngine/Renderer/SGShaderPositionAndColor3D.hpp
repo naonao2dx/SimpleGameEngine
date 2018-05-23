@@ -10,24 +10,16 @@
 #define SGShaderPositionAndColor3D_hpp
 
 #include "SGShaderProgram.hpp"
+#include "SGShaderPositionAndColor.hpp"
 #include "SGGeometry.hpp"
 #include "SGColor.hpp"
 
 namespace SimpleGameEngine {
-    class ShaderPositionAndColor3D : public ShaderProgram
+    class ShaderPositionAndColor3D : public ShaderPositionAndColor
     {
     public:
         ShaderPositionAndColor3D(const GLchar* vertShaderSource, const GLchar* fragShaderSource);
-        
         virtual void draw() override;
-        void setColor(const Color4F color);
-        void setLineWidth(GLfloat lineWidth);
-    private:
-        bool init();
-        GLint _attrPos;
-        GLint _unifColor;
-        Color4F _color;
-        GLfloat _lineWidth;
     };
 }
 

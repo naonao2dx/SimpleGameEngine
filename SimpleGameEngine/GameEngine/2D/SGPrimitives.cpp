@@ -146,9 +146,9 @@ void Primitives::draw()
     _shaderProgram->setVertex(_normalizedVertex);
     _shaderProgram->setShape(_shapeType);
     _shaderProgram->setBlendFunc(_blendFunc);
-    if (_shaderType == ShaderManager::ShaderType::POSITION_AND_COLOR_3D) {
-        std::dynamic_pointer_cast<ShaderPositionAndColor3D>(_shaderProgram)->setColor(_color);
-        std::dynamic_pointer_cast<ShaderPositionAndColor3D>(_shaderProgram)->setLineWidth(_lineWidth);
+    if (_shaderType == ShaderManager::ShaderType::POSITION_AND_COLOR || _shaderType == ShaderManager::ShaderType::POSITION_AND_COLOR_3D) {
+        std::dynamic_pointer_cast<ShaderPositionAndColor>(_shaderProgram)->setColor(_color);
+        std::dynamic_pointer_cast<ShaderPositionAndColor>(_shaderProgram)->setLineWidth(_lineWidth);
     }
     _shaderProgram->draw();
 }

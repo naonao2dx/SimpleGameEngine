@@ -41,14 +41,13 @@ bool HelloScene::init()
     Console::logDebug("Height: %d", visibleSize.height);
     
     // Depth buffer sample 1
-    std::shared_ptr<Primitives> tri = Primitives::createWithPositionAndColor3DShader(GL_TRIANGLE_STRIP);
+    std::shared_ptr<Primitives> tri = Primitives::createWithPositionAndColor3DShader(GL_TRIANGLES);
     
-    Vertex vert1 = Vertex { Vec3 {20, 50, -0.5f} };
-    Vertex vert2 = Vertex { Vec3 {20, 100, -0.5f} };
-    Vertex vert3 = Vertex { Vec3 {60, 50, -0.5f} };
-    Vertex vert4 = Vertex { Vec3 {60, 100, -0.5f} };
-    std::vector<Vertex> vertex1 = { vert1, vert2, vert3, vert4 };
-    tri->setVertex(vertex1);
+    Vertex vert1 = Vertex { Vec3 {0.0f, 0.5f, -0.5f} };
+    Vertex vert2 = Vertex { Vec3 {-0.5f, 0.0f, -0.5f} };
+    Vertex vert3 = Vertex { Vec3 {0.5, 0.0f, -0.5f} };
+    std::vector<Vertex> vertex1 = { vert1, vert2, vert3 };
+    tri->setNormalizedVertex(vertex1);
     
     Color4F color = { 1.0f, 1.0f, 0.0f, 1.0f };
     tri->setColor(color);
@@ -58,12 +57,12 @@ bool HelloScene::init()
     // Depth buffer sample 2
     std::shared_ptr<Primitives> tri2 = Primitives::createWithPositionAndColor3DShader(GL_TRIANGLE_STRIP);
     
-    Vertex vert5 = Vertex { Vec3 {40, 50, 0.5f} };
-    Vertex vert6 = Vertex { Vec3 {40, 100, 0.5f} };
-    Vertex vert7 = Vertex { Vec3 {80, 50, 0.5f} };
-    Vertex vert8 = Vertex { Vec3 {80, 100, 0.5f} };
+    Vertex vert5 = Vertex { Vec3 {-0.4f, 0.1f, 0.5f} };
+    Vertex vert6 = Vertex { Vec3 {-0.4f, -0.5, 0.5f} };
+    Vertex vert7 = Vertex { Vec3 {0.4f, 0.1f, 0.5f} };
+    Vertex vert8 = Vertex { Vec3 {0.4f, -0.5f, 0.5f} };
     std::vector<Vertex> vertex2 = { vert5, vert6, vert7, vert8 };
-    tri2->setVertex(vertex2);
+    tri2->setNormalizedVertex(vertex2);
     
     Color4F color2 = { 0.0f, 1.0f, 1.0f, 1.0f };
     tri2->setColor(color2);

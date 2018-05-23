@@ -17,12 +17,12 @@ namespace SimpleGameEngine {
     class ShaderPositionAndColor : public ShaderProgram
     {
     public:
+        ShaderPositionAndColor(){};
         ShaderPositionAndColor(const GLchar* vertShaderSource, const GLchar* fragShaderSource);
-        
         virtual void draw() override;
         void setColor(const Color4F color);
         void setLineWidth(GLfloat lineWidth);
-    private:
+    protected:
         bool init();
         GLint _attrPos;
         GLint _unifColor;
