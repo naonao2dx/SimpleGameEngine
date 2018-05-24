@@ -8,6 +8,9 @@
 
 #include "SGGeometry.hpp"
 #include <math.h>
+#include <cstring>
+
+#define degree2radian(degree) ((degree * M_PI) / 180.0)
 
 using namespace SimpleGameEngine;
 
@@ -57,6 +60,18 @@ Vec3 Vec3::normalized(const SimpleGameEngine::Vec3 v)
 Vec3 Vec3::createNormalized(const GLfloat x, const GLfloat y, const GLfloat z)
 {
     return normalized(create(x, y, z));
+}
+
+Vec3 Vec3::cross(const SimpleGameEngine::Vec3 v0, const SimpleGameEngine::Vec3 v1)
+{
+    return create((v0.y * v1.z) - (v0.z * v1.y),
+                  (v0.z * v1.x) - (v0.x * v1.z),
+                  (v0.x * v1.y) - (v0.y * v1.x));
+}
+
+GLfloat Vec3::dot(const SimpleGameEngine::Vec3 v0, const SimpleGameEngine::Vec3 v1)
+{
+    return (v0.x * v1.x) + (v0.y * v1.y) + (v0.z * v1.z);
 }
 
 Mat4 Mat4::identity()
@@ -157,6 +172,52 @@ Mat4 Mat4::multiply(const Mat4 a, const Mat4 b)
             result.m[i][3] = a.m[0][3] * b.m[i][0] + a.m[1][3] * b.m[i][1] + a.m[2][3] * b.m[i][2] + a.m[3][3] * b.m[i][3];
         }
     }
+    
+    return result;
+}
+
+Mat4 Mat4::lookAt(const SimpleGameEngine::Vec3 position, const SimpleGameEngine::Vec3 look, const SimpleGameEngine::Vec3 up)
+{
+    Mat4 result;
+    
+    Vec3 f = Vec3::normalized(Vec3::create(look.x - position.x, look.y - position.y, look.z - position.z));
+    Vec3 u = Vec3::normalized(up);
+    Vec3 s = Vec3::normalized(Vec3::cross(f, u));
+    u = Vec3::cross(s, f);
+    
+    result.m[0][0] = s.x;
+    result.m[1][0] = s.y;
+    result.m[2][0] = s.z;
+    result.m[0][1] = u.x;
+    result.m[1][1] = u.y;
+    result.m[2][1] = u.z;
+    result.m[0][2] = -f.x;
+    result.m[1][2] = -f.y;
+    result.m[2][2] = -f.z;
+    result.m[3][0] = - (Vec3::dot(s, position));
+    result.m[3][1] = - (Vec3::dot(u, position));
+    result.m[3][2] = - (Vec3::dot(f, position));
+    result.m[0][3] = 0;
+    result.m[1][3] = 0;
+    result.m[2][3] = 0;
+    result.m[3][3] = 1;
+    
+    return result;
+}
+
+Mat4 Mat4::perspective(const GLfloat near, const GLfloat far, const GLfloat fovYDegree, const GLfloat aspect)
+{
+    Mat4 result;
+    
+    std::memset(result.m, 0x00, sizeof(Mat4));
+    
+    const GLfloat f = (GLfloat) (1.0 / (tan(degree2radian(fovYDegree)) / 2.0));
+    
+    result.m[0][0] = f / aspect;
+    result.m[1][1] = f;
+    result.m[2][2] = (far + near) / (near - far);
+    result.m[2][3] = -1;
+    result.m[3][2] = (2.0f * far * near) / (near - far);
     
     return result;
 }

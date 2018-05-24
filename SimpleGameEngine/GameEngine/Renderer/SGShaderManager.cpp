@@ -16,6 +16,7 @@
 #include "SGShaderTexture2DMatrix.hpp"
 
 #include "Shader/ShaderPosition.vert"
+#include "Shader/ShaderPositionCamera.vert"
 #include "Shader/ShaderColor.frag"
 
 #include "Shader/ShaderVertexColor.vert"
@@ -59,7 +60,7 @@ void ShaderManager::loadDefaultShader()
     auto shaderPositionAndColor = std::make_shared<ShaderPositionAndColor>(shaderVertPosition, shaderFragColor);
     _shaderMap.emplace(POSITION_AND_COLOR, shaderPositionAndColor);
     
-    auto shaderPositionAndColor3D = std::make_shared<ShaderPositionAndColor3D>(shaderVertPosition, shaderFragColor);
+    auto shaderPositionAndColor3D = std::make_shared<ShaderPositionAndColor3D>(shaderVertPositionCamera, shaderFragColor);
     _shaderMap.emplace(POSITION_AND_COLOR_3D, shaderPositionAndColor3D);
     
     auto shaderVertexColor = std::make_shared<ShaderVertexColor>(shaderVertVertexColor, shaderFragVertexColor);

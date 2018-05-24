@@ -33,6 +33,7 @@
 		FD59DF912060ECBD005EF629 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD59DF902060ECBD005EF629 /* QuartzCore.framework */; };
 		FD59DF932060ECC5005EF629 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD59DF922060ECC5005EF629 /* OpenGLES.framework */; };
 		FD6A108F20B43E1F0092B6D5 /* SGShaderPositionAndColor3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD6A108D20B43E1F0092B6D5 /* SGShaderPositionAndColor3D.cpp */; };
+		FD6A109320B65F3B0092B6D5 /* SGCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD6A109120B65F3B0092B6D5 /* SGCamera.cpp */; };
 		FD809D8820976FFB000290D5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD809D8720976FFB000290D5 /* Default-568h@2x.png */; };
 		FD855C6B20A03926009D6529 /* SGVertex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD855C6A20A03926009D6529 /* SGVertex.cpp */; };
 		FD855C7420A46208009D6529 /* SGShaderTexture2DMatrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD855C7220A46208009D6529 /* SGShaderTexture2DMatrix.cpp */; };
@@ -109,6 +110,9 @@
 		FD59DF922060ECC5005EF629 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		FD6A108D20B43E1F0092B6D5 /* SGShaderPositionAndColor3D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGShaderPositionAndColor3D.cpp; sourceTree = "<group>"; };
 		FD6A108E20B43E1F0092B6D5 /* SGShaderPositionAndColor3D.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGShaderPositionAndColor3D.hpp; sourceTree = "<group>"; };
+		FD6A109120B65F3B0092B6D5 /* SGCamera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGCamera.cpp; sourceTree = "<group>"; };
+		FD6A109220B65F3B0092B6D5 /* SGCamera.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGCamera.hpp; sourceTree = "<group>"; };
+		FD6A109420B6E0D60092B6D5 /* ShaderPositionCamera.vert */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; path = ShaderPositionCamera.vert; sourceTree = "<group>"; };
 		FD809D8720976FFB000290D5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FD809D92209BF7BF000290D5 /* SGDrawingObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGDrawingObject.hpp; sourceTree = "<group>"; };
 		FD855C6A20A03926009D6529 /* SGVertex.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGVertex.cpp; sourceTree = "<group>"; };
@@ -389,6 +393,8 @@
 				FD855C7A20AAABF9009D6529 /* SGBlendFunc.hpp */,
 				FD6A108D20B43E1F0092B6D5 /* SGShaderPositionAndColor3D.cpp */,
 				FD6A108E20B43E1F0092B6D5 /* SGShaderPositionAndColor3D.hpp */,
+				FD6A109120B65F3B0092B6D5 /* SGCamera.cpp */,
+				FD6A109220B65F3B0092B6D5 /* SGCamera.hpp */,
 			);
 			path = Renderer;
 			sourceTree = "<group>";
@@ -428,6 +434,7 @@
 				FD4BA7102098427900BE3711 /* ShaderMaskTexture.frag */,
 				FD855C6E20A46034009D6529 /* ShaderTexture2DMatrix.vert */,
 				FD855C7020A460EB009D6529 /* ShaderTexture2DMatrix.frag */,
+				FD6A109420B6E0D60092B6D5 /* ShaderPositionCamera.vert */,
 			);
 			path = Shader;
 			sourceTree = "<group>";
@@ -527,6 +534,7 @@
 				FD4BA71D20A0282900BE3711 /* SGTexture2D.cpp in Sources */,
 				FD4BA71A20A0249800BE3711 /* SGSpriteCache.cpp in Sources */,
 				FD4BA6E3209029CC00BE3711 /* SGShaderVertexColor.cpp in Sources */,
+				FD6A109320B65F3B0092B6D5 /* SGCamera.cpp in Sources */,
 				FD6A108F20B43E1F0092B6D5 /* SGShaderPositionAndColor3D.cpp in Sources */,
 				359C5A882062515200652D2A /* SGDirectorCaller.mm in Sources */,
 				FDEC43DD2085ABDF00BD059F /* HelloScene.cpp in Sources */,
@@ -662,7 +670,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CMG36HFK4D;
 				INFOPLIST_FILE = SimpleGameEngine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -672,6 +682,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.naonao2dx.SimpleGameEngine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -680,7 +691,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CMG36HFK4D;
 				INFOPLIST_FILE = SimpleGameEngine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -690,6 +703,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.naonao2dx.SimpleGameEngine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

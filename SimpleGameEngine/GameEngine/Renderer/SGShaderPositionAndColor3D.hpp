@@ -20,6 +20,14 @@ namespace SimpleGameEngine {
     public:
         ShaderPositionAndColor3D(const GLchar* vertShaderSource, const GLchar* fragShaderSource);
         virtual void draw() override;
+        inline void setLookAt(Mat4 lookAt) { _lookAt = lookAt; };
+        inline void setProjection(Mat4 projection) { _projection = projection; };
+    protected:
+        virtual bool init() override;
+        Mat4 _lookAt;
+        Mat4 _projection;
+        GLint _unifLookAt;
+        GLint _unifProjection;
     };
 }
 

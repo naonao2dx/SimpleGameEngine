@@ -55,6 +55,7 @@ Primitives::Primitives(int shapeType)
 {
     _director = Director::getInstance();
     _shaderManager = ShaderManager::getInstance();
+    _camera = Camera::create();
 }
 
 bool Primitives::init()
@@ -149,6 +150,10 @@ void Primitives::draw()
     if (_shaderType == ShaderManager::ShaderType::POSITION_AND_COLOR || _shaderType == ShaderManager::ShaderType::POSITION_AND_COLOR_3D) {
         std::dynamic_pointer_cast<ShaderPositionAndColor>(_shaderProgram)->setColor(_color);
         std::dynamic_pointer_cast<ShaderPositionAndColor>(_shaderProgram)->setLineWidth(_lineWidth);
+    }
+    if (_shaderType == ShaderManager::ShaderType::POSITION_AND_COLOR_3D) {
+        std::dynamic_pointer_cast<ShaderPositionAndColor3D>(_shaderProgram)->setLookAt(_camera->getLookAt());
+        std::dynamic_pointer_cast<ShaderPositionAndColor3D>(_shaderProgram)->setProjection(_camera->getProjection());
     }
     _shaderProgram->draw();
 }

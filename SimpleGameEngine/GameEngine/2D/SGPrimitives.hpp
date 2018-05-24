@@ -14,6 +14,7 @@
 #include "SGDirector.hpp"
 #include "SGDrawingObject.hpp"
 #include "SGBlendFunc.hpp"
+#include "SGCamera.hpp"
 
 namespace SimpleGameEngine {
     class Primitives : public DrawingObject
@@ -50,6 +51,7 @@ namespace SimpleGameEngine {
         inline virtual void visit() override { draw(); };
         virtual void draw() override;
         BlendFunc _blendFunc;
+        std::shared_ptr<Camera> _camera;
     };
 }
 

@@ -23,7 +23,7 @@ namespace SimpleGameEngine {
         void setColor(const Color4F color);
         void setLineWidth(GLfloat lineWidth);
     protected:
-        bool init();
+        virtual bool init();
         GLint _attrPos;
         GLint _unifColor;
         Color4F _color;

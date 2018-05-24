@@ -34,6 +34,8 @@ namespace SimpleGameEngine {
         static GLfloat length(const Vec3 v);
         static Vec3 normalized(const Vec3 v);
         static Vec3 createNormalized(const GLfloat x, const GLfloat y, const GLfloat z);
+        static Vec3 cross(const Vec3 v0, const Vec3 v1);
+        static GLfloat dot(const Vec3 v0, const Vec3 v1);
     };
     
     struct Mat4
@@ -46,6 +48,8 @@ namespace SimpleGameEngine {
         static Mat4 scale(const GLfloat x, const GLfloat y, const GLfloat z);
         static Mat4 rotate(const Vec3 axis, const GLfloat rotate);
         static Mat4 multiply(const Mat4 a, const Mat4 b);
+        static Mat4 lookAt(const Vec3 position, const Vec3 look, const Vec3 up);
+        static Mat4 perspective(const GLfloat near, const GLfloat far, const GLfloat fovYDegree, const GLfloat aspect);
     };
     
     struct Size
