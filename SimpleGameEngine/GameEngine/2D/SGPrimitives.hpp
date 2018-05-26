@@ -51,7 +51,6 @@ namespace SimpleGameEngine {
         inline virtual void visit() override { draw(); };
         virtual void draw() override;
         BlendFunc _blendFunc;
-        std::shared_ptr<Camera> _camera;
     };
 }
 

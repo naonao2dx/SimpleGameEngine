@@ -15,7 +15,7 @@ using namespace SimpleGameEngine;
 std::shared_ptr<Camera> Camera::create()
 {
     // Default value
-    Vec3 position { 3, 1.5, -5 };
+    Vec3 position { -3, 1.5, -5 };
     Vec3 look { 0, 0, 0 };
     Vec3 up { 0, 1, 0 };
     GLfloat projectionNear = 1.0f;

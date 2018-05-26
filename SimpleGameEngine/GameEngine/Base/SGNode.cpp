@@ -31,6 +31,7 @@ bool Node::init()
 
 void Node::addChild(const std::shared_ptr<DrawingObject> child)
 {
+    child->setCamera(_camera);
     _children.push_back(child);
 }
 

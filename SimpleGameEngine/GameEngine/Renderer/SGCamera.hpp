@@ -9,7 +9,9 @@
 #ifndef SGCamera_hpp
 #define SGCamera_hpp
 
-#include "SGNode.hpp"
+#include <OpenGLES/ES2/gl.h>
+#include "SGGeometry.hpp"
+#include <memory>
 
 namespace SimpleGameEngine {
     class Camera {

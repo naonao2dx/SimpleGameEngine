@@ -14,11 +14,16 @@ using namespace SimpleGameEngine;
 std::shared_ptr<Scene> Scene::create()
 {
     Console::logDebug("Scene::create");
-    std::shared_ptr<Scene> scene = std::make_shared<Scene>();
+    std::shared_ptr<Scene> scene(new (std::nothrow) Scene());
     if (scene && scene->init()) {
         return scene;
     }
     return nullptr;
+}
+
+Scene::Scene()
+{
+    _camera = Camera::create();
 }
 
 void Scene::render()

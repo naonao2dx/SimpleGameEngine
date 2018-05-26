@@ -64,9 +64,11 @@ Vec3 Vec3::createNormalized(const GLfloat x, const GLfloat y, const GLfloat z)
 
 Vec3 Vec3::cross(const SimpleGameEngine::Vec3 v0, const SimpleGameEngine::Vec3 v1)
 {
-    return create((v0.y * v1.z) - (v0.z * v1.y),
-                  (v0.z * v1.x) - (v0.x * v1.z),
-                  (v0.x * v1.y) - (v0.y * v1.x));
+    return Vec3::create(
+                        (v0.y * v1.z) - (v0.z * v1.y),
+                        (v0.z * v1.x) - (v0.x * v1.z),
+                        (v0.x * v1.y) - (v0.y * v1.x)
+                        );
 }
 
 GLfloat Vec3::dot(const SimpleGameEngine::Vec3 v0, const SimpleGameEngine::Vec3 v1)
@@ -176,11 +178,11 @@ Mat4 Mat4::multiply(const Mat4 a, const Mat4 b)
     return result;
 }
 
-Mat4 Mat4::lookAt(const SimpleGameEngine::Vec3 position, const SimpleGameEngine::Vec3 look, const SimpleGameEngine::Vec3 up)
+Mat4 Mat4::lookAt(const SimpleGameEngine::Vec3 eye, const SimpleGameEngine::Vec3 look, const SimpleGameEngine::Vec3 up)
 {
     Mat4 result;
     
-    Vec3 f = Vec3::normalized(Vec3::create(look.x - position.x, look.y - position.y, look.z - position.z));
+    Vec3 f = Vec3::normalized(Vec3::create(look.x - eye.x, look.y - eye.y, look.z - eye.z));
     Vec3 u = Vec3::normalized(up);
     Vec3 s = Vec3::normalized(Vec3::cross(f, u));
     u = Vec3::cross(s, f);
@@ -194,9 +196,9 @@ Mat4 Mat4::lookAt(const SimpleGameEngine::Vec3 position, const SimpleGameEngine:
     result.m[0][2] = -f.x;
     result.m[1][2] = -f.y;
     result.m[2][2] = -f.z;
-    result.m[3][0] = - (Vec3::dot(s, position));
-    result.m[3][1] = - (Vec3::dot(u, position));
-    result.m[3][2] = - (Vec3::dot(f, position));
+    result.m[3][0] = -Vec3::dot(s, eye);
+    result.m[3][1] = -Vec3::dot(u, eye);
+    result.m[3][2] = Vec3::dot(f, eye);
     result.m[0][3] = 0;
     result.m[1][3] = 0;
     result.m[2][3] = 0;

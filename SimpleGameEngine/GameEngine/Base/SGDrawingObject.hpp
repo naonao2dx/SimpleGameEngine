@@ -9,12 +9,17 @@
 #ifndef SGDrawingObject_hpp
 #define SGDrawingObject_hpp
 
+#include "SGCamera.hpp"
+
 namespace SimpleGameEngine {
     class DrawingObject
     {
     public:
         virtual void visit() = 0;
         virtual void draw() = 0;
+        inline void setCamera(std::shared_ptr<Camera> camera) { _camera = camera; };
+    protected:
+        std::shared_ptr<Camera> _camera;
     };
 }
 

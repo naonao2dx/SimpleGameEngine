@@ -55,7 +55,6 @@ Primitives::Primitives(int shapeType)
 {
     _director = Director::getInstance();
     _shaderManager = ShaderManager::getInstance();
-    _camera = Camera::create();
 }
 
 bool Primitives::init()
@@ -65,8 +64,6 @@ bool Primitives::init()
     Vertex vert3 = Vertex { Vec3 { 0.5f, -0.5f, 0.0f}, Color4B::BLUE } ;
     std::vector<Vertex> vertex = { vert1, vert2, vert3 };
     setNormalizedVertex(vertex);
-    
-    return true;
     
     return true;
 }
