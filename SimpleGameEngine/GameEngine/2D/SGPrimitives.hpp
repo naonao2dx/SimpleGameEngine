@@ -23,6 +23,7 @@ namespace SimpleGameEngine {
         static std::shared_ptr<Primitives> create(int shapeType);
         static std::shared_ptr<Primitives> createWithPositionAndColor3DShader(int shapeType);
         static std::shared_ptr<Primitives> createWithVertexColorShader(int shapeType);
+        void update();
         void setVertex(std::vector<Vertex> &vertex);
         void setNormalizedVertex(std::vector<Vertex> &normalizedVertex);
         void setColor(const Color4F& color);
@@ -48,7 +49,7 @@ namespace SimpleGameEngine {
         Color4F _color;
         std::shared_ptr<ShaderManager> _shaderManager;
         std::shared_ptr<ShaderProgram> _shaderProgram;
-        inline virtual void visit() override { draw(); };
+        inline virtual void visit() override { update(); draw(); };
         virtual void draw() override;
         BlendFunc _blendFunc;
     };

@@ -27,6 +27,7 @@ namespace SimpleGameEngine {
         Node();
         void setShaderProgram(ShaderManager::ShaderType shaderType);
         void addChild(const std::shared_ptr<DrawingObject> child);
+        virtual void update(){};
         
         inline Vec2& getPosition() { return _position; };
         inline float getPositionX() { return _position.x; };

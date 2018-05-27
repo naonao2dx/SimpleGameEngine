@@ -42,10 +42,11 @@ void Node::setShaderProgram(ShaderManager::ShaderType shaderType) {
 
 void Node::visit()
 {
+    update();
+    draw();
     for (auto it = _children.cbegin(); _children.cend() != it; ++it) {
         (*it)->visit();
     }
-    draw();
 }
 
 float Node::positionXtoNormalizedPositionX(int x)

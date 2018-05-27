@@ -17,6 +17,7 @@ public:
     static std::shared_ptr<SimpleGameEngine::Scene> createScene();
     static std::shared_ptr<HelloScene> create();
     virtual bool init() override;
+    virtual void update() override;
     
 };
 

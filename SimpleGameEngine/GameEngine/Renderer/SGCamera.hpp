@@ -24,6 +24,7 @@ namespace SimpleGameEngine {
         void setProjectionNear(GLfloat projectionNear);
         void setProjectionFar(GLfloat projectionFar);
         void setProjectionFovY(GLfloat projectionForV);
+        inline Vec3 getPosition() { return _position; };
         inline Mat4 getLookAt() { return _lookAt; };
         inline Mat4 getProjection() { return _projection; };
     private:

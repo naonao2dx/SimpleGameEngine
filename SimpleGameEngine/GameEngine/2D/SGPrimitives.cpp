@@ -68,6 +68,11 @@ bool Primitives::init()
     return true;
 }
 
+void Primitives::update()
+{
+    
+}
+
 void Primitives::setVertex(std::vector<Vertex> &vertex)
 {
     _vertex = vertex;

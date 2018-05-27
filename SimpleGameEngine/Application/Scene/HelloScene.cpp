@@ -148,3 +148,11 @@ bool HelloScene::init()
     
     return true;
 }
+
+void HelloScene::update()
+{
+    Vec3 position = _camera->getPosition();
+    position.x += 0.01f;
+    position.y -= 0.01f;
+    _camera->setPosition(position);
+}
