@@ -145,14 +145,18 @@ bool HelloScene::init()
 //    tri3->setNormalizedVertex(vertex3);
 //    tri3->setBlendFunc(BlendFunc::DISABLE);
 //    addChild(tri3);
+    _rotate = 0;
     
     return true;
 }
 
 void HelloScene::update()
 {
-    Vec3 position = _camera->getPosition();
-    position.x += 0.01f;
-    position.y -= 0.01f;
-    _camera->setPosition(position);
+    Mat4 world = Mat4::rotate(Vec3::createNormalized(1, 1, 0), _rotate);
+    _camera->setWorld(world);
+    _rotate += 1;
+//    Vec3 position = _camera->getPosition();
+//    position.x += 0.01f;
+//    position.y -= 0.01f;
+//    _camera->setPosition(position);
 }

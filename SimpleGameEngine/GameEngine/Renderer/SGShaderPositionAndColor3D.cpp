@@ -23,11 +23,8 @@ ShaderPositionAndColor3D::ShaderPositionAndColor3D(const GLchar* vertShaderSourc
 bool ShaderPositionAndColor3D::init()
 {
     ShaderPositionAndColor::init();
-    _unifLookAt = glGetUniformLocation(_shader, "unif_lookat");
-    assert(_unifLookAt >= 0);
-
-    _unifProjection = glGetUniformLocation(_shader, "unif_projection");
-    assert(_unifProjection >= 0);
+    _unifWlp = glGetUniformLocation(_shader, "unif_wlp");
+    assert(_unifWlp >= 0);
     return true;
 }
 
@@ -44,8 +41,7 @@ void ShaderPositionAndColor3D::draw()
     
     // Fragment data
     glUniform4f(_unifColor, _color.r, _color.g, _color.b, _color.a);
-    glUniformMatrix4fv(_unifLookAt, 1, GL_FALSE, (GLfloat*) _lookAt.m);
-    glUniformMatrix4fv(_unifProjection, 1, GL_FALSE, (GLfloat*) _projection.m);
+    glUniformMatrix4fv(_unifWlp, 1, GL_FALSE, (GLfloat*) _wlp.m);
     
     // Draw
     glDrawArrays(_shape, 0, static_cast<GLsizei>(_vertex.size()));

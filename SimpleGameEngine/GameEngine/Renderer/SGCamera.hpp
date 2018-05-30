@@ -24,12 +24,14 @@ namespace SimpleGameEngine {
         void setProjectionNear(GLfloat projectionNear);
         void setProjectionFar(GLfloat projectionFar);
         void setProjectionFovY(GLfloat projectionForV);
+        void setWorld(Mat4 world);
         inline Vec3 getPosition() { return _position; };
         inline Mat4 getLookAt() { return _lookAt; };
         inline Mat4 getProjection() { return _projection; };
+        inline Mat4 getWlp() { return _wlp; };
     private:
         Camera(Vec3 position, Vec3 look, Vec3 up, GLfloat projectionNear, GLfloat projectionFar, GLfloat projectionFovY);
-        
+        void setWlp();
         Vec3 _position;
         Vec3 _look;
         Vec3 _up;
@@ -39,8 +41,8 @@ namespace SimpleGameEngine {
         GLfloat _projectionFovY;
         GLfloat _projectionAspect;
         Mat4 _projection;
-        
-        
+        Mat4 _world;
+        Mat4 _wlp;
     };
 }
 

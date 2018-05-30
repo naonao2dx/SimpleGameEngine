@@ -154,8 +154,7 @@ void Primitives::draw()
         std::dynamic_pointer_cast<ShaderPositionAndColor>(_shaderProgram)->setLineWidth(_lineWidth);
     }
     if (_shaderType == ShaderManager::ShaderType::POSITION_AND_COLOR_3D) {
-        std::dynamic_pointer_cast<ShaderPositionAndColor3D>(_shaderProgram)->setLookAt(_camera->getLookAt());
-        std::dynamic_pointer_cast<ShaderPositionAndColor3D>(_shaderProgram)->setProjection(_camera->getProjection());
+        std::dynamic_pointer_cast<ShaderPositionAndColor3D>(_shaderProgram)->setWlp(_camera->getWlp());
     }
     _shaderProgram->draw();
 }

@@ -19,6 +19,7 @@ public:
     virtual bool init() override;
     virtual void update() override;
     
+    GLint _rotate;
 };
 
 
