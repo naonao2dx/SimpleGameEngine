@@ -17,7 +17,6 @@ using namespace SimpleGameEngine;
 Node::Node()
 {
     _director = Director::getInstance();
-    _shaderManager = ShaderManager::getInstance();
     _designResolutionSize = _director->getDesignResolutionSize();
     _aspect = static_cast<GLfloat>(_designResolutionSize.width) / static_cast<GLfloat>(_designResolutionSize.height);
     
@@ -33,11 +32,6 @@ void Node::addChild(const std::shared_ptr<DrawingObject> child)
 {
     child->setCamera(_camera);
     _children.push_back(child);
-}
-
-void Node::setShaderProgram(ShaderManager::ShaderType shaderType) {
-    _shaderType = shaderType;
-    _shaderProgram = _shaderManager->getShaderProgram(shaderType);
 }
 
 void Node::visit()

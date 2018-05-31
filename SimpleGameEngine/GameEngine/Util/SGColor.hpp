@@ -23,6 +23,7 @@ namespace SimpleGameEngine {
         
         static const Color4F WHITE;
         static const Color4F BLACK;
+        static const Color4F BLUE;
     };
     
     struct Color4B

@@ -14,6 +14,7 @@
 #include "SGShaderManager.hpp"
 #include "SGSprite.hpp"
 #include "SGSpriteMask.hpp"
+#include "SGCube3D.hpp"
 
 using namespace SimpleGameEngine;
 
@@ -40,34 +41,34 @@ bool HelloScene::init()
     Console::logDebug("Width: %d", visibleSize.width);
     Console::logDebug("Height: %d", visibleSize.height);
     
-    // Depth buffer sample 1
-    std::shared_ptr<Primitives> tri = Primitives::createWithPositionAndColor3DShader(GL_TRIANGLES);
-    
-    Vertex vert1 = Vertex { Vec3 {0.0f, 0.5f, -0.5f} };
-    Vertex vert2 = Vertex { Vec3 {-0.5f, 0.0f, -0.5f} };
-    Vertex vert3 = Vertex { Vec3 {0.5, 0.0f, -0.5f} };
-    std::vector<Vertex> vertex1 = { vert1, vert2, vert3 };
-    tri->setNormalizedVertex(vertex1);
-    
-    Color4F color = { 1.0f, 1.0f, 0.0f, 1.0f };
-    tri->setColor(color);
-    
-    
-    
-    // Depth buffer sample 2
-    std::shared_ptr<Primitives> tri2 = Primitives::createWithPositionAndColor3DShader(GL_TRIANGLE_STRIP);
-    
-    Vertex vert5 = Vertex { Vec3 {-0.4f, 0.1f, 0.5f} };
-    Vertex vert6 = Vertex { Vec3 {-0.4f, -0.5, 0.5f} };
-    Vertex vert7 = Vertex { Vec3 {0.4f, 0.1f, 0.5f} };
-    Vertex vert8 = Vertex { Vec3 {0.4f, -0.5f, 0.5f} };
-    std::vector<Vertex> vertex2 = { vert5, vert6, vert7, vert8 };
-    tri2->setNormalizedVertex(vertex2);
-    
-    Color4F color2 = { 0.0f, 1.0f, 1.0f, 1.0f };
-    tri2->setColor(color2);
-    addChild(tri2);
-    addChild(tri);
+//    // Depth buffer sample 1
+//    std::shared_ptr<Primitives> tri = Primitives::createWithPositionAndColor3DShader(GL_TRIANGLES);
+//
+//    Vertex vert1 = Vertex { Vec3 {0.0f, 0.5f, -0.5f} };
+//    Vertex vert2 = Vertex { Vec3 {-0.5f, 0.0f, -0.5f} };
+//    Vertex vert3 = Vertex { Vec3 {0.5, 0.0f, -0.5f} };
+//    std::vector<Vertex> vertex1 = { vert1, vert2, vert3 };
+//    tri->setNormalizedVertex(vertex1);
+//
+//    Color4F color = { 1.0f, 1.0f, 0.0f, 1.0f };
+//    tri->setColor(color);
+//
+//
+//
+//    // Depth buffer sample 2
+//    std::shared_ptr<Primitives> tri2 = Primitives::createWithPositionAndColor3DShader(GL_TRIANGLE_STRIP);
+//
+//    Vertex vert5 = Vertex { Vec3 {-0.4f, 0.1f, 0.5f} };
+//    Vertex vert6 = Vertex { Vec3 {-0.4f, -0.5, 0.5f} };
+//    Vertex vert7 = Vertex { Vec3 {0.4f, 0.1f, 0.5f} };
+//    Vertex vert8 = Vertex { Vec3 {0.4f, -0.5f, 0.5f} };
+//    std::vector<Vertex> vertex2 = { vert5, vert6, vert7, vert8 };
+//    tri2->setNormalizedVertex(vertex2);
+//
+//    Color4F color2 = { 0.0f, 1.0f, 1.0f, 1.0f };
+//    tri2->setColor(color2);
+//    addChild(tri2);
+//    addChild(tri);
     
 //    // Sample Primitives 1
 //    std::shared_ptr<Primitives> tri = Primitives::create(GL_TRIANGLE_STRIP);
@@ -145,6 +146,10 @@ bool HelloScene::init()
 //    tri3->setNormalizedVertex(vertex3);
 //    tri3->setBlendFunc(BlendFunc::DISABLE);
 //    addChild(tri3);
+    
+    std::shared_ptr<Cube3D> cube = Cube3D::createWithColor(Color4F::BLUE);
+    addChild(cube);
+    
     _rotate = 0;
     
     return true;
@@ -155,8 +160,4 @@ void HelloScene::update()
     Mat4 world = Mat4::rotate(Vec3::createNormalized(1, 1, 0), _rotate);
     _camera->setWorld(world);
     _rotate += 1;
-//    Vec3 position = _camera->getPosition();
-//    position.x += 0.01f;
-//    position.y -= 0.01f;
-//    _camera->setPosition(position);
 }

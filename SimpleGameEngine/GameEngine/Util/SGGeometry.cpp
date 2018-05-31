@@ -46,9 +46,9 @@ Vec3 Vec3::create(GLfloat _x, GLfloat _y, GLfloat _z)
 
 GLfloat Vec3::length(const SimpleGameEngine::Vec3 v)
 {
-    return static_cast<GLfloat>(sqrt((static_cast<double>(v.x) * static_cast<double>(v.x)) +
-                                     (static_cast<double>(v.y) + static_cast<double>(v.y)) +
-                                     (static_cast<double>(v.z) * static_cast<double>(v.z))));
+    return static_cast<GLfloat>(sqrt((static_cast<double>(v.x) * static_cast<double>(v.x))
+                                     + (static_cast<double>(v.y) * static_cast<double>(v.y))
+                                     + (static_cast<double>(v.z) * static_cast<double>(v.z))));
 }
 
 Vec3 Vec3::normalized(const SimpleGameEngine::Vec3 v)
@@ -125,36 +125,31 @@ Mat4 Mat4::rotate(const Vec3 axis, const GLfloat rotate)
     const GLfloat y = axis.y;
     const GLfloat z = axis.z;
     
-    const GLfloat c = cos((rotate * M_PI) / 180.0);
-    const GLfloat s = sin((rotate * M_PI) / 180.0);
-    
+    const GLfloat c = cos(degree2radian(rotate));
+    const GLfloat s = sin(degree2radian(rotate));
     {
         result.m[0][0] = (x * x) * (1.0f - c) + c;
-        result.m[0][1] = (x * y) * (1.0f - c) -z * s;
+        result.m[0][1] = (x * y) * (1.0f - c) - z * s;
         result.m[0][2] = (x * z) * (1.0f - c) + y * s;
         result.m[0][3] = 0;
-        
     }
     {
         result.m[1][0] = (y * x) * (1.0f - c) + z * s;
         result.m[1][1] = (y * y) * (1.0f - c) + c;
         result.m[1][2] = (y * z) * (1.0f - c) - x * s;
         result.m[1][3] = 0;
-        
     }
     {
         result.m[2][0] = (z * x) * (1.0f - c) - y * s;
         result.m[2][1] = (z * y) * (1.0f - c) + x * s;
         result.m[2][2] = (z * z) * (1.0f - c) + c;
         result.m[2][3] = 0;
-        
     }
     {
         result.m[3][0] = 0;
         result.m[3][1] = 0;
         result.m[3][2] = 0;
         result.m[3][3] = 1;
-        
     }
     
     return result;
@@ -166,13 +161,10 @@ Mat4 Mat4::multiply(const Mat4 a, const Mat4 b)
     
     int i = 0;
     for (i = 0; i < 4; ++i) {
-        int i = 0;
-        for (i = 0; i < 4; ++i) {
-            result.m[i][0] = a.m[0][0] * b.m[i][0] + a.m[1][0] * b.m[i][1] + a.m[2][0] * b.m[i][2] + a.m[3][0] * b.m[i][3];
-            result.m[i][1] = a.m[0][1] * b.m[i][0] + a.m[1][1] * b.m[i][1] + a.m[2][1] * b.m[i][2] + a.m[3][1] * b.m[i][3];
-            result.m[i][2] = a.m[0][2] * b.m[i][0] + a.m[1][2] * b.m[i][1] + a.m[2][2] * b.m[i][2] + a.m[3][2] * b.m[i][3];
-            result.m[i][3] = a.m[0][3] * b.m[i][0] + a.m[1][3] * b.m[i][1] + a.m[2][3] * b.m[i][2] + a.m[3][3] * b.m[i][3];
-        }
+        result.m[i][0] = a.m[0][0] * b.m[i][0] + a.m[1][0] * b.m[i][1] + a.m[2][0] * b.m[i][2] + a.m[3][0] * b.m[i][3];
+        result.m[i][1] = a.m[0][1] * b.m[i][0] + a.m[1][1] * b.m[i][1] + a.m[2][1] * b.m[i][2] + a.m[3][1] * b.m[i][3];
+        result.m[i][2] = a.m[0][2] * b.m[i][0] + a.m[1][2] * b.m[i][1] + a.m[2][2] * b.m[i][2] + a.m[3][2] * b.m[i][3];
+        result.m[i][3] = a.m[0][3] * b.m[i][0] + a.m[1][3] * b.m[i][1] + a.m[2][3] * b.m[i][2] + a.m[3][3] * b.m[i][3];
     }
     
     return result;
@@ -213,7 +205,7 @@ Mat4 Mat4::perspective(const GLfloat near, const GLfloat far, const GLfloat fovY
     
     std::memset(result.m, 0x00, sizeof(Mat4));
     
-    const GLfloat f = (GLfloat) (1.0 / (tan(degree2radian(fovYDegree)) / 2.0));
+    const GLfloat f = (GLfloat) (1.0 / (tan(degree2radian(fovYDegree)) / 2.0)); // 1/tan(x) == cot(x)
     
     result.m[0][0] = f / aspect;
     result.m[1][1] = f;

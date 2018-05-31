@@ -32,6 +32,9 @@
 		FD4BA71D20A0282900BE3711 /* SGTexture2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA71B20A0282900BE3711 /* SGTexture2D.cpp */; };
 		FD59DF912060ECBD005EF629 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD59DF902060ECBD005EF629 /* QuartzCore.framework */; };
 		FD59DF932060ECC5005EF629 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD59DF922060ECC5005EF629 /* OpenGLES.framework */; };
+		FD64B4D920C00E930021BBCC /* SGCube3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD64B4D720C00E930021BBCC /* SGCube3D.cpp */; };
+		FD64B4DC20C00EBD0021BBCC /* SGNode3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD64B4DA20C00EBD0021BBCC /* SGNode3D.cpp */; };
+		FD64B4DE20C0186B0021BBCC /* SGDrawingObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD64B4DD20C0186B0021BBCC /* SGDrawingObject.cpp */; };
 		FD6A108F20B43E1F0092B6D5 /* SGShaderPositionAndColor3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD6A108D20B43E1F0092B6D5 /* SGShaderPositionAndColor3D.cpp */; };
 		FD6A109320B65F3B0092B6D5 /* SGCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD6A109120B65F3B0092B6D5 /* SGCamera.cpp */; };
 		FD809D8820976FFB000290D5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD809D8720976FFB000290D5 /* Default-568h@2x.png */; };
@@ -108,6 +111,11 @@
 		FD4BA71C20A0282900BE3711 /* SGTexture2D.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGTexture2D.hpp; sourceTree = "<group>"; };
 		FD59DF902060ECBD005EF629 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		FD59DF922060ECC5005EF629 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		FD64B4D720C00E930021BBCC /* SGCube3D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGCube3D.cpp; sourceTree = "<group>"; };
+		FD64B4D820C00E930021BBCC /* SGCube3D.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGCube3D.hpp; sourceTree = "<group>"; };
+		FD64B4DA20C00EBD0021BBCC /* SGNode3D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGNode3D.cpp; sourceTree = "<group>"; };
+		FD64B4DB20C00EBD0021BBCC /* SGNode3D.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGNode3D.hpp; sourceTree = "<group>"; };
+		FD64B4DD20C0186B0021BBCC /* SGDrawingObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGDrawingObject.cpp; sourceTree = "<group>"; };
 		FD6A108D20B43E1F0092B6D5 /* SGShaderPositionAndColor3D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGShaderPositionAndColor3D.cpp; sourceTree = "<group>"; };
 		FD6A108E20B43E1F0092B6D5 /* SGShaderPositionAndColor3D.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGShaderPositionAndColor3D.hpp; sourceTree = "<group>"; };
 		FD6A109120B65F3B0092B6D5 /* SGCamera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGCamera.cpp; sourceTree = "<group>"; };
@@ -201,6 +209,7 @@
 			children = (
 				FD4BA6F82091A79400BE3711 /* external */,
 				FDEC43E42085EA2800BD059F /* 2D */,
+				FD64B4D620C00E660021BBCC /* 3D */,
 				FDEC4399207F6A5C00BD059F /* Renderer */,
 				359C5A7A20621E1500652D2A /* Util */,
 				359C5A7620620B2500652D2A /* Base */,
@@ -247,8 +256,11 @@
 				FDEC43D82085AA7F00BD059F /* SGBaseScene.hpp */,
 				FDEC43DE2085AF1100BD059F /* SGNode.cpp */,
 				FDEC43DF2085AF1100BD059F /* SGNode.hpp */,
+				FD64B4DA20C00EBD0021BBCC /* SGNode3D.cpp */,
+				FD64B4DB20C00EBD0021BBCC /* SGNode3D.hpp */,
 				FD855C6A20A03926009D6529 /* SGVertex.cpp */,
 				FD4BA6E4209037AF00BE3711 /* SGVertex.h */,
+				FD64B4DD20C0186B0021BBCC /* SGDrawingObject.cpp */,
 				FD809D92209BF7BF000290D5 /* SGDrawingObject.hpp */,
 				FD4BA71820A0249800BE3711 /* SGSpriteCache.cpp */,
 				FD4BA71920A0249800BE3711 /* SGSpriteCache.hpp */,
@@ -265,8 +277,8 @@
 				FDEC43E22085C84A00BD059F /* SGConsole.hpp */,
 				FDEC43F720872E5E00BD059F /* SGGeometry.cpp */,
 				FDEC43E92086042F00BD059F /* SGGeometry.hpp */,
-				FDEC43F32087151100BD059F /* SGColor.hpp */,
 				FDEC43F520872BB000BD059F /* SGColor.cpp */,
+				FDEC43F32087151100BD059F /* SGColor.hpp */,
 				FDEC43FF20875F9F00BD059F /* SGFileUtils.cpp */,
 				FDEC440020875F9F00BD059F /* SGFileUtils.hpp */,
 			);
@@ -367,6 +379,15 @@
 				FD59DF902060ECBD005EF629 /* QuartzCore.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FD64B4D620C00E660021BBCC /* 3D */ = {
+			isa = PBXGroup;
+			children = (
+				FD64B4D720C00E930021BBCC /* SGCube3D.cpp */,
+				FD64B4D820C00E930021BBCC /* SGCube3D.hpp */,
+			);
+			path = 3D;
 			sourceTree = "<group>";
 		};
 		FDEC4399207F6A5C00BD059F /* Renderer */ = {
@@ -531,10 +552,13 @@
 				FDEC43F620872BB000BD059F /* SGColor.cpp in Sources */,
 				FDEC43E02085AF1100BD059F /* SGNode.cpp in Sources */,
 				359C5A6E2061FF8C00652D2A /* RootViewController.mm in Sources */,
+				FD64B4DE20C0186B0021BBCC /* SGDrawingObject.cpp in Sources */,
 				FD4BA71D20A0282900BE3711 /* SGTexture2D.cpp in Sources */,
+				FD64B4DC20C00EBD0021BBCC /* SGNode3D.cpp in Sources */,
 				FD4BA71A20A0249800BE3711 /* SGSpriteCache.cpp in Sources */,
 				FD4BA6E3209029CC00BE3711 /* SGShaderVertexColor.cpp in Sources */,
 				FD6A109320B65F3B0092B6D5 /* SGCamera.cpp in Sources */,
+				FD64B4D920C00E930021BBCC /* SGCube3D.cpp in Sources */,
 				FD6A108F20B43E1F0092B6D5 /* SGShaderPositionAndColor3D.cpp in Sources */,
 				359C5A882062515200652D2A /* SGDirectorCaller.mm in Sources */,
 				FDEC43DD2085ABDF00BD059F /* HelloScene.cpp in Sources */,

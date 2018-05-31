@@ -25,7 +25,6 @@ namespace SimpleGameEngine {
     {
     public:
         Node();
-        void setShaderProgram(ShaderManager::ShaderType shaderType);
         void addChild(const std::shared_ptr<DrawingObject> child);
         virtual void update(){};
         
@@ -90,11 +89,8 @@ namespace SimpleGameEngine {
         void setVertex();
         
         std::shared_ptr<Director> _director;
-        int _shaderType;
         std::vector<Vertex> _vertex;
         std::vector<std::shared_ptr<DrawingObject>> _children;
-        std::shared_ptr<ShaderManager> _shaderManager;
-        std::shared_ptr<ShaderProgram> _shaderProgram;
         
         Size _designResolutionSize;
         
