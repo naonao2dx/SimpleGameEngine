@@ -28,5 +28,5 @@ void Renderer::initGLView()
 {
     Console::logDebug("Renderer::initGLView");
     auto shaderManager = ShaderManager::getInstance();
-    glEnable(GL_DEPTH_TEST);
+    //glEnable(GL_DEPTH_TEST);
 }

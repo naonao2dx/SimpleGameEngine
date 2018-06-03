@@ -19,7 +19,7 @@ namespace SimpleGameEngine {
     public:
         ShaderTexture2D(){};
         ShaderTexture2D(const GLchar* vertShaderSource, const GLchar* fragShaderSource);
-        ~ShaderTexture2D();
+        virtual ~ShaderTexture2D();
         void bindTexture(GLuint textureID);
         void setVertexUV(const std::vector<Vertex> vertexUV);
         void setFilter(GLuint magFilter, GLuint minFilter);

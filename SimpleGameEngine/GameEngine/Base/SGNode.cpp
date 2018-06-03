@@ -15,6 +15,7 @@ class vector;
 using namespace SimpleGameEngine;
 
 Node::Node()
+: _rotate(0)
 {
     _director = Director::getInstance();
     _designResolutionSize = _director->getDesignResolutionSize();

@@ -11,13 +11,14 @@
 using namespace SimpleGameEngine;
 
 Vertex::Vertex()
-: position()
-, color()
+: position(0.0f, 0.0f, 0.0f)
+, color(Color4B::WHITE)
 {
 }
 
 Vertex::Vertex(Vec3 _position)
 : position(_position)
+, color(Color4B::WHITE)
 {
 }
 
@@ -28,7 +29,7 @@ Vertex::Vertex(Vec3 _position, Color4B _color)
 }
 
 Vertex::Vertex(Vec2 _position)
-: color()
+: color(Color4B::WHITE)
 {
     position.x = _position.x;
     position.y = _position.y;
@@ -36,6 +37,40 @@ Vertex::Vertex(Vec2 _position)
 }
 
 Vertex::Vertex(Vec2 _position, Color4B _color)
+: color(_color)
+{
+    position.x = _position.x;
+    position.y = _position.y;
+    position.z = 0.0f;
+}
+
+VertexWithColor::VertexWithColor()
+: position(0.0f, 0.0f, 0.0f)
+, color(Color4B::WHITE)
+{
+}
+
+VertexWithColor::VertexWithColor(Vec3 _position)
+: position(_position)
+, color(Color4B::WHITE)
+{
+}
+
+VertexWithColor::VertexWithColor(Vec3 _position, Color4B _color)
+: position(_position)
+, color(_color)
+{
+}
+
+VertexWithColor::VertexWithColor(Vec2 _position)
+: color(Color4B::WHITE)
+{
+    position.x = _position.x;
+    position.y = _position.y;
+    position.z = 0.0f;
+}
+
+VertexWithColor::VertexWithColor(Vec2 _position, Color4B _color)
 : color(_color)
 {
     position.x = _position.x;

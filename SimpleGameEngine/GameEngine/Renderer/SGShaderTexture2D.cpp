@@ -13,8 +13,6 @@
 using namespace SimpleGameEngine;
 
 ShaderTexture2D::ShaderTexture2D(const GLchar* vertShaderSource, const GLchar* fragShaderSource)
-: _magFilter(GL_NEAREST)
-, _minFilter(GL_NEAREST)
 {
     createShader(vertShaderSource, fragShaderSource);
     init();
@@ -26,6 +24,9 @@ ShaderTexture2D::~ShaderTexture2D()
 
 bool ShaderTexture2D::init()
 {
+    _magFilter = GL_NEAREST;
+    _minFilter = GL_NEAREST;
+    
     _attrPos = glGetAttribLocation(_shader, "attr_pos");
     assert(_attrPos >= 0);
     

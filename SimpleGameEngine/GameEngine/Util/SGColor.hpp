@@ -23,6 +23,8 @@ namespace SimpleGameEngine {
         
         static const Color4F WHITE;
         static const Color4F BLACK;
+        static const Color4F RED;
+        static const Color4F GREEN;
         static const Color4F BLUE;
     };
     
@@ -35,6 +37,8 @@ namespace SimpleGameEngine {
         GLubyte b;
         GLubyte a;
         
+        static const Color4B WHITE;
+        static const Color4B BLACK;
         static const Color4B RED;
         static const Color4B GREEN;
         static const Color4B BLUE;

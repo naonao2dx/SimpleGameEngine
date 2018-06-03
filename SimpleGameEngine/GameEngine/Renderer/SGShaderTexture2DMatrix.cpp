@@ -61,5 +61,6 @@ void ShaderTexture2DMatrix::draw()
 
     glUniformMatrix4fv(_unifMatrix, 1, GL_FALSE, (GLfloat*)_matrix.m);
     
+    glDisable(GL_DEPTH_TEST);
     glDrawArrays(GL_TRIANGLE_STRIP, 0, static_cast<GLsizei>(_vertex.size()));
 }

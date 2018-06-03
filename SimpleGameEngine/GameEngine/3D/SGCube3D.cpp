@@ -21,8 +21,15 @@ std::shared_ptr<Cube3D> Cube3D::createWithColor(const SimpleGameEngine::Color4F&
     return obj;
 }
 
+std::shared_ptr<Cube3D> Cube3D::createWithTexture(std::string &filename)
+{
+    std::shared_ptr<Cube3D> obj(new (std::nothrow) Cube3D());
+    return obj;
+}
+
 Cube3D::Cube3D()
 {
+    _vertex.reserve(36);
     setVertex();
 }
 
@@ -50,12 +57,13 @@ void Cube3D::draw()
 
 void Cube3D::setVertex()
 {
-    const GLfloat LEFT = static_cast<GLfloat>(_position.x) - static_cast<GLfloat>(_width)/2;
-    const GLfloat RIGHT = static_cast<GLfloat>(_position.x) + static_cast<GLfloat>(_width)/2;
-    const GLfloat FRONT = static_cast<GLfloat>(_position.z) - static_cast<GLfloat>(_depth)/2;
-    const GLfloat BACK = static_cast<GLfloat>(_position.z) + static_cast<GLfloat>(_depth)/2;
-    const GLfloat TOP = static_cast<GLfloat>(_position.y) + static_cast<GLfloat>(_height)/2;
-    const GLfloat BOTTOM = static_cast<GLfloat>(_position.y) - static_cast<GLfloat>(_height)/2;
+    _vertex.clear();
+    const GLfloat LEFT = static_cast<GLfloat>(_position.x) - static_cast<GLfloat>(_width)/2.0f;
+    const GLfloat RIGHT = static_cast<GLfloat>(_position.x) + static_cast<GLfloat>(_width)/2.0f;
+    const GLfloat FRONT = static_cast<GLfloat>(_position.z) - static_cast<GLfloat>(_depth)/2.0f;
+    const GLfloat BACK = static_cast<GLfloat>(_position.z) + static_cast<GLfloat>(_depth)/2.0f;
+    const GLfloat TOP = static_cast<GLfloat>(_position.y) + static_cast<GLfloat>(_height)/2.0f;
+    const GLfloat BOTTOM = static_cast<GLfloat>(_position.y) - static_cast<GLfloat>(_height)/2.0f;
     
     // BOTTOM
     _vertex.emplace_back( Vertex({LEFT, BOTTOM, FRONT}));

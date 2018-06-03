@@ -41,6 +41,7 @@
 		FD855C6B20A03926009D6529 /* SGVertex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD855C6A20A03926009D6529 /* SGVertex.cpp */; };
 		FD855C7420A46208009D6529 /* SGShaderTexture2DMatrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD855C7220A46208009D6529 /* SGShaderTexture2DMatrix.cpp */; };
 		FD855C7B20AAABF9009D6529 /* SGBlendFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD855C7920AAABF8009D6529 /* SGBlendFunc.cpp */; };
+		FD9C87A820C23CF1002899DB /* SGShaderTexture3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD9C87A620C23CF1002899DB /* SGShaderTexture3D.cpp */; };
 		FDEC439C207F6A7900BD059F /* SGRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC439A207F6A7900BD059F /* SGRenderer.cpp */; };
 		FDEC43D92085AA7F00BD059F /* SGBaseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43D72085AA7F00BD059F /* SGBaseScene.cpp */; };
 		FDEC43DD2085ABDF00BD059F /* HelloScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43DB2085ABDF00BD059F /* HelloScene.cpp */; };
@@ -131,6 +132,9 @@
 		FD855C7320A46208009D6529 /* SGShaderTexture2DMatrix.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGShaderTexture2DMatrix.hpp; sourceTree = "<group>"; };
 		FD855C7920AAABF8009D6529 /* SGBlendFunc.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGBlendFunc.cpp; sourceTree = "<group>"; };
 		FD855C7A20AAABF9009D6529 /* SGBlendFunc.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGBlendFunc.hpp; sourceTree = "<group>"; };
+		FD9C87A520C23B29002899DB /* ShaderTexture3D.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = ShaderTexture3D.vert; sourceTree = "<group>"; };
+		FD9C87A620C23CF1002899DB /* SGShaderTexture3D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGShaderTexture3D.cpp; sourceTree = "<group>"; };
+		FD9C87A720C23CF1002899DB /* SGShaderTexture3D.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGShaderTexture3D.hpp; sourceTree = "<group>"; };
 		FDEC439A207F6A7900BD059F /* SGRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGRenderer.cpp; sourceTree = "<group>"; };
 		FDEC439B207F6A7900BD059F /* SGRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGRenderer.hpp; sourceTree = "<group>"; };
 		FDEC43D72085AA7F00BD059F /* SGBaseScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGBaseScene.cpp; sourceTree = "<group>"; };
@@ -406,6 +410,8 @@
 				FD4BA6DB208F3E2100BE3711 /* SGShaderPositionAndColor.hpp */,
 				FD4BA6E920906CE000BE3711 /* SGShaderTexture2D.cpp */,
 				FD4BA6EA20906CE000BE3711 /* SGShaderTexture2D.hpp */,
+				FD9C87A620C23CF1002899DB /* SGShaderTexture3D.cpp */,
+				FD9C87A720C23CF1002899DB /* SGShaderTexture3D.hpp */,
 				FD4BA7122098462600BE3711 /* SGShaderMaskTexture.cpp */,
 				FD4BA7132098462600BE3711 /* SGShaderMaskTexture.hpp */,
 				FD855C7220A46208009D6529 /* SGShaderTexture2DMatrix.cpp */,
@@ -451,6 +457,7 @@
 				FD4BA6DF209028DE00BE3711 /* ShaderVertexColor.frag */,
 				FD4BA6E520906B7A00BE3711 /* ShaderTexture2D.vert */,
 				FD4BA6E720906C2D00BE3711 /* ShaderTexture2D.frag */,
+				FD9C87A520C23B29002899DB /* ShaderTexture3D.vert */,
 				FD4BA70E2098425F00BE3711 /* ShaderMaskTexture.vert */,
 				FD4BA7102098427900BE3711 /* ShaderMaskTexture.frag */,
 				FD855C6E20A46034009D6529 /* ShaderTexture2DMatrix.vert */,
@@ -533,6 +540,7 @@
 			files = (
 				359C5A8520624CE300652D2A /* SGApplication.mm in Sources */,
 				FDEC43F820872E5E00BD059F /* SGGeometry.cpp in Sources */,
+				FD9C87A820C23CF1002899DB /* SGShaderTexture3D.cpp in Sources */,
 				FDEC43FB20874D0D00BD059F /* SGShaderManager.cpp in Sources */,
 				FD4BA7172098518F00BE3711 /* SGSpriteMask.cpp in Sources */,
 				FD855C6B20A03926009D6529 /* SGVertex.cpp in Sources */,

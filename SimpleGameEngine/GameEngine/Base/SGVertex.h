@@ -24,5 +24,17 @@ namespace SimpleGameEngine {
         Vertex(Vec2 _position);
         Vertex(Vec2 _position, Color4B _color);
     };
+    
+    struct VertexWithColor : public Vertex
+    {
+        Vec3 position;
+        Color4B color;
+        
+        VertexWithColor();
+        VertexWithColor(Vec3 _position);
+        VertexWithColor(Vec3 _position, Color4B _color);
+        VertexWithColor(Vec2 _position);
+        VertexWithColor(Vec2 _position, Color4B _color);
+    };
 }
 #endif /* SGVertex_h */
