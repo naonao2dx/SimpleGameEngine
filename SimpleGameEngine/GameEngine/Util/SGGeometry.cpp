@@ -24,6 +24,7 @@ Vec2::Vec2(float _x, float _y)
 , y (_y)
 {}
 
+const Vec2 Vec2::ZERO(0.0f, 0.0f);
 const Vec2 Vec2::CENTER(0.5f, 0.5f);
 
 Vec3::Vec3()

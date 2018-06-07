@@ -9,6 +9,7 @@
 #include "SGCube3D.hpp"
 #include "SGShaderPositionAndColor.hpp"
 #include "SGShaderPositionAndColor3D.hpp"
+#include "SGSpriteCache.hpp"
 #include "SGConsole.hpp"
 
 using namespace SimpleGameEngine;
@@ -18,12 +19,6 @@ std::shared_ptr<Cube3D> Cube3D::createWithColor(const SimpleGameEngine::Color4F&
     std::shared_ptr<Cube3D> obj(new (std::nothrow) Cube3D());
     obj->setColor(color);
     obj->setShaderProgram(ShaderManager::ShaderType::POSITION_AND_COLOR_3D);
-    return obj;
-}
-
-std::shared_ptr<Cube3D> Cube3D::createWithTexture(std::string &filename)
-{
-    std::shared_ptr<Cube3D> obj(new (std::nothrow) Cube3D());
     return obj;
 }
 

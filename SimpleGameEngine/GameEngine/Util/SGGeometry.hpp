@@ -19,6 +19,7 @@ namespace SimpleGameEngine {
         GLfloat x;
         GLfloat y;
         
+        static const Vec2 ZERO;
         static const Vec2 CENTER;
     };
     

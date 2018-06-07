@@ -10,6 +10,7 @@
 #define SGCube3D_hpp
 
 #include "SGNode3D.hpp"
+#include "SGTexture2D.hpp"
 
 namespace SimpleGameEngine {
     class Cube3D : public Node3D
@@ -21,6 +22,7 @@ namespace SimpleGameEngine {
         void setSize3D(Vec3 size);
     private:
         Cube3D();
+        Cube3D(std::shared_ptr<Texture2D> texture2d);
         virtual void draw() override;
         virtual void setVertex() override;
         Color4F _color;

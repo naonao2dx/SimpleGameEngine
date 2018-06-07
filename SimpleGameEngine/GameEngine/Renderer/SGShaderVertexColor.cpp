@@ -26,6 +26,7 @@ bool ShaderVertexColor::init()
 void ShaderVertexColor::draw()
 {
     use();
+    glDisable(GL_DEPTH_TEST);
     GLfloat position[_vertex.size() * 2];
     GLubyte color[_vertex.size() * 4];
     vertexToPositionAndColor(_vertex, position, color);

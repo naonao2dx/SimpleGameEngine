@@ -43,6 +43,7 @@ void ShaderTexture2DMatrix::setMatrix(SimpleGameEngine::Mat4 &matrix)
 void ShaderTexture2DMatrix::draw()
 {
     ShaderProgram::draw();
+    glDisable(GL_DEPTH_TEST);
     
     GLfloat position[_vertex.size() * 2];
     vertexToPosition(_vertex, position);

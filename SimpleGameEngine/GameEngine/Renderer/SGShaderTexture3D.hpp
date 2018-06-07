@@ -20,7 +20,8 @@ namespace SimpleGameEngine {
         ~ShaderTexture3D(){};
         inline void setWlp(Mat4 wlp) { _wlp = wlp; };
     protected:
-        bool init();
+        virtual bool init() override;
+        virtual void draw() override;
         Mat4 _wlp;
         GLint _unifWlp;
     };
