@@ -51,51 +51,21 @@ void Cube3DTexture::setVertex()
     const GLfloat TOP = static_cast<GLfloat>(_position.y) + static_cast<GLfloat>(_height)/2.0f;
     const GLfloat BOTTOM = static_cast<GLfloat>(_position.y) - static_cast<GLfloat>(_height)/2.0f;
     
-    // BOTTOM
-    _vertex.emplace_back( Vertex({LEFT, BOTTOM, FRONT}, {0, 0}));
-    _vertex.emplace_back( Vertex({RIGHT, BOTTOM, FRONT}, {1, 0}));
-    _vertex.emplace_back( Vertex({LEFT, BOTTOM, BACK}, {0, 1}));
-    _vertex.emplace_back( Vertex({LEFT, BOTTOM, BACK}, {0, 1}));
-    _vertex.emplace_back( Vertex({RIGHT, BOTTOM, FRONT}, {1, 0}));
-    _vertex.emplace_back( Vertex({RIGHT, BOTTOM, BACK}, {1, 1}));
+    const GLfloat UV_LEFT = 0.0f;
+    const GLfloat UV_RIGHT = 1.0f;
+    const GLfloat UV_TOP = 0.0f;
+    const GLfloat UV_BOTTOM = 1.0f;
     
-    // TOP
-    _vertex.emplace_back( Vertex({LEFT, TOP, FRONT}, {0, 1}));
-    _vertex.emplace_back( Vertex({LEFT, TOP, BACK}, {0, 0}));
-    _vertex.emplace_back( Vertex({RIGHT, TOP, FRONT}, {1, 1}));
-    _vertex.emplace_back( Vertex({LEFT, TOP, BACK}, {0, 0}));
-    _vertex.emplace_back( Vertex({RIGHT, TOP, BACK}, {1, 0}));
-    _vertex.emplace_back( Vertex({RIGHT, TOP, FRONT}, {1, 1}));
-    
-    // RIGHT
-    _vertex.emplace_back( Vertex({RIGHT, TOP, FRONT}, {1, 1}));
-    _vertex.emplace_back( Vertex({RIGHT, TOP, BACK}, {1, 0}));
-    _vertex.emplace_back( Vertex({RIGHT, BOTTOM, FRONT}, {0, 1}));
-    _vertex.emplace_back( Vertex({RIGHT, TOP, BACK}, {1, 0}));
-    _vertex.emplace_back( Vertex({RIGHT, BOTTOM, BACK}, {0, 0}));
-    _vertex.emplace_back( Vertex({RIGHT, BOTTOM, FRONT}, {0, 1}));
-    
-    // LEFT
-    _vertex.emplace_back( Vertex({LEFT, TOP, FRONT}, {0, 1}));
-    _vertex.emplace_back( Vertex({LEFT, BOTTOM, FRONT}, {1, 1}));
-    _vertex.emplace_back( Vertex({LEFT, TOP, BACK}, {0, 0}));
-    _vertex.emplace_back( Vertex({LEFT, TOP, BACK}, {0, 0}));
-    _vertex.emplace_back( Vertex({LEFT, BOTTOM, FRONT}, {1, 1}));
-    _vertex.emplace_back( Vertex({LEFT, BOTTOM, BACK}, {1, 0}));
-    
-    // BACK
-    _vertex.emplace_back( Vertex({LEFT, TOP, BACK}, {0, 1}));
-    _vertex.emplace_back( Vertex({LEFT, BOTTOM, BACK}, {0, 0}));
-    _vertex.emplace_back( Vertex({RIGHT, TOP, BACK}, {1, 1}));
-    _vertex.emplace_back( Vertex({RIGHT, TOP, BACK}, {1, 1}));
-    _vertex.emplace_back( Vertex({LEFT, BOTTOM, BACK}, {0, 0}));
-    _vertex.emplace_back( Vertex({RIGHT, BOTTOM, BACK}, {1, 0}));
-    
-    // FRONT
-    _vertex.emplace_back( Vertex({LEFT, TOP, FRONT}, {0, 0}));
-    _vertex.emplace_back( Vertex({RIGHT, TOP, FRONT}, {1, 0}));
-    _vertex.emplace_back( Vertex({LEFT, BOTTOM, FRONT}, {0, 1}));
-    _vertex.emplace_back( Vertex({RIGHT, TOP, FRONT}, {1, 0}));
-    _vertex.emplace_back( Vertex({RIGHT, BOTTOM, FRONT}, {1, 1}));
-    _vertex.emplace_back( Vertex({LEFT, BOTTOM, FRONT}, {0, 1}));
+    _vertex.emplace_back( Vertex ( {LEFT, TOP, BACK}, {UV_LEFT, UV_BOTTOM} ) );
+    _vertex.emplace_back( Vertex ( {RIGHT,TOP, BACK}, {UV_RIGHT, UV_BOTTOM} ) );
+    _vertex.emplace_back( Vertex ( {LEFT, TOP, FRONT}, {UV_LEFT, UV_TOP} ) );
+    _vertex.emplace_back( Vertex ( {RIGHT, TOP, FRONT}, {UV_RIGHT, UV_TOP} ) );
+    _vertex.emplace_back( Vertex ( {LEFT, BOTTOM, FRONT}, {UV_LEFT, UV_BOTTOM} ) );
+    _vertex.emplace_back( Vertex ( {RIGHT, BOTTOM, FRONT}, {UV_RIGHT, UV_BOTTOM} ) );
+    _vertex.emplace_back( Vertex ( {LEFT, BOTTOM, BACK}, {UV_LEFT, UV_TOP} ) );
+    _vertex.emplace_back( Vertex ( {RIGHT, BOTTOM, BACK}, {UV_RIGHT, UV_TOP} ) );
+    _vertex.emplace_back( Vertex ( {LEFT, TOP, BACK}, {UV_RIGHT, UV_TOP} ) );
+    _vertex.emplace_back( Vertex ( {LEFT, BOTTOM, BACK}, {UV_RIGHT, UV_BOTTOM} ) );
+    _vertex.emplace_back( Vertex ( {RIGHT,TOP, BACK}, {UV_LEFT, UV_TOP} ) );
+    _vertex.emplace_back( Vertex ( {RIGHT, BOTTOM, BACK}, {UV_LEFT, UV_BOTTOM} ) );
 }

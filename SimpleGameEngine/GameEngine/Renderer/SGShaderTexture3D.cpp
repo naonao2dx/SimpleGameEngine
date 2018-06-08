@@ -35,6 +35,26 @@ void ShaderTexture3D::draw()
     Vertex vertex[_vertex.size()];
     vertexToArray(_vertex, vertex);
     
+    const GLushort vertexIndex[] = {
+        2, 0, 3,
+        3, 0, 1,
+        
+        4, 2, 5,
+        5, 2, 3,
+        
+        6, 4, 7,
+        7, 4, 5,
+        
+        0, 6, 1,
+        1, 6, 7,
+        
+        9, 8, 4,
+        4, 8, 2,
+        
+        5, 3, 11,
+        11, 3, 10
+    };
+    
     
     glEnableVertexAttribArray(_attrPos);
     glEnableVertexAttribArray(_attrUV);
@@ -46,5 +66,5 @@ void ShaderTexture3D::draw()
     
     glUniformMatrix4fv(_unifWlp, 1, GL_FALSE, (GLfloat*) _wlp.m);
     
-    glDrawArrays(GL_TRIANGLES, 0, static_cast<GLsizei>(_vertex.size()));
+    glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_SHORT, vertexIndex);
 }
