@@ -29,17 +29,20 @@ void ShaderTexture3D::draw()
     ShaderProgram::draw();
     glEnable(GL_DEPTH_TEST);
     
-    GLfloat position[_vertex.size() * 3];
-    GLfloat uv[_vertex.size() * 2];
-    vertexToArray3D(_vertex, position, nullptr, uv);
+//    GLfloat position[_vertex.size() * 3];
+//    GLfloat uv[_vertex.size() * 2];
+//    vertexToArray3D(_vertex, position, nullptr, uv);
+    Vertex vertex[_vertex.size()];
+    vertexToArray(_vertex, vertex);
+    
     
     glEnableVertexAttribArray(_attrPos);
     glEnableVertexAttribArray(_attrUV);
     
     glUniform1i(_unifTexture, 0);
     
-    glVertexAttribPointer(_attrPos, 3, GL_FLOAT, GL_FALSE, 0, (GLvoid *)position);
-    glVertexAttribPointer(_attrUV, 2, GL_FLOAT, GL_FALSE, 0, (GLvoid *)uv);
+    glVertexAttribPointer(_attrPos, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)vertex);
+    glVertexAttribPointer(_attrUV, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)((GLubyte*) vertex + sizeof(Vec3) + sizeof(Color4B)));
     
     glUniformMatrix4fv(_unifWlp, 1, GL_FALSE, (GLfloat*) _wlp.m);
     

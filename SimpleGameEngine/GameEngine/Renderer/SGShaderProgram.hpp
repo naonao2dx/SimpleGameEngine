@@ -31,6 +31,7 @@ namespace SimpleGameEngine {
         virtual ~ShaderProgram();
         void createShader(const GLchar* vertShaderSource, const GLchar* fragShaderSource);
         GLuint compileShader(GLuint shaderType, const GLchar *source);
+        void vertexToArray(std::vector<Vertex> vertex, Vertex vertexAarray[]);
         void vertexToArray2D(std::vector<Vertex> vertex, GLfloat position[], GLubyte color[] = nullptr, GLfloat uv[] = nullptr);
         void vertexToArray3D(std::vector<Vertex> vertex, GLfloat position[], GLubyte color[] = nullptr, GLfloat uv[] = nullptr);
         void vertexToPosition(std::vector<Vertex> vertex, GLfloat position[]);

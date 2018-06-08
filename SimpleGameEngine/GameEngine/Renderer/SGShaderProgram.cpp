@@ -46,6 +46,13 @@ void ShaderProgram::setBlendFunc(BlendFunc blendFunc)
     _blendFunc = blendFunc;
 }
 
+void ShaderProgram::vertexToArray(std::vector<Vertex> vertex, SimpleGameEngine::Vertex vertexAarray[])
+{
+    for (int i = 0; i < vertex.size(); i++) {
+        vertexAarray[i] = vertex.at(i);
+    }
+}
+
 void ShaderProgram::vertexToArray2D(std::vector<Vertex> vertex, GLfloat position[], GLubyte color[], GLfloat uv[])
 {
     for (int i = 0; i < vertex.size(); i++) {
