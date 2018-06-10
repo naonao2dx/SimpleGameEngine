@@ -10,7 +10,7 @@
 #define SGPrimitives_hpp
 
 #include "SGShaderManager.hpp"
-#include "SGShaderProgram.hpp"
+#include "SGShaderBase.hpp"
 #include "SGDirector.hpp"
 #include "SGDrawingObject.hpp"
 #include "SGBlendFunc.hpp"
@@ -48,7 +48,7 @@ namespace SimpleGameEngine {
         GLfloat _lineWidth;
         Color4F _color;
         std::shared_ptr<ShaderManager> _shaderManager;
-        std::shared_ptr<ShaderProgram> _shaderProgram;
+        std::shared_ptr<ShaderBase> _shaderProgram;
         inline virtual void visit() override { update(); draw(); };
         virtual void draw() override;
         BlendFunc _blendFunc;

@@ -26,7 +26,7 @@ bool ShaderTexture3D::init()
 
 void ShaderTexture3D::draw()
 {
-    ShaderProgram::draw();
+    ShaderBase::draw();
     glEnable(GL_DEPTH_TEST);
     
 //    GLfloat position[_vertex.size() * 3];

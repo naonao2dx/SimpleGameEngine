@@ -1,24 +1,23 @@
 //
-//  SGShaderTexture2DMatrix.cpp
+//  SGShaderMaskTexture.cpp
 //  SimpleGameEngine
 //
-//  Created by 竹内 直 on 2018/05/10.
+//  Created by 竹内 直 on 2018/05/01.
 //  Copyright © 2018年 Nao. All rights reserved.
 //
 
-#include "SGShaderTexture2DMatrix.hpp"
 #include <assert.h>
-#include "SGConsole.hpp"
+#include "SGShaderMaskTexture.hpp"
 
 using namespace SimpleGameEngine;
 
-ShaderTexture2DMatrix::ShaderTexture2DMatrix(const GLchar* vertShaderSource, const GLchar* fragShaderSource)
+ShaderMaskTexture::ShaderMaskTexture(const GLchar* vertShaderSource, const GLchar* fragShaderSource)
 {
     createShader(vertShaderSource, fragShaderSource);
     init();
 }
 
-bool ShaderTexture2DMatrix::init()
+bool ShaderMaskTexture::init()
 {
     _attrPos = glGetAttribLocation(_shader, "attr_pos");
     assert(_attrPos >= 0);
@@ -26,23 +25,27 @@ bool ShaderTexture2DMatrix::init()
     _attrUV = glGetAttribLocation(_shader, "attr_uv");
     assert(_attrUV >= 0);
     
-    _unifTexture = glGetUniformLocation(_shader, "texture");
-    assert(_unifTexture >= 0);
+    _unifTexColor = glGetUniformLocation(_shader, "tex_color");
+    assert(_unifTexColor >= 0);
     
-    _unifMatrix = glGetUniformLocation(_shader, "unif_matrix");
-    assert(_unifMatrix >= 0);
+    _unifTexMask = glGetUniformLocation(_shader, "tex_mask");
+    assert(_unifTexMask >= 0);
     
     return true;
 }
 
-void ShaderTexture2DMatrix::setMatrix(SimpleGameEngine::Mat4 &matrix)
+void ShaderMaskTexture::bindTexture(GLuint textureID, GLuint maskTextureID)
 {
-    _matrix = matrix;
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, textureID);
+    
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D, maskTextureID);
 }
 
-void ShaderTexture2DMatrix::draw()
+void ShaderMaskTexture::draw()
 {
-    ShaderProgram::draw();
+    ShaderBase::draw();
     glDisable(GL_DEPTH_TEST);
     
     GLfloat position[_vertex.size() * 2];
@@ -54,14 +57,12 @@ void ShaderTexture2DMatrix::draw()
     glEnableVertexAttribArray(_attrPos);
     glEnableVertexAttribArray(_attrUV);
     
-    glUniform1i(_unifTexture, 0);
-    
     glVertexAttribPointer(_attrPos, 2, GL_FLOAT, GL_FALSE, 0, (GLvoid *)position);
     glVertexAttribPointer(_attrUV, 2, GL_FLOAT, GL_FALSE, 0, (GLvoid *)uv);
     
-
-    glUniformMatrix4fv(_unifMatrix, 1, GL_FALSE, (GLfloat*)_matrix.m);
+    glUniform1i(_unifTexColor, 0);
+    glUniform1i(_unifTexMask, 1);
     
-    glDisable(GL_DEPTH_TEST);
     glDrawArrays(GL_TRIANGLE_STRIP, 0, static_cast<GLsizei>(_vertex.size()));
 }
+

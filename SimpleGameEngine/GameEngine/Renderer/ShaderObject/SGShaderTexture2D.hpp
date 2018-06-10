@@ -9,12 +9,12 @@
 #ifndef SGShaderTexture2D_hpp
 #define SGShaderTexture2D_hpp
 
-#include "SGShaderProgram.hpp"
+#include "SGShaderBase2D.hpp"
 #include <string>
 
 namespace SimpleGameEngine {
     class RawImage;
-    class ShaderTexture2D : public ShaderProgram
+    class ShaderTexture2D : public ShaderBase2D
     {
     public:
         ShaderTexture2D(){};

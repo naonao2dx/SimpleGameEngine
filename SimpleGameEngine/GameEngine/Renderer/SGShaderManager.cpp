@@ -7,7 +7,7 @@
 //
 
 #include "SGShaderManager.hpp"
-#include "SGShaderProgram.hpp"
+#include "SGShaderBase.hpp"
 #include "SGShaderPositionAndColor.hpp"
 #include "SGShaderPositionAndColor3D.hpp"
 #include "SGShaderVertexColor.hpp"
@@ -16,23 +16,23 @@
 #include "SGShaderTexture2DMatrix.hpp"
 #include "SGShaderTexture3D.hpp"
 
-#include "Shader/ShaderPosition.vert"
-#include "Shader/ShaderPositionCamera.vert"
-#include "Shader/ShaderColor.frag"
+#include "ShaderSource/Vertex/ShaderPosition.vert"
+#include "ShaderSource/Vertex/ShaderPositionCamera.vert"
+#include "ShaderSource/Fragment/ShaderColor.frag"
 
-#include "Shader/ShaderVertexColor.vert"
-#include "Shader/ShaderVertexColor.frag"
+#include "ShaderSource/Vertex/ShaderVertexColor.vert"
+#include "ShaderSource/Fragment/ShaderVertexColor.frag"
 
-#include "Shader/ShaderTexture2D.vert"
-#include "Shader/ShaderTexture2D.frag"
+#include "ShaderSource/Vertex/ShaderTexture2D.vert"
+#include "ShaderSource/Fragment/ShaderTexture2D.frag"
 
-#include "Shader/ShaderMaskTexture.vert"
-#include "Shader/ShaderMaskTexture.frag"
+#include "ShaderSource/Vertex/ShaderMaskTexture.vert"
+#include "ShaderSource/Fragment/ShaderMaskTexture.frag"
 
-#include "Shader/ShaderTexture2DMatrix.vert"
-#include "Shader/ShaderTexture2DMatrix.frag"
+#include "ShaderSource/Vertex/ShaderTexture2DMatrix.vert"
+#include "ShaderSource/Fragment/ShaderTexture2DMatrix.frag"
 
-#include "Shader/ShaderTexture3D.vert"
+#include "ShaderSource/Vertex/ShaderTexture3D.vert"
 
 using namespace SimpleGameEngine;
 
@@ -82,7 +82,7 @@ void ShaderManager::loadDefaultShader()
     _shaderMap.emplace(TEXTURE_3D, shaderTexture3D);
 }
 
-std::shared_ptr<ShaderProgram> ShaderManager::getShaderProgram(ShaderType shaderType)
+std::shared_ptr<ShaderBase> ShaderManager::getShaderProgram(ShaderType shaderType)
 {
     return _shaderMap.at(shaderType);
 }

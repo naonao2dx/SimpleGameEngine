@@ -18,6 +18,8 @@
 		359C5A8520624CE300652D2A /* SGApplication.mm in Sources */ = {isa = PBXBuildFile; fileRef = 359C5A8320624CE300652D2A /* SGApplication.mm */; };
 		359C5A882062515200652D2A /* SGDirectorCaller.mm in Sources */ = {isa = PBXBuildFile; fileRef = 359C5A872062515200652D2A /* SGDirectorCaller.mm */; };
 		35C4144D2084FD630016931D /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35C4144B2084FD630016931D /* AppDelegate.cpp */; };
+		FD1261A620CD117300076E2C /* SGShaderBase2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD1261A420CD117300076E2C /* SGShaderBase2D.cpp */; };
+		FD1261A920CD11CB00076E2C /* SGShaderBase3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD1261A720CD11CB00076E2C /* SGShaderBase3D.cpp */; };
 		FD4BA6DC208F3E2100BE3711 /* SGShaderPositionAndColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA6DA208F3E2100BE3711 /* SGShaderPositionAndColor.cpp */; };
 		FD4BA6E3209029CC00BE3711 /* SGShaderVertexColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA6E1209029CC00BE3711 /* SGShaderVertexColor.cpp */; };
 		FD4BA6EB20906CE000BE3711 /* SGShaderTexture2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA6E920906CE000BE3711 /* SGShaderTexture2D.cpp */; };
@@ -52,7 +54,7 @@
 		FDEC43F620872BB000BD059F /* SGColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43F520872BB000BD059F /* SGColor.cpp */; };
 		FDEC43F820872E5E00BD059F /* SGGeometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43F720872E5E00BD059F /* SGGeometry.cpp */; };
 		FDEC43FB20874D0D00BD059F /* SGShaderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43F920874D0D00BD059F /* SGShaderManager.cpp */; };
-		FDEC43FE2087514900BD059F /* SGShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43FC2087514900BD059F /* SGShaderProgram.cpp */; };
+		FDEC43FE2087514900BD059F /* SGShaderBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43FC2087514900BD059F /* SGShaderBase.cpp */; };
 		FDEC440120875F9F00BD059F /* SGFileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43FF20875F9F00BD059F /* SGFileUtils.cpp */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +82,10 @@
 		35C4144B2084FD630016931D /* AppDelegate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		35C4144C2084FD630016931D /* AppDelegate.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AppDelegate.hpp; sourceTree = "<group>"; };
 		84D3A7912088E65400594439 /* ShaderPosition.vert */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; path = ShaderPosition.vert; sourceTree = "<group>"; };
+		FD1261A420CD117300076E2C /* SGShaderBase2D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGShaderBase2D.cpp; sourceTree = "<group>"; };
+		FD1261A520CD117300076E2C /* SGShaderBase2D.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGShaderBase2D.hpp; sourceTree = "<group>"; };
+		FD1261A720CD11CB00076E2C /* SGShaderBase3D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGShaderBase3D.cpp; sourceTree = "<group>"; };
+		FD1261A820CD11CB00076E2C /* SGShaderBase3D.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGShaderBase3D.hpp; sourceTree = "<group>"; };
 		FD4BA6DA208F3E2100BE3711 /* SGShaderPositionAndColor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGShaderPositionAndColor.cpp; sourceTree = "<group>"; };
 		FD4BA6DB208F3E2100BE3711 /* SGShaderPositionAndColor.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGShaderPositionAndColor.hpp; sourceTree = "<group>"; };
 		FD4BA6DD2090281700BE3711 /* ShaderVertexColor.vert */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; path = ShaderVertexColor.vert; sourceTree = "<group>"; };
@@ -157,8 +163,8 @@
 		FDEC43F720872E5E00BD059F /* SGGeometry.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGGeometry.cpp; sourceTree = "<group>"; };
 		FDEC43F920874D0D00BD059F /* SGShaderManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGShaderManager.cpp; sourceTree = "<group>"; };
 		FDEC43FA20874D0D00BD059F /* SGShaderManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGShaderManager.hpp; sourceTree = "<group>"; };
-		FDEC43FC2087514900BD059F /* SGShaderProgram.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGShaderProgram.cpp; sourceTree = "<group>"; };
-		FDEC43FD2087514900BD059F /* SGShaderProgram.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGShaderProgram.hpp; sourceTree = "<group>"; };
+		FDEC43FC2087514900BD059F /* SGShaderBase.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGShaderBase.cpp; sourceTree = "<group>"; };
+		FDEC43FD2087514900BD059F /* SGShaderBase.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGShaderBase.hpp; sourceTree = "<group>"; };
 		FDEC43FF20875F9F00BD059F /* SGFileUtils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGFileUtils.cpp; sourceTree = "<group>"; };
 		FDEC440020875F9F00BD059F /* SGFileUtils.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGFileUtils.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -214,9 +220,8 @@
 		359C5A692061FE8D00652D2A /* GameEngine */ = {
 			isa = PBXGroup;
 			children = (
-				FD4BA6F82091A79400BE3711 /* external */,
-				FDEC43E42085EA2800BD059F /* 2D */,
-				FD64B4D620C00E660021BBCC /* 3D */,
+				FD9C87AF20CCDABE002899DB /* GameObject */,
+				FD4BA6F82091A79400BE3711 /* External */,
 				FDEC4399207F6A5C00BD059F /* Renderer */,
 				359C5A7A20621E1500652D2A /* Util */,
 				359C5A7620620B2500652D2A /* Base */,
@@ -302,14 +307,14 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		FD4BA6F82091A79400BE3711 /* external */ = {
+		FD4BA6F82091A79400BE3711 /* External */ = {
 			isa = PBXGroup;
 			children = (
 				FD855C6D20A1B96C009D6529 /* picojson.h */,
 				FD4BA7022091CA7C00BE3711 /* libz */,
 				FD4BA6F92091A79B00BE3711 /* png */,
 			);
-			path = external;
+			path = External;
 			sourceTree = "<group>";
 		};
 		FD4BA6F92091A79B00BE3711 /* png */ = {
@@ -399,16 +404,50 @@
 			path = 3D;
 			sourceTree = "<group>";
 		};
-		FDEC4399207F6A5C00BD059F /* Renderer */ = {
+		FD9C87AF20CCDABE002899DB /* GameObject */ = {
 			isa = PBXGroup;
 			children = (
-				FDEC43EB20860AD100BD059F /* Shader */,
-				FDEC439A207F6A7900BD059F /* SGRenderer.cpp */,
-				FDEC439B207F6A7900BD059F /* SGRenderer.hpp */,
-				FDEC43F920874D0D00BD059F /* SGShaderManager.cpp */,
-				FDEC43FA20874D0D00BD059F /* SGShaderManager.hpp */,
-				FDEC43FC2087514900BD059F /* SGShaderProgram.cpp */,
-				FDEC43FD2087514900BD059F /* SGShaderProgram.hpp */,
+				FDEC43E42085EA2800BD059F /* 2D */,
+				FD64B4D620C00E660021BBCC /* 3D */,
+			);
+			path = GameObject;
+			sourceTree = "<group>";
+		};
+		FD9C87B020CCDAE9002899DB /* Fragment */ = {
+			isa = PBXGroup;
+			children = (
+				FDEC43EF20860D6200BD059F /* ShaderColor.frag */,
+				FD4BA6DF209028DE00BE3711 /* ShaderVertexColor.frag */,
+				FD4BA6E720906C2D00BE3711 /* ShaderTexture2D.frag */,
+				FD4BA7102098427900BE3711 /* ShaderMaskTexture.frag */,
+				FD855C7020A460EB009D6529 /* ShaderTexture2DMatrix.frag */,
+			);
+			path = Fragment;
+			sourceTree = "<group>";
+		};
+		FD9C87B120CCDAF2002899DB /* Vertex */ = {
+			isa = PBXGroup;
+			children = (
+				84D3A7912088E65400594439 /* ShaderPosition.vert */,
+				FD4BA6DD2090281700BE3711 /* ShaderVertexColor.vert */,
+				FD4BA6E520906B7A00BE3711 /* ShaderTexture2D.vert */,
+				FD9C87A520C23B29002899DB /* ShaderTexture3D.vert */,
+				FD4BA70E2098425F00BE3711 /* ShaderMaskTexture.vert */,
+				FD855C6E20A46034009D6529 /* ShaderTexture2DMatrix.vert */,
+				FD6A109420B6E0D60092B6D5 /* ShaderPositionCamera.vert */,
+			);
+			path = Vertex;
+			sourceTree = "<group>";
+		};
+		FD9C87B220CCDB84002899DB /* ShaderObject */ = {
+			isa = PBXGroup;
+			children = (
+				FDEC43FC2087514900BD059F /* SGShaderBase.cpp */,
+				FDEC43FD2087514900BD059F /* SGShaderBase.hpp */,
+				FD1261A420CD117300076E2C /* SGShaderBase2D.cpp */,
+				FD1261A520CD117300076E2C /* SGShaderBase2D.hpp */,
+				FD1261A720CD11CB00076E2C /* SGShaderBase3D.cpp */,
+				FD1261A820CD11CB00076E2C /* SGShaderBase3D.hpp */,
 				FD4BA6E1209029CC00BE3711 /* SGShaderVertexColor.cpp */,
 				FD4BA6E2209029CC00BE3711 /* SGShaderVertexColor.hpp */,
 				FD4BA6DA208F3E2100BE3711 /* SGShaderPositionAndColor.cpp */,
@@ -421,10 +460,23 @@
 				FD4BA7132098462600BE3711 /* SGShaderMaskTexture.hpp */,
 				FD855C7220A46208009D6529 /* SGShaderTexture2DMatrix.cpp */,
 				FD855C7320A46208009D6529 /* SGShaderTexture2DMatrix.hpp */,
-				FD855C7920AAABF8009D6529 /* SGBlendFunc.cpp */,
-				FD855C7A20AAABF9009D6529 /* SGBlendFunc.hpp */,
 				FD6A108D20B43E1F0092B6D5 /* SGShaderPositionAndColor3D.cpp */,
 				FD6A108E20B43E1F0092B6D5 /* SGShaderPositionAndColor3D.hpp */,
+			);
+			path = ShaderObject;
+			sourceTree = "<group>";
+		};
+		FDEC4399207F6A5C00BD059F /* Renderer */ = {
+			isa = PBXGroup;
+			children = (
+				FD9C87B220CCDB84002899DB /* ShaderObject */,
+				FDEC43EB20860AD100BD059F /* ShaderSource */,
+				FDEC439A207F6A7900BD059F /* SGRenderer.cpp */,
+				FDEC439B207F6A7900BD059F /* SGRenderer.hpp */,
+				FDEC43F920874D0D00BD059F /* SGShaderManager.cpp */,
+				FDEC43FA20874D0D00BD059F /* SGShaderManager.hpp */,
+				FD855C7920AAABF8009D6529 /* SGBlendFunc.cpp */,
+				FD855C7A20AAABF9009D6529 /* SGBlendFunc.hpp */,
 				FD6A109120B65F3B0092B6D5 /* SGCamera.cpp */,
 				FD6A109220B65F3B0092B6D5 /* SGCamera.hpp */,
 			);
@@ -453,23 +505,13 @@
 			path = 2D;
 			sourceTree = "<group>";
 		};
-		FDEC43EB20860AD100BD059F /* Shader */ = {
+		FDEC43EB20860AD100BD059F /* ShaderSource */ = {
 			isa = PBXGroup;
 			children = (
-				FDEC43EF20860D6200BD059F /* ShaderColor.frag */,
-				84D3A7912088E65400594439 /* ShaderPosition.vert */,
-				FD4BA6DD2090281700BE3711 /* ShaderVertexColor.vert */,
-				FD4BA6DF209028DE00BE3711 /* ShaderVertexColor.frag */,
-				FD4BA6E520906B7A00BE3711 /* ShaderTexture2D.vert */,
-				FD4BA6E720906C2D00BE3711 /* ShaderTexture2D.frag */,
-				FD9C87A520C23B29002899DB /* ShaderTexture3D.vert */,
-				FD4BA70E2098425F00BE3711 /* ShaderMaskTexture.vert */,
-				FD4BA7102098427900BE3711 /* ShaderMaskTexture.frag */,
-				FD855C6E20A46034009D6529 /* ShaderTexture2DMatrix.vert */,
-				FD855C7020A460EB009D6529 /* ShaderTexture2DMatrix.frag */,
-				FD6A109420B6E0D60092B6D5 /* ShaderPositionCamera.vert */,
+				FD9C87B120CCDAF2002899DB /* Vertex */,
+				FD9C87B020CCDAE9002899DB /* Fragment */,
 			);
-			path = Shader;
+			path = ShaderSource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -557,8 +599,10 @@
 				FDEC43D92085AA7F00BD059F /* SGBaseScene.cpp in Sources */,
 				359C5A51205D792B00652D2A /* AppDelegate.m in Sources */,
 				359C5A752062017500652D2A /* AppController.mm in Sources */,
+				FD1261A920CD11CB00076E2C /* SGShaderBase3D.cpp in Sources */,
 				359C5A7920620B4700652D2A /* SGDirector.cpp in Sources */,
-				FDEC43FE2087514900BD059F /* SGShaderProgram.cpp in Sources */,
+				FD1261A620CD117300076E2C /* SGShaderBase2D.cpp in Sources */,
+				FDEC43FE2087514900BD059F /* SGShaderBase.cpp in Sources */,
 				FDEC439C207F6A7900BD059F /* SGRenderer.cpp in Sources */,
 				35C4144D2084FD630016931D /* AppDelegate.cpp in Sources */,
 				FDEC43E32085C84A00BD059F /* SGConsole.cpp in Sources */,

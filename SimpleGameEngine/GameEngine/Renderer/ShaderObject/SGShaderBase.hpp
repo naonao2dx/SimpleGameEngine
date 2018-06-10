@@ -1,13 +1,13 @@
 //
-//  SGShaderProgram.hpp
+//  SGShaderBase.hpp
 //  SimpleGameEngine
 //
 //  Created by 竹内 直 on 2018/04/18.
 //  Copyright © 2018年 Nao. All rights reserved.
 //
 
-#ifndef SGShaderProgram_hpp
-#define SGShaderProgram_hpp
+#ifndef SGShaderBase_hpp
+#define SGShaderBase_hpp
 
 #include <memory>
 #include <vector>
@@ -18,7 +18,7 @@
 #include "SGBlendFunc.hpp"
 
 namespace SimpleGameEngine {
-    class ShaderProgram
+    class ShaderBase
     {
     public:
         void use();
@@ -27,8 +27,8 @@ namespace SimpleGameEngine {
         void setShape(GLenum shape);
         void setBlendFunc(BlendFunc blendFunc);
     protected:
-        ShaderProgram();
-        virtual ~ShaderProgram();
+        ShaderBase();
+        virtual ~ShaderBase();
         void createShader(const GLchar* vertShaderSource, const GLchar* fragShaderSource);
         GLuint compileShader(GLuint shaderType, const GLchar *source);
         void vertexToArray(std::vector<Vertex> vertex, Vertex vertexAarray[]);
@@ -45,4 +45,4 @@ namespace SimpleGameEngine {
     };
 }
 
-#endif /* SGShaderProgram_hpp */
+#endif /* SGShaderBase_hpp */

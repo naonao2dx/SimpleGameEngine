@@ -11,7 +11,7 @@
 #include <string>
 #include "SGRawImage.hpp"
 #include "SGFileUtils.hpp"
-#include "../external/picojson.h"
+#include "picojson.h"
 #include "SGConsole.hpp"
 
 using namespace SimpleGameEngine;

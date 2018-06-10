@@ -9,10 +9,10 @@
 #ifndef SGShaderVertexColor_hpp
 #define SGShaderVertexColor_hpp
 
-#include "SGShaderProgram.hpp"
+#include "SGShaderBase2D.hpp"
 
 namespace SimpleGameEngine {
-    class ShaderVertexColor : public ShaderProgram
+    class ShaderVertexColor : public ShaderBase2D
     {
     public:
         ShaderVertexColor(const GLchar* vertShaderSource, const GLchar* fragShaderSource);

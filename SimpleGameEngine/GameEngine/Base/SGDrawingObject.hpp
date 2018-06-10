@@ -11,7 +11,7 @@
 
 #include "SGCamera.hpp"
 #include "SGShaderManager.hpp"
-#include "SGShaderProgram.hpp"
+#include "SGShaderBase.hpp"
 
 namespace SimpleGameEngine {
     class DrawingObject
@@ -26,7 +26,7 @@ namespace SimpleGameEngine {
         std::shared_ptr<Camera> _camera;
         int _shaderType;
         std::shared_ptr<ShaderManager> _shaderManager;
-        std::shared_ptr<ShaderProgram> _shaderProgram;
+        std::shared_ptr<ShaderBase> _shaderProgram;
     };
 }
 

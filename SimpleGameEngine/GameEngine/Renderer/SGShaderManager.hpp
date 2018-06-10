@@ -12,7 +12,7 @@
 #include <memory>
 #include <map>
 #include <string>
-#include "SGShaderProgram.hpp"
+#include "SGShaderBase.hpp"
 
 namespace SimpleGameEngine {
     class ShaderManager {
@@ -27,13 +27,13 @@ namespace SimpleGameEngine {
             TEXTURE_2D_MATRIX,
             TEXTURE_3D
         };
-        std::shared_ptr<ShaderProgram> getShaderProgram(ShaderType shaderType);
+        std::shared_ptr<ShaderBase> getShaderProgram(ShaderType shaderType);
         
     private:
         ShaderManager();
         bool init();
         void loadDefaultShader();
-        std::map<ShaderType, std::shared_ptr<ShaderProgram>> _shaderMap;
+        std::map<ShaderType, std::shared_ptr<ShaderBase>> _shaderMap;
     };
 }
 

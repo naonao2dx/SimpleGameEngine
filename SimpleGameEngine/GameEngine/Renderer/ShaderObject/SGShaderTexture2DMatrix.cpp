@@ -1,32 +1,25 @@
 //
-//  SGShaderTexture2D.cpp
+//  SGShaderTexture2DMatrix.cpp
 //  SimpleGameEngine
 //
-//  Created by 竹内 直 on 2018/04/25.
+//  Created by 竹内 直 on 2018/05/10.
 //  Copyright © 2018年 Nao. All rights reserved.
 //
 
-#include "SGShaderTexture2D.hpp"
-#include "../Platform/iOS/SGRawImage.hpp"
+#include "SGShaderTexture2DMatrix.hpp"
 #include <assert.h>
+#include "SGConsole.hpp"
 
 using namespace SimpleGameEngine;
 
-ShaderTexture2D::ShaderTexture2D(const GLchar* vertShaderSource, const GLchar* fragShaderSource)
+ShaderTexture2DMatrix::ShaderTexture2DMatrix(const GLchar* vertShaderSource, const GLchar* fragShaderSource)
 {
     createShader(vertShaderSource, fragShaderSource);
     init();
 }
 
-ShaderTexture2D::~ShaderTexture2D()
+bool ShaderTexture2DMatrix::init()
 {
-}
-
-bool ShaderTexture2D::init()
-{
-    _magFilter = GL_NEAREST;
-    _minFilter = GL_NEAREST;
-    
     _attrPos = glGetAttribLocation(_shader, "attr_pos");
     assert(_attrPos >= 0);
     
@@ -36,29 +29,20 @@ bool ShaderTexture2D::init()
     _unifTexture = glGetUniformLocation(_shader, "texture");
     assert(_unifTexture >= 0);
     
+    _unifMatrix = glGetUniformLocation(_shader, "unif_matrix");
+    assert(_unifMatrix >= 0);
+    
     return true;
 }
 
-void ShaderTexture2D::setVertexUV(const std::vector<Vertex> vertexUV)
+void ShaderTexture2DMatrix::setMatrix(SimpleGameEngine::Mat4 &matrix)
 {
-    _vertexUV = vertexUV;
+    _matrix = matrix;
 }
 
-void ShaderTexture2D::setFilter(GLuint magFilter, GLuint minFilter)
+void ShaderTexture2DMatrix::draw()
 {
-    _magFilter = magFilter;
-    _minFilter = minFilter;
-}
-
-void ShaderTexture2D::bindTexture(GLuint textureID)
-{
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, textureID);
-}
-
-void ShaderTexture2D::draw()
-{
-    ShaderProgram::draw();
+    ShaderBase::draw();
     glDisable(GL_DEPTH_TEST);
     
     GLfloat position[_vertex.size() * 2];
@@ -75,5 +59,9 @@ void ShaderTexture2D::draw()
     glVertexAttribPointer(_attrPos, 2, GL_FLOAT, GL_FALSE, 0, (GLvoid *)position);
     glVertexAttribPointer(_attrUV, 2, GL_FLOAT, GL_FALSE, 0, (GLvoid *)uv);
     
+
+    glUniformMatrix4fv(_unifMatrix, 1, GL_FALSE, (GLfloat*)_matrix.m);
+    
+    glDisable(GL_DEPTH_TEST);
     glDrawArrays(GL_TRIANGLE_STRIP, 0, static_cast<GLsizei>(_vertex.size()));
 }

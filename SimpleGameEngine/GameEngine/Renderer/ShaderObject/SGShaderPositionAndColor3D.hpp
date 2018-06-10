@@ -9,7 +9,7 @@
 #ifndef SGShaderPositionAndColor3D_hpp
 #define SGShaderPositionAndColor3D_hpp
 
-#include "SGShaderProgram.hpp"
+#include "SGShaderBase.hpp"
 #include "SGShaderPositionAndColor.hpp"
 #include "SGGeometry.hpp"
 #include "SGColor.hpp"

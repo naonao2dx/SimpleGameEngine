@@ -1,5 +1,5 @@
 //
-//  SGShaderProgram.cpp
+//  SGShaderBase.cpp
 //  SimpleGameEngine
 //
 //  Created by 竹内 直 on 2018/04/18.
@@ -7,20 +7,20 @@
 //
 
 #include <OpenGLES/ES2/gl.h>
-#include "SGShaderProgram.hpp"
+#include "SGShaderBase.hpp"
 #include "SGConsole.hpp"
 #include "SGFileUtils.hpp"
 #include <assert.h>
 
 using namespace SimpleGameEngine;
 
-ShaderProgram::ShaderProgram()
+ShaderBase::ShaderBase()
 : _blendFunc(BlendFunc::DISABLE)
 {
     
 }
 
-ShaderProgram::~ShaderProgram()
+ShaderBase::~ShaderBase()
 {
     glUseProgram(0);
     assert(glGetError == GL_NO_ERROR);
@@ -29,31 +29,31 @@ ShaderProgram::~ShaderProgram()
     assert(glGetError == GL_NO_ERROR);
 }
 
-void ShaderProgram::use()
+void ShaderBase::use()
 {
     // Start using shader
     glUseProgram(_shader);
     assert(glGetError() == GL_NO_ERROR);
 }
 
-void ShaderProgram::setVertex(const std::vector<Vertex> vertex)
+void ShaderBase::setVertex(const std::vector<Vertex> vertex)
 {
     _vertex = vertex;
 }
 
-void ShaderProgram::setBlendFunc(BlendFunc blendFunc)
+void ShaderBase::setBlendFunc(BlendFunc blendFunc)
 {
     _blendFunc = blendFunc;
 }
 
-void ShaderProgram::vertexToArray(std::vector<Vertex> vertex, SimpleGameEngine::Vertex vertexAarray[])
+void ShaderBase::vertexToArray(std::vector<Vertex> vertex, SimpleGameEngine::Vertex vertexAarray[])
 {
     for (int i = 0; i < vertex.size(); i++) {
         vertexAarray[i] = vertex.at(i);
     }
 }
 
-void ShaderProgram::vertexToArray2D(std::vector<Vertex> vertex, GLfloat position[], GLubyte color[], GLfloat uv[])
+void ShaderBase::vertexToArray2D(std::vector<Vertex> vertex, GLfloat position[], GLubyte color[], GLfloat uv[])
 {
     for (int i = 0; i < vertex.size(); i++) {
         position[i * 2] = vertex.at(i).position.x;
@@ -73,7 +73,7 @@ void ShaderProgram::vertexToArray2D(std::vector<Vertex> vertex, GLfloat position
     }
 }
 
-void ShaderProgram::vertexToArray3D(std::vector<Vertex> vertex, GLfloat position[], GLubyte color[], GLfloat uv[])
+void ShaderBase::vertexToArray3D(std::vector<Vertex> vertex, GLfloat position[], GLubyte color[], GLfloat uv[])
 {
     for (int i = 0; i < vertex.size(); i++) {
         position[i * 3] = vertex.at(i).position.x;
@@ -94,14 +94,14 @@ void ShaderProgram::vertexToArray3D(std::vector<Vertex> vertex, GLfloat position
     }
 }
 
-void ShaderProgram::vertexToPosition(std::vector<Vertex> vertex, GLfloat position[]) {
+void ShaderBase::vertexToPosition(std::vector<Vertex> vertex, GLfloat position[]) {
     for (int i = 0; i < vertex.size(); i++) {
         position[i * 2] = vertex.at(i).position.x;
         position[i * 2 + 1] = vertex.at(i).position.y;
     }
 }
 
-void ShaderProgram::vertexToPosition3D(std::vector<Vertex> vertex, GLfloat *position) {
+void ShaderBase::vertexToPosition3D(std::vector<Vertex> vertex, GLfloat *position) {
     for (int i = 0; i < vertex.size(); i++) {
         position[i * 3] = vertex.at(i).position.x;
         position[i * 3 + 1] = vertex.at(i).position.y;
@@ -109,7 +109,7 @@ void ShaderProgram::vertexToPosition3D(std::vector<Vertex> vertex, GLfloat *posi
     }
 }
 
-void ShaderProgram::vertexToPositionAndColor(std::vector<Vertex> vertex, GLfloat *position, GLubyte *color)
+void ShaderBase::vertexToPositionAndColor(std::vector<Vertex> vertex, GLfloat *position, GLubyte *color)
 {
     for (int i = 0; i < vertex.size(); i++) {
         position[i * 2] = vertex.at(i).position.x;
@@ -121,7 +121,7 @@ void ShaderProgram::vertexToPositionAndColor(std::vector<Vertex> vertex, GLfloat
     }
 }
 
-void ShaderProgram::vertexToPositionAndColor3D(std::vector<Vertex> vertex, GLfloat *position, GLubyte *color)
+void ShaderBase::vertexToPositionAndColor3D(std::vector<Vertex> vertex, GLfloat *position, GLubyte *color)
 {
     for (int i = 0; i < vertex.size(); i++) {
         position[i * 3] = vertex.at(i).position.x;
@@ -134,12 +134,12 @@ void ShaderProgram::vertexToPositionAndColor3D(std::vector<Vertex> vertex, GLflo
     }
 }
 
-void ShaderProgram::setShape(GLenum shape)
+void ShaderBase::setShape(GLenum shape)
 {
     _shape = shape;
 }
 
-void ShaderProgram::createShader(const GLchar* vertShaderSource, const GLchar* fragShaderSource)
+void ShaderBase::createShader(const GLchar* vertShaderSource, const GLchar* fragShaderSource)
 {
     // Create vertex shader object
     GLuint vertShader = compileShader(GL_VERTEX_SHADER, vertShaderSource);
@@ -188,7 +188,7 @@ void ShaderProgram::createShader(const GLchar* vertShaderSource, const GLchar* f
     glDeleteShader(fragShader);
 }
 
-GLuint ShaderProgram::compileShader(GLuint shaderType, const GLchar *source)
+GLuint ShaderBase::compileShader(GLuint shaderType, const GLchar *source)
 {
     // Create shader object
     GLuint shader = glCreateShader(shaderType);
@@ -224,7 +224,7 @@ GLuint ShaderProgram::compileShader(GLuint shaderType, const GLchar *source)
     return shader;
 }
 
-void ShaderProgram::draw()
+void ShaderBase::draw()
 {
     use();
     
