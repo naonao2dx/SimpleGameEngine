@@ -16,6 +16,7 @@
 #include "SGSpriteMask.hpp"
 #include "SGCube3D.hpp"
 #include "SGCube3DTexture.hpp"
+#include "SGLayer.hpp"
 
 using namespace SimpleGameEngine;
 
@@ -41,6 +42,12 @@ bool HelloScene::init()
     auto visibleSize = director->getDesignResolutionSize();
     Console::logDebug("Width: %d", visibleSize.width);
     Console::logDebug("Height: %d", visibleSize.height);
+    
+    std::shared_ptr<Layer> layer2D = Layer::createLayer();
+    addChild(layer2D);
+    
+    std::shared_ptr<Layer> layer3D = Layer::createLayer();
+    addChild(layer3D);
     
 //    // Depth buffer sample 1
 //    std::shared_ptr<Primitives> depth1 = Primitives::createWithPositionAndColor3DShader(GL_TRIANGLES);
@@ -112,13 +119,13 @@ bool HelloScene::init()
 //    tri3->setBlendFunc(BlendFunc::DISABLE);
 //    addChild(tri3);
 //    
-//    // Sample Texture
-//    std::string tex1filename("headphone.png");
-//    std::shared_ptr<Sprite> tex1 = Sprite::create(tex1filename);
-//    tex1->setNormalizedPosition(0.3f, 0.0f);
-//    tex1->setContentSize(90, 90);
-//    //tex1->setBlendFunc(BlendFunc::ALPHA_PREMULTIPLIED);
-//    addChild(tex1);
+    // Sample Texture
+    std::string tex1filename("headphone.png");
+    std::shared_ptr<Sprite> tex1 = Sprite::create(tex1filename);
+    tex1->setNormalizedPosition(0.3f, 0.0f);
+    tex1->setContentSize(200, 200);
+    //tex1->setBlendFunc(BlendFunc::ALPHA_PREMULTIPLIED);
+    layer2D->addChild(tex1);
 //
 //    // Sample Texture2
 //    std::string tex2filename("headphone2.png");
@@ -151,7 +158,7 @@ bool HelloScene::init()
 //    addChild(cube);
     std::string cubeTextureFilename("headphone2.png");
     std::shared_ptr<Cube3DTexture> cubeTexture = Cube3DTexture::create(cubeTextureFilename);
-    addChild(cubeTexture);
+    layer3D->addChild(cubeTexture);
     
     _rotate = 0;
     
