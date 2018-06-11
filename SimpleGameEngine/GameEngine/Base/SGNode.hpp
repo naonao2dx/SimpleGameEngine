@@ -26,6 +26,7 @@ namespace SimpleGameEngine {
     public:
         Node();
         void addChild(const std::shared_ptr<DrawingObject> child);
+        void addChild(const std::shared_ptr<DrawingObject> child, int localOrderZ);
         virtual void update(){};
         
         inline Vec2& getPosition() { return _position; };

@@ -126,13 +126,13 @@ bool HelloScene::init()
     tex1->setContentSize(200, 200);
     //tex1->setBlendFunc(BlendFunc::ALPHA_PREMULTIPLIED);
     layer2D->addChild(tex1);
-//
-//    // Sample Texture2
-//    std::string tex2filename("headphone2.png");
-//    std::shared_ptr<Sprite> tex2 = Sprite::create(tex2filename);
-//    tex2->setPosition(135, 135);
-//    tex2->setContentSize(90, 90);
-//    addChild(tex2);
+
+    // Sample Texture2
+    std::string tex2filename("headphone2.png");
+    std::shared_ptr<Sprite> tex2 = Sprite::create(tex2filename);
+    tex2->setNormalizedPosition(0.3f, 0.0f);
+    tex2->setContentSize(90, 90);
+    layer2D->addChild(tex2, 0);
 //
 //    // Sample Blend Texture
 //    std::string tex3filename1("azarashi.png");

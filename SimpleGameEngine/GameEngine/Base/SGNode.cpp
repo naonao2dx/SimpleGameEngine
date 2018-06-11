@@ -32,7 +32,13 @@ bool Node::init()
 void Node::addChild(const std::shared_ptr<DrawingObject> child)
 {
     child->setCamera(_camera);
-    _children.push_back(child);
+    _children.emplace_back(child);
+}
+
+void Node::addChild(const std::shared_ptr<DrawingObject> child, int localOrderZ)
+{
+    child->setCamera(_camera);
+    _children.emplace(_children.begin() + std::min(static_cast<int>(_children.size()), localOrderZ), child);
 }
 
 void Node::visit()
