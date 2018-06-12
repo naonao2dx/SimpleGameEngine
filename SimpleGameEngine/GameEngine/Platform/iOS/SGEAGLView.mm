@@ -10,6 +10,8 @@
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 
+#define MAX_TOUCH_COUNT 5
+
 @implementation SGEAGLView
 
 @synthesize renderingWidth;
@@ -157,6 +159,90 @@
 - (BOOL) ready
 {
     return initialized;
+}
+    
+- (void) touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    UITouch* ids[MAX_TOUCH_COUNT] = {0};
+    float x[MAX_TOUCH_COUNT] = {0.0f};
+    float y[MAX_TOUCH_COUNT] = {0.0f};
+    
+    int i = 0;
+    for (UITouch *touch in touches) {
+        if (i >= MAX_TOUCH_COUNT) {
+            NSLog(@"touch count is limited");
+            break;
+        }
+        
+        ids[i] = touch;
+        x[i] = [touch locationInView: [touch view]].x * self.contentScaleFactor;
+        y[i] = [touch locationInView: [touch view]].y * self.contentScaleFactor;
+        NSLog(@"touch %d began:%f, %f", i, x[i], y[i]);
+        ++i;
+    }
+}
+    
+- (void) touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    UITouch* ids[MAX_TOUCH_COUNT] = {0};
+    float x[MAX_TOUCH_COUNT] = {0.0f};
+    float y[MAX_TOUCH_COUNT] = {0.0f};
+    
+    int i = 0;
+    for (UITouch *touch in touches) {
+        if (i >= MAX_TOUCH_COUNT) {
+            NSLog(@"touch count is limited");
+            break;
+        }
+        
+        ids[i] = touch;
+        x[i] = [touch locationInView: [touch view]].x * self.contentScaleFactor;
+        y[i] = [touch locationInView: [touch view]].y * self.contentScaleFactor;
+        NSLog(@"touch %d moved:%f, %f", i, x[i], y[i]);
+        ++i;
+    }
+}
+    
+- (void) touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    UITouch* ids[MAX_TOUCH_COUNT] = {0};
+    float x[MAX_TOUCH_COUNT] = {0.0f};
+    float y[MAX_TOUCH_COUNT] = {0.0f};
+    
+    int i = 0;
+    for (UITouch *touch in touches) {
+        if (i >= MAX_TOUCH_COUNT) {
+            NSLog(@"touch count is limited");
+            break;
+        }
+        
+        ids[i] = touch;
+        x[i] = [touch locationInView: [touch view]].x * self.contentScaleFactor;
+        y[i] = [touch locationInView: [touch view]].y * self.contentScaleFactor;
+        NSLog(@"touch %d ended:%f, %f", i, x[i], y[i]);
+        ++i;
+    }
+}
+    
+- (void) touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    UITouch* ids[MAX_TOUCH_COUNT] = {0};
+    float x[MAX_TOUCH_COUNT] = {0.0f};
+    float y[MAX_TOUCH_COUNT] = {0.0f};
+    
+    int i = 0;
+    for (UITouch *touch in touches) {
+        if (i >= MAX_TOUCH_COUNT) {
+            NSLog(@"touch count is limited");
+            break;
+        }
+        
+        ids[i] = touch;
+        x[i] = [touch locationInView: [touch view]].x * self.contentScaleFactor;
+        y[i] = [touch locationInView: [touch view]].y * self.contentScaleFactor;
+        NSLog(@"touch %d cancelled:%f, %f", i, x[i], y[i]);
+        ++i;
+    }
 }
 
 /*
