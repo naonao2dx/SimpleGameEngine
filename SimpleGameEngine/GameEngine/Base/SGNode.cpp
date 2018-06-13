@@ -35,10 +35,10 @@ void Node::addChild(const std::shared_ptr<DrawingObject> child)
     _children.emplace_back(child);
 }
 
-void Node::addChild(const std::shared_ptr<DrawingObject> child, int localOrderZ)
+void Node::addChild(const std::shared_ptr<DrawingObject> child, unsigned int localOrderZ)
 {
     child->setCamera(_camera);
-    _children.emplace(_children.begin() + std::min(static_cast<int>(_children.size()), localOrderZ), child);
+    _children.emplace(_children.begin() + std::min(static_cast<unsigned int>(_children.size()), localOrderZ), child);
 }
 
 void Node::visit()
