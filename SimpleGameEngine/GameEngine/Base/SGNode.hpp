@@ -108,6 +108,7 @@ namespace SimpleGameEngine {
         GLfloat _aspect;
         
         Mat4 _matrix;
+        std::shared_ptr<Node> _parent;
 
     };
 }

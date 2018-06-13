@@ -16,6 +16,7 @@ using namespace SimpleGameEngine;
 
 Node::Node()
 : _rotate(0)
+, _parent(nullptr)
 {
     _director = Director::getInstance();
     _designResolutionSize = _director->getDesignResolutionSize();
@@ -31,13 +32,13 @@ bool Node::init()
 
 void Node::addChild(const std::shared_ptr<DrawingObject> child)
 {
-    child->setCamera(_camera);
-    _children.emplace_back(child);
+    addChild(child, static_cast<unsigned int>(_children.size()));
 }
 
 void Node::addChild(const std::shared_ptr<DrawingObject> child, unsigned int localOrderZ)
 {
     child->setCamera(_camera);
+    child->setParent(this);
     _children.emplace(_children.begin() + std::min(static_cast<unsigned int>(_children.size()), localOrderZ), child);
 }
 
