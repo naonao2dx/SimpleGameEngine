@@ -48,7 +48,6 @@ Camera::Camera(Vec3 position, Vec3 look, Vec3 up, GLfloat projectionNear, GLfloa
     _projection = Mat4::perspective(_projectionNear, _projectionFar, _projectionFovY, _projectionAspect);
     _world = Mat4::identity();
     setWlp();
-    Console::logDebug("here");
 }
 
 void Camera::setPosition(SimpleGameEngine::Vec3 position) {

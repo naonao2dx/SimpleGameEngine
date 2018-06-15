@@ -64,6 +64,24 @@ char* FileUtils::getContents(const std::string& filename)
     return buf;
 }
 
+RawData* FileUtils::getRawData(const std::string& filename)
+{
+    std::string filepath = _bundlePath + "/Assets/" + filename;
+    std::ifstream ifs(filepath, std::ios::in | std::ios::binary);
+    
+    ifs.seekg(0,std::ios::end);
+    size_t size = ifs.tellg();
+    ifs.seekg(0, std::ifstream::beg);
+    
+    RawData* raw = (RawData*)malloc(sizeof(RawData));
+    raw->length = (int) size;
+    raw->head = malloc(raw->length);
+    raw->readHead = (uint8_t*)raw->head;
+    ifs.read((char*)raw->head, size);
+    
+    return raw;
+}
+
 void FileUtils::setBundlePath(const std::string &bundlePath)
 {
     _bundlePath = bundlePath;

@@ -17,6 +17,7 @@
 #include "SGCube3D.hpp"
 #include "SGCube3DTexture.hpp"
 #include "SGLayer.hpp"
+#include "SGPmdData.hpp"
 
 using namespace SimpleGameEngine;
 
@@ -156,18 +157,24 @@ bool HelloScene::init()
     
 //    std::shared_ptr<Cube3D> cube = Cube3D::createWithColor(Color4F::BLUE);
 //    addChild(cube);
-    std::string cubeTextureFilename("headphone2.png");
-    std::shared_ptr<Cube3DTexture> cubeTexture = Cube3DTexture::create(cubeTextureFilename);
-    layer3D->addChild(cubeTexture);
+//    std::string cubeTextureFilename("headphone2.png");
+//    std::shared_ptr<Cube3DTexture> cubeTexture = Cube3DTexture::create(cubeTextureFilename);
+//    layer3D->addChild(cubeTexture);
     
     _rotate = 0;
+    
+    _camera->setPosition(Vec3 {0.0f, 0.0f, -15.0f});
+    
+    std::string pmdfile("pmd-sample.pmd");
+    std::shared_ptr<PmdData> pmd = PmdData::create(pmdfile);
+    layer3D->addChild(pmd);
     
     return true;
 }
 
 void HelloScene::update()
 {
-    Mat4 world = Mat4::rotate(Vec3::createNormalized(1, 1, 0), _rotate);
+    Mat4 world = Mat4::rotate(Vec3::createNormalized(0, 1, 0), _rotate);
     _camera->setWorld(world);
     _rotate += 1;
 }

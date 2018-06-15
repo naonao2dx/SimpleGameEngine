@@ -46,6 +46,9 @@
 		FD855C7B20AAABF9009D6529 /* SGBlendFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD855C7920AAABF8009D6529 /* SGBlendFunc.cpp */; };
 		FD91875A20CE756F00561750 /* SGLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD91875820CE756F00561750 /* SGLayer.cpp */; };
 		FD91876720D3993C00561750 /* SGShaderModel3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD91876520D3993C00561750 /* SGShaderModel3D.cpp */; };
+		FD91876A20D3B7CB00561750 /* SGRawData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD91876820D3B7CB00561750 /* SGRawData.cpp */; };
+		FD91876D20D3D8B000561750 /* SGPmdData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD91876B20D3D8B000561750 /* SGPmdData.cpp */; };
+		FD91877020D8DB5E00561750 /* SGUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = FD91876E20D8DB5E00561750 /* SGUtil.mm */; };
 		FD9C87A820C23CF1002899DB /* SGShaderTexture3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD9C87A620C23CF1002899DB /* SGShaderTexture3D.cpp */; };
 		FDEC439C207F6A7900BD059F /* SGRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC439A207F6A7900BD059F /* SGRenderer.cpp */; };
 		FDEC43D92085AA7F00BD059F /* SGBaseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEC43D72085AA7F00BD059F /* SGBaseScene.cpp */; };
@@ -148,6 +151,12 @@
 		FD91875E20D383CD00561750 /* ShaderModel3D.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = ShaderModel3D.frag; sourceTree = "<group>"; };
 		FD91876520D3993C00561750 /* SGShaderModel3D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = SGShaderModel3D.cpp; path = SimpleGameEngine/GameEngine/Renderer/ShaderObject/SGShaderModel3D.cpp; sourceTree = SOURCE_ROOT; };
 		FD91876620D3993C00561750 /* SGShaderModel3D.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = SGShaderModel3D.hpp; path = SimpleGameEngine/GameEngine/Renderer/ShaderObject/SGShaderModel3D.hpp; sourceTree = SOURCE_ROOT; };
+		FD91876820D3B7CB00561750 /* SGRawData.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGRawData.cpp; sourceTree = "<group>"; };
+		FD91876920D3B7CB00561750 /* SGRawData.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGRawData.hpp; sourceTree = "<group>"; };
+		FD91876B20D3D8B000561750 /* SGPmdData.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGPmdData.cpp; sourceTree = "<group>"; };
+		FD91876C20D3D8B000561750 /* SGPmdData.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGPmdData.hpp; sourceTree = "<group>"; };
+		FD91876E20D8DB5E00561750 /* SGUtil.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SGUtil.mm; sourceTree = "<group>"; };
+		FD91876F20D8DB5E00561750 /* SGUtil.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGUtil.hpp; sourceTree = "<group>"; };
 		FD9C87A520C23B29002899DB /* ShaderTexture3D.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = ShaderTexture3D.vert; sourceTree = "<group>"; };
 		FD9C87A620C23CF1002899DB /* SGShaderTexture3D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SGShaderTexture3D.cpp; sourceTree = "<group>"; };
 		FD9C87A720C23CF1002899DB /* SGShaderTexture3D.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SGShaderTexture3D.hpp; sourceTree = "<group>"; };
@@ -258,6 +267,8 @@
 				359C5A872062515200652D2A /* SGDirectorCaller.mm */,
 				FD4BA6F12090A78000BE3711 /* SGRawImage.mm */,
 				FD4BA6F22090A78000BE3711 /* SGRawImage.hpp */,
+				FD91876E20D8DB5E00561750 /* SGUtil.mm */,
+				FD91876F20D8DB5E00561750 /* SGUtil.hpp */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -287,6 +298,10 @@
 				FD4BA71C20A0282900BE3711 /* SGTexture2D.hpp */,
 				FD91875820CE756F00561750 /* SGLayer.cpp */,
 				FD91875920CE756F00561750 /* SGLayer.hpp */,
+				FD91876820D3B7CB00561750 /* SGRawData.cpp */,
+				FD91876920D3B7CB00561750 /* SGRawData.hpp */,
+				FD91876B20D3D8B000561750 /* SGPmdData.cpp */,
+				FD91876C20D3D8B000561750 /* SGPmdData.hpp */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -603,6 +618,7 @@
 				FD9C87A820C23CF1002899DB /* SGShaderTexture3D.cpp in Sources */,
 				FDEC43FB20874D0D00BD059F /* SGShaderManager.cpp in Sources */,
 				FD91876720D3993C00561750 /* SGShaderModel3D.cpp in Sources */,
+				FD91876A20D3B7CB00561750 /* SGRawData.cpp in Sources */,
 				FD4BA7172098518F00BE3711 /* SGSpriteMask.cpp in Sources */,
 				FD855C6B20A03926009D6529 /* SGVertex.cpp in Sources */,
 				FD855C7B20AAABF9009D6529 /* SGBlendFunc.cpp in Sources */,
@@ -612,7 +628,9 @@
 				359C5A5F205D792B00652D2A /* main.m in Sources */,
 				FDEC43D92085AA7F00BD059F /* SGBaseScene.cpp in Sources */,
 				359C5A51205D792B00652D2A /* AppDelegate.m in Sources */,
+				FD91877020D8DB5E00561750 /* SGUtil.mm in Sources */,
 				359C5A752062017500652D2A /* AppController.mm in Sources */,
+				FD91876D20D3D8B000561750 /* SGPmdData.cpp in Sources */,
 				FD1261A920CD11CB00076E2C /* SGShaderBase3D.cpp in Sources */,
 				359C5A7920620B4700652D2A /* SGDirector.cpp in Sources */,
 				FD1261A620CD117300076E2C /* SGShaderBase2D.cpp in Sources */,

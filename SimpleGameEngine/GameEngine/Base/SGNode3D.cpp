@@ -19,6 +19,18 @@ Node3D::Node3D()
     
 }
 
+void Node3D::addChild(const std::shared_ptr<DrawingObject> child)
+{
+    addChild(child, static_cast<unsigned int>(_children.size()));
+}
+
+void Node3D::addChild(const std::shared_ptr<DrawingObject> child, unsigned int localOrderZ)
+{
+    child->setCamera(_camera);
+    //child->setParent(this);
+    _children.emplace(_children.begin() + std::min(static_cast<unsigned int>(_children.size()), localOrderZ), child);
+}
+
 void Node3D::setPosition(SimpleGameEngine::Vec3 position)
 {
     _position = position;

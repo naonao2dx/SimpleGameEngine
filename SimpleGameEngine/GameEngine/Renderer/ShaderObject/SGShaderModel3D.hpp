@@ -10,6 +10,7 @@
 #define SGShaderModel3D_hpp
 
 #include "SGShaderBase3D.hpp"
+#include "SGPmdData.hpp"
 
 namespace SimpleGameEngine {
     class ShaderModel3D : public ShaderBase3D
@@ -18,6 +19,7 @@ namespace SimpleGameEngine {
         ShaderModel3D(const GLchar* vertShaderSource, const GLchar* fragShaderSource);
         inline void setWlp(Mat4 wlp) { _wlp = wlp; };
         virtual void draw() override;
+        inline void setModel(PmdData* model) { _model = model; };
     protected:
         bool init();
         GLint _attrPos;
@@ -26,6 +28,7 @@ namespace SimpleGameEngine {
         GLint _unifTexture;
         GLint _unifWlp;
         Mat4 _wlp;
+        PmdData* _model;
     };
 }
 

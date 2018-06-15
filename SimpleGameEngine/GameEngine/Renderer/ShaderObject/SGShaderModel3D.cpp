@@ -7,6 +7,7 @@
 //
 
 #include "SGShaderModel3D.hpp"
+#include "SGSpriteCache.hpp"
 
 using namespace SimpleGameEngine;
 
@@ -39,4 +40,35 @@ bool ShaderModel3D::init()
 void ShaderModel3D::draw()
 {
     ShaderBase3D::draw();
+    
+    glEnableVertexAttribArray(_attrPos);
+    glEnableVertexAttribArray(_attrUV);
+    
+    glVertexAttribPointer(_attrPos, 3, GL_FLOAT, GL_FALSE, sizeof(PmdVertex), &_model->_vertices[0].position);
+    glVertexAttribPointer(_attrUV, 2, GL_FLOAT, GL_FALSE, sizeof(PmdVertex), &_model->_vertices[0].uv);
+    
+    glUniformMatrix4fv(_unifWlp, 1, GL_FALSE, (GLfloat*)_wlp.m);
+    
+    GLint beginIndecesIndex = 0;
+    
+    for (int i = 0; i < _model->_materialsNum; ++i) {
+        PmdMaterial* material = &_model->_materials[i];
+        std::string textureName { material->diffuseTextureName };
+        textureName += ".png";
+        std::shared_ptr<SpriteCache> spriteCache = SpriteCache::getInstance();
+        std::shared_ptr<Texture2D> texture = spriteCache->getTextureData(textureName);
+        if (texture) {
+            glBindTexture(GL_TEXTURE_2D, texture->getTextureID());
+            glUniform1i(_unifTexture, 0);
+            glUniform4f(_unifColor, 0, 0, 0, 0);
+        } else {
+            glUniform4f(_unifColor, material->diffuse.x, material->diffuse.y, material->diffuse.z, material->diffuse.w);
+        }
+        
+        glDrawElements(GL_TRIANGLES, material->indicesNum, GL_UNSIGNED_SHORT, _model->_indices + beginIndecesIndex);
+        assert(glGetError() == GL_NO_ERROR);
+        beginIndecesIndex += material->indicesNum;
+    }
+    
+    
 }

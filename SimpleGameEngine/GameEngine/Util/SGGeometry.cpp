@@ -77,6 +77,20 @@ GLfloat Vec3::dot(const SimpleGameEngine::Vec3 v0, const SimpleGameEngine::Vec3 
     return (v0.x * v1.x) + (v0.y * v1.y) + (v0.z * v1.z);
 }
 
+Vec4::Vec4()
+: x(0.5f)
+, y(0.5f)
+, z(0.5f)
+, w(0.5f)
+{}
+
+Vec4::Vec4(float _x, float _y, float _z, float _w)
+: x(_x)
+, y(_y)
+, z(_z)
+, w(_w)
+{}
+
 Mat4 Mat4::identity()
 {
     Mat4 result;

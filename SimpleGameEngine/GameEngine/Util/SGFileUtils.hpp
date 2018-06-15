@@ -11,6 +11,7 @@
 
 #include <memory>
 #include <string>
+#include "SGRawData.hpp"
 
 namespace SimpleGameEngine {
     class FileUtils
@@ -21,6 +22,8 @@ namespace SimpleGameEngine {
         bool getAssetContents(const std::string& filename, std::string& buf);
         bool getContents(const std::string& filename, std::string& buf);
         char* getContents(const std::string& filename);
+        RawData* getRawData(const std::string& filename);
+        
     private:
         std::string _bundlePath;
     };

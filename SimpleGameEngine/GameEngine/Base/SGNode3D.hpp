@@ -18,6 +18,7 @@ namespace SimpleGameEngine {
     public:
         Node3D();
         void addChild(const std::shared_ptr<DrawingObject> child);
+        void addChild(const std::shared_ptr<DrawingObject> child, unsigned int localOrderZ);
         virtual void update(){};
         
         inline Vec3 getPosition() { return _position; };
@@ -31,12 +32,13 @@ namespace SimpleGameEngine {
     protected:
         virtual void visit() override;
         virtual void draw() override {};
-        virtual void setVertex() = 0;
+        virtual void setVertex(){};
         Vec3 _position;
         int _width;
         int _height;
         int _depth;
         std::vector<Vertex> _vertex;
+        std::vector<std::shared_ptr<DrawingObject>> _children;
     };
 }
 

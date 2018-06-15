@@ -39,6 +39,16 @@ namespace SimpleGameEngine {
         static GLfloat dot(const Vec3 v0, const Vec3 v1);
     };
     
+    struct Vec4
+    {
+        Vec4();
+        Vec4(GLfloat _x, GLfloat _y, GLfloat _z, GLfloat _w);
+        GLfloat x;
+        GLfloat y;
+        GLfloat z;
+        GLfloat w;
+    };
+    
     struct Mat4
     {
         GLfloat m[4][4];
