@@ -7,3 +7,11 @@
 //
 
 #include "SGShaderBase3D.hpp"
+
+using namespace SimpleGameEngine;
+
+void ShaderBase3D::draw()
+{
+    ShaderBase::draw();
+    glEnable(GL_DEPTH_TEST);
+}

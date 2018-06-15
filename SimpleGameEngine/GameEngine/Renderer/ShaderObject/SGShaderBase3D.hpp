@@ -12,8 +12,12 @@
 #include "SGShaderBase.hpp"
 
 namespace SimpleGameEngine {
-    class ShaderBawse3D : public ShaderBase
+    class ShaderBase3D : public ShaderBase
     {
+    protected:
+        //ShaderBase3D(){};
+        //virtual ~ShaderBase3D();
+        virtual void draw() override;
         
     };
 }

@@ -23,6 +23,7 @@ ShaderBase::ShaderBase()
 ShaderBase::~ShaderBase()
 {
     glUseProgram(0);
+    Console::logDebug("GLError: %d", glGetError());
     assert(glGetError == GL_NO_ERROR);
     
     glDeleteProgram(_shader);

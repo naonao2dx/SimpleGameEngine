@@ -15,6 +15,7 @@
 #include "SGShaderMaskTexture.hpp"
 #include "SGShaderTexture2DMatrix.hpp"
 #include "SGShaderTexture3D.hpp"
+#include "SGShaderModel3D.hpp"
 
 #include "ShaderSource/Vertex/ShaderPosition.vert"
 #include "ShaderSource/Vertex/ShaderPositionCamera.vert"
@@ -33,6 +34,8 @@
 #include "ShaderSource/Fragment/ShaderTexture2DMatrix.frag"
 
 #include "ShaderSource/Vertex/ShaderTexture3D.vert"
+
+#include "ShaderSource/Fragment/ShaderModel3D.frag"
 
 using namespace SimpleGameEngine;
 
@@ -80,6 +83,9 @@ void ShaderManager::loadDefaultShader()
     
     auto shaderTexture3D = std::make_shared<ShaderTexture3D>(shaderVertTexture3D, shaderFragTexture2D);
     _shaderMap.emplace(TEXTURE_3D, shaderTexture3D);
+    
+    auto shaderModel3D = std::make_shared<ShaderModel3D>(shaderVertTexture3D, shaderFragModel3D);
+    _shaderMap.emplace(MODEL_3D, shaderModel3D);
 }
 
 std::shared_ptr<ShaderBase> ShaderManager::getShaderProgram(ShaderType shaderType)
