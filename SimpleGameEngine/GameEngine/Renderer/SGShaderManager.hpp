@@ -26,7 +26,8 @@ namespace SimpleGameEngine {
             BLEND_TEXTURE,
             TEXTURE_2D_MATRIX,
             TEXTURE_3D,
-            MODEL_3D
+            MODEL_3D,
+            MODEL_3D_EDGE
         };
         std::shared_ptr<ShaderBase> getShaderProgram(ShaderType shaderType);
         
