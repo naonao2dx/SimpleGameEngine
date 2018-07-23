@@ -26,7 +26,7 @@ bool ShaderModel3D::init()
     assert(_attrUV >= 0);
     
     _unifColor = glGetUniformLocation(_shader, "unif_color");
-    assert(_unifTexture >= 0);
+    assert(_unifColor >= 0);
     
     _unifTexture = glGetUniformLocation(_shader, "unif_texture");
     assert(_unifTexture >= 0);
@@ -43,6 +43,9 @@ bool ShaderModel3D::init()
 void ShaderModel3D::draw()
 {
     ShaderBase3D::draw();
+    
+    glCullFace(GL_BACK);
+    
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
@@ -93,7 +96,7 @@ void ShaderModel3D::draw()
             beginIndecesIndex += material->indicesNum;
         }
     }
-    
+
     glDepthMask(GL_TRUE);
     glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
 }

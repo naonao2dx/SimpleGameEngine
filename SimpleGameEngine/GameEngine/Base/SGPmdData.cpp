@@ -10,6 +10,7 @@
 #include "SGConsole.hpp"
 #include "SGUtil.hpp"
 #include "SGShaderModel3D.hpp"
+#include "SGShaderModel3DEdge.hpp"
 #include "SGSpriteCache.hpp"
 
 #define PMDFILE_HEADER_MODELNAME_LENGTH 20
@@ -50,7 +51,7 @@ PmdData::PmdData()
 : _minPoint(Vec3 {-10, -10, -10})
 , _maxPoint(Vec3 { 10, 10, 10})
 {
-    
+    shaderEdge = _shaderManager->getShaderProgram(ShaderManager::ShaderType::MODEL_3D_EDGE);
 }
 
 void PmdData::draw()
@@ -74,6 +75,10 @@ void PmdData::draw()
     
     _shaderProgram->setAlpha(_alpha);
     _shaderProgram->draw();
+    
+    std::dynamic_pointer_cast<ShaderModel3DEdge>(shaderEdge)->setWlp(_camera->getWlp());
+    std::dynamic_pointer_cast<ShaderModel3DEdge>(shaderEdge)->setModel(this);
+    std::dynamic_pointer_cast<ShaderModel3DEdge>(shaderEdge)->draw();
 }
 
 void PmdData::loadHeader(RawData* data, PmdHeader* header)

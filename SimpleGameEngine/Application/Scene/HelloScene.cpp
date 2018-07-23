@@ -167,7 +167,6 @@ bool HelloScene::init()
     
     std::string pmdfile("pmd-sample.pmd");
     pmd = PmdData::create(pmdfile);
-    pmd->setAlpha(0.5);
     layer3D->addChild(pmd);
     
     return true;

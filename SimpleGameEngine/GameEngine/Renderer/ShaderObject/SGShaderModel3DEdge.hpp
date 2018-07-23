@@ -18,6 +18,7 @@ namespace SimpleGameEngine {
     public:
         ShaderModel3DEdge(const GLchar* vertShaderSource, const GLchar* fragShaderSource);
         inline void setWlp(Mat4 wlp) { _wlp = wlp; };
+        inline void setModel(PmdData* model) { _model = model; };
         virtual void draw() override;
     protected:
         bool init();
@@ -25,7 +26,9 @@ namespace SimpleGameEngine {
         GLint _attrNormal;
         GLint _unifEdgesize;
         GLint _unifWlp;
+        GLint _unifColor;
         Mat4 _wlp;
+        PmdData* _model;
     };
 }
 #endif /* SGShaderModel3DEdge_hpp */

@@ -43,6 +43,7 @@ void ShaderTexture2DMatrix::setMatrix(SimpleGameEngine::Mat4 &matrix)
 void ShaderTexture2DMatrix::draw()
 {
     ShaderBase::draw();
+    glDisable(GL_CULL_FACE);
     glDisable(GL_DEPTH_TEST);
     
     GLfloat position[_vertex.size() * 2];
@@ -61,7 +62,6 @@ void ShaderTexture2DMatrix::draw()
     
 
     glUniformMatrix4fv(_unifMatrix, 1, GL_FALSE, (GLfloat*)_matrix.m);
-    
-    glDisable(GL_DEPTH_TEST);
+
     glDrawArrays(GL_TRIANGLE_STRIP, 0, static_cast<GLsizei>(_vertex.size()));
 }

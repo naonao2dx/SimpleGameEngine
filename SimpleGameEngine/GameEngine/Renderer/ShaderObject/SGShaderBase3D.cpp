@@ -14,4 +14,5 @@ void ShaderBase3D::draw()
 {
     ShaderBase::draw();
     glEnable(GL_DEPTH_TEST);
+    glEnable(GL_CULL_FACE);
 }
