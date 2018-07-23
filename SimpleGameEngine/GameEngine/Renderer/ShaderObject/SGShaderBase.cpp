@@ -16,6 +16,7 @@ using namespace SimpleGameEngine;
 
 ShaderBase::ShaderBase()
 : _blendFunc(BlendFunc::DISABLE)
+, _alpha(1.0)
 {
     
 }

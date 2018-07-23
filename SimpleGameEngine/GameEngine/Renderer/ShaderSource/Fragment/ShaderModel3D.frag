@@ -9,6 +9,7 @@
 const GLchar* shaderFragModel3D = R"(
 uniform lowp vec4 unif_color;
 uniform sampler2D unif_texture;
+uniform lowp float unif_alpha;
 varying mediump vec2 vary_uv;
 
 void main() {
@@ -17,5 +18,6 @@ void main() {
     } else {
         gl_FragColor = unif_color;
     }
+    gl_FragColor.a *= unif_alpha;
 }
 )";

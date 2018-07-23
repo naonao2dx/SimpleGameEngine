@@ -9,7 +9,8 @@
 #ifndef HelloScene_hpp
 #define HelloScene_hpp
 
-#include "../../GameEngine/Base/SGBaseScene.hpp"
+#include "SGBaseScene.hpp"
+#include "SGPmdData.hpp"
 
 class HelloScene : public SimpleGameEngine::Scene
 {
@@ -20,6 +21,8 @@ public:
     virtual void update() override;
     
     GLint _rotate;
+    GLfloat _alpha = 1.0;
+    std::shared_ptr<SimpleGameEngine::PmdData> pmd;
 };
 
 

@@ -71,6 +71,8 @@ void PmdData::draw()
 
     std::dynamic_pointer_cast<ShaderModel3D>(_shaderProgram)->setWlp(_camera->getWlp());
     std::dynamic_pointer_cast<ShaderModel3D>(_shaderProgram)->setModel(this);
+    
+    _shaderProgram->setAlpha(_alpha);
     _shaderProgram->draw();
 }
 

@@ -166,7 +166,8 @@ bool HelloScene::init()
     _camera->setPosition(Vec3 {0.0f, 0.0f, -15.0f});
     
     std::string pmdfile("pmd-sample.pmd");
-    std::shared_ptr<PmdData> pmd = PmdData::create(pmdfile);
+    pmd = PmdData::create(pmdfile);
+    pmd->setAlpha(0.5);
     layer3D->addChild(pmd);
     
     return true;
@@ -177,4 +178,11 @@ void HelloScene::update()
     Mat4 world = Mat4::rotate(Vec3::createNormalized(0, 1, 0), _rotate);
     _camera->setWorld(world);
     _rotate += 1;
+    
+    if (_alpha > 0) {
+        _alpha -= 0.005;
+    } else {
+        _alpha = 1.0;
+    }
+    pmd->setAlpha(_alpha);
 }

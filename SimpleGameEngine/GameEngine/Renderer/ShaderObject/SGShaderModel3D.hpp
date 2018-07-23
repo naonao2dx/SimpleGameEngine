@@ -20,6 +20,7 @@ namespace SimpleGameEngine {
         inline void setWlp(Mat4 wlp) { _wlp = wlp; };
         virtual void draw() override;
         inline void setModel(PmdData* model) { _model = model; };
+        inline void setAlpha(float alpha) { _alpha = alpha; };
     protected:
         bool init();
         GLint _attrPos;
@@ -27,6 +28,7 @@ namespace SimpleGameEngine {
         GLint _unifColor;
         GLint _unifTexture;
         GLint _unifWlp;
+        GLint _unifAlpha;
         Mat4 _wlp;
         PmdData* _model;
     };

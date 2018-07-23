@@ -24,12 +24,14 @@ namespace SimpleGameEngine {
         inline void setCamera(std::shared_ptr<Camera> camera) { _camera = camera; };
         inline Node* getParent() { return _parent; };
         inline void setParent(Node* parent) { _parent = parent; };
+        inline void setAlpha(GLfloat alpha) { _alpha = alpha; };
     protected:
         DrawingObject();
         std::shared_ptr<Camera> _camera;
         int _shaderType;
         std::shared_ptr<ShaderManager> _shaderManager;
         std::shared_ptr<ShaderBase> _shaderProgram;
+        GLfloat _alpha;
         Node* _parent;
     };
 }

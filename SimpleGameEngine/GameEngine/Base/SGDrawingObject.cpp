@@ -11,6 +11,7 @@
 using namespace SimpleGameEngine;
 
 DrawingObject::DrawingObject()
+: _alpha(1.0)
 {
     _shaderManager = ShaderManager::getInstance();
 }

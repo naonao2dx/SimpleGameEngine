@@ -26,6 +26,7 @@ namespace SimpleGameEngine {
         void setVertex(const std::vector<Vertex> vertex);
         void setShape(GLenum shape);
         void setBlendFunc(BlendFunc blendFunc);
+        inline void setAlpha(GLfloat alpha) { _alpha = alpha; };
     protected:
         ShaderBase();
         virtual ~ShaderBase();
@@ -39,6 +40,7 @@ namespace SimpleGameEngine {
         void vertexToPositionAndColor(std::vector<Vertex> vertex, GLfloat position[], GLubyte color[]);
         void vertexToPositionAndColor3D(std::vector<Vertex> vertex, GLfloat position[], GLubyte color[]);
         GLuint _shader;
+        GLfloat _alpha;
         std::vector<Vertex> _vertex;
         GLenum _shape;
         BlendFunc _blendFunc;

@@ -34,12 +34,17 @@ bool ShaderModel3D::init()
     _unifWlp = glGetUniformLocation(_shader, "unif_wlp");
     assert(_unifWlp >= 0);
     
+    _unifAlpha = glGetUniformLocation(_shader, "unif_alpha");
+    assert(_unifAlpha >= 0);
+    
     return true;
 }
 
 void ShaderModel3D::draw()
 {
     ShaderBase3D::draw();
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
     glEnableVertexAttribArray(_attrPos);
     glEnableVertexAttribArray(_attrUV);
@@ -48,27 +53,47 @@ void ShaderModel3D::draw()
     glVertexAttribPointer(_attrUV, 2, GL_FLOAT, GL_FALSE, sizeof(PmdVertex), &_model->_vertices[0].uv);
     
     glUniformMatrix4fv(_unifWlp, 1, GL_FALSE, (GLfloat*)_wlp.m);
+    glUniform1f(_unifAlpha, _alpha);
     
-    GLint beginIndecesIndex = 0;
-    
-    for (int i = 0; i < _model->_materialsNum; ++i) {
-        PmdMaterial* material = &_model->_materials[i];
-        std::string textureName { material->diffuseTextureName };
-        textureName += ".png";
-        std::shared_ptr<SpriteCache> spriteCache = SpriteCache::getInstance();
-        std::shared_ptr<Texture2D> texture = spriteCache->getTextureData(textureName);
-        if (texture) {
-            glBindTexture(GL_TEXTURE_2D, texture->getTextureID());
-            glUniform1i(_unifTexture, 0);
-            glUniform4f(_unifColor, 0, 0, 0, 0);
-        } else {
-            glUniform4f(_unifColor, material->diffuse.x, material->diffuse.y, material->diffuse.z, material->diffuse.w);
-        }
+    // Rendering path 1
+    {
+        glDepthFunc(GL_LESS);
+        glColorMask(GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE);
+        glDepthMask(GL_TRUE);
         
-        glDrawElements(GL_TRIANGLES, material->indicesNum, GL_UNSIGNED_SHORT, _model->_indices + beginIndecesIndex);
+        glUniform4f(_unifColor, 1.0f, 1.0f, 1.0f, 1.0f);
+        glDrawElements(GL_TRIANGLES, _model->_indicesNum, GL_UNSIGNED_SHORT, _model->_indices);
         assert(glGetError() == GL_NO_ERROR);
-        beginIndecesIndex += material->indicesNum;
     }
     
+    // Rendering path 2
+    {
+        glDepthFunc(GL_EQUAL);
+        glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
+        glDepthMask(GL_FALSE);
+        
+        GLint beginIndecesIndex = 0;
+        
+        for (int i = 0; i < _model->_materialsNum; ++i) {
+            PmdMaterial* material = &_model->_materials[i];
+            std::string textureName { material->diffuseTextureName };
+            textureName += ".png";
+            std::shared_ptr<SpriteCache> spriteCache = SpriteCache::getInstance();
+            std::shared_ptr<Texture2D> texture = spriteCache->getTextureData(textureName);
+            if (texture) {
+                glBindTexture(GL_TEXTURE_2D, texture->getTextureID());
+                glUniform1i(_unifTexture, 0);
+                glUniform4f(_unifColor, 0, 0, 0, 0);
+            } else {
+                glUniform4f(_unifColor, material->diffuse.x, material->diffuse.y, material->diffuse.z, material->diffuse.w);
+            }
+            
+            glDrawElements(GL_TRIANGLES, material->indicesNum, GL_UNSIGNED_SHORT, _model->_indices + beginIndecesIndex);
+            assert(glGetError() == GL_NO_ERROR);
+            beginIndecesIndex += material->indicesNum;
+        }
+    }
     
+    glDepthMask(GL_TRUE);
+    glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
 }
