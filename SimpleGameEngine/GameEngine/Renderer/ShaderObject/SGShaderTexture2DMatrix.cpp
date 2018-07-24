@@ -42,6 +42,7 @@ void ShaderTexture2DMatrix::setMatrix(SimpleGameEngine::Mat4 &matrix)
 
 void ShaderTexture2DMatrix::draw()
 {
+    
     ShaderBase::draw();
     glDisable(GL_CULL_FACE);
     glDisable(GL_DEPTH_TEST);

@@ -42,6 +42,12 @@ bool ShaderModel3D::init()
 
 void ShaderModel3D::draw()
 {
+    _model->setVBO();
+    _model->setIBO();
+    
+    glBindBuffer(GL_ARRAY_BUFFER, _model->_verticesBuffer);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _model->_indicesBuffer);
+    
     ShaderBase3D::draw();
     
     glCullFace(GL_BACK);
@@ -52,8 +58,8 @@ void ShaderModel3D::draw()
     glEnableVertexAttribArray(_attrPos);
     glEnableVertexAttribArray(_attrUV);
     
-    glVertexAttribPointer(_attrPos, 3, GL_FLOAT, GL_FALSE, sizeof(PmdVertex), &_model->_vertices[0].position);
-    glVertexAttribPointer(_attrUV, 2, GL_FLOAT, GL_FALSE, sizeof(PmdVertex), &_model->_vertices[0].uv);
+    glVertexAttribPointer(_attrPos, 3, GL_FLOAT, GL_FALSE, sizeof(PmdVertex), (GLvoid*) 0);
+    glVertexAttribPointer(_attrUV, 2, GL_FLOAT, GL_FALSE, sizeof(PmdVertex), (GLvoid*) sizeof(Vec3));
     
     glUniformMatrix4fv(_unifWlp, 1, GL_FALSE, (GLfloat*)_wlp.m);
     glUniform1f(_unifAlpha, _alpha);
@@ -63,9 +69,9 @@ void ShaderModel3D::draw()
         glDepthFunc(GL_LESS);
         glColorMask(GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE);
         glDepthMask(GL_TRUE);
-        
+
         glUniform4f(_unifColor, 1.0f, 1.0f, 1.0f, 1.0f);
-        glDrawElements(GL_TRIANGLES, _model->_indicesNum, GL_UNSIGNED_SHORT, _model->_indices);
+        glDrawElements(GL_TRIANGLES, _model->_indicesNum, GL_UNSIGNED_SHORT, (GLvoid*) 0);
         assert(glGetError() == GL_NO_ERROR);
     }
     
@@ -74,7 +80,7 @@ void ShaderModel3D::draw()
         glDepthFunc(GL_EQUAL);
         glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
         glDepthMask(GL_FALSE);
-        
+
         GLint beginIndecesIndex = 0;
         
         for (int i = 0; i < _model->_materialsNum; ++i) {
@@ -91,7 +97,7 @@ void ShaderModel3D::draw()
                 glUniform4f(_unifColor, material->diffuse.x, material->diffuse.y, material->diffuse.z, material->diffuse.w);
             }
             
-            glDrawElements(GL_TRIANGLES, material->indicesNum, GL_UNSIGNED_SHORT, _model->_indices + beginIndecesIndex);
+            glDrawElements(GL_TRIANGLES, material->indicesNum, GL_UNSIGNED_SHORT, (GLvoid*) (beginIndecesIndex * sizeof(GLushort)));
             assert(glGetError() == GL_NO_ERROR);
             beginIndecesIndex += material->indicesNum;
         }
@@ -99,4 +105,7 @@ void ShaderModel3D::draw()
 
     glDepthMask(GL_TRUE);
     glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
+    
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 }

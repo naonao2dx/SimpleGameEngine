@@ -54,6 +54,36 @@ PmdData::PmdData()
     shaderEdge = _shaderManager->getShaderProgram(ShaderManager::ShaderType::MODEL_3D_EDGE);
 }
 
+void PmdData::setVBO()
+{
+    glGenBuffers(1, &_verticesBuffer);
+    assert(glGetError() == GL_NO_ERROR);
+    assert(_verticesBuffer != 0);
+    
+    glBindBuffer(GL_ARRAY_BUFFER, _verticesBuffer);
+    assert(glGetError() == GL_NO_ERROR);
+    
+    glBufferData(GL_ARRAY_BUFFER, sizeof(PmdVertex) * _verticesNum, _vertices, GL_STATIC_DRAW);
+    assert(glGetError() == GL_NO_ERROR);
+    
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+}
+
+void PmdData::setIBO()
+{
+    glGenBuffers(1, &_indicesBuffer);
+    assert(glGetError() == GL_NO_ERROR);
+    assert(_indicesBuffer != 0);
+    
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indicesBuffer);
+    
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLushort) * _indicesNum, _indices, GL_STATIC_DRAW);
+    assert(glGetError() == GL_NO_ERROR);
+    
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+}
+
+
 void PmdData::draw()
 {
     const Vec3 cameraPosition = Vec3::create(0, _maxPoint.y * 0.7f, _minPoint.z * 7.0f);

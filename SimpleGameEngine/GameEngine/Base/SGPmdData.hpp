@@ -101,6 +101,8 @@ namespace SimpleGameEngine {
         void loadBone(RawData* data);
         void createTextureList();
         void calcAABB();
+        void setVBO();
+        void setIBO();
         int32_t readLE32(RawData* data);
         int16_t readLE16(RawData* data);
         void readBytes(RawData* data, void* result, int bytes);
@@ -117,6 +119,9 @@ namespace SimpleGameEngine {
         Vec3 _maxPoint;
         std::unordered_map<std::string, std::shared_ptr<Texture2D>> _textureList;
         std::shared_ptr<ShaderBase> shaderEdge;
+        
+        GLuint _verticesBuffer;
+        GLuint _indicesBuffer;
     };
     
     
