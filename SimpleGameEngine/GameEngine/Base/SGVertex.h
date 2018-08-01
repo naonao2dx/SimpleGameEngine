@@ -16,8 +16,9 @@ namespace SimpleGameEngine {
     struct Vertex
     {
         Vec3 position;
-        Color4B color;
+        Vec3 normal;
         Vec2 uv;
+        Color4B color;
         
         Vertex();
         Vertex(Vec3 _position);
