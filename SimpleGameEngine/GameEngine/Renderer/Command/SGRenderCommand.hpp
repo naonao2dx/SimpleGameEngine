@@ -15,10 +15,12 @@
 
 using namespace SimpleGameEngine;
 
-class RenderCommand
+struct RenderCommand
 {
-protected:
     Vertex* _vertices;
+    GLushort* _indeices;
+    GLuint _verticesNum;
+    GLuint _indeicesNum;
     std::shared_ptr<ShaderBase> _shader;
 };
 
